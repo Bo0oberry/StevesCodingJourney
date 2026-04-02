@@ -3,46 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Introduction to HTML and CSS </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
+
+
 <body>
-    <details>
-        <summary>What do HTML and CSS stand for?</summary>
+    <header>
+    <a href="../../index.html">HOME</a>
+    <a href="../Elements_Tags/index.html">></a>
+    </header>
+
+    <nav>
         <ul>
             <li>
-                <p>HTML:</p>
-                <ul>
-                    <li>Hyper</li>
-                    <li>Text</li>
-                    <li>Markup</li>
-                    <li>Language</li>
-                </ul>
+                <a href="./index.html">Introduction to HTML and CSS </a>
             </li>
             <li>
-                <p>CSS</p>
-                <ul>
-                    <li>Cascading</li>
-                    <li>Style</li>
-                    <li>Sheets</li>
-                </ul>
+                <a href="./../Elements_Tags/index.html">Elements and Tags</a>
+            </li>
+            <li>
+                <a href="./../HTML_Boilerplate/index.html">HTML Boiler Plate</a>
+            </li>
+            <li>
+                <a href="./../Working_with_Text/index.html">Working with Text</a>
+            </li>
+            <li>
+                <a href="./../Lists/index.html">Lists</a>
+            </li>
+            <li>
+                <a href="./../Links_Images/index.html">Links and Images</a>
+            </li>
+            <li>
+                <a href="./../Commit_Messages/index.html">Commit Messages</a>
+            </li>
+            <li>
+                <a href="./../Project_Recipies/index.html">Project: Recipies</a>
             </li>
         </ul>
-    </details>
-    <details>
-        <summary>Between HTML and CSS, which would you use for putting paragraphs of text on a webpage?</summary>
-        <p>HTML</p>
-    </details>
-    <details>
-        <summary>Between HTML and CSS, which would you use for changing the font and background color of a button?</summary>
-        <p>CSS</p>
-    </details>
-    <details>
-        <summary>What is the difference between HTML, CSS and JavaScript?</summary>
+    </nav>
+    
+    <main>
+        <h1>Introduction to HTML and CSS</h1>
+        <h2>Introduction</h2>
+        <p>So here it is: it’s time to actually start making things. This section will teach you the basics 
+            of HTML and CSS, the two foundational building blocks of pretty much everything on the web.</p>
+        
+        <h2>Lesson OverVeiw</h2>
+        <p>This section contains a general overview of topics that you will learn in this lesson.</p>
         <ul>
-            <li>HTML: static, the skeleton of the webpage, is the main content</li>
-            <li>CSS: changes how the html document is styled</li>
-            <li>JavaScript: dynamic, change/add/remove html or css, give web document functionaliy and reponsivenes</li>
+            <li> Get a basic overview of HTMl, CSS, and how they work together.</li>
         </ul>
-    </details>
+
+        <h2>HTML and CSS</h2>
+        <p>HTML and CSS are two languages that work together to create everything that you see when you look
+            at something on the web. HTML is the raw data that a webpage is built out of. All the text, links,
+            cards, lists, and buttons are created in HTML. CSS is what adds style to those plain elements. 
+            HTML puts information on a webpage, and CSS positions that information, gives it color, changes 
+            the font, and makes it look great!</p>
+        <p>Many great resources out there keep referring to HTML and CSS as programming languages, but if you want 
+            to get technical, labeling them as such is not quite accurate, because they are only concerned with 
+            presenting information. They are not used to program any logic. JavaScript, which you will be learning 
+            in the next section, is a programming language because it’s used to make webpages do things. Yet, there
+            is quite a lot you can do with just HTML and CSS, and you will definitely need them both. The following
+            lessons focus on giving you the tools you need to be successful once you get to the JavaScript content 
+            as you continue through our curriculum!</p>
+        
+        <h2>Assignment</h2>
+        <div class="assingment">
+            <ol>
+                <li>Watch 
+                    <a href="https://www.youtube.com/watch?v=gT0Lh1eYk78">HTML, CSS, JavaScript Explained (in 4 minutes for beginners).</a> 
+                    It will give you a quick overview 
+                    of how these three technologies work together before you dive deeper into each one.</li>
+            </ol>
+        </div>
+        <h2>Knowledge Check</h2>
+        <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can’t answer a question, click on it to review the
+            material, but keep in mind you are not expected to memorize or master this knowledge.</p>
+        <details name="question">
+            <summary>What do HTML and CSS stand for?</summary>
+            <ul> 
+                <li>
+                    <span>HTML:</spanp>
+                    <ul>
+                        <li>Hyper</li>
+                        <li>Text</li>
+                        <li>Markup</li>
+                        <li>Language</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>CSS</span>
+                    <ul>
+                        <li>Cascading</li>
+                        <li>Style</li>
+                        <li>Sheets</li>
+                    </ul>
+                </li>
+            </ul>
+        </details>
+        <details name="question">
+            <summary>Between HTML and CSS, which would you use for putting paragraphs of text on a webpage?</summary>
+            <p>HTML</p>
+        </details>
+        <details name="question">
+            <summary>Between HTML and CSS, which would you use for changing the font and background color of a button?</summary>
+            <p>CSS</p>
+        </details>
+        <details name="question">
+            <summary>What is the difference between HTML, CSS and JavaScript?</summary>
+            <ul>
+                <li>HTML: static, the skeleton of the webpage, is the main content</li>
+                <li>CSS: changes how the html document is styled</li>
+                <li>JavaScript: dynamic, change/add/remove html or css, give web document functionaliy and reponsivenes</li>
+            </ul>
+        </details>
+    </main>
+
+
 </body>
 </html>

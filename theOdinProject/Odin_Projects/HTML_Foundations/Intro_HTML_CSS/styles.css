@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 30px 1fr;
+    grid-template-areas: 
+    'header header'
+    'nav main';
+}
+
+header {
+    grid-area: header;
+
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 30px;
+    background-color: black;
+
+    a:first-child {
+        font-weight: bold;
+        text-decoration: none;
+        color: bisque;
+        transform: rotateX(45deg);
+
+        :hover{
+            text-decoration: line-through azure wavy 3px;
+        }
+
+    }
+
+    :nth-child(2){
+        float: right;
+        font-weight: bold;
+        text-decoration: none;
+        color: bisque;
+        margin-left: auto;
+    }
+
+
+}
+
+
+main {
+    grid-area: main;
+    padding: 50px;
+
+    h1 {
+        margin: auto;
+        border-left: 6px solid rgb(192, 125, 48);
+        padding: 15px;
+        text-align: center;
+
+    }
+
+    h2 {
+        margin-top: 60px;
+    }
+
+    p{
+        margin-top: 20px;
+        font-size: 1.1em;
+    }
+
+    ul,ol { 
+        margin-top: 20px;
+        list-style-position: inside;
+
+        ul,ol {
+            margin-left: 40px;
+        }
+    }
+
+    ul {list-style-type: square;}
+
+    ol ::marker, ul ::marker{
+        color:rgb(255, 30, 30);
+        font-size: 1.4em;
+        font-family: "Bitcount Single";
+    }
+
+
+    details {
+        margin-top: 20px;
+
+        summary::marker{
+            color: red;
+            content:  "[Maker] ";
+        }
+    }
+}
+
+nav {
+    grid-area: nav;
+    position: sticky;
+    top: 30px;
+    width: auto;
+    background-color: hwb(0 26% 37% / 0.856);
+
+    li {
+        margin-top: 20px;
+    }
+
+    a{
+        padding-left:20px;
+        padding-right: 40px;
+        text-decoration: none;
+        color: white;
+
+    
+    }
+
+}

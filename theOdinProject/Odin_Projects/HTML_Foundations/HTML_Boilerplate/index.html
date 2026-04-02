@@ -3,25 +3,275 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <title>HTML Boilerplate</title>
 </head>
 <body>
-    <h1>HTML Boilerplate</h1>
-    <details>
-        <summary>What is the purpose of the doctype declaration?</summary>
-        <p>Declaring the doctype let's the browser know what versoin of HTML should be used to render the document</p>
-    </details>
-    <details>
-        <summary>What is the HTML element?</summary>
-        <p>It is the root element that every other element will be a decendent of</p>
-    </details>
-    <details>
-        <summary>What is the purpose of the head element?</summary>
-        <p>The head element is where meta-data about the site goes</p>
-    </details>
-    <details>
-        <summary>What is the purpose of the body element?</summary>
-        <p>The body element defines the main visibel content of the web page</p>
-    </details>
+    <header>
+        <div>
+            <a href="./../Elements_Tags/index.html">&#60</a>
+            <img src="./../../Logo.png" alt="logo" width="150px"/>
+            <a href="./../Working_with_Text/index.html">&#62</a>
+        </div>
+        <h1>HTML Boilerplate</h1>
+    </header>
+    </header>
+    
+    <main>
+        <section>
+            <aside class="topicHeading">
+                <p class="num">1</p>
+                <h2>Introduction</h2>
+            </aside>
+            
+            <p>All HTML documents have the same basic structure or boilerplate that needs to be in place before anything useful can be done. 
+                In this lesson, we will explore the different parts of this boilerplate and see how it all fits together.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">2</p>
+                <h2>Lesson Overview</h2>
+            </aside>
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+            <ul>
+                <li>How to write the basic boilerplate for an HTML document.</li>
+                <li>How to open HTML documents in your browser.</li>
+            </ul>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">3</p>
+                <h2>Creating an HTML file</h2>               
+            </aside>
+            <p>To demonstrate an HTML boilerplate, we first need an HTML file to work with.</p>
+            <p>Create a new folder on your computer and name it <kbd>html-boilerplate</kbd>. Within that folder create a new file and name it <kbd>index.html</kbd>.</p>
+            <p>You're probably already familiar with a lot of different types of files, for example doc, pdf, and image files.</p>
+            <p>To let the computer know we want to create an HTML file, we need to append the filename with the <kbd>.html</kbd> extension, as we have 
+                done when creating the <kbd>index.html</kbd> file.</p>
+            <p>It is worth noting that we named our HTML file <kbd>index</kbd>. We should always name the HTML file that will contain the homepage of our 
+                website <kbd>index.html</kbd>. This is because web servers will by default look for an <kbd>index.html</kbd> page when users land on our 
+                websites - and not having one will cause big problems.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">4</p>
+                <h2>The DOCTYPE</h2>
+            </aside>
+            <p>Every HTML page starts with a doctype declaration. The doctype's purpose is to tell the browser what version of HTML it should use to 
+                    render the document. The latest version of HTML is HTML5, and the doctype for that version is <kbd>&#60!DOCTYPE html&#62</kbd>.</p>
+            <p>The doctypes for older versions of HTML were a bit more complicated. For example, this is the doctype declaration for HTML4:</p>
+            <code>
+              <p>&#60!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&#62</p>     
+            </code>
+            <p>However, we probably won't ever want to be using an older version of HTML, so we'll always use <kbd>&#60!DOCTYPE html&#62</kbd>.</p>
+            <p>Open the <kbd>index.html</kbd> file created earlier in your text editor and add <kbd>&#60!DOCTYPE html&#62</kbd> to the very first line.</p>            
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">5</p>
+                <h2>HTML element</h2>
+            </aside>
+            <p>After we declare the doctype, we need to provide an <kbd>&#60html&#62</kbd> element. This is what's known as the root element of 
+                the document, meaning that every other element in the document will be a descendant of it.</p>
+             <p>This becomes more important later on when we learn about manipulating HTML with JavaScript. For now, just know that the <kbd>&#60html&#62</kbd> 
+                element should be included on every HTML document.</p>    
+            <p>Back in the <kbd>index.html</kbd> file, let's add the <kbd>&#60html&#62</kbd> element by typing out its opening and closing tags, like so:</p>
+            <code>
+                <p>&#60!DOCTYPE&#62</p>
+                <p>&#60html lang="en"&#62</html></p>
+                <p>&#60/html&#62</p>
+            </code>
+            <p>Noticed the word <kbd>lang</kbd> here? It represents an HTML attribute which is associated with the given HTML tag i.e. <kbd>&#60HTML&#62</kbd> 
+                in this case. These attributes provide additional information about HTML elements. (More about <kbd>HTML attributes</kbd> in the following lesson.)</p>
+            <h3>What is the lang attribute?</h3>
+            <p><kbd>lang</kbd> specifies the language of the text content in that element. This attribute is primarily used for improving accessibility of the webpage. 
+                It allows assistive technologies, for example screen readers, to adapt according to the language and invoke correct pronunciation.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">6</p>
+                <h2>Head Element</h2>
+            </aside>
+            <p>The <kbd>&#60head&#62</kbd> element is where we put important meta-information about our webpages, and stuff required for our webpages to render correctly 
+                in the browser. Inside the <kbd>&#60head&#62</kbd>, we should not use any element that displays content on the webpage.</p>
+            <p>Back in our index.html file, let's add a <kbd>&#60head&#62</kbd> element with a <kbd>&#60meta&#62</kbd> element and a title within it. The <kbd>&#60head&#62</kbd> 
+                element goes within the <kbd>&#60html&#62</kbd> element and should always be the first element under the opening <kbd>&#60html&#62</kbd> tag:</p>    
+            <code>
+                <p>&#60!DOCTYPE&#62</p>
+                <p>&#60html lang="en"&#62</html></p>
+                <p><kbd>&#60head&#62</kbd></p>
+                <p> <kbd>&#60title&#62</kbd>My First Webpage<kbd>&#60/title&#62</kbd></p>
+                <p><kbd>&#60/head&#62</kbd></p>
+                <p>&#60/html&#62</p>
+            </code>
+            <h3>Meta element</h3>
+            <p>We should always have the <kbd>&#60meta&#62</kbd> tag with the charset encoding of the webpage in the <kbd>&#60head&#62</kbd> 
+                element: <kbd>&#60meta  charset="UTF-8"&#62</kbd>.</p>
+            <p>Setting the encoding is very important because it ensures that the webpage will display special symbols and characters from different languages
+                 correctly in the browser.</p>
+            <h3>Ttile Element</h3>
+            <p>Another element we should always include in the head of an HTML document is the <kbd>&#60title&#62</kbd> element:</p>
+            <p><kbd>&#60title&#62Web page Ttitle&#60/title&#62</kbd></p>
+            <p>The <kbd>&#60title&#62</kbd> element is used to give webpages a human-readable title, which is displayed in our webpage's browser tab. For example, 
+                if you look at the current tab's name of your browser, it will read “HTML Boilerplate | The Odin Project”; this is the <kbd>&#60title&#62</kbd> 
+                of the current <kbd>.html</kbd> file.</p>
+            <p>If we didn't include a <kbd>&#60title&#62</kbd> element, the webpage's title would default to its file name. In our case that would be index.html,
+                 which isn't very meaningful for users; this would make it very difficult to find our webpage if the user has many browser tabs open.</p>
+            <p>There are many more elements that can go within the head of an HTML document. However, for now it's only crucial to know about the two elements we have 
+                covered here. We will introduce more elements that go into the head throughout the rest of the curriculum.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">7</p>
+                <h2>Body Element</h2>
+            </aside>
+            <p>The final element needed to complete the HTML boilerplate is the <kbd>&#60body&#62</kbd> element. This is where all the content that will be displayed 
+                to users will go - the text, images, lists, links, and so on.</p>
+            <p>To complete the boilerplate, add a <kbd>&#60body&#62</kbd> element to the <kbd>index.html</kbd> file. The <kbd>&#60body&#62</kbd> element also goes within
+                 the <kbd>&#60html&#62</kbd> element and is always below the <kbd>head</kbd> element, like so:</p>
+            <code>
+                <p>&#60!DOCTYPE&#62</p>
+                <p>&#60html lang="en"&#62</html></p>
+                <p><kbd>&#60head&#62</kbd></p>
+                <p> <kbd>&#60title&#62</kbd>My First Webpage<kbd>&#60/title&#62</kbd></p>
+                <p><kbd>&#60/head&#62</kbd></p>
+                <p></p>
+                <p>&#60body&#62</p>
+                <p>&#60/body&#62</p>
+                <p>&#60/html&#62</p>
+            </code>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">8</p>
+                <h2>Viewing HTML files in the browser</h2>
+            </aside>
+            <p>The HTML boilerplate in the <kbd>index.html</kbd> file is complete at this point, but how do you view it in the browser? There are a couple of different options:</p>
+            <ul>
+                <li>You can drag and drop an HTML file from your text editor into the address bar of your browser.</li>
+                <li>You can find the HTML file in your file system and then double click it. This will open up the file in the default browser your system uses.</li>
+                <li>You can use the terminal to open the file in your browser: 
+                    <ul>
+                        <li>Ubuntu: Navigate to the directory containing the file and type <kbd>google-chrome index.html</kbd></li>
+                        <li>macOS: Navigate to the directory containing the file and type open <kbd>./index.html</kbd></li>
+                        <li>WSL: Navigate to the directory containing the file and type <kbd>explorer.exe index.html</kbd>. This will open the file in your system's 
+                            default browser. Note, You must use the filename only. Using a path (e.g., <kbd>./index.html</kbd> or an absolute path) will open the 
+                            Windows File Explorer instead.</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>Using one of the methods above, open up the <kbd>index.html</kbd> file we have been working on. You'll notice the screen is blank. This is because we don't 
+                have anything in our body to display.</p>
+            <p>Back in the <kbd>index.html</kbd> file, let's add a heading (more on these later) to the body, and save the file:</p>
+            <code>
+                <p>&#60!DOCTYPE&#62</p>
+                <p>&#60html lang="en"&#62</html></p>
+                <p><kbd>&#60head&#62</kbd></p>
+                <p> <kbd>&#60title&#62</kbd>My First Webpage<kbd>&#60/title&#62</kbd></p>
+                <p><kbd>&#60/head&#62</kbd></p>
+                <p></p>
+                <p>&#60body&#62</p>
+                <p><kbd>&#60h1&#62</kbd>Hello World!<kbd>&#60/h1&#62</kbd></p>
+                <p>&#60/body&#62</p>
+                <p>&#60/html&#62</p>
+            </code>
+            <p>Now, if you refresh the page in the browser, you should see the changes take effect, and the heading “Hello World!” will be displayed.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">9</p>
+                <h2>VSCode shortcut</h2>
+            </aside>
+            <p>VSCode has a built-in shortcut you can use for generating all the boilerplate in one go. Please note that this shortcut only works while editing a file with
+                 the <kbd>.html</kbd> extension or a text file with the HTML language already selected. To trigger the shortcut, delete everything in the <kbd>index.html</kbd> 
+                 file and just enter <kbd>!</kbd> on the first line. This will bring up a couple of options. Press the Enter key to choose the first one, and voila, you should 
+                 have all the boilerplate populated for you.</p>
+            <p>You may notice that the boilerplate produced by this shortcut includes a line we have not yet mentioned:</p>
+            <code>
+                <p>&#60meta name="viewport" content="width=device-width, initial-scale=1.0"&#62</p>
+            </code>
+            <p>This is not something we need to know about until we discuss responsive design, an advanced topic involving different screen sizes which we will cover much later in
+                the curriculum. For now, you can leave that line as it is.</p>
+        </section>
+
+        <section>
+            <aside class="topicHeading">
+                <p class="num">10</p>
+                <h2>Assignment</h2>
+            </aside>
+            <ol>
+                <li>Watch and follow along to Kevin Powell's brilliant 
+                    <a href="https://www.youtube.com/watch?v=V8UAEoOvqFg&t=93s">Building Your First Web Page</a> video.</li>
+                <li>Run your boilerplate through the W3 <a href="https://validator.w3.org/#validate_by_input">HTML validator</a>. 
+                    Validators ensure your markup is correct and are an excellent learning tool, as they provide feedback on syntax 
+                    errors you may be making often and aren’t aware of, such as missing closing tags and extra spaces in your HTML.</li>
+            </ol>
+        </section>
+
+        <section id="knowledge">
+            <aside class="topicHeading">
+                <p class="num">11</p>
+                <h2>Knowledge Check</h2>
+            </aside>
+            <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can't answer a question, click on it to review the material, 
+                but keep in mind you are not expected to memorize or master this knowledge.</p>
+            <details>
+                <summary>What is the purpose of the doctype declaration?</summary>
+                <p>Declaring the doctype let's the browser know what versoin of HTML should be used to render the document</p>
+            </details>
+            <details>
+                <summary>What is the HTML element?</summary>
+                <p>It is the root element that every other element will be a decendent of</p>
+            </details>
+            <details>
+                <summary>What is the purpose of the head element?</summary>
+                <p>The head element is where meta-data about the site goes</p>
+            </details>
+            <details>
+                <summary>What is the purpose of the body element?</summary>
+                <p>The body element defines the main visibel content of the web page</p>
+            </details>
+        </section>
+
+    </main>
+
+
+
+      <nav id="nav" class="hidden">
+        <ul>
+            <li>
+                <a href="./../Intro_HTML_CSS/index.html">Introduction to HTML and CSS </a>
+            </li>
+            <li>
+                <a href="./../Elements_Tags/index.html">Elements and Tags</a>
+            </li>
+            <li>
+                <a href="./../HTML_Boilerplate/index.html" class="active" onmouseover="this.innerHTML='Back to Top'" onmouseleave="this.innerHTML='HTML Boiler Plate'">HTML Boiler Plate</a>
+            </li>
+            <li>
+                <a href="./../Working_with_Text/index.html">Working with Text</a>
+            </li>
+            <li>
+                <a href="./../Lists/index.html">Lists</a>
+            </li>
+            <li>
+                <a href="./../Links_Images/index.html">Links and Images</a>
+            </li>
+            <li>
+                <a href="./../Commit_Messages/index.html">Commit Messages</a>
+            </li>
+            <li>
+                <a href="./../Project_Recipies/index.html">Project: Recipies</a>
+            </li>
+        </ul>
+    </nav>
 </body>
 </html>

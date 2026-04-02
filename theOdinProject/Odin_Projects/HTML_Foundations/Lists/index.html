@@ -3,21 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/e67ae43b3e.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Lists</title>
 </head>
 <body>
-    <h1>Lists</h1>
-    <details>
-        <summary>What HTML element is used to create an unordered list?</summary>
-        <p>ul</p>
-    </details>
-    <details>
-        <summary>What HTML element is used to create an ordered list?</summary>
-        <p>ol</p>
-    </details>
-    <details>
-        <summary>What HTML element is used to create list items within both unordered and ordered lists?</summary>
-        <p>li</p>
-    </details>
+    <header>
+        <div id="radial-menu" class="header-spacer isVisable">
+            <button onclick="radialMenuDisplay()">
+               <i class="fa-solid fa-folder-plus"></i>
+            </button>
+            <ul>
+                <div class="curve-spacer"></div>                 
+                <div id="list-wrapper">          
+                    <li>
+                        <a href="./../Intro_HTML_CSS/index.html">Introduction to HTML and CSS</a>
+                    </li>
+                    <li>
+                        <a href="./../Elements_Tags/index.html">Elements and Tags</a>
+                    </li>
+                    <li>
+                        <a href="./../HTML_Boilerplate/index.html">HTML Boiler Plate</a>
+                    </li>
+                    <li>
+                        <a href="./../Working_with_Text/index.html" class="selected">Working with Text</a>
+                    </li>
+                    <li>
+                        <a href="./../Lists/index.html">Lists</a>
+                    </li>
+                    <li>
+                        <a href="./../Links_Images/index.html">Links and Images</a>
+                    </li>
+                    <li>
+                        <a href="./../Commit_Messages/index.html">Commit Messages</a>
+                    </li>
+                    <li>
+                        <a href="./../Project_Recipies/index.html">Project: Recipies</a>
+                    </li>
+                </div>
+            </ul>
+        </div>
+
+        <div id="header-center">
+            <div id="banner">
+                <a href="./../Working_with_Text/index.html"><i class="fa-solid fa-circle-left"></i></a>
+                <a href="./../../index.html"><img src="./../../Logo.png" alt="logo" width="150px"/></a>
+                <a href="./../Links_Images/index.html"><i class="fa-solid fa-circle-right"></i></a>
+            </div>
+            <h1>Lists</h1>
+        </div>
+
+        <div class="header-spacer"></div>
+    </header>
+
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Whether it be IMDB's top 250 movies or the FBI's most wanted, lists are everywhere on the web and you are going to need one eventually in your webpages.</p>
+            <p>Luckily, with HTML there are a couple of different types of lists at your disposal.</p>
+        </section>
+
+        <section id="lesson_overview">
+            <h2>Lesson OverView</h2>
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+            <ul>
+                <li>How to create an unordered list.</li>
+                <li>How to create an ordered list.</li>
+            </ul>
+        </section>
+
+        <section id="unordered_lists">
+            <h2>Unordered Lists</h2>
+            <p>If you want to have a list of items where the order doesn't matter, like a shopping list of items that can be bought in any order, 
+                then you can use an unordered list.</p>
+            <p>Unordered lists are created using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ul"><kbd>&#60ul&#62</kbd> element</a>, 
+                and each item within the list is created using the list item element <kbd>&#60li&#62</kbd>.</p>
+            <p>Each list item in an unordered list begins with a bullet point:</p>
+
+            <p class="codepen" data-height="300" data-pen-title="html-unordred-list" data-default-tab="html,result" data-slug-hash="powjajd" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/powjajd">
+                    html-unordred-list</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        </section>
+
+        <section id="ordered_lists">
+            <h2>Ordered Lists</h2>
+            <p>If you instead want to create a list of items where the order does matter, like step-by-step instructions for a recipe, or your top 10 favorite 
+                TV shows, then you can use an ordered list.</p>
+            <p>Ordered lists are created using <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/ol">the <kbd>&#60ol&#62</kbd> element</a>. 
+                Each individual item in them is again created using the list item element <kbd>&#60li&#62</kbd>. However, each list item in an ordered list 
+                begins with a number instead:</p>
+
+            <p class="codepen" data-height="300" data-pen-title="html-ordered-list" data-default-tab="html,result" data-slug-hash="yLXYvYp" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen 
+                    <a href="https://codepen.io/TheOdinProjectExamples/pen/yLXYvYp">html-ordered-list</a>
+                    by TheOdinProject (
+                    <a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>
+                    )on 
+                    <a href="https://codepen.io">CodePen</a>.
+            </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        </section>
+
+        <section id="assignment">
+            <h2>Assignment</h2>
+            <p>To get some practice using lists, create a new HTML document and create the following lists:</p>
+            <ol>
+                <li>An unordered shopping list of your favorite foods</li>
+                <li>An ordered list of todo’s you need to get done today</li>
+                <li>An unordered list of places you’d like to visit someday</li>
+                <li>An ordered list of your all time top 5 favorite video games or movies</li>
+            </ol>
+        </section>
+        
+        <section id="knowledge">
+            <h2>Knowledge Check</h2>
+            <details>
+                <summary>What HTML element is used to create an unordered list?</summary>
+                <p>ul</p>
+            </details>
+            <details>
+                <summary>What HTML element is used to create an ordered list?</summary>
+                <p>ol</p>
+            </details>
+            <details>
+                <summary>What HTML element is used to create list items within both unordered and ordered lists?</summary>
+                <p>li</p>
+            </details>
+        </section>
+        <button id="selctionLeft"></button>
+        <button id="sectionRight"></button>
+    </main>
+
+    <script src="./scripts.js"></script>
+    <script src="scriptsMain.js"></script>
 </body>
 </html>

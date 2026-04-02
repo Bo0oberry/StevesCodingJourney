@@ -1,0 +1,169 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    padding: 0 10%;
+    padding-bottom: 100px;
+}
+
+
+kbd {
+    border-radius: 5px;
+    padding: 3px 8px;
+    background-color: rgb(240, 217, 189);
+    color: rgb(235, 9, 9);
+}
+
+code {
+    display: block;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: #1d293d;
+    color: rgb(168, 172, 175);
+    letter-spacing: 1px;
+
+    mark {
+        background-color:   inherit;
+        color: #e2777a;
+    }
+}
+
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 30px;
+
+    div {
+        display: flex;
+        align-items: center;
+        gap: 15px
+    }
+
+    a {
+        color: black;
+        font-size: 60px;
+        text-decoration: none;
+
+    }
+
+    a:hover{color: goldenrod;}
+
+    img {
+        border-radius: 15px;
+    }
+
+    h1 { margin-top:  20px;}
+}
+
+
+section {
+    margin-top: 30px;
+
+    p { 
+        font-size: 18px;
+        line-height: 1.5;
+        margin-top: 15px;
+    }
+
+    code { margin-top: 20px;}
+
+    ul,ol { 
+        list-style-position: inside;
+
+        li {
+            margin-top:  20px;
+        }
+        
+        ::marker {
+            color: #888182;
+        }
+    }
+}
+
+#assignment > div {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #f3f4f6;
+    font-size: 18px;
+}
+
+#knowledge > details {
+    margin-top: 20px;
+
+    summary {
+        position: relative;
+        padding-left: 30px;
+
+        &::marker {
+            content: "";
+            color: #e2777a  
+        }
+
+        &::before,
+        &::after {
+            position: absolute;
+            top: 0;
+            left:0;
+            content: "";
+            border-block-start: 3px solid rgb(248, 137, 10);
+            height: 0;
+            width: 1rem;
+
+            inset-block-start: calc(50% - 1.5px);
+            inset-inline-end: 0;
+        }
+
+        &::after {
+            transform: rotate(90deg);
+            
+        }
+    }
+}
+
+#knowledge > details[open] summary::after {
+  transform: rotate(0deg);
+}
+
+
+nav {
+    position: fixed;
+    bottom: 0;
+
+    width: 80%;
+
+    
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+
+        list-style-type: none;
+        background-color: #f3eff0;
+    }
+
+    li {
+        padding: 10px;
+        border: #888182 1px solid;
+        background-color: rgb(250, 147, 30);
+
+        &:hover {
+            transform: translate(0, -15px);
+            background-color: #e2777a;
+        }
+    }
+
+    a {
+        color: brown;
+        text-decoration: none;
+    }
+
+}

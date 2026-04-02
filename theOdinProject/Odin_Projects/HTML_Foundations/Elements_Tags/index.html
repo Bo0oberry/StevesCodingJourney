@@ -3,26 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Elements and Tags</title>
 </head>
-<body>
-    <h1>Elements and Tags</h1>
-    <details>
-        <summary>What is an HTML tag?</summary>
-        <p>The basic building blocks of an HTML document</p>
-    </details>
-    <details>
-        <summary>What are the three parts of an HTML element?</summary>
-        <ol>
-            <li>Opening Tag <code>< p ></code></li>
-            <li>Content <code>lori ipsum ekkum bokum</code></li>
-            <li>Closing Tag : <code></ p ></code></li>
-        </ol>
-    </details>
-    <details>
-        <summary>What are void elements, and how are they different from regular HTML elements?</summary>
-        <p>Void elements are tags with no content inside them and are made of just a single tag with a closing <code>/</code> after  the tag name </p>
-    </details>
+<body id="body">
+    <header>
+        <div>
+            <a href="./../Intro_HTML_CSS/index.html">&#60</a>
+            <img src="./../../Logo.png" alt="logo" width="150px"/>
+            <a href="./../HTML_Boilerplate/index.html">&#62</a>
+        </div>
+        <h1>Elements and Tags</h1>
+    </header>
     
+
+    <section>
+        <h2>Introduction</h2>
+        <p>HTML (HyperText Markup Language) defines the structure and content of webpages. 
+            We use HTML elements to create all of the paragraphs, headings, lists, images, 
+            and links that make up a typical webpage. In this lesson, we will explore how 
+            HTML elements work.</p>
+    </section>
+
+    <section>
+        <h2>Lesson OverVeiw</h2>
+        <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+        <ul>
+            <li>Explain what HTML tags are.</li>
+            <li>Explain what HTML elements are.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Elements and tags</h2>
+        <p>Almost all elements on an HTML page are just pieces of content wrapped in opening and closing HTML tags.</p>
+        <p>HTML tags are essential building blocks that define the structure and content of a webpage.</p>
+        <p>Opening tags tell the browser that this is the start of an HTML element. They are comprised of a keyword enclosed 
+            in angle brackets <kbd>&#60  &#62</kbd>. For example, an opening paragraph tag looks like this: <kbd>&#60p&#62</kbd>.</p>
+        <p>Closing tags tell the browser where an element ends. They are almost the same as opening tags; the only difference is that 
+            they have a forward slash before the keyword. For example, a closing paragraph tag looks like this: <kbd>&#60/p&#62</kbd>.</p>
+        <p>A full paragraph element looks like this:</p>
+        <code>1 | &#60<mark>p</mark>&#62 some text content &#60<mark>/p</mark>&#62</code>
+        <p>Let's break this down:</p>
+        <ul>
+            <li><kbd>&#60p&#62</kbd> is the opening tag</li>
+            <li><kbd>some text content</kbd> represents content wrapped within the opening and closing tags.</li>
+            <li><kbd>&#60/p&#62</kbd> is the closing tag.</li>
+        </ul>
+        <p>You can think of elements as containers for content. The opening and closing tags tell the browser what content the element contains.
+             The browser can then use that information to determine how it should interpret and format the content.You can think of elements as 
+             containers for content. The opening and closing tags tell the browser what content the element contains. The browser can then use 
+             that information to determine how it should interpret and format the content.</p>
+        <p>HTML has a <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements">vast list of predefined tags</a> 
+            that you can use to create all kinds of different elements. It is important to use the correct tags for content. Using the correct tags
+             can have a big impact on two aspects of your sites: how they are ranked in search engines; and how accessible they are to users who 
+             rely on assistive technologies, like screen readers, to use the internet.</p>
+        <p>Using the correct elements for content is called semantic HTML. We will explore this in much more depth later on in the curriculum.</p>    
+    </section>
+
+    <section>
+        <h2>Void Elements</h2>
+        <p>Some HTML elements do not have a closing tag. These elements just have a single tag, like: 
+            <kbd>&#60br&#62</kbd> or <kbd>&#60img&#62</kbd>. They are known as void elements because they are void of any content, there is nothing 
+            inside of them. No closing tag means they can’t wrap content like other tags do.</p>
+        <p>You might also see these referred to as self-closing tags. But those are just void elements with a forward slash(/) at the end like: 
+            <kbd>&#60br/&#62</kbd> or <kbd>&#60img/&#62</kbd>. You're likely to see self-closing tags used often for historical reasons. 
+            Browsers will be able to render them just fine, but the latest version of the HTML specification discourages their use and considers them invalid.</p>
+    </section>
+
+    <section id="assignment">
+        <h2>Assignment</h2>
+        <div>
+            <ol>
+                <li>Watch Kevin Powell's <a href="https://www.youtube.com/watch?v=X4sClFRMJ00">HTML & CSS for Absolute Beginners: What is HTML?.</a></li>
+            </ol>
+        </div>
+    </section>
+
+    <section id="knowledge">
+        <h2>Knowledge Check</h2>
+        <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can’t answer a question, click on it to review the material,
+             but keep in mind you are not expected to memorize or master this knowledge.</p>
+        
+        <details name="question">
+            <summary>What is an HTML tag?</summary>
+            <p>The basic building blocks of an HTML document</p>
+        </details>
+        <details name="question">
+            <summary>What are the three parts of an HTML element?</summary>
+            <ol>
+                <li>Opening Tag <kbd>&#60p&#62</kbd></li>
+                <li>Content <kbd>lori ipsum ekkum bokum</kbd></li>
+                <li>Closing Tag : <kbd>&#60/p&#62</kbd></li>
+            </ol>
+        </details>
+        <details name="question">
+            <summary>What are void elements, and how are they different from regular HTML elements?</summary>
+            <p>Void elements are tags with no content inside them and are made of just a single tag with a closing <kbd>/</kbd> after  the tag name </p>
+        </details>
+    </section>
+
+      <nav id="nav" class="hidden">
+        <ul>
+            <li>
+                <a href="./../Intro_HTML_CSS/index.html">Introduction to HTML and CSS </a>
+            </li>
+            <li>
+                <a href="./../Elements_Tags/index.html">Elements and Tags</a>
+            </li>
+            <li>
+                <a href="./../HTML_Boilerplate/index.html">HTML Boiler Plate</a>
+            </li>
+            <li>
+                <a href="./../Working_with_Text/index.html">Working with Text</a>
+            </li>
+            <li>
+                <a href="./../Lists/index.html">Lists</a>
+            </li>
+            <li>
+                <a href="./../Links_Images/index.html">Links and Images</a>
+            </li>
+            <li>
+                <a href="./../Commit_Messages/index.html">Commit Messages</a>
+            </li>
+            <li>
+                <a href="./../Project_Recipies/index.html">Project: Recipies</a>
+            </li>
+        </ul>
+    </nav>
+
+    <script src="./scripts.js"></script>
 </body>
 </html>

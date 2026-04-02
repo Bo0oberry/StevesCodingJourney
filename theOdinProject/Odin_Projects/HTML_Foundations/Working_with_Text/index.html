@@ -3,45 +3,295 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://kit.fontawesome.com/e67ae43b3e.js" crossorigin="anonymous"></script>
+    <title>Working With Text</title>
 </head>
+
 <body>
-    <h1>Working With Text</h1>
-    <details>
-        <summary>How do you create a paragraph in HTML?</summary>
-        <p>Use p tag</p>
-    </details>
-    <details>
-        <summary>How do you create a heading in HTML?</summary>
-        <p>use h1 - h6 tags</p>
-    </details>
-    <details>
-        <summary>How many different levels of headings are there and what is the difference between them?</summary>
-        <p>there are 6 headings h1 - h6  with h1 being the most important and havingthe largest font size and h6 being 
-            the least important and having the smallest font size</p>
-    </details>
-    <details>
-        <summary>What element should you use to make text bold and important?</summary>
-        <p>Use the strong tag. It also marks the text as important, this affects tools like
-             screen readers where the voice tone may change to indicate importance</p>
-    </details>
-    <details>
-        <summary>What element should you use to make text italicized to add emphasis to it?</summary>
-        <p>Use the em tag. It works similary to strong but instead of bold the text is italicized</p>
-    </details>
-    <details>
-        <summary>What relationship does an element have with any nested elements within it?</summary>
-        <p>The element nested inside another element is called a child element and the element it's inside is called the parent.
-            Some css stlyings appied to the parent element, will be inherited by the child
-        </p>
-    </details>
-    <details>
-        <summary>What relationship do two elements have if they are at the same level of nesting?</summary>
-        <p>Two, or more elements that are at the same level of nesting are called sibling elements</p>
-    </details>
-    <details>
-        <summary>How do you create HTML comments?</summary>
-        <p>With  !- -   Comment  --</p>
-    </details>
+
+    <header>
+        <div id="banner">
+            <a href="./../HTML_Boilerplate/index.html">&#60</a>
+            <img src="./../../Logo.png" alt="logo" width="150px"/>
+            <a href="./../Lists/index.html">&#62</a>
+        </div>
+        <h1 id="h1">Working With Text</h1>
+    </header>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Most content on the web is text-based, so you will find yourself needing to work with HTML text elements quite a bit.</p>
+            <p>In this lesson, we will learn about the text-based elements youre likely to use the most.</p>      
+        </section>
+
+        <section id="lessonOverview">
+            <h2>Lesson Overview</h2>
+            <p>This section contaions a general overview of topics that you wil learn in this lesson.</p>
+            <ul>
+                <li>How to create paragraphs.</li>
+                <li>How to create headings.</li>
+                <li>How to create bold text.</li>
+                <li>How to create italicized text.</li>
+                <li>The relationships between nested elements.</li>
+                <li>How to create HTML comments.</li>
+            </ul>
+        </section>
+        
+        <section id="paragraphs">
+            <h2>Paragraphs</h2>
+            <p>What would you expect the following text to output on an HTML page?</p>
+            <code>
+                <span>&#60body&#62</span>
+                <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
+                <span>incididunt ut labore et dolore magna aliqua.</span>
+                <span></span>                   
+                <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</span>
+                <span> nisi ut aliquip ex ea commodo consequat.</span>
+                <span>&#60/body&#62</span>                           
+            </code>
+            <p>It looks like two paragraphs of text, so you might expect it to display in that way. However, that is not the case, as you can see in the output below:</p>
+            <p class="codepen" data-height="300" data-pen-title="no-paragraphs-example" data-default-tab="html,result" data-slug-hash="xxrKqeV" 
+            data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/xxrKqeV">
+            no-paragraphs-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>When the browser encounters new lines like this in your HTML, it will compress them down into one single space. The result of this compression 
+                is that all of the text is clumped together into one long line.</p>
+            <p>If we want to create paragraphs in HTML, we need to use the paragraph element, which will add a new line after each of our paragraphs. A paragraph element is 
+                defined by wrapping text content with a <kbd>&#60p&#62</kbd> tag.</p>
+            <p>Changing our example from before to use paragraph elements fixes the issue:</p>    
+            <p class="codepen" data-height="300" data-pen-title="pargraph-example" data-default-tab="html,result" data-slug-hash="mdwbmdp" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/mdwbmdp">
+            pargraph-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        </section>
+
+        <section id="headings">
+            <h2>Headings</h2>
+            <p>Headings are different from other HTML text elements: they are displayed larger and bolder than other text to signify that they are headings.</p>
+            <p>There are 6 different levels of headings starting from <kbd>&#60h1&#62</kbd> to <kbd>&#60h6&#62</kbd>. The number within a heading tag represents 
+                that heading's level. The largest and most important heading is h1, while h6 is the tiniest heading at the lowest level.</p>
+            <p>Headings are defined much like paragraphs. For example, to create an h1 heading, we wrap our heading text in an <kbd>&#60h1&#62</kbd> tag.</p>
+            <p class="codepen" data-height="300" data-pen-title="html-headings-example" data-default-tab="html,result" data-slug-hash="LYLPLbg" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/LYLPLbg">
+            html-headings-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>Using the correct level of heading is important as levels provide a hierarchy to the content. An h1 heading should always be used for the heading of the 
+                overall page, and the lower level headings should be used as the headings for content in smaller sections of the page.</p>
+        </section>
+
+        <section id="strongElement">
+            <h2>Strong Element</h2>
+            <p>The <kbd>&#60strong&#62</kbd> element makes text bold. It also semantically marks text as important; this affects tools, like screen readers, that users 
+                with visual impairments will rely on to use your website. The tone of voice on some screen readers will change to communicate the importance of the text 
+                within a strong element. To define a strong element, we wrap text content in a <kbd>&#60strong&#62</kbd> tag.</p>
+            <p>You can use strong on its own:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-single-strong-example" data-default-tab="html,result" data-slug-hash="qBjWXrB" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/qBjWXrB">
+                    html-single-strong-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>But you will probably find yourself using the strong element much more in combination with other text elements, like this:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-strong-with-paragraph-exmample" data-default-tab="html,result" data-slug-hash="wvewqJr" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/wvewqJr">
+                    html-strong-with-paragraph-exmample</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>Sometimes you will want to make text bold without giving it an important meaning. You'll learn how to do that in the CSS lessons later in the curriculum.</p>
+        </section>
+
+        <section id="emElement">
+            <h2>Em Element</h2>
+            <p>The <kbd>&#60em&#62</kbd> element makes text italic. It also semantically places emphasis on the text, which again may affect things like screen readers. 
+                To define an emphasized element, wrap the text content in an <kbd>&#60em&#62</kbd> tag.</p>
+            <p>To use <kbd>&#60em&#62</kbd> on its own:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-single-em-example" data-default-tab="html,result" data-slug-hash="wvewqpp" data-user="TheOdinProjectExamples" 
+            style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/wvewqpp">
+                    html-single-em-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>Again, like the strong element, you will find yourself mostly using the <kbd>&#60em&#62</kbd> element with other text elements:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-em-with-paragraph-example" data-default-tab="html,result" data-slug-hash="VwWZzyj" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/VwWZzyj">
+                    html-em-with-paragraph-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        </section>
+
+        <section id="nesting">
+            <h2>Nesting and Indentation</h2>
+            <p>You may have noticed that in all the examples in this lesson we indent any elements that are within other elements. This is known as nesting elements.</p>
+            <p>When we nest elements within other elements, we create a parent and child relationship between them. The nested elements are the children and the element 
+                they are nested within is the parent.</p>
+            <p>In the following example, the body element is the parent and the paragraph is the child:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-nesting-parent-child" data-default-tab="html,result" data-slug-hash="oNwjEvO" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                        See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/oNwjEvO">
+                    html-nesting-parent-child</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>Just as in human relationships, HTML parent elements can have many children. Elements at the same level of nesting are considered to be siblings.</p>
+            <p>For example, the two paragraphs in the following code are siblings, since they are both children of the body element and are at the same level of 
+                nesting as each other:</p>
+            <p class="codepen" data-height="300" data-pen-title="html-nesting-siblings" data-default-tab="html,result" data-slug-hash="ZEybrYx" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/ZEybrYx">
+                    html-nesting-siblings</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            <p>We use indentation to make the level of nesting clear and readable for ourselves and other developers who will work with our HTML in the future.
+                 In our examples, we have indented any child elements by two spaces per nesting level.</p>
+            <p>The parent, child, and sibling relationships between elements will become much more important later when we start styling our HTML with CSS and 
+                adding behavior with JavaScript. For now, however, it is just important to know the distinction between how elements are related and the terminology
+                 used to describe their relationships.</p>
+        </section>
+
+        <section id="comments">
+            <h2>HTML Comments</h2>
+            <p>HTML comments are not visible to the browser; they allow us to comment on our code so that other developers or our future selves can read them and get
+                 some context about something that might not be clear in the code.</p>
+                 <p>In order to write an HTML comment, we just enclose the comment with <kbd>&#60!--</kbd> and <kbd>--&#62</kbd> tags. For example:</p>
+                 <p class="codepen" data-height="300" data-pen-title="html-comments-example" data-default-tab="html,result" data-slug-hash="abwoyBg" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                    <span>
+                        See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/abwoyBg">
+                        html-comments-example</a> by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                        on <a href="https://codepen.io">CodePen</a>.
+                </span>
+                </p>
+                <script async src="https://public.codepenassets.com/embed/index.js"></script>
+        </section>
+
+        <section id="assignment">
+            <h2>Assignment</h2>
+            <ol>
+                <li>Watch Kevin Powell's 
+                    <a href="https://www.youtube.com/watch?v=yqcd-XkxZNM&t=35s">HTML Paragraph and Headings Video.</a>
+                </li>
+                <li>Watch Kevin Powell's 
+                    <a href="https://www.youtube.com/watch?v=gW6cBZLUk6M&t=5s">HTML Bold and Italic Text Video.</a>
+                </li>
+                <li>To get some practice working with text in HTML, create a plain blog article page which uses different headings, uses paragraphs,
+                     and has some text in the paragraphs bolded and italicized. You can use <a href="https://en.wikipedia.org/wiki/Lorem_ipsum">Lorem Ipsum</a> 
+                     to generate dummy text, in place of real text as you build your sites. VS Code includes a shortcut to generate lorem ipsum for you. 
+                     To trigger the shortcut, type <kbd>lorem</kbd> on the line where you want the dummy text, then press the Enter key, and voila, you have 
+                     generated dummy text without a hitch.</li>
+                     
+            </ol>
+        </section>
+
+        <section id="knowledge">
+            <h2>Knowledge Check</h2>
+            <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can't answer a question, click on it to review the material, but keep in mind
+                 you are not expected to memorize or master this knowledge.</p>
+            <details>
+                <summary>How do you create a paragraph in HTML?</summary>
+                <p>Use p tag</p>
+            </details>
+            <details>
+                <summary>How do you create a heading in HTML?</summary>
+                <p>use h1 - h6 tags</p>
+            </details>
+            <details>
+                <summary>How many different levels of headings are there and what is the difference between them?</summary>
+                <p>there are 6 headings h1 - h6  with h1 being the most important and havingthe largest font size and h6 being 
+                    the least important and having the smallest font size</p>
+            </details>
+            <details>
+                <summary>What element should you use to make text bold and important?</summary>
+                <p>Use the strong tag. It also marks the text as important, this affects tools like
+                    screen readers where the voice tone may change to indicate importance</p>
+            </details>
+            <details>
+                <summary>What element should you use to make text italicized to add emphasis to it?</summary>
+                <p>Use the em tag. It works similary to strong but instead of bold the text is italicized</p>
+            </details>
+            <details>
+                <summary>What relationship does an element have with any nested elements within it?</summary>
+                <p>The element nested inside another element is called a child element and the element it's inside is called the parent.
+                    Some css stlyings appied to the parent element, will be inherited by the child
+                </p>
+            </details>
+            <details>
+                <summary>What relationship do two elements have if they are at the same level of nesting?</summary>
+                <p>Two, or more elements that are at the same level of nesting are called sibling elements</p>
+            </details>
+            <details>
+                <summary>How do you create HTML comments?</summary>
+                <p>With  !- -   Comment  --</p>
+            </details>
+        </section>
+    </main>
+
+    <nav id="nav">
+        <ul>
+            <li>
+                <a href="./../Intro_HTML_CSS/index.html">Introduction to HTML and CSS </a>
+            </li>
+            <li>
+                <a href="./../Elements_Tags/index.html">Elements and Tags</a>
+            </li>
+            <li>
+                <a href="./../HTML_Boilerplate/index.html">HTML Boiler Plate</a>
+            </li>
+            <li>
+                <a href="./../Working_with_Text/index.html" class="selected">Working with Text</a>
+            </li>
+            <li>
+                <a href="./../Lists/index.html">Lists</a>
+            </li>
+            <li>
+                <a href="./../Links_Images/index.html">Links and Images</a>
+            </li>
+            <li>
+                <a href="./../Commit_Messages/index.html">Commit Messages</a>
+            </li>
+            <li>
+                <a href="./../Project_Recipies/index.html">Project: Recipies</a>
+            </li>
+        </ul>
+        <button onclick="wheel('add')">&#60<span class="tooltiptext">Add Slice</span></button>
+        <button onclick="wheel('remove')">&#62<span class="tooltiptext">Remove Slice</span></button>
+    </nav>
+
+    <div id="circle">
+        <div id="circleCenter">
+            <div class="piece">
+                <div></div><div></div>
+            </div> 
+            <div class="piece">
+                <div></div><div></div>
+            </div> 
+    </div>
+
+    <script src="./scripts.js"></script>
 </body>
 </html>
