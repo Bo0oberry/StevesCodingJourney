@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="./style.css"/>
+  <title>Udemy stuff</title>
+</head>
+<body>
+  <header>
+    <h1>Home</h1>
+  </header>
+  
+  
+  <main>
+    <div class="iframeBox">
+      <iframe></iframe>          
+    </div>
+    <div class="iframeBox">
+      <iframe></iframe>   
+    </div> 
+  </main>
+  
+  <footer>
+    
+  </footer>
+  
+  <script>
+    const linkList = [
+    "./Movie_Ranking/index.html",
+    "./CSS_Flag/index.html"
+    ]
+  
+    const boxList = document.querySelectorAll('.iframeBox');
+   
+    boxList.forEach((element,index)=>{
+      element.querySelector('iframe').src= linkList[index];
+    });
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>
