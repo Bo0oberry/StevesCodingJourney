@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="styles/style.css"/>
+  <title>Flag of Laos</title>
+  <style>
+   :root {
+     --flagWidth: 600px;
+     --flagHeight: calc(var(--flagWidth) * 0.666666);
+     --stripeHeight: calc(var(--flagHeight) / 2);
+     --circleDiameter: calc(var(--flagHeight) / 3)
+   }
+   .flag {
+     position: relative;
+     width: var(--flagWidth);
+     height: var(--flagHeight);
+     background-color: #CE1126;
+     
+     >p {
+       font-size: calc(var(--flagHeight) * 0.11);
+       text-align: center;
+       color:white;
+     } 
+     
+     > div {
+       position: absolute;
+       top: calc(var(--flagHeight) / 4);
+       width: 100%;
+       height: var(--stripeHeight);     
+       background-color: #002868;
+       
+       > div {
+         position: absolute;
+         left: calc((var(--flagWidth)/2) - (var(--circleDiameter)/2));
+         top:  calc((var(--flagHeight)/4) - (var(--circleDiameter)/2));
+         width: var(--circleDiameter);
+         height: var(--circleDiameter);
+         border-radius: 50%;
+         background-color: white;
+       }
+       p {
+         margin: 0;
+         text-align: center;
+         font-size: calc(var(--flagHeight) * 0.1);
+       }
+     }     
+   }
+  
+  .flag, .flag div {
+  /* This tells the browser to animate any size changes over 0.2 seconds */
+  transition: width 0.2s ease-out, height 0.2s ease-out, left 0.2s ease-out, top 0.2s ease-out;
+  }
+
+  </style>
+</head>
+<body>
+  <h1>Lecture 46</h1>
+  
+ <input id="range" type="range" min="200" max="900" value="600">
+ <div class="flag">
+    <p>The Flag</p>
+    <div>
+      <div>
+        <p>of Laos</p>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    const slider = document.getElementById('range');
+    const box = document.querySelector('html');  	
+  
+    slider.addEventListener('input', changeValue);
+    
+  
+    function changeValue(event){
+     const size = event.target.value + "px";
+     box.style.setProperty('--flagWidth', size);
+    }
+  </script>
+</body>
+</html>
