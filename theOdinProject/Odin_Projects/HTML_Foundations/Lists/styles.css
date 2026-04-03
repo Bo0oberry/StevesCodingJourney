@@ -167,14 +167,22 @@ main {
     counter-set: h2_num 0;
 
     display: grid;
-    grid-template-columns: 30px 3fr 10fr 3fr 30px;
-    grid-template-areas: 
-        'buttonA mediumA large mediumB buttonB';
-    gap: 30px;
+    grid-template-columns: 3fr 15fr 3fr;
+    grid-template-areas:
+        'left middle right';
+    justify-content: center;
+    gap: 50px;
     padding: 0 15%;
     
-    section, h2, h3, p, code, ul {
+    h2, h3, p, code, ul {
        margin: 25px 0;
+    }
+
+    p, code, ol, ul {
+        font-family: "Turret Road";
+        font-weight: bold;
+        letter-spacing: 2px;
+        word-spacing: 5px;
     }
     
     h2 ,h3 { 
@@ -203,22 +211,92 @@ main {
         }
     }
 
-    section {
-        display: none;
+    section:not(.sectionSelected) {
+       position: absolute; /* Takes them out of the grid flow */
+        visibility: hidden;
+        opacity: 0;
+        pointer-events: none; 
     }
 
     .sectionSelected {
-        display: block;
+        position: static; /* Puts them back into their assigned grid-area */
+        visibility: visible;
+        opacity: 1;
+        pointer-events: auto;
+
+
     }
 
-    #sectionLeft{
-        grid-area: buttonA;
+    .sectionSide {
+        position: relative;
+        height: 200px;
+        width: 200px;
+        margin-top: 100px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        border-bottom: 1px solid salmon;
+        padding: 10px;
+
+
+        h2 {
+            font-size: 30px;
+            
+        }
+
+        *:not(h2) {
+            display: none;
+        }
+
+        &:hover {
+            content: "";
+            border: 2px solid salmon;
+        }
     }
 
-    #sectionRight{
-        grid-area: buttonB;
-    }
+    #knowledge details {
+        margin: 30px 0;
+        font-family: "Turret ROad", Geneva, Tahoma, sans-serif;
 
+        summary {
+            font-family: "Silkscreen", serif;
+
+            &::marker {
+                content: "";
+            }
+
+            &::before {
+                content: "\f1d8";
+                margin-right: 15px;
+                font-family: "Font Awesome 6 Free";
+
+
+            }
+
+            &:hover {
+                color: orange;
+
+                &::before {
+                    color: #e85bcf;
+                }
+            }
+
+        }
+
+        &[open]{
+
+            summary {
+                color:#ff7e5f;
+
+                &::before {
+                    content: "\f249"
+                }
+
+                &:hover {
+                    color: rgb(187, 177, 177);
+                }
+            }
+        }
+    }
 }
 
 /*------------   ------------*/
