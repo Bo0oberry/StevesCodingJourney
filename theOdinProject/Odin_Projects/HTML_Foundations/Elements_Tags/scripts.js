@@ -6,6 +6,10 @@ let timeOutSet = false;
 document.getElementById("body").onscroll = function(){
     nav.style.visibility="visible";
 
+    if ((window.innerHeight + window.scrollY) + 100 >= document.body.offsetHeight) {
+        return;
+    }
+
     if (timeOutSet) {
         clearTimeout(list[0]);
     }
@@ -14,7 +18,7 @@ document.getElementById("body").onscroll = function(){
         () => {
             nav.style.visibility="hidden"; 
         },
-        2000
+        1000
     );
     list[0] = timeOut; 
     timeOutSet = true;  
