@@ -2,54 +2,293 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width>, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="icon" type="image/x-icon" href="./../../../Resourses/favicon.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Fredericka+the+Great&family=Pixelify+Sans:wght@400..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Silkscreen:wght@400;700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/e67ae43b3e.js" crossorigin="anonymous"></script>
+
+    <title>Links and Images</title>
 </head>
 <body>
-    <h1>Links and Images</h1>
-    <details>
-        <summary>What element is used to create a link?</summary>
-        <p> The anchor element (a)</p>
-    </details>
-    <details>
-        <summary>What is an attribute?</summary>
-        <p>An HTML attribute gives additional information to an HTML element and always goes in the element's opening tag </p>
-    </details>
-    <details>
-        <summary>What attribute tells links where to go to?</summary>
-        <p>The href attribute in the anchor tag</p>
-    </details>
-    <details>
-        <summary>What security considerations must be taken if you wish to use the target attribute to open links in a new tab/window?</summary>
-        <p>The posibilty of phishins or tabnapping attacks</p>
-    </details>
-    <details>
-        <summary>What is the difference between an absolute and relative link?</summary>
-        <ul>
-            <li>Absolute: link to another webpage</li>
-            <li>Relative: link to pages within the same website</li>
-        </ul>
-    </details>
-    <details>
-        <summary>Which element is used to display an image?</summary>
-        <p>img</p>
-    </details>
-    <details>
-        <summary>What two attributes do images always need to have?</summary>
-        <p>src and alt</p>
-    </details>
-    <details>
-        <summary>How do you access a parent directory in a filepath?</summary>
-        <p>using ../ file path</p>
-    </details>
-    <details>
-        <summary>What are the four main image formats that you can use for images on the web?</summary>
-        <ul>
-            <li>jpg</li>
-            <li>gif</li>
-            <li>png</li>
-            <li>svg</li>
-        </ul>
-    </details>
+    <header>
+            <a href="./../../index.html"><img src="./../../Logo.png" alt="logo" width="150px"/></a>
+            <h1>Links and Images</h1>
+        </div>
+    </header>
+
+    <aside id="sectionLinks">
+        <a href="#intro"><span>Introduction</span></a>
+        <a href="#lessonOverview"><span>Lesson Overveiw</span></a>
+    </aside>
+
+    <main>
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>Links are one of the key features of HTML. They allow us to link to other HTML pages on the web. In fact, this is why it's called the web.</p>
+            <p>In this lesson, we will learn how to create links and add some visual flair to our websites by embedding images.</p>
+        </section>
+
+        <section id="lessonOverview">
+            <h2>Lesson Overveiw</h2>
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+            <ul>
+                <li>How to create links to pages on other websites on the internet.</li>
+                <li>How to create links to other pages on your own websites.</li>
+                <li>The difference between absolute and relative links.</li>
+                <li>How to display an image on a webpage using HTML.</li>
+            </ul>
+        </section>
+
+        <section id="preparation">
+            <h2>Preparation</h2>
+            <p>To get some practice using links and images throughout this lesson we need an HTML project to work with.</p>
+            <ol>
+                <li>Create a new directory named <kbd>odin-links-and-images</kbd>.</li>
+                <li>Within that directory, create a new file named <kbd>index.html</kbd>.</li>
+                <li>Open the file in VS Code and fill in the usual HTML boilerplate.</li>
+                <li>Finally, add the following h1 to the body:</li>
+            </ol>
+            <code>
+                <span>&#60h1&#62Homepage&#60/h1&#62</span>
+            </code>
+        </section>
+        
+        <section id="anchorEle">
+            <h2>Anchor Elements</h2>
+            <p>To create a link in HTML, we use the anchor element. An anchor element is defined by wrapping the text or another HTML element we want to be a link with
+                an <kbd>&#60a&#62</kbd> tag.</p>
+        </section>
+
+        <section>
+            <h2>Opening links in a new tab</h2>
+        </section>
+
+        <section id="absRelLinks">
+            <h2>Absolute and relative links</h2>
+            <p>Generally, there are two kinds of links we will create:</p>
+            <ul>
+                <li></li>
+                <li></li>
+            </ul>
+        </section>
+
+        <section id="images">
+            <h2>Images</h2>
+            <p>Websites would be fairly boring if they could only display text. Luckily HTML provides a wide variety of elements for displaying 
+                all sorts of different media. The most widely used of these is the image element.</p>
+            <p>To display an image in HTML we use the <kbd>&#60img&#62</kbd> element. Unlike the other elements we have encountered, the <kbd>&#60img&#62</kbd> 
+                element is a void element. As we have seen earlier in the course, void elements do not need a closing tag because they are naturally empty and do 
+                not contain any content.</p>
+            <p>Instead of wrapping content with an opening and closing tag, it embeds an image into the page using a <kbd>src</kbd> attribute which tells the browser 
+                where the image file is located. The <kbd>src</kbd> attribute works much like the <kbd>href</kbd> attribute for anchor tags. It can embed 
+                an image using both absolute and relative paths.</p>
+            <p>For example, using an absolute path we can display an image located on The Odin Project site:</p>
+
+            <p class="codepen" data-height="300" data-pen-title="absolute-path-image" data-default-tab="html,result" data-slug-hash="gORbExZ" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/gORbExZ">absolute-path-image</a> 
+                    by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+            <p>To display images on your website that are hosted on your own web server, you can use a relative path.</p>
+            <details>
+                <summary>Linux, macOS, ChromeOS</summary>
+                <ol>
+                <li>Create a new directory named <kbd>images</kbd> within the <kbd>odin-links-and-images</kbd> project.</li>
+                <li>
+                    Next, 
+                    <a href="https://unsplash.com/photos/Mv9hjnEUHR4/download?force=true&w=640" target="_blank"> download our practice image</a> 
+                    and move it into the images directory we just created.
+                </li>
+                <li>Rename the image to <kbd>dog.jpg</kbd>.</li>
+            </ol>
+            </details>
+            <details>
+                <sumary>WSL2</sumary>
+
+            </details>
+            <p>Finally add the image to the <kbd>index.html</kbd> file:</p>
+            <code>
+                <span>&#60body&#62</span>
+                <span>&#60h1&#62Homepage&#60/h1&#62</span>
+                <span>&#60a href="https://www.theodinproject.com/about"&#62About The Odin Project&#60/a&#62</span>
+                <span></span>
+                <span>&#60a href="./pages/about.html"&#62About&#0/a&#62</span>
+                <span></span>
+                <span>&#60img src="./images/dog.jpg"&#62</span>
+                <span>&#60/body&#62</span>
+            </code>
+            <p>Save the <kbd>index.html</kbd> file and open it in a browser to view Charles in all his glory.</p>
+        </section>
+
+        <aside>
+            <h3>Images you use should be free for your intended purpose</h3>
+            <p>There are many free images available but make sure to give credit to the creator of the image in your project.</p>
+            <p>An easy way to provide credit is to include the creator’s name and contact info in a README file in your repository, or give 
+                <a href="https://www.freepik.com/ai/docs/attribution-how-when-and-where">attribution</a>.</p>
+            <p>To find them - Google images and in image results -> Tools -> Usage rights -> “Creative Commons”. Choose & click on a image and click license details.</p>
+            <p>We recommend that you always review the license requirements of any images you want to use.</p>
+        </aside>
+
+        <section id="parentDir">
+            <h2>Parent Directories</h2>
+            <p>What if we want to use the dog image in the about page? We would first have to go up one level out of the pages directory 
+                into its parent directory so we could then access the images directory.</p>
+            <p>To go to the parent directory we need to use two dots in the relative filepath like this: <kbd>../.</kbd> Let's see this in action,
+                 within the body of the <kbd>about.html</kbd> file, add the following image below the heading we added earlier:</p>
+            <code>
+                <span>&#60img src="../images/dog.jpg"&#62</span>
+            </code>
+            <p>To break this down:</p>
+            <ol>
+                <li>First, we are going to the parent directory of the <kbd>pages</kbd> directory which is <kbd>odin-links-and-images</kbd>.</li>
+                <li>Then, from the parent directory, we can go into the <kbd>images</kbd> directory.</li>
+                <li>Finally, we can access the <kbd>dog.jpg</kbd> file.</li>
+            </ol>
+            <p>Using the metaphor we used earlier, using <kbd>../</kbd> in a filepath is kind of like stepping out from the room you are currently in to the 
+                main hallway so you can go to another room.</p>
+        </section>
+
+        <section id="altAtr">
+            <h2>Alt Attribute</h2>
+            <p>Besides the <kbd>src</kbd> attribute, every image element should also have an <kbd>alt</kbd> (alternative text) attribute.</p>
+            <p>The <kbd>alt</kbd> attribute is used to describe an image. It will be used in place of the image if it cannot be loaded. It is also used with screen readers 
+                to describe what the image is to visually impaired users.</p>
+            <p>This is how the The Odin Project logo example we used earlier looks with an <kbd>alt</kbd> attribute included:</p>
+
+            <p class="codepen" data-height="300" data-pen-title="image-alt-attribute" data-default-tab="html,result" data-slug-hash="ExXjoEp" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen 
+                    <a href="https://codepen.io/TheOdinProjectExamples/pen/ExXjoEp">image-alt-attribute</a> 
+                    by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>) on 
+                    <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+            
+            <p>As a bit of practice, add an <kbd>alt</kbd> attribute to the dog image we added to the <kbd>odin-links-and-images</kbd> project.</p>
+        </section>
+        <section id="imgSizeAtr">
+            <h2>Image Size Attributes</h2>
+            <p>While not strictly required, specifying height and width attributes in image tags helps the browser layout the page without causing the page to jump and flash.</p>
+            <p>It is a good habit to always specify these attributes on every image, even when the image is the correct size or you are using CSS to modify it. This is to prevent
+                 content jumping as images load. Use the image's actual dimensions when specifying size.</p>
+            <p>Here is our Odin Project logo example with height and width attributes included:</p>
+
+            <p class="codepen" data-height="300" data-pen-title="Image Height and Width Attributes" data-default-tab="html,result" data-slug-hash="PogmYGp" data-user="TheOdinProjectExamples" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>
+                    See the Pen 
+                    <a href="https://codepen.io/TheOdinProjectExamples/pen/PogmYGp">Image Height and Width Attributes</a> 
+                    by TheOdinProject (<a href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)on 
+                    <a href="https://codepen.io">CodePen</a>.
+                </span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+            <p>Go ahead and update the <kbd>odin-links-and-images</kbd> project with width and height attributes on the dog image.</p>
+        </section>
+            
+        <section id="assignment">
+            <h2>Assignnment</h2>
+            <ol>
+                <li>
+                    <span>Watch Kevin Powell's videos</span>
+                    <ul>
+                        <li><a href="https://www.youtube.com/watch?v=tsEQgGjSmkM" target="_blank">HTML Links</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=0xoztJCHpbQ" target="_blank">HTML Images</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=ta3Oxx7Yqbo" target="_blank">File Structure</a></li>
+                    </ul>
+                </li>
+                <li>Read and code along with Interneting is Hard's article on 
+                    <a href="https://internetingishard.netlify.app/html-and-css/links-and-images/" target="_blank">Links and Images</a>. 
+                    Pay close attention to the section that covers the four main image formats.</li>
+            </ol>
+        </section>
+
+        <section id="knowledgeCheck">
+                <h2>Knowledge Check</h2>
+            <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can't answer a question, click on it to review the material, but keep in mind 
+                you are not expected to memorize or master this knowledge.</p>
+            <details>
+                <summary>What element is used to create a link?</summary>
+                <p> The anchor element (a)</p>
+            </details>
+            <details>
+                <summary>What is an attribute?</summary>
+                <p>An HTML attribute gives additional information to an HTML element and always goes in the element's opening tag </p>
+            </details>
+            <details>
+                <summary>What attribute tells links where to go to?</summary>
+                <p>The href attribute in the anchor tag</p>
+            </details>
+            <details>
+                <summary>What security considerations must be taken if you wish to use the target attribute to open links in a new tab/window?</summary>
+                <p>The posibilty of phishins or tabnapping attacks</p>
+            </details>
+            <details>
+                <summary>What is the difference between an absolute and relative link?</summary>
+                <ul>
+                    <li>Absolute: link to another webpage</li>
+                    <li>Relative: link to pages within the same website</li>
+                </ul>
+            </details>
+            <details>
+                <summary>Which element is used to display an image?</summary>
+                <p>img</p>
+            </details>
+            <details>
+                <summary>What two attributes do images always need to have?</summary>
+                <p>src and alt</p>
+            </details>
+            <details>
+                <summary>How do you access a parent directory in a filepath?</summary>
+                <p>using ../ file path</p>
+            </details>
+            <details>
+                <summary>What are the four main image formats that you can use for images on the web?</summary>
+                <ul>
+                    <li>jpg</li>
+                    <li>gif</li>
+                    <li>png</li>
+                    <li>svg</li>
+                </ul>
+            </details>
+        </section>
+    </main>
+
+    <script src="./../nav.js"></script>
+    <script>
+        const navElement = document.querySelector('nav');
+        const newButton = document.createElement('div');
+        newButton.classList.add('navButton');
+        newButton.innerHTML = `
+            <div class="button-container">
+                <input type="checkbox" id="toggle-button" class="hidden-input">
+                <label for="toggle-button" class="custom-button">Click Me</label>
+
+                <div class="content">
+                    <p>Ta-da! Here is your hidden menu.</p>
+                </div>
+            </div>
+            `;
+        navElement.appendChild(newButton);
+        
+        const navToggle = document.createElement('button');
+        navToggle.id = 'navToggle';
+        navToggle.onclick = () => {
+            document.querySelector('nav ul').classList.toggle("visible");
+        };
+        navToggle.innerHTML = `<i class="fa-solid fa-arrow-right-arrow-left"></i>`;
+        navElement.appendChild(navToggle);
+    </script>
+    <script src="./codeBlock.js"></script>
 </body>
 </html>

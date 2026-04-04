@@ -166,4 +166,13 @@ nav {
         text-decoration: none;
     }
 
+    li:has(a.active) {
+        background-color: #888182;
+        transform: translate(0, 0px);
+    }
+    .active {
+        color:#f3eff0;
+        cursor: default;       /* Changes pointer back to a normal arrow */
+        pointer-events: none;
+    }
 }
