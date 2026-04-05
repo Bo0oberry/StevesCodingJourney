@@ -12,18 +12,32 @@
 
     <script src="https://kit.fontawesome.com/e67ae43b3e.js" crossorigin="anonymous"></script>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+
     <title>Links and Images</title>
 </head>
 <body>
     <header>
             <a href="./../../index.html"><img src="./../../Logo.png" alt="logo" width="150px"/></a>
-            <h1>Links and Images</h1>
+            <h1 id="home">Links and Images</h1>
         </div>
     </header>
 
     <aside id="sectionLinks">
+        <a href="#home"><span>Home</span></a>
         <a href="#intro"><span>Introduction</span></a>
         <a href="#lessonOverview"><span>Lesson Overveiw</span></a>
+        <a href="#preparation"><span>Preparation</span></a>
+        <a href="#anchorEle"><span>Anchor Elements</span></a>
+        <a href="#absRelLinks"><span>Absolute and relative links</span></a>
+        <a href="#images"><span>Images</span></a>
+        <a href="#parentDir"><span>Parent Directories</span></a>
+        <a href="#altAtr"><span>Alt Attribute</span></a>
+        <a href="#imgSizeAtr"><span>Image Size Attributes</span></a>
+        <a href="#assignment"><span>Assignment</span></a>
+        <a href="#knowledgeCheck"><span>Knowledge Check</span></a>
     </aside>
 
     <main>
@@ -62,19 +76,135 @@
             <h2>Anchor Elements</h2>
             <p>To create a link in HTML, we use the anchor element. An anchor element is defined by wrapping the text or another HTML element we want to be a link with
                 an <kbd>&#60a&#62</kbd> tag.</p>
+            <p>Add the following to the body of the <kbd>index.html</kbd> page we created and open it in the browser:</p>
+            <code>
+                <span>&#60a&#62The Odin Project&#60/a&#62</span>
+            </code>
+            <p>You may have noticed that clicking this link doesn’t do anything. This is because an anchor tag on its own won't 
+                know where we want to link to. We have to tell it a destination to go to. We do this by using an HTML attribute.</p>
+            <p>An HTML attribute gives additional information to an HTML element and always goes in the element's opening tag. 
+                An attribute is usually made up of two parts: a name, and a value; however, not all attributes require a value. 
+                In our case, we need to add an <kbd>href</kbd> (hypertext reference) attribute to the opening anchor tag. The 
+                value of the href attribute is the destination we want our link to go to.</p>
+            <p>Add the following <kbd>href</kbd> attribute to the anchor element we created previously and try clicking it again, 
+                don't forget to refresh the browser so the new changes can be applied.</p>
+            <code>
+                <span>&#60a href="https://www.theodinproject.com/about"&#62About The Odin Project&#60/a&#62</span>
+            </code>
+            <p>By default, any text wrapped with an anchor tag without an href attribute will look like plain text. If the 
+                <kbd>href</kbd> attribute is present, the browser will give the text a blue color and underline it to signify it is a link.</p>
+            <p>It's worth noting you can use anchor tags to link to any kind of resource on the internet, not just other HTML documents. You 
+                can link to videos, pdf files, images, and so on, but for the most part, you will be linking to other HTML documents.</p>
         </section>
 
         <section>
             <h2>Opening links in a new tab</h2>
+            <p>The method shown above opens links in the same tab as the webpage containing them. This is the default behavior 
+                of most browsers and it can be changed relatively easily. All we need is another attribute: 
+                the <kbd>target</kbd> attribute.</p>
+            <p>While <kbd>href</kbd> specifies the destination link, <kbd>target</kbd> specifies where the linked resource will be 
+                opened. If it is not present, then, by default, it will take on the <kbd>_self</kbd> value which opens the link in 
+                the current tab. To open the link in a new tab or window (depends on browser settings) you can set it to 
+                <kbd>_blank</kbd> as follows:</p>
+            <code>
+                <span>&#60a href="https://www.theodinproject.com/about" target="_blank" rel="noopener noreferrer"&#62About The Odin Project&#60/a&#62</span>
+            </code>
+            <p>You may have noticed that we snuck in the <kbd>rel</kbd> attribute above. This attribute is used to describe 
+                the relation between the current page and the linked document and can take multiple values. The most relevant 
+                ones to discuss right now are:</p>
+            <ul>
+                <li><kbd>noopener</kbd>: Prevents the new tab from accessing the original page, which would have opened the possibility 
+                    of phishing attacks like <a href="https://owasp.org/www-community/attacks/Reverse_Tabnabbing">tabnabbing</a>. 
+                    Modern browsers all set this automatically for any links that have <kbd>target="_blank"</kbd>, but you will often still see this manually set for historic browser compatibility.</li>
+                <li><kbd>noreferrer</kbd>: The same as <kbd>noopener</kbd> but also prevents certain details about the original page 
+                    from being passed to the new page; 
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Privacy/Guides/Referer_header:_privacy_and_security_concerns#the_referrer_problem">referrer information is not always desirable to share</a>.</li>
+            </ul>
         </section>
 
         <section id="absRelLinks">
             <h2>Absolute and relative links</h2>
             <p>Generally, there are two kinds of links we will create:</p>
             <ul>
-                <li></li>
-                <li></li>
+                <li>Links to pages on other websites on the internet.</li>
+                <li>Links to pages on your own website.</li>
             </ul>
+            <h3>Absolute Links </h3>
+            <p>Links to pages on other websites on the internet are called absolute links. A typical absolute link will be made up of the
+                 following parts: <kbd>scheme://domain/path</kbd>. An absolute link will always contain the 
+                 <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Howto/Web_mechanics/What_is_a_URL#basics_anatomy_of_a_url">scheme and domain</a> 
+                 of the destination.
+            </p>
+            <p>We've already seen an absolute link in action. The link we created to The Odin Project's About page earlier was 
+                an absolute link as it contains the scheme and domain.</p>
+            <p><kbd>https://www.theodinproject.com/about</kbd></p>
+            <h3>Relative Links</h3>
+            <p>Links to other pages within our own website are called relative links. Relative links do not include the domain 
+                name, since it is another page on the same site, it assumes the domain name will be the same as the page we 
+                created the link on.</p>
+            <p>Relative links only include the file path to the other page, relative to the page you are creating the link on. 
+                This is quite abstract, let's see this in action using an example.</p>
+            <p>Within the <kbd>odin-links-and-images</kbd> directory, create another HTML file named <kbd>about.html</kbd> and 
+                paste the following code into it:</p>
+            <code>
+                <span>&#60!DOCTYPE html&#62</span>
+                <span>&#60html lang="en"&#62</span>
+                <span>&#60head&#62</span>
+                <span>&#60meta charset="UTF-8"&#62</span>
+                <span>&#60title&#62Odin Links & Images&#60/title&#62</span>
+                <span>&#60/head&#62</span>
+                <span></span>
+                <span>&#60body&#62</span>
+                <span>&#60h1&#62About Page&#60/h1&#62</span>
+                <span>&#60/body&#62</span>
+                <span>&#60/html&#62</span>
+            </code>
+            <p>Back in the index page, add the following anchor element to create a link to the about page:</p>
+            <code>
+                <span>&#60body&#62</span>
+                <span>&#60h1&#62Homepage&#60/h1&#62</span>
+                <span>&#60a href="https://www.theodinproject.com/about">About The Odin Project&#60/a&#62</span>
+                <span></span>
+                <span>&#60a href="about.html">About&#60/a&#62</span>
+                <span>&#60/body&#62</span>
+            </code>
+            <p>Open the index file in a browser and click on the about link to make sure it is all wired together correctly. 
+                Clicking the link should go to the about page we just created.</p>
+            <p>This works because the index and about page are in the same directory. That means we can use its name 
+                (<kbd>about.html</kbd>) as the link's <kbd>href</kbd> value.</p>
+            <p>But we will usually want to organize our website directories a little better. Normally we would only have the 
+                <kbd>index.html</kbd> at the root directory and all other HTML files in their own directory.</p>
+            <p>Create a directory named <kbd>pages</kbd> within the <kbd>odin-links-and-images</kbd> directory and move the 
+                <kbd>about.html</kbd> file into this new directory.</p>
+            <p>Refresh the index page in the browser and then click on the about link. It will now be broken. This is because the 
+                location of the about page file has changed.</p>
+            <p>To fix this, we just need to update the about link <kbd>href</kbd> value to include the <kbd>pages/</kbd> directory 
+                since that is the new location of the about file relative to the index file.</p>
+            <code>
+                <span>&#60body&#62</span>
+                <span>&#60h1&#62Homepage&#60/h1&#62</span>
+                <span>&#60a href="pages/about.html"&#62About&#60/a&#62</span>
+                <span>&#60/body&#62</span>
+            </code>
+            <p>Refresh the index page in the browser and try clicking the about link again, it should now be back in working order.</p>
+            <p>In many cases, this will work just fine; however, you can still run into unexpected issues with this approach. Prepending 
+                <kbd>./</kbd> before the link will in most cases prevent such issues. By adding <kbd>./</kbd> you are specifying to your 
+                code that it should start looking for the file/directory relative to the <kbd>current</kbd> directory.</p>
+            <code>
+                <span>&#60body&#62</span>
+                <span>&#60h1&#62Homepage&#60/h1&#62</span>
+                <span>&#60a href="./pages/about.html"&#62About&#60/a&#62</span>
+                <span>&#60/body&#62</span>
+            </code>
+            <h3>A Metaphor</h3>
+            <p>Absolute and relative links are a tricky concept to build a good mental model of, a metaphor may help:</p>
+            <p>Think of your domain name (<kbd>town.com</kbd>) as a town, the directory in which your website is located 
+                (<kbd>/museum</kbd>) as a museum, and each page on your website as a room in the museum 
+                (<kbd>/museum/movie_room.html</kbd> and <kbd>/museum/shops/coffee_shop.html</kbd>). Relative links like 
+                <kbd>./shops/coffee_shop.html</kbd> are directions from the current room (the museum movie room 
+                <kbd>/museum/movie_room.html</kbd>) to another room (the museum shop). Absolute links, on the other hand, are full 
+                directions including the protocol (<kbd>https</kbd>), domain name (<kbd>town.com</kbd>) and the path from that domain 
+                name (<kbd>/museum/shops/coffee_shop.html</kbd>): <kbd>https://town.com/museum/shops/coffee_shop.html</kbd>.</p>
         </section>
 
         <section id="images">
@@ -129,7 +259,7 @@
             <p>Save the <kbd>index.html</kbd> file and open it in a browser to view Charles in all his glory.</p>
         </section>
 
-        <aside>
+        <aside class="tip">
             <h3>Images you use should be free for your intended purpose</h3>
             <p>There are many free images available but make sure to give credit to the creator of the image in your project.</p>
             <p>An easy way to provide credit is to include the creator’s name and contact info in a README file in your repository, or give 
@@ -290,5 +420,7 @@
         navElement.appendChild(navToggle);
     </script>
     <script src="./codeBlock.js"></script>
+    <script src="./scripts.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

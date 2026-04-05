@@ -24,6 +24,7 @@
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;    
 
     --banner-color-DarkBlue: #25344b;
+    --mainBgColorDarker: #1e1e1e;
 
 }
 
@@ -289,12 +290,80 @@ main {
         margin: 40px 0;
 
         h2, p, ol, ul, li, code {margin: 25px 0;}
+        h2, h3 {
+            font-family: "Silkscreen", sans-serif;
+            text-shadow: 1px 1px 2px rgb(92, 57, 22);
+            font-weight: 300;
+        }
+
+        p, ol, ul {
+            text-shadow: 1px 1px rgb(192, 189, 187);
+            color: rgb(13, 13, 13);
+            font-size: 20px;
+        }
+
+        a {
+            color: #13acb7;
+            text-decoration: none;
+            font-weight: 500;
+            text-shadow: 1px 1px 1px rgb(90, 89, 157);
+            letter-spacing: 1px;
+            position: relative;
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -2px;
+                height: 2px;
+                width: 100%;
+                background-color: rgb(28, 84, 197);
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease-out;
+            }
+
+            &:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+
+        ul {
+            position: relative;
+            margin-left: 50px;
+            list-style: square;
+            
+            li:nth-child(odd), li:nth-child(even) {
+                list-style-position: outside;
+                padding-left: 10px;
+
+                &::marker {
+                    font-size: 35px;
+                }   
+            }   
+
+            li:nth-child(odd) {
+                box-shadow: 1px 1px 2px #f22525;
+                &::marker {
+                    color: hotpink;
+                    transform: rotate(90deg);
+                }
+            }
+            li:nth-child(even) {
+                box-shadow: 1px 1px 2px #a75b04;
+                &::marker {
+                    color: orange;
+                }
+            }
+        }
 
         kbd {
             border-radius: 6px;
             padding: 3px;
-            background-color: #94a89b;
-            color: #bb3338;
+            background-color: var(--mainBgColorDarker);
+            color: rgb(239, 5, 5);
+            text-shadow: 1px 1px 5px rgb(174, 169, 160);
             font-size: 16px;
         }
 
@@ -336,8 +405,7 @@ main {
             }
 
             .tag {
-                color: #db7478; /* Classic VS Code blue for tags */
-                font-weight: bold;
+                color: #d26569; /* Classic VS Code blue for tags */
             }
 
             .quotes {
@@ -345,27 +413,65 @@ main {
                 font-weight: 100;
             }
         }
+
+        details {
+            margin: 20px 0;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: var(--mainBgColorDarker);
+            color: rgb(11, 6, 6);
+            text-shadow: 1px 1px 5px rgb(174, 169, 160);
+            
+            summary {
+                font-size: 20px;
+                font-weight: 500;
+                cursor: pointer;
+                outline: none;
+
+                &::marker {
+                    content: "\f078\00a0\00a0" ; /* Font Awesome down arrow */
+                    padding-right: 10px;
+                    font-family: "Font Awesome 6 Free", sans-serif;
+                    font-weight: bold;
+                    font-size: 25px;
+                    color: rgb(228, 101, 16);
+                }
+            }
+
+            &:hover {
+                summary::marker {
+                    color: rgb(53, 124, 211);
+                }
+            }
+
+            &[open] {
+                summary::marker {
+                    content: "\f077\00a0\00a0"; /* Font Awesome up arrow */
+                }
+            }
+        }
     }
+
 }
 
 #sectionLinks {
     counter-set: linkNum 0;
     z-index: 100;
     position: fixed;
-    left: 0;
+    left: 10px;
     top: 50%;
     translate: 0 -50%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #0052D4;
 
     a {
         counter-increment: linkNum 1;
         position: relative;
         height: 40px;
         width: 40px;
-        background-color: #7ec699;
+        border-radius: 10px;
+        background-color: hotpink;
 
         &::before {
             content: counter(linkNum);
@@ -374,26 +480,57 @@ main {
             left: 0;
             height: 100%;
             width: 100%;
-            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-family: "Pixelify Sans", sans-serif;
             text-align: center;
+            text-shadow: 1px 1px 8px black;
+            color: orange;
         }
 
         span {
+            visibility: hidden;
             position: absolute;
             top: 50%;
             right: 0;
             translate: 110% -50%;
             border-radius: 8px;
+            border: 1px solid black;
+            border-left-color: transparent;
             padding: 8px;
-            background-color: lightgrey;
+            background: linear-gradient(170deg,rgb(7, 255, 255), rgb(35, 117, 248));
+            font-family: "Pixelify Sans", sans-serif;
             color: black;
 
             &::before {
-                z-index: 300;
+                content: "";
                 position: absolute;
-                height: 500px;
-                width: 500px;
-                background-color: #d40000;
+                top: 0;
+                left: -10%;
+                height: 100%;
+                width: 10%;
+                clip-path: polygon(0 50%, 100% 25%, 100% 75%);
+                background: linear-gradient(170deg,rgb(7, 255, 255), rgb(35, 117, 248));
+            }
+
+            &::after {
+                z-index: -1;
+                content: "";
+                position: absolute;
+                top: 0;
+                left: -11%;
+                height: 100%;
+                width: 10%;
+                clip-path: polygon(0 50%, 100% 20%, 100% 80%);
+                background-color: rgb(13, 13, 13);
+            }
+        }
+
+        &:hover {
+            span {
+                visibility: visible;
             }
         }
 
@@ -401,3 +538,36 @@ main {
 
     }
 }
+
+
+.tip {
+    border-left: 10px solid rgb(248, 140, 17);
+    border-radius: 8px;
+    padding: 20px;
+    background-color: var(--mainBgColorDarker);
+    box-shadow: 1px 1px 5px rgb(224, 142, 59);
+
+    h3 {
+        position: relative;
+        margin-bottom: 30px !important;
+        margin-left: 60px;
+        font-family: "Silkscreen", sans-serif;
+        text-shadow: 1px 1px 2px rgb(92, 57, 22);
+        font-weight: 300;
+
+        &::before {
+            content: "\f071";
+            position: absolute;
+            top: 0;
+            left: -40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Font Awesome 6 Free", sans-serif;
+            font-size: 25px;
+            font-weight: 900;
+            color: rgb(249, 72, 72);
+        }
+    }
+}
+
