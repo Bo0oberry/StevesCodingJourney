@@ -464,6 +464,11 @@ main {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    /* opacity: 0.08; */
+
+    &:hover {
+        opacity: 1;
+    }
 
     a {
         counter-increment: linkNum 1;
@@ -537,6 +542,7 @@ main {
 
 
     }
+
 }
 
 

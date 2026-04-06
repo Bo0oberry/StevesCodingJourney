@@ -3,57 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./styles.css">
+
     <title>Document</title>
 </head>
 <body>
+    <!--header-->
     <header>
+        <a href="./../../index.html">
+            <img src="./forrest_ivysaur.png" alt="Forrest Ivysaur" width="100" height="100">
+            <img src="./forrest_ivysaur_glow.png" alt="Forrest Ivysaur" width="100" height="100">
+        </a>
         <h1>Commit Messages</h1>
     </header>
 
+
+    <!--aside -->
+    <aside id="sectionLinks">
+        <a href="#introduction"><span>Introduction</span></a>
+        <a href="#lessonOverview"><span>Lesson Overview</span></a>
+        <a href="#commitImportance"><span>Are commit messages so important they deserve their own lesson?</span></a>
+        <a href="#badGood"><span>Bad vs. Good Commit Messages</span></a>
+        <a href="#howTo"><span>How to commit with a subject and body in the message</span></a>
+        <a href="#when"><span>When to Commit</span></a>
+        <a href="#assignment"><span>Assignment</span></a>
+        <a href="#knowledge"><span>Knowledge Check</span></a>
+    </aside>
+
+
+    <!--nav -->
+    <script src="./../nav.js"></script>
+
+    
+    <!--main -->
     <main>
         <section id="introduction">
             <h2>Introduction</h2>
-            <p></p>
+            <p>This lesson will explain the importance of good commit messages, how to write them, when to commit, and why 
+                having a history of good commits is so important! We're learning this now because you're about to start your 
+                first project where you'll get to use Git as part of your workflow.</p>
         </section>
         
         <section id="lessonOverview">
-            <h2></h2>
-            <p></p>
+            <h2>Lesson Overview</h2>
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+            <ul>
+                <li>How to write a meaningful commit message.</li>
+                <li>Why meaningful commit messages are important.</li>
+                <li>When to commit.</li>
+            </ul>
         </section>
 
-        <section>
-            <h2></h2>
-            <p></p>
+        <section id="commitImportance">
+            <h2>Are commit messages so important they deserve their own lesson?</h2>
+            <p>Yes! Let us give you a quick list of reasons why:</p>
+            <ul>
+                <li>When you are applying for jobs, employers will look through your projects on GitHub and they 
+                    will look through your commit history. Having good commits as a novice developer will help you 
+                    stand out.</li>
+                <li>Having a good commit message history will allow you (or other developers working on your code) 
+                    to quickly see what changes were made and why. This is useful if a bug is found in the code that 
+                    needs to be fixed!</li>
+                <li>Having a good commit message history will also be helpful if you come back to a project you were 
+                    working on after stepping away from it for a while. You likely won't remember your thought process 
+                    and changes made when initially writing out the code.</li>
+            </ul>
         </section>
 
-        <section>
-            <h2></h2>
-            <p></p>
+        <section id="badGood">
+            <h2>Bad vs. Good Commit Messages</h2>
+            <p>When it comes to writing commits, it is crucial to know how to write them effectively. Here's an example 
+                of a bad commit message:</p>
+            <pre><code>fixed a bug</code></pre>
+            <p>Even though it describes what you did, the message is too vague, which leaves the other developers on your 
+                team confused. A good commit message will explain the <strong>why</strong> behind your changes. In other words, 
+                a commit message describes what problem your changes solve and how it solves them.</p>
+            <p>Effective commits consist of two separate parts: a subject, and a body:</p>
+            <h4>Subject</h4>
+            <p>A brief summary of the change you made to the project.</p>
+            <pre><code>This is the change I made to the codebase</code></pre>
+
+            <div class="tip">
+                <h3>Commit subject character limit</h3>
+                <p>GitHub has a 72-character limit, so we recommend keeping your commits' subjects within this amount.</p>
+            </div>
+
+            <h4>Body</h4>
+            <p>A concise yet clear description of what you did.</p>
+            <pre><code>Describe the problem your commit solves and how.</code></pre>
+            <p>Now that we learned the secret to creating a good commit message, let's try and fix the commit message from earlier:</p>
+            <pre><code>
+                Add missing link and alt text to the company's logo
+
+                Screen readers won't read the images to users with disabilities without this information.
+            </code></pre>
+            <p>Ahh, that's better! &#128513; Now, developers can gain a better understanding of this commit message because 
+                it does the following:</p>
+            <ul>
+                <li>Provides a subject that specifies your code's action (e.g., “Add missing link and alt 
+                    text to the company's logo”).</li>
+                <li>Contains a body that provides a concise yet clear description of why the commit needed 
+                    to be made (e.g., “Screen readers won't read the images to users with disabilities without 
+                    this information.”).</li>
+                <li>Separates the subject from the body with a new/blank line. This is a best practice we highly 
+                    recommend following. It makes commit messages easier for other developers to read.</li>
+            </ul>
+            <p>Some teams of developers might have their own convention for commit messages in specific formats. 
+                However, they still follow the same principles as this lesson outlined.</p>
         </section>
 
-        <section>
-            <h2></h2>
-            <p></p>
+        <section id="howTo">
+            <h2>How to commit with a subject and body in the message</h2>
+            <p>Up until now, you've been told to commit with <kbd>git commit -m &#60message&#62</kbd>. To make a 
+                commit with subject and body in message, the simplest way is to type <kbd>git commit</kbd> without 
+                the <kbd>-m</kbd> flag and message argument.</p>
+            <p>Doing so will open a new Visual Studio Code tab if you had 
+                <a href="https://www.theodinproject.com/lessons/foundations-git-basics#changing-the-git-commit-message-editorhttps://www.theodinproject.com/lessons/foundations-git-basics#changing-the-git-commit-message-editor">
+                    set Visual Studio Code as the Git editor. 
+                </a>
+                You can remove any comments and enter your multi-line messages. When you save and close the tab, 
+                your commit will be created.</p>
         </section>
 
-        <section>
-            <h2></h2>
-            <p></p>
-        </section>
-
-        <section>
-            <h2></h2>
-            <p></p>
+        <section id="when">
+            <h2>When to Commit</h2>
+            <p>A good way to view a commit is like a “snapshot” of your code at the moment that it was made. That version 
+                of your code up to that point will be saved for you to revert back to or look back at.</p>
+            <p>When writing code, it's considered best practice to commit every time you have a meaningful change in the 
+                code. This will create a timeline of your progress and show that your finished code didn't appear out of nowhere.</p>
+            <p>In other words, make a commit if you get a piece of code you are working on to function like you want it to, fix 
+                a typo, or fix a bug. As you gain experience, you will develop a better feel for what should be committed!</p>
+            <p>There will come a time when you are working on a project and you FINALLY get something just right (this would 
+                be a good time to commit), and then maybe 30 seconds to a few days later it breaks. You have no idea what 
+                you changed, everything looks to be the same and you don't remember editing that line, but alas, it isn't 
+                working how you want it anymore. You'd be able to go back through your commit history and either revert your 
+                code back to the last commit you made when you first got that part working or go back and see what your code 
+                looked like at that point in time.</p>
         </section>
 
         <section id="assignment">
             <h2>Assignment</h2>
-            <p></p>
+            <ol>
+                <li>This article, <a href="https://cbea.ms/git-commit">How to Write a Git Commit Message</a>, covers all the main 
+                    bases on how to write good commit messages. The whole article is great and informative but the meat of the article 
+                    is “The seven rules of a great commit message.”</li>
+            </ol>
+            <h3>Tips and things to remember</h3>
+            <ul>
+                <li>Using VSCode as your text editor (you should have set this up in the Git Basics section) will allow you to easily 
+                    make multi-line commit messages, easily see the character length of each line, and will allow you to use 
+                    <a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">
+                        VSCode spell check extensions
+                    </a> 
+                    to make sure your spelling is correct.</li>
+                <li>Use an active voice: “Fix card generator”.</li>
+                <li>Avoid using vague commit messages such as “saved” or “updated”.</li>
+                <li>Commit early and often!</li>
+            </ul>
         </section>
 
         <section id="knowledge">
             <h2>Knowledge Check</h2>
-            <p></p>
+            <p>The following questions are an opportunity to reflect on key topics in this lesson. If you can't answer 
+                a question, click on it to review the material, but keep in mind you are not expected to memorize or 
+                master this knowledge.</p>
             <details>
                 <summary>What are two benefits of having well-written commit messages and a good commit history?</summary>
                 <p>They are concise and helps to communicate rthe context of what is being commited, allowing anyome veiwing it to have a good understanding </p>
