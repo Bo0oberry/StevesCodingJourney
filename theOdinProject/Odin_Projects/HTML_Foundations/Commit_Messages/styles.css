@@ -27,6 +27,9 @@
 header {
     grid-area: header;
     display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:  "img h1 h1 h1" ;
+    justify-items: start;
     align-items: center;
     gap: 20px;
     padding: 20px;
@@ -34,6 +37,7 @@ header {
     background-size: cover;
 
     a:has(img) {
+        grid-area: img;
         position: relative;
 
         img {
@@ -64,6 +68,7 @@ header {
     }
 
     h1 {
+        grid-area: h1;
         z-index: 10;
         position: relative;
         padding: 10px 20px;
