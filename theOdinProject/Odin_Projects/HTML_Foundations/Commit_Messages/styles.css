@@ -15,10 +15,14 @@
 
 #mainHeader {
     display: grid;
-    grid-template-columns: 1fr 2fr 2fr;
+    grid-template-columns: 50% 2fr;
+    grid-template-rows: 6fr 4fr;
     grid-template-areas: 
-        "header nav aside";
-    height: 10vh;
+        "nav header"
+         "nav side";
+    justify-items: start ;
+    height: 400px;
+    overflow: hidden;
     background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed;
     background-size: cover;
 }
@@ -26,18 +30,16 @@
 /* -::-::- HEADER -::-::- */
 header {
     grid-area: header;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas:  "img h1 h1 h1" ;
-    justify-items: start;
-    align-items: center;
+    display: flex;
+    justify-items: stretch;
+    align-items : flex-start ;
     gap: 20px;
     padding: 20px;
     /* background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed; */
     background-size: cover;
 
     a:has(img) {
-        grid-area: img;
+        flex: 1 1 1;
         position: relative;
 
         img {
@@ -68,7 +70,7 @@ header {
     }
 
     h1 {
-        grid-area: h1;
+        flex: 2 1 1;
         z-index: 10;
         position: relative;
         padding: 10px 20px;
@@ -95,6 +97,7 @@ header {
 /*-::-::- ASIDE -::-::-*/
 #sectionLinks {
     grid-area: aside;
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -119,7 +122,9 @@ header {
 /*-::-::- NAV -::-::-*/
 nav {
     grid-area: nav;
+    overflow-y: scroll;
     display: flex;
+    flex-direction: column;
     gap: 20px;
     padding: 20px;
     background-color: var(--dry-sage);
