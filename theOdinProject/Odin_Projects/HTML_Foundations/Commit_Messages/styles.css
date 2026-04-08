@@ -13,9 +13,9 @@
     --pine-teal: #344e41ff;
 }
 
-#mainBanner {
+#mainHeader {
     display: grid;
-    grid-auto-columns: 1fr;
+    grid-template-columns: 1fr 2fr 2fr;
     grid-template-areas: 
         "header nav aside";
     height: 10vh;

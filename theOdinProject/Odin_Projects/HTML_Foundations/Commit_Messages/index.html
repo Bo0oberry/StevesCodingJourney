@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+   
     <!--header-->
     <header>
         <a href="./../../index.html">
@@ -178,5 +179,21 @@
 
     <!--nav -->
     <script src="./../nav.js"></script>
+    <script>
+       const mainHeader = document.createElement('div');
+       mainHeader.id = 'mainHeader';
+       document.body.appendChild(mainHeader);
+       const navElement = document.querySelector('nav');
+       const headerElement = document.querySelector('header');
+       const asideElement = document.querySelector ('#sectionLinks');
+       document.querySelector('h1').innerText = 'test';
+       //mainHeader.appendChild(headerElement);
+       //mainHeader.appendChild('navElement');
+       //mainHeader.appendChild('asideElement');
+       
+       //document.removeChild(headerElement);
+        
+    </script>
+    
 </body>
 </html>
