@@ -13,13 +13,24 @@
     --pine-teal: #344e41ff;
 }
 
+#mainBanner {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+        "header nav aside";
+    height: 10vh;
+    background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed;
+    background-size: cover;
+}
+
 /* -::-::- HEADER -::-::- */
 header {
+    grid-area: header;
     display: grid;
     align-items: center;
     gap: 20px;
     padding: 20px;
-    background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed;
+    /* background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed; */
     background-size: cover;
 
     a:has(img) {
@@ -78,6 +89,7 @@ header {
 
 /*-::-::- ASIDE -::-::-*/
 #sectionLinks {
+    grid-area: aside;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -101,6 +113,7 @@ header {
 
 /*-::-::- NAV -::-::-*/
 nav {
+    grid-area: nav;
     display: flex;
     gap: 20px;
     padding: 20px;
@@ -118,6 +131,11 @@ nav {
             background-color: var(--fern);
             color: var(--dust-grey);
         }
+    }
+
+    .active {
+        background-color: blue;
+        color: var(--dust-grey);
     }
 }
 
