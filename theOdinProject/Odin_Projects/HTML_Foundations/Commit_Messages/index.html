@@ -22,14 +22,36 @@
 
     <!--aside -->
     <aside id="sectionLinks">
-        <a href="#introduction"><span>Introduction</span></a>
-        <a href="#lessonOverview"><span>Lesson Overview</span></a>
-        <a href="#commitImportance"><span>Are commit messages so important they deserve their own lesson?</span></a>
-        <a href="#badGood"><span>Bad vs. Good Commit Messages</span></a>
-        <a href="#howTo"><span>How to commit with a subject and body in the message</span></a>
-        <a href="#when"><span>When to Commit</span></a>
-        <a href="#assignment"><span>Assignment</span></a>
-        <a href="#knowledge"><span>Knowledge Check</span></a>
+        <input type="checkbox" id="asside_toggleCheckbox">
+        <label for="asside_toggleCheckbox" id="asside_toggleLabel">
+            <p></p>
+            <ul>
+                <li>
+                    <a href="#introduction"><span>Introduction</span></a>
+                </li>
+                <li>
+                    <a href="#lessonOverview"><span>Lesson Overview</span></a>
+                </li>
+                <li>
+                    <a href="#commitImportance"><span>Are commit messages so important they deserve their own lesson?</span></a>
+                </li>
+                <li>
+                    <a href="#badGood"><span>Bad vs. Good Commit Messages</span></a>
+                </li>
+                <li>
+                    <a href="#howTo"><span>How to commit with a subject and body in the message</span></a>
+                </li>
+                <li>
+                    <a href="#when"><span>When to Commit</span></a>
+                </li>
+                <li>
+                    <a href="#assignment"><span>Assignment</span></a>
+                </li>
+                <li>
+                    <a href="#knowledge"><span>Knowledge Check</span></a>
+                </li>   
+            </ul>
+        </label>
     </aside>
 
     
@@ -190,18 +212,28 @@
     <!--nav -->
     <script src="./../nav.js"></script>
     <script>
-       const mainHeader = document.createElement('div');
-       mainHeader.id = 'mainHeader';
-       document.body.prepend(mainHeader);
-       const navElement = document.querySelector('nav');
-       const headerElement = document.querySelector('header');
-       const asideElement = document.querySelector ('#sectionLinks');
-       
-       mainHeader.appendChild(headerElement);
-       mainHeader.appendChild(navElement);
-       mainHeader.appendChild(asideElement);
-       
+        const mainHeader = document.createElement('div');
+        mainHeader.id = 'mainHeader';
+        document.body.prepend(mainHeader);
+        const navElement = document.querySelector('nav');
+        const headerElement = document.querySelector('header');
+        const asideElement = document.querySelector ('#sectionLinks');
         
+        mainHeader.appendChild(headerElement);
+        mainHeader.appendChild(navElement);
+        mainHeader.appendChild(asideElement);
+        
+        const navCheckBtn = document.createElement('input');
+        navCheckBtn.type = 'checkbox';
+        navCheckBtn.id = 'navCheckBtn';
+        const navCheckLabel = document.createElement('label');
+        navCheckLabel.htmlFor = 'navCheckBtn';
+        navCheckLabel.id = 'navCheckLabel';
+        navCheckLabel.innerHTML = '<p>Click Me</p>';
+        const navContent = navElement.querySelector('ul');
+        navCheckLabel.appendChild(navContent);   
+        navElement.appendChild(navCheckBtn);
+        navElement.appendChild(navCheckLabel);
     </script>
     
 </body>

@@ -156,6 +156,9 @@ nav {
     }
 }
 
+/*-::-::- NAV && ASIDE checkbox/label button -::-::-*/
+.checkButton { display: none;}
+
 
 /*-::-::- MAIN -::-::-*/
 main {
@@ -174,14 +177,23 @@ main {
     #chkLabel1 {
         position: relative;
         display: inline-block;
-        min-width: 250px;
-        min-height: 200px;
-        background-color: var(--fern);
+        /* min-width: 250px;
+        min-height: 200px; */
+        /* background-color: var(--fern); */
         
         #chkBtn1_btn {
-            position: absolute;
+            /* position: absolute;
             top: 0;
-            left: 0;
+            left: 0; */
+            --height:40px;
+            height: var(--height);
+            width: calc(var(--height) * 2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background-color: var(--hunter-green);
+
         }
         
         .chkBoxContent1 {
@@ -196,11 +208,9 @@ main {
         display: none;
     }
     #chkBtn1:checked + #chkLabel1 {
-        background-color: hotpink;
         
         #chkBtn1_btn {
-            top: 0;
-            left: 100%;
+            background-color: var(--fern);
         }
         
         .chkBoxContent1 {
