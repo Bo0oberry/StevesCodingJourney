@@ -106,42 +106,33 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
-    background-color: var(--dry-sage);
-    opacity: 0.7;
-    border-radius: 10px;
-
-    a {
-        padding: 10px;
-        color: var(--dust-grey);
-        font-size: 1.2rem;
-        text-decoration: none;
-        border-radius: 5px;
-
-        &:hover {
-            background-color: var(--fern);
-            color: var(--dust-grey);
-        }
-    }
 }
 
 /*-::-::- NAV -::-::-*/
 nav {
     grid-area: nav;
-    /*overflow-y: scroll;*/
     display: flex;
     flex-direction: column;
     gap: 20px;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: var(--dry-sage);
-    opacity: 0.7;
 
-    ul {
-        opacity: 0;
-        height: 0;
-        overflow: hidden;
+
+    
+    /* style when visable */
+    .chkInput:checked + .chkLabel {
+        .chkContent {
+           opacity: 0.7;
+           height: auto;
+        }
     }
+}
+
+
+
+/*-::-::- NAV && ASIDE checkbox/label button -::-::-*/
+nav, aside {
+    position: relative;
+    background-color: var(--dry-sage);
+
     a {
         padding: 10px;
         color: var(--dust-grey);
@@ -159,19 +150,9 @@ nav {
         background-color: blue;
         color: var(--dust-grey);
     }
-    
-    /* style when visable */
-    .chkInput:checked + .chkLabel {
-        .chkContent {
-           opacity: 0.7;
-           height: auto;
-        }
-    }
+
 }
 
-
-
-/*-::-::- NAV && ASIDE checkbox/label button -::-::-*/
 .chkInput { display: none;}
 .chkInput:checked + .chkLabel {
     .chkBtn {
@@ -187,6 +168,7 @@ nav {
     position: relative;
     
    .chkBtn {
+    display: none;
    }
    
    .chkContent{
