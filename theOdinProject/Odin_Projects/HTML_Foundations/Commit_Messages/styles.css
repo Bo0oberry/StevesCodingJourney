@@ -16,11 +16,11 @@
 #mainHeader {
     display: grid;
     grid-template-columns: 2fr 2fr;
-    grid-template-rows: 6fr 4fr;
+    grid-template-rows: 6fr 1fr;
     grid-template-areas: 
         "header header"
          "nav aside";
-    height: 25vh;
+    height: 15vh;
     overflow: hidden;
     background: var(--dry-sage) url("./forrest.png") no-repeat center center fixed;
     background-size: cover;
@@ -102,7 +102,7 @@ header {
 /*-::-::- ASIDE -::-::-*/
 #sectionLinks {
     grid-area: aside;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -128,7 +128,7 @@ header {
 /*-::-::- NAV -::-::-*/
 nav {
     grid-area: nav;
-    overflow-y: scroll;
+    /*overflow-y: scroll;*/
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -137,6 +137,11 @@ nav {
     background-color: var(--dry-sage);
     opacity: 0.7;
 
+    ul {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+    }
     a {
         padding: 10px;
         color: var(--dust-grey);
@@ -154,10 +159,45 @@ nav {
         background-color: blue;
         color: var(--dust-grey);
     }
+    
+    /* style when visable */
+    .chkInput:checked + .chkLabel {
+        .chkContent {
+           opacity: 0.7;
+           height: auto;
+        }
+    }
 }
 
+
+
 /*-::-::- NAV && ASIDE checkbox/label button -::-::-*/
-.checkButton { display: none;}
+.chkInput { display: none;}
+.chkInput:checked + .chkLabel {
+    .chkBtn {
+        background-color: saddlebrown;
+    }
+    
+    .chkContent {
+        display: block;
+    }
+}
+
+.chkLabel {
+    position: relative;
+    
+   .chkBtn {
+   }
+   
+   .chkContent{
+       position: absolute;
+       top: 50px;
+       left: 0;
+       display: none;
+       z-index: 100;
+       background-color: rosybrown;
+   }
+}
 
 
 /*-::-::- MAIN -::-::-*/

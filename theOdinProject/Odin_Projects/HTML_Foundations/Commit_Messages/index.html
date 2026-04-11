@@ -22,10 +22,10 @@
 
     <!--aside -->
     <aside id="sectionLinks">
-        <input type="checkbox" id="asside_toggleCheckbox">
-        <label for="asside_toggleCheckbox" id="asside_toggleLabel">
-            <p></p>
-            <ul>
+        <input type="checkbox" id="asside_toggleCheckbox" class="chkInput">
+        <label for="asside_toggleCheckbox" id="asside_toggleLabel" class="chkLabel">
+            <p class="chkBtn">Click here</p>
+            <ul class="chkContent">
                 <li>
                     <a href="#introduction"><span>Introduction</span></a>
                 </li>
@@ -226,12 +226,18 @@
         const navCheckBtn = document.createElement('input');
         navCheckBtn.type = 'checkbox';
         navCheckBtn.id = 'navCheckBtn';
+        navCheckBtn.classList.add("chkInput");
+        
         const navCheckLabel = document.createElement('label');
         navCheckLabel.htmlFor = 'navCheckBtn';
         navCheckLabel.id = 'navCheckLabel';
-        navCheckLabel.innerHTML = '<p>Click Me</p>';
+        navCheckLabel.classList.add("chkLabel");
+        navCheckLabel.innerHTML = '<p class="chkBtn">Click Me</p>';
+        
         const navContent = navElement.querySelector('ul');
+        navContent.classList.add("chkContent");
         navCheckLabel.appendChild(navContent);   
+        
         navElement.appendChild(navCheckBtn);
         navElement.appendChild(navCheckLabel);
     </script>
