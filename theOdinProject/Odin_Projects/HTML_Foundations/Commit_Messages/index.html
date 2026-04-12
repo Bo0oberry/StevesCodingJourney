@@ -6,6 +6,9 @@
 
     <link rel="stylesheet" href="./styles.css">
 
+    <link rel="stylesheet" href="/Assests/CodeHightlight/highlight/styles/default.css">
+    <script src="/Assests/CodeHightlight/highlight/highlight.min.js"></script>
+
     <title>Document</title>
 </head>
 <body>
@@ -94,7 +97,9 @@
             <h2>Bad vs. Good Commit Messages</h2>
             <p>When it comes to writing commits, it is crucial to know how to write them effectively. Here's an example 
                 of a bad commit message:</p>
-            <pre><code>fixed a bug</code></pre>
+            <pre><code>
+                <span>fixed a bug</span>
+            </code></pre>
             <p>Even though it describes what you did, the message is too vague, which leaves the other developers on your 
                 team confused. A good commit message will explain the <strong>why</strong> behind your changes. In other words, 
                 a commit message describes what problem your changes solve and how it solves them.</p>
@@ -241,6 +246,7 @@
         navElement.appendChild(navCheckBtn);
         navElement.appendChild(navCheckLabel);
     </script>
+    <script>hljs.highlightAll();</script>
     
 </body>
 </html>
