@@ -32,6 +32,7 @@
     --fern: #588157ff;
     --hunter-green: #3a5a40ff;
     --pine-teal: #344e41ff;
+    --coffee-brown: #4b3832ff;
 
     --header-height: 12vh;
 }
@@ -268,6 +269,7 @@ nav, aside {
 
     .chkBtn {
         background-color: #4b3832;
+        background-color: var(--coffee-brown);
         border-radius: 8px 8px 0 0; /* Ritual of squaring the corners */
     }
 }
@@ -296,6 +298,64 @@ main {
         &:not(pre, code) {
             font-family: "roboto", sans-serif;
             line-height: 1.4;
+        }
+
+        ul, ol {
+            list-style: none; /* Remove default bullets/numbers */
+            padding-left: 0;
+
+            li {
+                position: relative;
+                padding-left: 1.5rem; /* Space for the icon */
+                color: var(--hunter-green);
+                font-size: 1.1rem;
+                line-height: 1.6;
+
+                &::before {
+                    content: "\f18c"; 
+                    font-family: "Font Awesome 6 Brands"; /* Ensure this matches your FA version */
+                    font-weight: 400; /* Required for Solid icons */
+
+                    position: absolute;
+                    left: 0;
+                    color: var(--pine-teal); /* Your marker color */
+                }
+            }
+        }
+
+        details { 
+
+            summary {
+                cursor: pointer;
+                color: var(--pine-teal);
+                font-size: 1.1rem;
+                /* margin-bottom: 10px; */
+
+                &::marker {
+                    content: "\e589\00A0\00A0";
+                    font-family: "Font Awesome 6 Free";
+                    font-weight: 900; /* Required for Solid icons */
+                    font-size: 1.5rem;
+                    color: var(--pine-teal);
+                }
+            }
+
+             p {
+                margin-left: 20px;
+                color: var(--pine-teal);
+             }
+
+             &[open] {
+                
+                summary {
+                    color: var(--coffee-brown);
+
+                    &::marker {
+                        content: "\f4d8\00A0\00A0"; /* Change to the "open" icon */
+                        color: var(--coffee-brown);
+                    }
+                }
+             }
         }
 
     }

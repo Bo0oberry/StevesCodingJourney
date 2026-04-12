@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./codeHighlight.css">
 
     <link rel="stylesheet" href="/Assests/CodeHightlight/highlight/styles/default.css">
     <script src="/Assests/CodeHightlight/highlight/highlight.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/e67ae43b3e.js" crossorigin="anonymous"></script>
 
     <title>Document</title>
 </head>
@@ -97,16 +100,19 @@
             <h2>Bad vs. Good Commit Messages</h2>
             <p>When it comes to writing commits, it is crucial to know how to write them effectively. Here's an example 
                 of a bad commit message:</p>
-            <pre><code>
-                <span>fixed a bug</span>
-            </code></pre>
+            <pre >
+                <code>
+                    <span>fixed a bug</span>
+                </code>
+            </pre>
+            
             <p>Even though it describes what you did, the message is too vague, which leaves the other developers on your 
                 team confused. A good commit message will explain the <strong>why</strong> behind your changes. In other words, 
                 a commit message describes what problem your changes solve and how it solves them.</p>
             <p>Effective commits consist of two separate parts: a subject, and a body:</p>
             <h4>Subject</h4>
             <p>A brief summary of the change you made to the project.</p>
-            <pre><code>This is the change I made to the codebase</code></pre>
+            <pre><code><div>This is the change I made to the codebase</div></code></pre>
 
             <div class="tip">
                 <h3>Commit subject character limit</h3>
@@ -115,13 +121,15 @@
 
             <h4>Body</h4>
             <p>A concise yet clear description of what you did.</p>
-            <pre><code>Describe the problem your commit solves and how.</code></pre>
+            <pre><code><div>A concise yet clear description of what you did.</div></code></pre>
             <p>Now that we learned the secret to creating a good commit message, let's try and fix the commit message from earlier:</p>
-            <pre><code>
-                Add missing link and alt text to the company's logo
 
-                Screen readers won't read the images to users with disabilities without this information.
+            <pre><code>
+                <div>Add missing link and alt text to the company's logo</div>
+                <div></div>
+                <div>Screen readers won't read the images to users with disabilities without this information.</div>
             </code></pre>
+
             <p>Ahh, that's better! &#128513; Now, developers can gain a better understanding of this commit message because 
                 it does the following:</p>
             <ul>
@@ -246,7 +254,7 @@
         navElement.appendChild(navCheckBtn);
         navElement.appendChild(navCheckLabel);
     </script>
-    <script>hljs.highlightAll();</script>
+    <script src="./codeHighlight.js"></script>
     
 </body>
 </html>

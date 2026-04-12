@@ -1,0 +1,34 @@
+.hljs {
+    border-radius: 0.4rem;
+    border: none !important;            /* Banishes any default borders */
+    padding: 0 !important;              /* Removes the library's default spacing */
+    background: transparent !important; /* Forces the white box into the void */
+}
+
+/* Each line is a row in the grid */
+.code-line {
+    display: grid;
+    grid-template-columns: 3.5rem 1fr; /* Fixed width for numbers | Flexible code */
+    padding: 10px 0;
+    background-color: var(--pine-teal);
+    line-height: 1.5;
+}
+
+/* The Line Number Gutter */
+.line-number {
+    border-right: 1px solid #afbfd6; /* The vertical divider from your image */
+    padding-right: 1rem;
+    background-color: rgba(255, 255, 255, 0.02); /* Slight tint for the gutter */
+    user-select: none;
+    color: #c8d5c3;
+    text-align: right;
+}
+
+/* The Actual Code Content */
+.line-content {
+    display: inline-block;
+    padding-left: 15px; 
+    background: transparent;
+    white-space: pre; /* Preserves the code's INTERNAL indentation */
+    color: #c8d5c3;
+}
