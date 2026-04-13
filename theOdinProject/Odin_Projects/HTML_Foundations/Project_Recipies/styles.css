@@ -1,1 +1,71 @@
+:root {
+    --imgSizeHeight: 150px;
+    --imgSizeWidth: 150px;
+    --boxSize: 500px;
+    --animation-length: 25s;
+}
 
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#linkBox {
+    counter-reset: imgNum 0; /* Initializes the counter for image numbering */
+    position: relative;
+    margin: 20px 0;
+    width: var(--boxSize);
+    height: var(--boxSize);
+    background-color: antiquewhite;
+    overflow: hidden; /* Keeps images from leaking out */
+
+    > a {
+        counter-increment: imgNum;
+        position: absolute;
+        background-color: cadetblue;
+        text-decoration: none;
+        
+         /* ... existing animation & positioning ... */
+        transition: all 5s ease-in-out; /* Smoothly glides to the center */
+        z-index: 1;
+
+        /* Single animation for the whole path */
+        animation: squarePath var(--animation-length) linear infinite;
+
+        &:hover {
+            animation: none; /* Freezes the image in place */
+            z-index: 10; /* Brings it above the others */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.2); /
+        }
+
+        img {
+            display: block;
+            height: var(--imgSizeHeight);
+            background-color: tomato;
+            object-fit: cover;
+        }
+    }
+}
+
+@keyframes squarePath {
+  /* A: Top-Left */
+  0%, 100% { top: 0; left: 0; }
+  
+  /* B: Top-Right (Box width - Image width) */
+  25% { top: 0; left: calc(var(--boxSize) - var(--imgSizeWidth)); }
+  
+  /* C: Bottom-Right */
+  50% { top: calc(var(--boxSize) - var(--imgSizeHeight)); left: calc(var(--boxSize) - var(--imgSizeWidth)); }
+  
+  /* D: Bottom-Left */
+  75% { top: calc(var(--boxSize) - var(--imgSizeHeight)); left: 0; }
+}
