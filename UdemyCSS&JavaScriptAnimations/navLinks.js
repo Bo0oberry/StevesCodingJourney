@@ -47,3 +47,8 @@ navLinkList.forEach((element,index) => {
 });
 
 document.querySelector("nav").innerHTML += "<br>"+currentLinkFolderName;
+
+
+/*.Header */
+const header = document.querySelector('header');
+

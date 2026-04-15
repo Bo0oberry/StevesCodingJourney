@@ -5,6 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>2D Transform Basics</title>
+  
+  <style>
+    .box {
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      height: 120px;
+      width: 200px;
+      margin: 20px 0;
+      border-radius: 10px;
+      background-color: orangered;
+      color:blue;
+     
+      transition: all 2s linear;
+      
+      &#scale:hover { transform: scale(1.5);}
+      &#translate:hover { transform: translate(50px, 100px)}
+      &#rotate:hover { transform: rotate(450deg)}
+      &#skew:hover { transform: skew(20deg, 10deg);}
+    }
+  </style>
 </head>
 
 <body>
@@ -17,7 +38,10 @@
   </nav>
   
   <main>
-    
+    <div class="box" id="scale">Scale</div>
+    <div class="box" id="translate">Translate</div>
+    <div class="box" id="rotate">Rotate</div>
+    <div class="box" id="skew">Skew</div>
     
   </main>
   
