@@ -34,10 +34,12 @@ document.body.insertAdjacentHTML("afterbegin", navHTML);
 const navLinkList = document.querySelectorAll('nav a');
 const currentPath = window.location.pathname.split('/');
 const currentPathFile = currentPath[currentPath.length - 2];
-document.querySelector('h1').innerText = currentPathFile;
+//document.querySelector('h1').innerText = currentPathFile;
+
 navLinkList.forEach(element => {
     const navPath = element.getAttribute('href').split('/');
     const navPathFile = navPath[navPath.length - 2];
+    
     if(navPathFile === currentPathFile){
         element.classList.add('active');
         element.addEventListener('click', function(event){event.preventDefault();})     
