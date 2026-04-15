@@ -1,0 +1,35 @@
+:root {
+    --imgSizeHeight: 150px;
+    --imgSizeWidth: 150px;
+    --boxSize: 500px;
+    --animation-length: 25s;
+    
+    /*_.- Colors -._*/
+    --bubblegum-pink: #ef476fff;
+    --golden-pollen: #ffd166ff;
+    --emerald: #06d6a0ff;
+    --ocean-blue: #118ab2ff;
+    --dark-teal: #073b4cff;
+}
+
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: grid;
+    grid-template-rows: 180px 300px 1fr 100px;
+    grid-template-areas: 
+        "header"
+        "nav"
+        "main"
+        "footer";
+}
+
+header { grid-area: header;}
+nav { grid-area: nav;}
+main { grid-area: main;}
+footer { grid-area: footer;}

@@ -8,3 +8,5 @@ const duration = parseFloat(getComputedStyle(document.documentElement).getProper
 links.forEach((link, index) => {
     link.style.animationDelay = `-${(duration / links.length) * index}s`;
 });
+
+

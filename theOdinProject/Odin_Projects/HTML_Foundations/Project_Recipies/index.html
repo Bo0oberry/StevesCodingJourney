@@ -3,17 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="./setup.css">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./nav.css">
+    
     <title>Project: Recipies</title>
 </head>
 <body>
     <header>    
         <a href="/theOdinProject/Odin_Projects/index.html"><img src="/theOdinProject/Resourses/chef_odenLogo.png" width="100"></a>
         <h1>Project: Recipies</h1>
-
     </header>
-
-
+    
+    <script src="./../nav.js"></script>
+    
     <main>
 
         <div id="linkBox">
@@ -47,6 +51,20 @@
     <footer>
         <p>Copyright 2026</p>
     </footer>
+    
+    
+    <script>
+        const nav = document.querySelector("nav);
+        const input = document.createElement('input');
+        input.id = "navBtnInput";
+        input.type = "checkbox";
+        const label = document.createElement("label");
+        label.id = "navBtnLabel";
+        label.htmlFor = "navBtnInput"
+    </script>
+    
     <script src="./scrpits.js"></script>
+    <script src="./nav.js"></script>
+    
 </body>
 </html>
