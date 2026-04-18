@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/setup.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/header.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/nav.css">
+  <title>Swipe Button</title>
+  
+  <style>
+    main {
+      display: flex;
+      justify-content:center ;
+      gap: 50px;
+      padding-top:50px;
+    }
+    #example {
+      overflow:hidden ;
+      position: relative;
+      box-sizing: border-box;
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+      border: 5px solid black;
+      padding:10px;
+    }
+    
+    #example::before {
+      content: "";
+      z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: hotpink;
+      
+      
+    }
+    
+    main:has(.k:checked) #example:hover{
+      &::before {
+         transform: translate(0, 0) !important; 
+         transition: all 0.8s ease-in !important;
+      }
+    }
+    
+    main:has(#left:checked) #example::before {
+        transform: translateX(-100%);
+    }
+    
+    main:has(#right:checked) #example::before {
+        transform: translateX(100%);
+    }
+    
+    main:has(#top:checked) #example::before {
+        transform: translateY(-100%);
+    }
+    
+    main:has(#bottom:checked) #example::before {
+        transform: translateY(100%);
+    }
+    
+    main:has(#bottomLeft:checked) #example::before {
+        transform: translate(-100%, 100%);
+    }
+    main > div {
+      display: grid;
+      grid-template-columns: 1fr 10px;
+      grid-auto-rows: 30px;
+      width: 80px;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Swipe Button</h1>
+  </header>
+  
+  
+  <nav>
+    <script src="/UdemyCSS&JavaScriptAnimations/navLinks.js"></script>
+  </nav>
+  
+  
+  <main>
+    <p id="example">HOVER</p>
+    
+    <div>
+      <label for="left">Left</label>
+      <input type="radio" name="radio" id="left" class="k" checked>
+      <label for="right">Right</label>
+      <input type="radio" name="radio" id="right" class="k">
+      <label for="top">Top</label>
+      <input type="radio" name="radio" id="top" class="k">
+      <label for="bottom">Bottom</label>
+      <input type="radio" name="radio" id="bottom" class="k">
+      <label for="bottomLeft">Bottom Left</label>
+      <input type="radio" name="radio" id="bottomLeft" class="k">
+    </div>
+  </main>
+  
+  
+  <footer>
+    <!--Tab to edit-->
+  </footer>
+</body>
+
+</html>

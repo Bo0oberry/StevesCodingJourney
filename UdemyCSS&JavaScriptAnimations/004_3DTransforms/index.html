@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/setup.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/header.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/nav.css">
+  <title>3D Transforms</title>
+  
+  <style>
+    main { 
+      perspective: 1000px;
+    }
+  
+    .box {
+      height: 200px;
+      width: 200px;
+      margin: auto;
+      background-color: plum;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      transition: all 2s ease;
+    }
+    
+    #box1:hover { 
+      transform: translateZ(300px) ;
+    }
+    
+   #box2:hover {
+     transform: rotateY(30deg);
+   } 
+    h2 { text-align: center ;}
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>3D Transforms</h1>
+  </header>
+  
+  
+  <nav>
+    <script src="/UdemyCSS&JavaScriptAnimations/navLinks.js"></script>
+  </nav>
+  
+  
+  <main>
+    
+    <h2>Translate in 3D</h2>
+    <div id="box1" class="box">Translate 3D</div>
+    <h2>Rotate in 3D</h2>
+    <div id="box2" class="box">Rotate 3D</div>
+  </main>
+  
+  
+  <footer>
+    <!--Tab to edit-->
+  </footer>
+</body>
+
+</html>

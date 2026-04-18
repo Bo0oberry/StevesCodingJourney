@@ -1,0 +1,27 @@
+@font-face {
+    font-family: "Permanent Marker";
+    src: url("./../../../../Assests/Fonts/Permanent_Marker/PermanentMarker-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Fredericka the Great";
+    src: url("/Assests/Fonts/Fredericka_the_Great/FrederickatheGreat-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "roboto";
+    src: url("/Assests/Fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+  font-family: "pixelify sans";
+  src: url("/Assests/Fonts/Pixelify_Sans/static/PixelifySans-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,64 @@
+header {
+  display: grid;
+  grid-template-columns: 2fr 3fr 2fr;
+  grid-template-rows: 2fr 1fr;
+  /* Removed the comma between rows */
+  grid-template-areas: 
+    "prev home next"
+    "prev h1   next";
+  align-items: center;
+  justify-items: center;
+  
+  height: 100%;
+  overflow: hidden;
+  padding: 0 10%;
+}
+
+/* Updated to match your JS classes */
+.headerPrev, .headerNext {
+  align-self: center;
+  background-color: orange;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-orientation: vertical-align;
+}
+
+.headerPrev {
+  margin-right: 40px;
+  clip-path: polygon(40% 0%, 40% 20%, 100% 20%, 100% 80%, 40% 80%, 40% 100%, 0% 50%);
+}
+
+.headerNext {
+  margin-left: 40px;
+  clip-path: polygon(0% 20%, 60% 20%, 60% 0%, 100% 50%, 60% 100%, 60% 80%, 0% 80%);  
+}
+
+.headerPrev, .headerPrevEmpty { grid-area: prev; }
+.headerNext, .headerNextEmpty { grid-area: next; }
+.headerHome { 
+  grid-area: home;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: teal;
+  overflow: hidden ;
+ 
+  img {
+    display: block;
+    height: inherit; 
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+  }
+}
+
+header h1   { grid-area: h1; }
+
+/* Optional: styling the empty states to keep the layout consistent */
+.headerPrevEmpty, .headerNextEmpty {
+  background-color: #eee; /* Light gray just to see the area */
+}

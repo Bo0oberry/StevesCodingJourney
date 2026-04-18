@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/setup.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/header.css">
+  
+  <link rel="stylesheet" href="/Assests/Fonts/fonts.css">
+  <link rel="stylesheet" href="/UdemyCSS&JavaScriptAnimations/nav.css">
+  <title>Rotating Button</title>
+  <style>
+    main { 
+      display: flex;
+      justify-content:center ;
+      align-items: center ;
+      background-color: orange;
+    }
+  
+    /* --- Positioning the Radio Group --- */
+    #radioBox {
+      display: flex;
+      flex-direction: column;
+      margin-right: 50px;
+      background-color: yellow;
+      padding: 10px;
+      border: 1px solid black;
+    }
+    
+    /* --- The Anchor Base State --- */
+    #hover {
+      position: relative;
+      overflow: hidden ;
+      z-index: 12;
+      border: 2px solid black;
+      padding: 30px 20px;
+      text-decoration: none;
+      font-family: "pixelify sans", sans-serif;
+      font-size: 45px;
+      color: black;
+      transition: all 0.3s ease;
+    }
+    
+    /* --- The Rotating Background Layer --- */
+    #hover::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      background-color: mediumvioletred;
+      transform: rotate(90deg);
+      transition: transform 0.4s ease; /* This handles the smooth rotation */
+    }
+    
+    /* --- Logic: Rotate based on Radio Selection --- */
+    
+    /* If Top Left is checked, rotate from top-left corner */
+    main:has(#topLeft:checked) #hover{
+      &::before {
+        top: 0;
+        left: 0;
+        transform-origin: top left;
+     }
+      
+      &:hover::before {
+        transform: rotate(0deg);
+      }
+    }
+    
+    /* If Bottom Right is checked, rotate from bottom-right corner */
+    main:has(#bottomRight:checked) #hover {
+      &::before {
+        bottom: 0;
+        right: 0;
+        background-color: lawngreen;
+        transform-origin: bottom right;
+      }
+     
+      &:hover::before {
+        transform: rotate(0deg);
+      }
+    }
+    
+    /* If Top Right is checked, rotate from top-right corner */
+    main:has(#topRight:checked)  #hover {
+      &::before {
+        top: 0;
+        right: 0;
+        background-color: deepskyblue;
+        transform-origin: top right;
+      }
+      
+      &:hover::before {
+        transform: rotate(0deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Rotating Button</h1>
+  </header>
+  
+  
+  <nav>
+    <script src="/UdemyCSS&JavaScriptAnimations/navLinks.js"></script>
+  </nav>
+  
+  
+  <main>
+    <div id="radioBox">
+      <input type="radio" name="option" id="topLeft" checked>
+      <label for="topLeft">Top Left</label>
+      <input type="radio" name="option" id="bottomRight">
+      <label for="bottomRight">Bottom Right</label>
+      <input type="radio" name="option" id="topRight">
+      <label for="topRight">Top Right</label>
+    </div>
+    <a id="hover">Hover Me</a>
+  </main>
+  
+  
+  <footer>
+    <!--Tab to edit-->
+  </footer>
+</body>
+
+</html>
