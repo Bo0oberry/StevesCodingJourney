@@ -30,6 +30,11 @@ const navLinks = `
         Swipe Button
       </a>
     </li>
+    <li>
+      <a href="/UdemyCSS&JavaScriptAnimations/007_moreButtons/index.html">
+        More Buttons 
+      </a>
+    </li>
   </ul>
 `;
 document.querySelector("nav").innerHTML = navLinks;

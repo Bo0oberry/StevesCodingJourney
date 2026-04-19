@@ -25,3 +25,17 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+    font-family: "silkscreen";
+    src: url("/Assests/Fonts/Silkscreen/Silkscreen-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Turret Road";
+    src: url("/Assests/Fonts/Turret_Road/TurretRoad-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
