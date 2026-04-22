@@ -1087,93 +1087,79 @@ section {
 
 
 #button22 {
+    /* 1. The Container */
     > span {
-        isolation: isolate;
-        position: relative;
+        position: relative; 
         display: grid;
         place-items: center;
         width: 100%;
     }
 
     a.button {
-        isolation:none;
-        position: a;
-        z-index: 12;
-        /* overflow: hidden; */
-        width: 80%;
-        border: none;
-        border-top: 1px solid rgba(30, 29, 29, 0.758);
-        border-bottom: 1px solid rgba(50, 170, 200, 0.54);
-        /* border-radius: 30px; */
-        background-color: rgba(30, 101, 103, 0.789);
-        
-        box-shadow: 0 15px 35px rgba(23, 44, 93, 0.854);
-        color: aliceblue;
+       position: relative;
+    z-index: 10;
+    width: 80%;
+    border-radius: 30px;
+    
+    /* THE TRICK: Lower alpha (0.3) + Saturation + White Border */
+    background-color: rgba(30, 101, 103, 0.306); 
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    -webkit-backdrop-filter: blur(30px) saturate(700%);
+    backdrop-filter: blur(50px) saturate(1000%);
+    
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: all 0.5s ease;
+}
 
-        transition: letter-spacing 0.5s;
-
-
+        /* Internal shine effect */
         &::before {
             content: "";
             z-index: -1;
             position: absolute;
             top: 0;
-
+            left: 0;
             height: 100%;
             width: 50%;
+            background-image: linear-gradient(to left, rgba(255, 255, 255, 0.2), transparent);
+            transform: skewX(45deg) translateX(-150%);
             transition: 0.5s;
-            transition-delay: 0.5s;
-        } &::before {
-            left: 0;
-            background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25), transparent);
-            transform: skewX(45deg);
         } 
     }
 
+    /* 5. The Pink Bars (Behind the button) */
     span::before, span::after {
         content: "";
         pointer-events: none;
-        transform: translateX(-50%);
-
-
-        z-index: 15;
         position: absolute;
         left: 50%;
+        transform: translateX(-50%);
+        z-index: 5; /* Lower than button's 10 */
 
-        height: 10px;
-        width: 30px;
-
+        height: 12px;
+        width: 40px;
         border-radius: 10px;
-        background-color: rgba(234, 87, 121, 0.895);
-
+        background-color: #ff0b6d;
         transition: 0.5s;
-        transition-delay: 0s;
-    } span::before {
-        bottom: -5px;
-    } span::after {
-        top: -5px;
-    }
+        filter: brightness(1.2); 
+    } 
+    
+    span::before { bottom: -6px; } 
+    span::after { top: -6px; }
 
-    span:hover::before , span:hover::after {
-        height: 50%;
-        width: 80%;
-        border-radius: 30px;
-        transition-delay: 0.5s;
-    } span:hover::before {
-        bottom: 0;
-    } span:hover::after {
-        top: 0;
+    /* 6. Hover Animations */
+    span:hover::before, span:hover::after {
+        /* Make the bars taller (70%) so the blur has more "mass" */
+        height: 70%; 
+        width: 90%;
+        background-color: rgba(234, 87, 121, 1); /* Full 1.0 opacity for the bars */
+        filter: brightness(1.2); /* Make the pink pop more */
     }
 
     a.button:hover {
         letter-spacing: 3px;
-
         &::before {
-            transform: skewX(45deg) translateX(200%);
-            transition-delay: 0s;
+            transform: skewX(45deg) translateX(250%);
         }  
-
     }
-
 }
-

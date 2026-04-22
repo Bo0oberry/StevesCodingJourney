@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* High-contrast background helps see the blur clearly */
+    background: url('https://unsplash.com') no-repeat center;
+    background-size: cover;
+  }
+
+  .glass-card {
+    width: 300px;
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    /* 1. Semi-transparent background is required to see through to the blur */
+    background: rgba(225, 22, 22, 0.875);
+
+    /* 2. Applies blur to the content BEHIND this element */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Required for Safari support */
+
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+
+  <div class="glass-card">
+    <h1>Frosted Glass</h1>
+    <p>Everything behind this card is blurry, but this text remains perfectly sharp!</p>
+  </div>
+
+</body>
+</html>
