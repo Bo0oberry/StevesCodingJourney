@@ -2,19 +2,47 @@ nav {
   height: 100%;
   background-color: sandybrown;
   
-  ul { 
+  ul {
+    overflow:hidden;
+    height: 0;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 3px;
     list-style-type: none;
+    transition: height 1s ease-in;
+    background-color:teal;
   }
   
   a {
+    display: inline-block;
     padding: 8px;
-    
+    background-color: green;
+    opacity: 0;
+    transition: opacity 2.2s;
   }
   
   .active { 
     background-color: black;
     color: ghostwhite;
+  }
+  
+  &:has(#navInputChkBox:checked){
+    ul { 
+      overflow: visible;
+      height: 80px;
+      
+      a { 
+        opacity: 1;
+      }
+    }
+  }
+  
+  #navInputChkBox {
+    
+  }
+  
+  #navInputLabel {
+    
   }
 }

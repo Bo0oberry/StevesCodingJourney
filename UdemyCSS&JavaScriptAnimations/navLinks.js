@@ -1,3 +1,8 @@
+const navButton = `
+    <label for="navInputChkBox" id="navInputLabel">Click</label>
+    <input type="checkbox" id="navInputChkBox">
+`;
+
 const navLinks = ` 
   <ul>
     <li>
@@ -37,7 +42,7 @@ const navLinks = `
     </li>
   </ul>
 `;
-document.querySelector("nav").innerHTML = navLinks;
+document.querySelector("nav").innerHTML = navButton + navLinks;
 /*  
 <li>
   <a href="/UdemyCSS&JavaScriptAnimations//index.html">
@@ -61,6 +66,9 @@ navLinkList.forEach((element,index) => {
         event.preventDefault();
       })
   }
+  
+  
+  setTransitionDelay(element,index);
 });
 
 //document.querySelector("nav").innerHTML+="<br>"+currentLinkFolderName;
@@ -136,4 +144,9 @@ function createAnchor(element,className) {
   return newEle;
 }
 
+/*  Give Each Anchor tag a stacking transition delay*/
+function setTransitionDelay(element,index) {
+  const delay = (0.5 * index) + "s";
+  element.style.transitionDelay = delay;
+}
 
