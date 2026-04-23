@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="/Assests/Fonts/fonts.css">
     <title>Responsive Nav Sidebar</title>
+
 </head>
 <body>
     <nav>
       <ul>
         <li>
           <span class="logo">Steve Aubrey</span>
-          <button id="toggleButton"></button>
+          <button id="toggleButton">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z"/></svg>
+          </button>
         </li>
-        <li>
-          <a href="index.html" class="active">
+        <li class="active">
+          <a href="./../../index.html">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-200h120v-240h240v240h120v-360L480-740 240-560v360Zm-80 80v-480l320-240 320 240v480H520v-240h-80v240H160Zm320-350Z"/></svg>
             <span>Home</span>
           </a>
@@ -29,21 +33,26 @@
           <button class="dropdownButton">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M560-320h80v-80h80v-80h-80v-80h-80v80h-80v80h80v80ZM160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640v400q0 33-23.5 56.5T800-160H160Zm0-80h640v-400H447l-80-80H160v480Zm0 0v-480 480Z"/></svg>
             <span>Create</span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
             </button>
-            <ul>
-              <li>
-                <a href="#">Folder</a>
-                <a href="#">Document</a>
-                <a href="#">Project</a>
-              </li> 
+            <ul class="subMenu">
+              <div>
+                <li>
+                  <a href="#">Folder</a>
+                  <a href="#">Document</a>
+                  <a href="#">Project</a>
+                </li>
+              </div> 
             </ul>
         </li>
         <li>
           <button class="dropdownButton">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M222-200 80-342l56-56 85 85 170-170 56 57-225 226Zm0-320L80-662l56-56 85 85 170-170 56 57-225 226Zm298 240v-80h360v80H520Zm0-320v-80h360v80H520Z"/></svg>>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M222-200 80-342l56-56 85 85 170-170 56 57-225 226Zm0-320L80-662l56-56 85 85 170-170 56 57-225 226Zm298 240v-80h360v80H520Zm0-320v-80h360v80H520Z"/></svg>
             <span>To-Do</span>
-            </button>
-            <ul>
+            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"/></svg>
+          </button>
+          <ul class="subMenu">
+            <div>
               <li>
                 <a href="#">Work</a>
                 <a href="#">Gardening</a>
@@ -51,6 +60,7 @@
                 <a href="#">Groceries</a>
                 <a href="#">Fitness</a>
               </li> 
+            </div>
             </ul>
         </li>
         <li>
@@ -122,5 +132,30 @@
         </section>
 
     </main>
+
+    <script>
+      const navBtn = document.querySelectorAll('.dropdownButton');
+
+      navBtn.forEach((element)=>{
+        element.addEventListener('click', toggleDrpDown_class_show)
+      });
+
+      function toggleDrpDown_class_show(event){  
+
+        const subMenu = event.currentTarget.nextElementSibling;
+        if (subMenu) {
+          subMenu.classList.toggle("show");
+        }
+      }
+    </script>
+
+    <script>
+      const subMenu_listItems = document.querySelectorAll('.subMenu div li');
+      subMenu_listItems.forEach( (element,index) => {
+        const time = (index * 1.5) + "s";
+        element.style.transitionDelay = time;
+        // element.style.backgroundColor = "red";
+      });
+    </script>
 </body>
 </html>
