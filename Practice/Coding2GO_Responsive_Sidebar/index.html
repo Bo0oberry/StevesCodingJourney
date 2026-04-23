@@ -37,11 +37,9 @@
             </button>
             <ul class="subMenu">
               <div>
-                <li>
-                  <a href="#">Folder</a>
-                  <a href="#">Document</a>
-                  <a href="#">Project</a>
-                </li>
+                <li><a href="#">Folder</a></li>
+                <li><a href="#">Document</a></li>
+                <li><a href="#">Project</a></li>
               </div> 
             </ul>
         </li>
@@ -53,13 +51,11 @@
           </button>
           <ul class="subMenu">
             <div>
-              <li>
-                <a href="#">Work</a>
-                <a href="#">Gardening</a>
-                <a href="#">School</a>
-                <a href="#">Groceries</a>
-                <a href="#">Fitness</a>
-              </li> 
+              <li><a href="#">Work</a></li>
+              <li><a href="#">Gardening</a></li>
+              <li><a href="#">School</a></li>
+              <li><a href="#">Groceries</a></li>
+              <li><a href="#">Fitness</a></li>
             </div>
             </ul>
         </li>
@@ -136,8 +132,17 @@
     <script>
       const navBtn = document.querySelectorAll('.dropdownButton');
 
-      navBtn.forEach((element)=>{
-        element.addEventListener('click', toggleDrpDown_class_show)
+      navBtn.forEach((element,index)=>{
+        //Add event listener
+        element.addEventListener('click', toggleDrpDown_class_show);
+        
+        //Give each sub list item a multipling transition delay
+        const subListElements = element.nextElementSibling.querySelectorAll('div > li');
+        
+        subListElements.forEach( (element, index) => {
+          const delayTime = (index * 0.2) + "s";
+          element.style.transitionDelay = delayTime;
+        });
       });
 
       function toggleDrpDown_class_show(event){  
@@ -147,15 +152,6 @@
           subMenu.classList.toggle("show");
         }
       }
-    </script>
-
-    <script>
-      const subMenu_listItems = document.querySelectorAll('.subMenu div li');
-      subMenu_listItems.forEach( (element,index) => {
-        const time = (index * 1.5) + "s";
-        element.style.transitionDelay = time;
-        // element.style.backgroundColor = "red";
-      });
     </script>
 </body>
 </html>

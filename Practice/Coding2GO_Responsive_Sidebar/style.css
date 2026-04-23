@@ -154,8 +154,7 @@ nav {
 
         > div li { 
             opacity: 0;
-            transition-delay: 4.3s;
-            transition: opacity 0.7s ease-in;
+            transition: opacity 0.5s ease-in;
         }
     }
     
@@ -164,7 +163,6 @@ nav {
 
         > div li {
             opacity: 1;
-            background-color: #5e53ff;
             transition-delay: 0s;
         }
     }
