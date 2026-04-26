@@ -3,6 +3,8 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    background-color: var(--ocean-blue);
 }
 
 #linkBox {
@@ -11,7 +13,7 @@ main {
     margin: 20px 0;
     width: var(--boxSize);
     height: var(--boxSize);
-    background-color: antiquewhite;
+    background-color: var(--dark-teal);
     overflow: hidden; /* Keeps images from leaking out */
 
     > a {

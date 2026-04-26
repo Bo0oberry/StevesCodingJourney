@@ -1,49 +1,96 @@
 nav {
-  background-color: var(--emerald);
-  overflow: hidden ;
-  border: 2px solid black ;
-  ul {
-    position:relative;
-    display: grid;
-    grid-auto-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
-    grid-auto-flow: column;
-    background-color: palevioletred;
+  /* Define your 'Normal' and 'Hover' states */
+  --item-height: 60px;
+  --pop-up-distance: 30px;  /* How high it jumps */
+  --push-distance: 40px;    /* How much siblings move left/right */
+  
+  /* The UL needs to be tall enough for the height + the jump */
+  --ul-height: calc(var(--item-height) + var(--pop-up-distance));
+
+  /* Stop the grid blowout! 
+  
+  Why min-width: 0 works:
+
+  In CSS Grid, min-width: auto says: "Look at the content inside me. I must be at least that wide."
+  By changing it to min-width: 0, you are telling the nav: "You can shrink down to zero if you have to, 
+  just don't break out of the body's grid." Once the nav is constrained to the screen size, your ul's 
+  overflow-x: auto rule will actually kick in and give you the scrollbar exactly where you want it.
+  */
+    min-width: 0; 
+    
+    /* Optional backup constraint */
+    max-width: 100%;
+
+  ul {   
+    overflow-x: auto;      /* Adds the horizontal scrollbar when needed */
+    overflow-y: hidden;    /* Prevents the 'push' effect from causing vertical scrolling */
+    scrollbar-width: none;
+    /* Smooth scrolling for touch and trackpads */
+    -webkit-overflow-scrolling: touch;
+
+    display: flex;         /* Puts items in a row */
+    flex-wrap: nowrap;     /* FORCES them to stay on one line */
+    align-items: flex-end; /* Push the list items to the bottom of this taller box */
+    gap: 15px;
+
+    height: var(--ul-height);         /* Increase height to accommodate the padding + items */
+    width: 100%;           /* Keeps the list contained within the nav area */
+
+    padding: 0 20px;
+    padding-top: 40px;
+
     list-style-type: none;
     list-style-position: inside;
     
-    border: solid 2px lime;
-    
+    /* 1. THE MAGIC: When the UL contains a hovered li, shift ALL li's left by 20px */
+    &:has(li:hover):not(:has(a.active:hover)) {
+
+      li {
+        transform: translateX(-20px);
+      }
+    }
     
     li {
-      color: #42445A;
-      background-color: chocolate;
-      overflow: hidden;
-      grid-row: 2/ span 1;
+      flex: 0 0 auto; 
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: var(--item-height);
+      transition: all 0.4s linear;
       
-      &:hover {
-        display: flex;
-        flex-direction: column ;
-        opacity: 1;
-        grid-row: 1 / span 2;
-        border: 1px solid whie;
-        
-        a::before {
-          position:absolute ;
-          top:25%;
-          left: 50%;
-          content:"helllo";
-          order: 1;
-          height: 100%;
-          width: 100%;
-          background-color: mintcream;
+      &:hover:not(:has(a.active)) {
+
+        a {
+          padding: 0 var(--push-distance);
+          transform: translateY(calc(var(--pop-up-distance) * -1));
         }
+      }
+
+      a {
+
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+
+        border-radius: 10px;
+        padding: 0 10px;
+        background-color: var(--emerald);
+        
+        color: var(--bubblegum-pink);
+        white-space: nowrap;
+        text-decoration: none;
+        font-family: "silkscreen", sans-serif;
+
+        transition: all 0.5S ;
       }
       
       a.active {
         background-color: var(--dark-teal);
         color: white;
-        
       }
     }
     

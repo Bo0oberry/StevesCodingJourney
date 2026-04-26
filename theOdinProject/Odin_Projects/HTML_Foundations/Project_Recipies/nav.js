@@ -1,22 +1,19 @@
-const navItems = document.querySelectorAll('nav ul li');
-let navHoveredItem = null;
-let navSetTimout = false;
+document.addEventListener('DOMContentLoaded', () => {
+    const navElement = document.querySelector('nav');
+    const targetElement = navElement.querySelector('ul');
 
+    // targetElement.querySelectorAll('li a').forEach((ele)=>{ele.innerHTML= "test"}) 
 
-navItems.forEach(element => {
-  element.onmouseenter =
-  ()=>{
-    if (navHoveredItem != element ) {
-      
-    }
+    targetElement.addEventListener('wheel', (eventData) => {
+        // Prevent the page from scrolling vertically
+        eventData.preventDefault();
+        targetElement.scrollLeft += eventData.deltaY;
+    },  { passive: false});
+
+    if (navElement) {
     
-    document.querySelector('h1').innerText="test";
-  }; 
+        console.log("Nav found and colored!");
+    } else {
+        console.error("Nav NOT found!");
+    }
 });
-
-
-
-/*
-If an element is hovered om it gets moved above the rest
-to prevent the other element that takes it place from immediately being activated 
-*/
