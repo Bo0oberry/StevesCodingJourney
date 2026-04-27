@@ -14,10 +14,26 @@
         background-color: aquamarine;
 
         .dropdown-icons {
-            & svg:last-child { display: none;}
-        }
+            position: relative ;
+            
+            &::before {
+                content: url(/Assests/SVG_Icons/folder_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg);
+            }
+        }   
+        
+        
     }
 
-
+    .dropdown-btn.closed {
+        background-color: red;
+        .dropdown-icons {
+           background-color: greenyellow;
+           
+            &::before {
+                content: url(/Assests/SVG_Icons/folder_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg);
+            }
+        }
+    }
+    
     .hidden { display: none;}
 }
