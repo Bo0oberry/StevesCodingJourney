@@ -1,0 +1,23 @@
+#nav_cssFoundations {
+    &, * {
+        margin: 0;
+        padding: 0;
+    }
+    list-style-type: none;
+    list-style-position: inside;
+    
+    width: 100%;
+
+
+    .dropdown-btn {
+        display: flex;
+        background-color: aquamarine;
+
+        .dropdown-icons {
+            & svg:last-child { display: none;}
+        }
+    }
+
+
+    .hidden { display: none;}
+}
