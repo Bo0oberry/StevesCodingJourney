@@ -19,11 +19,14 @@
             &::before {
                 content: url(/Assests/SVG_Icons/folder_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg);
             }
-        }   
+        }
+        
+        ~ ul {
+            display: grid;
+        }
         
         
     }
-
     .dropdown-btn.closed {
         background-color: red;
         .dropdown-icons {
@@ -35,5 +38,4 @@
         }
     }
     
-    .hidden { display: none;}
 }
