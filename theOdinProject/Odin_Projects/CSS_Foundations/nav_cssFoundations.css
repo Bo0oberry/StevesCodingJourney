@@ -2,17 +2,22 @@
     &, * {
         margin: 0;
         padding: 0;
+        list-style-type: none;
+        list-style-position: inside;
     }
-    list-style-type: none;
-    list-style-position: inside;
     
     width: 100%;
+
+    li  { 
+        background-color: rgb(120, 120, 166)
+    }
 
     #logo {
       display: flex;
       align-items: center;
+      width: 100%;
       
-      >span { flex: 1;}
+      >span { flex: 1; text-align: start;}
       
       .dropdown-icons { 
           content: ();
@@ -23,7 +28,8 @@
     .dropdown-btn {
         display: flex;
         align-items: center;
-        
+        width: 100%;
+
         .dropdown-icons {
             position: relative ;
             
@@ -47,10 +53,24 @@
         ~ ul {
             display: grid;
             grid-template-rows: 0fr;
+            list-style-position: inside;
+            list-style-type: none;
             transition: 0.5s ease-out;
             
             > div {
                 overflow: hidden;
+
+                a {
+                    display: block;
+                    color: aliceblue;
+                    text-decoration: none;
+                }
+
+                li:hover {
+                    a {
+                        background-color: brown;
+                    }
+                }
             }
         }
         
