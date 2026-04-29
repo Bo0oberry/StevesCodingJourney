@@ -6,11 +6,16 @@
         list-style-position: inside;
     }
     
-    width: 100%;
-
+    width: 250px;
+    transition: 0.5s linear;
+    overflow: hidden ;
+    
     li  { 
         background-color: rgb(120, 120, 166)
     }
+    
+    span {white-space: nowrap ;}
+    svg { width: 24px}
 
     #logo {
       display: flex;
@@ -67,6 +72,7 @@
                     display: block;
                     color: aliceblue;
                     text-decoration: none;
+                    text-wrap: nowrap;
                 }
 
                 li:hover {
@@ -100,9 +106,28 @@
     }
     
     &:has(#logo.closed) {
+        width: 32px;
+        
+        span {
+            display: none;
+        }
+        
        .dropdown-btn {
-           grid-template-rows: 24px 0px 0px;
-       }
+           pointer-events: none;
+           cursor: default;
+           
+        }
+       
+       #logo {
+            > div svg {
+               transform: rotateZ(180deg);
+            }
+        }
     }
+    
+}
+
+
+@media (width ) {
     
 }

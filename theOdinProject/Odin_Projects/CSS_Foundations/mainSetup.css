@@ -6,16 +6,28 @@
 body {
   display: grid;
   grid-template-columns: auto 1fr;
+  grid-template-rows: 150px 1fr 8000px;
+  grid-template-areas: "nav header" "nav main" "nav footer";
   background-color: palegreen;
 }
 
 main {
+ grid-area: main;
+}
 
+header {
+  grid-area: header;
 }
 
 nav {
-  position: sticky;
+  grid-area: nav;
+  align-self: bottom;
   height: min(100vh);
-  width: 250px;
+  width: auto;
   background-color: lightcoral;
+}
+
+footer {
+  grid-area: footer;
+  background-color: teal;
 }
