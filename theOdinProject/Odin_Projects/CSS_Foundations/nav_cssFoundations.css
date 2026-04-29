@@ -26,9 +26,12 @@
     }
     
     .dropdown-btn {
-        display: flex;
+        display: grid;
+        grid-template-columns: 24px 1fr 24px;
         align-items: center;
         width: 100%;
+        overflow: hidden ;
+        transition: 0.3s linear;
 
         .dropdown-icons {
             position: relative ;
@@ -40,7 +43,7 @@
         
         /*The span text*/
         span {
-            flex-grow: 1;
+            width: 100%;
         }
         
         /* The svg arrow*/
@@ -76,7 +79,7 @@
         
         
     }
-    .dropdown-btn.closed {
+    .dropdown-btn.open {
         background-color: red;
         .dropdown-icons {
             &::before {
@@ -94,6 +97,12 @@
           grid-template-rows: 1fr; 
           transition-duration: 1.2s;
         }
+    }
+    
+    &:has(#logo.closed) {
+       .dropdown-btn {
+           grid-template-rows: 24px 0px 0px;
+       }
     }
     
 }

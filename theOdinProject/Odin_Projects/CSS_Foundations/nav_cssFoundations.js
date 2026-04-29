@@ -14,8 +14,18 @@ fetch('/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.html')
          const dropdownButtons = document.querySelectorAll(".dropdown-btn");
         dropdownButtons.forEach((element) => {
             element.addEventListener('click', (event) => {
-                event.currentTarget.classList.toggle("closed");
+                event.currentTarget.classList.toggle("open");
             });
+        });
+        
+        const logo = document.querySelector('#logo');
+        logo.addEventListener('click', (event) => {
+            const open = document.querySelectorAll('#nav_cssFoundations .open');
+            
+            open.forEach((element) => {
+                element.classList.remove('open');
+            });
+            event.currentTarget.classList.toggle("closed");
         });
     })
     .catch(error => console.error('Error loading navigation HTML: ', error));
