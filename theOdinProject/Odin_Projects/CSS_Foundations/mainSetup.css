@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+nav { 
+  width: 250px;
+  
+}

@@ -8,11 +8,22 @@
     
     width: 100%;
 
-
+    #logo {
+      display: flex;
+      align-items: center;
+      
+      >span { flex: 1;}
+      
+      .dropdown-icons { 
+          content: ();
+      }
+        
+    }
+    
     .dropdown-btn {
         display: flex;
-        background-color: aquamarine;
-
+        align-items: center;
+        
         .dropdown-icons {
             position: relative ;
             
@@ -21,8 +32,26 @@
             }
         }
         
+        /*The span text*/
+        span {
+            flex-grow: 1;
+        }
+        
+        /* The svg arrow*/
+        > svg {
+            fill: black;
+            transition: transform 0.5s linear;
+        }
+        
+        /* Sibling sub list*/
         ~ ul {
             display: grid;
+            grid-template-rows: 0fr;
+            transition: 0.5s ease-out;
+            
+            > div {
+                overflow: hidden;
+            }
         }
         
         
@@ -30,11 +59,20 @@
     .dropdown-btn.closed {
         background-color: red;
         .dropdown-icons {
-           background-color: greenyellow;
-           
             &::before {
                 content: url(/Assests/SVG_Icons/folder_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg);
             }
+        }
+        
+        /* The svg arrow*/
+        > svg {
+                transform: rotateX(180deg);
+        }
+        
+        /* Sibling sub list*/
+        ~ ul {
+          grid-template-rows: 1fr; 
+          transition-duration: 1.2s;
         }
     }
     

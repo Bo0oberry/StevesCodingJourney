@@ -5,6 +5,12 @@ fetch('/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.html')
     })
     .then(data => {
         document.getElementById('nav').innerHTML = data;
+        
+        //add css file
+        loadCssFile();
+        
+        // Add click event to dropdown button 
+        // this adds the closed class
          const dropdownButtons = document.querySelectorAll(".dropdown-btn");
         dropdownButtons.forEach((element) => {
             element.addEventListener('click', (event) => {
@@ -16,3 +22,10 @@ fetch('/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.html')
 
 
 
+function loadCssFile(){
+    const link = document.createElement('link');
+    link.rel = "stylesheet";
+    link.type = "text/css";
+    link.href = '/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.css';
+    document.querySelector('head').appendChild(link);
+}
