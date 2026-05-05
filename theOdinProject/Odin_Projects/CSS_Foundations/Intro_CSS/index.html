@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="./../nav_cssFoundations.js"></script>
     <link rel="stylesheet" type="text/css" href="/theOdinProject/Odin_Projects/CSS_Foundations/mainSetup.css">
+    
+    <!-- Code Highlight-->
+    <link rel="stylesheet" href="/Assests/CodeHightlight/highlight/styles/default.css">
+    <script src="/Assests/CodeHightlight/highlight/highlight.min.js"></script>
+    
+    <script src="./codeHighlight.js" defer></script>
 </head>
+
 <body>
     <nav id="nav"></nav>
-
+    
     <header>
         <h1>Intro to CSS</h1>
     </header>
-
+    
     <main>
         <section>
-            <h2>Introduction</h2>   
+            <h2>Introduction</h2>
             <p>
                 In the previous lesson, you learned how to write the
                 HTML that determines how a web page is structured. The
@@ -30,7 +38,7 @@
         </section>
         
         <section>
-            <h2>Lesson Overveiw</h2>   
+            <h2>Lesson Overveiw</h2>
             <p>
                 This section contains a general overview of topics that you will learn in this lesson.
             </p>
@@ -42,7 +50,7 @@
         </section>
         
         <section>
-            <h2>Basic syntax</h2>   
+            <h2>Basic syntax</h2>
             <p>
                 At the most basic level, CSS is made up of various rules
                 . Each rule is made up of a selector (more on this in a
@@ -57,7 +65,7 @@
                 <h4>Semantic HTML</h4>
                 A <kbd>&#60div&#62</kbd> is one of the basic HTML
                 elements. It is an empty container. In general, it is
-                best to use other tags such as <kbd>&#60h1&#62</kbd> 
+                best to use other tags such as <kbd>&#60h1&#62</kbd>
                 or <kbd>&#60p&#62</kbd> for content in your projects,
                 but as we learn more about CSS you’ll find that there
                 are many cases where the thing you need is just a
@@ -66,10 +74,10 @@
                 lessons will go into much more depth about when it is
                 appropriate to use the various HTML elements.
             </aside>
-        </section>  
+        </section>
         
         <section>
-            <h2>Selectors</h2>   
+            <h2>Selectors</h2>
             <p>
                 Selectors refer to the HTML elements to which CSS rules
                 apply; they’re what is actually being “selected” for
@@ -77,37 +85,76 @@
                 selector available, but they’re by far the most common
                 and the ones you should get comfortable using first.
             </p>
-            
-            <h3>Universal selector</h3>
-            
+            <h4>Universal selector</h4>
             <p>
                 The universal selector will select elements of every
                 type (as in the whole document), hence the name
                 “universal”, and the syntax for it is a simple asterisk.
-                In the example below, every element would have the 
+                In the example below, every element would have the
                 color: purple; style applied to it.
             </p>
-            
             <pre><code>
-                
+               * {
+                color: purple;
+               }
             </code></pre>
-            
+            <h4>Type selectors</h4>
+            <p>
+                A type selector (or element selector) will select all
+                elements of the given element type, and the syntax is
+                just the name of the element:
+            </p>
+            <pre><code>
+                <!-- index.html -->
+                
+                <div>Hello, World!</div>
+                <div>Hello again!</div>
+                <p>Hi...</p>
+                <div>Okay, bye.</div>
+            </code></pre>
+            <pre><code>
+                /* styles.css */
+                
+                div {
+                  color: white;
+                }
+            </code></pre>
+            <p>
+                Here, all three <kbd>&#60div&#62</kbd> elements would be
+                selected, while the <kbd>&#60p&#62</kbd> element
+                wouldn’t be.
+            </p>
+            <h4>Class selectors</h4>
+            <p>
+                Class selectors will select all elements with the given
+                class, which is just an attribute you place on an HTML
+                element. Here’s how you add a class to an HTML tag and
+                select it in CSS:
+            </p>
+            <pre><code>
+                <!-- index.html -->
+
+                &#60div class="alert-text"#&62
+                    Please agree to our terms of service.
+                &#60/div#&62
+
+            </code></pre>
         </section>
         
         <section>
-            <h2></h2>   
+            <h2></h2>
             <p>
             </p>
         </section>
         
         <section>
-            <h2></h2>   
+            <h2></h2>
             <p>
             </p>
         </section>
         
         <section>
-            <h2></h2>   
+            <h2></h2>
             <p>
             </p>
         </section>
@@ -127,7 +174,7 @@
             </details>
             <details>
                 <summary>Given an element that has an id of title and a class of primary, how would you
-                     use both attributes for a single rule?</summary>
+                    use both attributes for a single rule?</summary>
                 <p>Chaining the selectors: #title.primary</p>
             </details>
             <details>
@@ -146,17 +193,18 @@
                 <summary>What are the main differences between the three ways of adding CSS to HTML?</summary>
                 <ul>
                     <li>External: the css is in a separate, linked place meaning the file can be applied to mutiple HTML documents</li>
-                    <li>Internal: the css is inside the HTML Doc, in a  stlye tag </li>
+                    <li>Internal: the css is inside the HTML Doc, in a stlye tag </li>
                     <li>Internal: the css is directly in the element. I get priority styling and no selectors are used</li>
                     
                 </ul>
             </details>
-        </section>   
+        </section>
     </main>
-
+    
     <footer>
         <!--Tab to edit-->
     </footer>
-
+    
 </body>
+
 </html>
