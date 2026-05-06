@@ -14,7 +14,7 @@
   grid-template-columns: 3.5rem 1fr;
   /* Fixed width for numbers | Flexible code */
   padding: 0;
-  background-color: var(--pine-teal);
+  background-color: teal;
   line-height: 1.5;
 }
 

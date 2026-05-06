@@ -1,55 +1,47 @@
 function prepareCodeBlock(codeElement) {
-  //Run Highlight Js
+  // 1. Get raw text to calculate minimum indentation before highlighting
+  const textLines = codeElement.textContent.split('\n').filter(l => l.trim().length > 0);
+  const minIndent = textLines.length > 0 
+    ? Math.min(...textLines.map(l => l.match(/^\s*/)[0].length)) 
+    : 0;
+
+  // 2. Run Highlight.js
   hljs.highlightElement(codeElement);
   
-  //Break the code block up into lines
-  let lines = codeElement.innerHTML.split('/n');
+  // 3. Break the highlighted HTML into lines
+  let lines = codeElement.innerHTML.split('\n');
   
-  //filter out the empty first and last lines
-  if (lines[0].trim() === '') {
-    lines.shift();
-  }
-  if (lines[lines.length - 1].trim() === '') {
-    lines.pop();
-  }
+  // 4. Filter out empty first/last lines
+  if (lines.length > 0 && lines[0].trim() === '') lines.shift();
+  if (lines.length > 0 && lines[lines.length - 1].trim() === '') lines.pop();
   
-  // Find the Minimum Indentation
-  // Use textContent to measure spaces accurately
-  // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent#value
-  const textLines = codeElement.textContent.split('\n').filter(l => l.trim());
-  const minIndent = Math.min(...textLines.map(l => l.match(/^\s*/)[0].length));
-  
-  // Clear codeElement to remake it
+  // 5. Clear codeElement to rebuild the DOM
   codeElement.innerHTML = '';
   
-  // Add back modified lines
-  lines.forEach((element, index) => {
-    // Strip the minimum indentation from the start of the HTML string
-    // Use a regex to ensure we only remove leading spaces, not HTML tags
-    const dedentedLine = lineText.replace(new RegExp(`^\\s{${minIndent}}`), '');
+  // 6. Add back modified lines
+  lines.forEach((lineContent, index) => {
+    // Strip the minimum indentation
+    const dedentedLine = lineContent.replace(new RegExp(`^\\s{${minIndent}}`), '');
     
-    // Incase each line in a div called code-line
     const row = document.createElement('div');
     row.classList.add("code-line");
     row.innerHTML = `
-            <span class="line-number">${index + 1}</span>
-            <span class="line-content">${dedentedLine}</span>
-        `;
+        <span class="line-number">${index + 1}</span>
+        <span class="line-content">${dedentedLine}</span>
+    `;
     
     codeElement.appendChild(row);
   });
 }
-
 //Load CSS for code block
-function loadCssFile() {
+function loadCssFileB() {
   const link = document.createElement('link');
   link.rel = "stylesheet";
   link.type = "text/css";
   link.href = '/theOdinProject/Odin_Projects/CSS_Foundations/codeHighlight_cssFoundations.css';
-  document.querySelector('head').appendChild(link);
+  document.head.appendChild(link);
 }
-loadCssFile();
-document.addEventListener("DOMContentLoaded", () => {
-  // Invoke on all code blocks
-  document.querySelectorAll('pre code').forEach(prepareCodeBlock);
-});
+loadCssFileB();
+
+// Invoke on all code blocks
+document.querySelectorAll('pre code').forEach(prepareCodeBlock);
