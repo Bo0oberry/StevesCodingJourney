@@ -306,7 +306,7 @@
             </p>
             <h4>Descendant combinator</h4>
             <p>
-                cCombinators allow us to combine multiple selectors differently than either 
+                Combinators allow us to combine multiple selectors differently than either 
                 grouping or chaining them, as they show a relationship between the selectors. 
                 There are four types of combinators in total, but for right now we’re going 
                 to only show you the <strong>descendant</strong> combinator, which is 
@@ -324,14 +324,80 @@
                 be selected based on the CSS rule provided:
             </p>
             <pre><code>
-                
+                &#60!-- index.html --&#62
+
+                &#60div class="ancestor"&#62
+                &#60div class="contents"&#62
+                    &#60div class="contents"&#62&#60/div&#62
+                &#60/div&#62
+                &#60/div&#62
+
+                &#60div class="contents">&#60/div&#62
             </code></pre>
+
+            <pre><code>
+                /* styles.css */
+
+                .ancestor .contents {
+                    /* some declarations */
+                } 
+            </code></pre>
+            <p>
+                In the above example, the first two elements with the <kbd>contents</kbd> class 
+                (on lines 4 and 5) would be selected, but the last element (on line 9) wouldn’t 
+                be. Was your guess correct?
+            </p>
+            <p>
+                There’s really no limit to how many combinators you can add to a rule, so 
+                <kbd>.one .two .three .four</kbd> would be totally valid. This would just select 
+                an element that has a class of <kbd>four</kbd> if it has an ancestor with a class 
+                of <kbd>three</kbd>, and if that ancestor has its own ancestor with a class of 
+                <kbd>two</kbd>, and so on. You generally want to avoid trying to select elements 
+                that need this level of nesting, though, as it can get pretty confusing and long, 
+                and it can cause issues when it comes to specificity.
+            </p>
         </section>
         
         <section>
-            <h2></h2>
+            <h2>Properties to get started with</h2>
             <p>
+                There are some CSS properties that you’re going to be using all the time,
+                 or at the very least more often than not. We’re going to introduce you 
+                 to several of these properties, though this is by no means a complete 
+                 list. Learning the following properties will be enough to help get you 
+                 started. Note that all properties will have a default initial value, which 
+                 will be used if neither you nor the browser has set a different value 
+                 (MDN docs for each CSS property will detail these).
             </p>
+            <h4>Color and background-color</h4>
+            <p>
+               The <kbd>color</kbd> property sets an element’s text color, while 
+               <kbd>background-color</kbd> sets, well, the background color of an element. 
+               I guess we’re done here? 
+            </p>
+            <p>
+                Almost. Both of these properties can accept one of several kinds of values. 
+                A common one is a keyword, such as an actual color name like <kbd>red</kbd> 
+                or the <kbd>transparent</kbd> keyword. They also accept HEX, RGB, and HSL 
+                values, which you may be familiar with if you’ve ever used a photoshop 
+                program or a site where you could customize your profile colors.
+            </p>
+            <pre><code>
+                p {
+                    /* hex example: */
+                    color: #1100ff;
+                }
+
+                p {
+                    /* rgb example: */
+                    color: rgb(100, 0, 127);
+                }
+
+                p {
+                    /* hsl example: */
+                    color: hsl(15, 82%, 56%);
+                }
+            </code></pre>
         </section>
         
         <section>
@@ -381,7 +447,7 @@
                 <ul>
                     <li>External: the css is in a separate, linked place meaning the file can be applied to mutiple HTML documents</li>
                     <li>Internal: the css is inside the HTML Doc, in a stlye tag </li>
-                    <li>Internal: the css is directly in the element. I get priority styling and no selectors are used</li>
+                    <li>Inline: the css is directly in the element. It gets priority styling and no selectors are used</li>
                     
                 </ul>
             </details>
