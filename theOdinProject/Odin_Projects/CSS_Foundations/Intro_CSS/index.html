@@ -398,18 +398,178 @@
                     color: hsl(15, 82%, 56%);
                 }
             </code></pre>
+            <p>
+                Take a quick look at 
+                <a href="https://www.w3schools.com/cssref/css_colors_legal.php" target="_blank">CSS Legal Color Values</a> 
+                to see how you can adjust the opacity of these colors by adding an alpha value.
+            </p>
+            <h4>Typography basics and text-align</h4>
+            <p>
+                font-family can be a single value or a comma-separated list of values that determine what font an element uses. Each font will fall into one of two categories, either a “font family name” like "Times New Roman" (we use quotes due to the whitespace between words) or a “generic family name” like serif (generic family names never use quotes).
+            </p>
+            <p>
+                If a browser cannot find or does not support the first font in a list, it will use the next one, then the next one and so on until it finds a supported and valid font. This is why it’s best practice to include a list of values for this property, starting with the font you want to be used most and ending with a generic font family as a fallback, e.g. font-family: "Times New Roman", serif;
+            </p>
+            <p>
+                font-size will, as the property name suggests, set the size of the font. When giving a value to this property, the value should not contain any whitespace, e.g. font-size: 22px has no space between “22” and “px”.
+            </p>
+            <p>
+                font-weight affects the boldness of text, assuming the font supports the specified weight. This value can be a keyword, e.g. font-weight: bold, or a number between 1 and 1000, e.g. font-weight: 700 (the equivalent of bold). Usually, the numeric values will be in increments of 100 up to 900, though this will depend on the font.
+            </p>
+            <p>
+                text-align will align text horizontally within an element, and you can use the common keywords you may have come across in word processors as the value for this property, e.g. text-align: center.
+            </p>
+            <h4>Image height and width</h4>
+            <p>
+                Images aren’t the only elements that we can adjust the height and width on, but we want to focus on them specifically in this case.
+            </p>
+            <p>
+                By default, an <img> element’s height and width values will be the same as the actual image file’s height and width. If you wanted to adjust the size of the image without causing it to lose its proportions, you would set either the height or width property to a specific value and set the other property to auto. For example:
+            </p>
+            <pre><code>
+                img {
+                    height: auto;
+                    width: 500px;
+                }
+            </code></pre>
+            <p>
+                For example, if an image’s original size was 500px height and 1000px width, using the above CSS would result in a height of 250px.
+            </p>
+            <p>
+                For example, if an image’s original size was 500px height and 1000px width, using the above CSS would result in a height of 250px.
+            </p>
     </section>
     
     <section>
-      <h2></h2>
+      <h2>Adding CSS to HTML</h2>
       <p>
+        Now that we’ve learned some basic syntax, you might be wondering how to add all this CSS to our HTML. There are three methods to do so.
       </p>
+      <h4>External CSS</h4>
+      <p>
+        External CSS is the most common method you will come across, and it involves creating a separate file for the CSS and linking it inside of an HTML’s opening and closing <head> tags with a void <link> element:
+      </p>
+      <pre><code>
+        &lt;!-- index.html --&gt;
+
+        &lt;head&gt;
+            &lt;link rel="stylesheet" href="styles.css"&gt;
+        &lt;/head&gt;
+      </code></pre>
+      <pre><code>
+        /* styles.css */
+
+        div {
+            color: white;
+            background-color: black;
+        }
+
+        p {
+            color: red;
+        }
+      </code></pre>
+      <p>
+        First, we add a void <link> element inside of the opening and closing <head> tags of the HTML file. The href attribute is the location of the CSS file, either an absolute URL or, what you’ll be utilizing, a URL relative to the location of the HTML file. In our example above, we are assuming both files are located in the same directory. The rel attribute is required, and it specifies the relationship between the HTML file and the linked file.
+      </p>
+      <p>
+        Then inside of the newly created styles.css file, we have the selector (the div and p), followed by a pair of opening and closing curly braces, which create a “declaration block”. Finally, we place any declarations inside of the declaration block. color: white; is one declaration, with color being the property and white being the value, and background-color: black; is another declaration.
+      </p>
+      <p>
+        A note on file names: styles.css is just what we went with as the file name here. You can name the file whatever you want as long as the file type is .css, though “style” or “styles” is most commonly used.
+      </p>
+      <p>
+        A couple of the pros to this method are:
+      </p>
+      <ol>
+        <li>It keeps our HTML and CSS separated, which results in the HTML file being smaller and making things look cleaner.</li>
+        <li>We only need to edit the CSS in one place, which is especially handy for websites with many pages that all share similar styles.</li>
+      </ol>
+      <h4>Internal CSS</h4>
+      <p>
+        Internal CSS (or embedded CSS) involves adding the CSS within the HTML file itself instead of creating a completely 
+        separate file. With the internal method, you place all the rules inside of a pair of opening and closing 
+        <kbd>style</kbd> tags, which are then placed inside of the opening and closing <kbd>head</kbd> tags of your HTML 
+        file. Since the styles are being placed directly inside of the <kbd>head</kbd> tags, we no longer need a 
+        <kbd>link</kbd> element that the external method requires.
+      </p>
+      <p>
+        Besides these differences, the syntax is exactly the same as the external method (selector, curly braces, declarations):
+      </p>
+    <pre><code>
+        &lt;head&gt;
+            &lt;style&gt;
+                div {
+                    color: white;
+                    background-color: black;
+                }
+
+                p {
+                    color: red;
+                }
+            &lt;/style&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            ...
+        &lt;/body&gt;
+    </code></pre>
+    <p>
+        This method can be useful for adding unique styles to a single page of a website, but it doesn’t keep things separate like the external method, and depending on how many rules and declarations there are it can cause the HTML file to get pretty big.
+    </p>
+    <h4>Inline CSS</h4>
+    <p>
+        Inline CSS makes it possible to add styles directly to HTML elements, though this method isn’t as recommended:
+    </p>
+    <pre><code>
+        &lt;body&gt;
+            &lt;div style="color: white; background-color: black;">...</div>
+        &lt;/body&gt;
+    </code></pre>
+    <p>
+        The first thing to note is that we don’t actually use any selectors here, since the styles are being added directly to the opening <div> tag itself. Next, we have the style= attribute, with its value within the pair of quotation marks being the declarations.
+    </p>
+    <p>
+        If you need to add a unique style for a single element, this method can work just fine. Generally, though, this isn’t exactly a recommended way for adding CSS to HTML for a few reasons:
+    </p>
+    <ul>
+        <li>
+            It can quickly become pretty messy once you start adding a lot of declarations to a single element, causing your HTML file to become unnecessarily bloated.
+        </li>
+        <li>
+            If you want many elements to have the same style, you would have to copy and paste the same style to each individual element, causing lots of unnecessary repetition and more bloat.
+        </li>
+        <li>
+            Any inline CSS will override the other two methods, which can cause unexpected results. (While we won’t dive into it here, this can actually be taken advantage of.)
+        </li>
+    </ul>
     </section>
     
     <section>
-      <h2></h2>
-      <p>
-      </p>
+      <h2>Assignment</h2>
+      <div>
+        <ol>
+            <li>
+                Go to our <a href="https://github.com/TheOdinProject/css-exercises" target="_blank">CSS exercises</a> 
+                repository and read the README file.
+            </li>
+            <li>
+                Then, once you know how to use the exercises, navigate to the
+                <a href="https://github.com/TheOdinProject/css-exercises/tree/main/foundations/intro-to-css" target="_blank">
+                    CSS exercises repository’s <kbd>foundations/intro-to-css</kbd> directory.
+                </a> 
+                Review each README file prior to completing the following exercises in order:
+
+                <ul>
+                    <li><kbd>01-css-methods</kbd></li>
+                    <li><kbd>02-class-id-selectors</kbd></li>
+                    <li><kbd>03-grouping-selectors</kbd></li>
+                    <li><kbd>04-chaining-selectors</kbd></li>
+                    <li><kbd>05-descendant-combinator</kbd></li>
+                </ul>
+
+                Note: Solutions for these exercises can be found in the <kbd>solution</kbd> folder of each exercise.
+            </li>
+        </ol>
+      </div>
     </section>
     
     <section>
