@@ -12,10 +12,13 @@
  margin: 0;
  padding: 0;
  list-style-position: inside;
+ line-height: 1.1;
  
 }
 body {
-  
+  background-color: var(--color-cotton-rose);
+ h1, h2,h3,h4 { color: var(--color-mauve-shadow);} 
+ 
 }
 
 header{
@@ -24,11 +27,7 @@ header{
   place-items: center;
   background-color: white;
   
-  h1 {
-    color: var(--color-mauve-shadow);
-  }
-  a { height: 100%;}
-  
+  a { height: 100%}
   img {
     height: 100%;
     width: auto;
@@ -37,11 +36,11 @@ header{
 }
 
 nav {
-  background-color: var(--color-muted-teal);
+  background-color: transparent;
 }
 
 main {
-  background-color: var(--color-muted-teal);
+  background-color: transparent;
   
   section > *:not(:first-child) {
     margin-top: 30px;
@@ -49,6 +48,20 @@ main {
   
   section:not(:first-child) {
     margin-top: 50px;
+  }
+  
+  section {
+   
+   ul, ol { 
+     color: var(--color-mauve-shadow);
+   }
+   
+   kbd {
+     border-radius: 5px;
+     padding: 3px;
+     background-color: var(--color-muted-teal);
+     color: var(--color-electric-rose);
+   }
   }
 }
 
