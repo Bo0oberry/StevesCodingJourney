@@ -33,3 +33,7 @@ footer {
   grid-area: footer;
   background-color: teal;
 }
+
+@media (max-width: 800px;) {
+  
+}
