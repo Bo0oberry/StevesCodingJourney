@@ -1,0 +1,58 @@
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#intro {
+  text-align: center;
+  background-color: palevioletred;
+  h2 {
+    position: relative;
+    color: forestgreen;
+    
+    &::before {
+      content:url(/Assests/SVG_Icons/fruit_strawberry.svg);
+      position: absolute ;
+      overflow: hidden;
+      left: 0 ;
+      background-color: red;
+      height: 100%;
+      width: 30px;
+      aspect-ratio: 1 1;
+    }
+  }
+  
+  p { 
+   color: lightgoldenrodyellow; 
+  }
+  
+  svg {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+#lesson_overveiw {
+  
+  input , label {
+    position: relative;
+    left: 50%;
+  }
+  input { display: none;}
+   &:has(input:checked) label{
+    background-color: red;
+  }
+  
+  .particle {
+    display: absolute;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background-color: limegreen;
+    animation: fadeOut 100ms forward;
+  }
+}

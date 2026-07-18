@@ -1,0 +1,117 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 350" width="100%" height="100%">
+  <defs>
+    <!-- Radial gradient for a realistic, 3D lighting effect on the strawberry body -->
+    <radialGradient id="strawberryGrad" cx="45%" cy="35%" r="60%" fx="35%" fy="25%">
+      <stop offset="0%" stop-color="#FF5E7E" />
+      <stop offset="40%" stop-color="#E10633" />
+      <stop offset="85%" stop-color="#AA001E" />
+      <stop offset="100%" stop-color="#700010" />
+    </radialGradient>
+
+    <!-- Linear gradient for the leaves to give them depth -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#71B32A" />
+      <stop offset="100%" stop-color="#3A7507" />
+    </linearGradient>
+
+    <!-- Linear gradient for the stem -->
+    <linearGradient id="stemGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#5C9E20" />
+      <stop offset="100%" stop-color="#2D5C03" />
+    </linearGradient>
+
+    <!-- Filter for a soft drop shadow -->
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#000" flood-opacity="0.15" />
+    </filter>
+
+    <!-- Seed template to reuse across the strawberry -->
+    <g id="seed">
+      <!-- Seed shadow/pocket -->
+      <ellipse cx="0" cy="1" rx="2.5" ry="4.5" fill="#5C000B" opacity="0.7" />
+      <!-- Main seed body (soft yellow/gold) -->
+      <ellipse cx="0" cy="0" rx="2" ry="4" fill="#FFDE6A" />
+      <!-- Seed highlight -->
+      <ellipse cx="-0.5" cy="-1" rx="0.7" ry="2" fill="#FFF" opacity="0.8" />
+    </g>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="150" cy="325" rx="75" ry="12" fill="#000" opacity="0.1" filter="url(#shadow)" />
+
+  <!-- Main Strawberry Group with Shadow -->
+  <g filter="url(#shadow)">
+    
+    <!-- Strawberry Body -->
+    <!-- Formed using a smooth cubic bezier path for that iconic plump, tapered shape -->
+    <path d="M 150 70 
+             C 210 65, 275 100, 260 180 
+             C 248 245, 190 315, 150 325 
+             C 110 315, 52 245, 40 180 
+             C 25 100, 90 65, 150 70 Z" 
+          fill="url(#strawberryGrad)" />
+
+    <!-- Seed Grid (Arranged tracking the contours of the berry) -->
+    <!-- Center Column -->
+    <use href="#seed" x="150" y="120" transform="rotate(-2, 150, 120)" />
+    <use href="#seed" x="150" y="160" transform="rotate(0, 150, 160)" />
+    <use href="#seed" x="150" y="200" transform="rotate(2, 150, 200)" />
+    <use href="#seed" x="150" y="240" transform="rotate(3, 150, 240)" />
+    <use href="#seed" x="150" y="280" transform="rotate(1, 150, 280)" />
+
+    <!-- Inner Left Column -->
+    <use href="#seed" x="115" y="135" transform="rotate(-8, 115, 135)" />
+    <use href="#seed" x="112" y="180" transform="rotate(-6, 112, 180)" />
+    <use href="#seed" x="115" y="225" transform="rotate(-3, 115, 225)" />
+    <use href="#seed" x="122" y="265" transform="rotate(-1, 122, 265)" />
+
+    <!-- Inner Right Column -->
+    <use href="#seed" x="185" y="135" transform="rotate(8, 185, 135)" />
+    <use href="#seed" x="188" y="180" transform="rotate(6, 188, 180)" />
+    <use href="#seed" x="185" y="225" transform="rotate(3, 185, 225)" />
+    <use href="#seed" x="178" y="265" transform="rotate(1, 178, 265)" />
+
+    <!-- Outer Left Column -->
+    <use href="#seed" x="80" y="150" transform="rotate(-15, 80, 150)" />
+    <use href="#seed" x="78" y="200" transform="rotate(-12, 78, 200)" />
+    <use href="#seed" x="85" y="245" transform="rotate(-8, 85, 245)" />
+
+    <!-- Outer Right Column -->
+    <use href="#seed" x="220" y="150" transform="rotate(15, 220, 150)" />
+    <use href="#seed" x="222" y="200" transform="rotate(12, 222, 200)" />
+    <use href="#seed" x="215" y="245" transform="rotate(8, 215, 245)" />
+    
+    <!-- Extreme Edges -->
+    <use href="#seed" x="52" y="175" transform="rotate(-22, 52, 175)" />
+    <use href="#seed" x="58" y="220" transform="rotate(-18, 58, 220)" />
+    <use href="#seed" x="248" y="175" transform="rotate(22, 248, 175)" />
+    <use href="#seed" x="242" y="220" transform="rotate(18, 242, 220)" />
+
+    <!-- Calyx (Leaves) & Stem Group -->
+    <g id="calyx">
+      <!-- Center Stem -->
+      <path d="M 150 75 C 145 45, 135 25, 120 20 C 123 16, 133 15, 142 22 C 153 30, 156 52, 154 75 Z" fill="url(#stemGrad)" />
+      
+      <!-- Back Leaves (Darker for depth) -->
+      <path d="M 150 70 C 130 55, 95 45, 85 55 C 95 65, 125 75, 150 70 Z" fill="#3A7507" opacity="0.9"/>
+      <path d="M 150 70 C 170 55, 205 45, 215 55 C 205 65, 175 75, 150 70 Z" fill="#3A7507" opacity="0.9"/>
+
+      <!-- Front Leaves -->
+      <!-- Left Leaf -->
+      <path d="M 150 72 C 110 65, 60 70, 45 95 C 65 95, 115 85, 150 72 Z" fill="url(#leafGrad)" />
+      <!-- Mid-Left Leaf -->
+      <path d="M 150 72 C 120 80, 90 110, 85 130 C 100 110, 130 90, 150 72 Z" fill="url(#leafGrad)" />
+      <!-- Center Leaf -->
+      <path d="M 150 72 C 140 90, 140 120, 150 145 C 160 120, 160 90, 150 72 Z" fill="url(#leafGrad)" />
+      <!-- Mid-Right Leaf -->
+      <path d="M 150 72 C 180 80, 210 110, 215 130 C 200 110, 170 90, 150 72 Z" fill="url(#leafGrad)" />
+      <!-- Right Leaf -->
+      <path d="M 150 72 C 190 65, 240 70, 255 95 C 235 95, 185 85, 150 72 Z" fill="url(#leafGrad)" />
+    </g>
+
+    <!-- Soft Glossy Highlights for a fresh look -->
+    <path d="M 65 130 A 90 100 0 0 1 130 82" fill="none" stroke="#FFF" stroke-width="8" stroke-linecap="round" opacity="0.3" filter="blur(2px)" />
+    <circle cx="85" cy="115" r="5" fill="#FFF" opacity="0.5" filter="blur(1px)" />
+  </g>
+</svg>
