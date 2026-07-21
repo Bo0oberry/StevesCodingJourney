@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <!-- Base 3D gradient for the blueberry body -->
+    <radialGradient id="berryBody" cx="35%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#4d6fa9" />
+      <stop offset="70%" stop-color="#233a6e" />
+      <stop offset="100%" stop-color="#142142" />
+    </radialGradient>
+
+    <!-- Gradient for the crown/calyx structure -->
+    <linearGradient id="crownGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1b2a52" />
+      <stop offset="100%" stop-color="#0b1226" />
+    </linearGradient>
+  </defs>
+
+  <!-- Main Blueberry Body -->
+  <ellipse cx="50" cy="53" rx="38" ry="35" fill="url(#berryBody)" />
+
+  <!-- The Crown / Calyx (Star-shaped top) -->
+  <path d="M 50 25 
+           Q 46 21 42 23 
+           Q 43 27 46 29 
+           Q 39 28 37 32 
+           Q 42 33 46 32 
+           Q 42 37 45 40 
+           Q 48 36 50 33 
+           Q 52 36 55 40 
+           Q 58 37 54 32 
+           Q 58 33 63 32 
+           Q 61 28 54 29 
+           Q 57 27 58 23 
+           Q 54 21 50 25 Z" 
+        fill="url(#crownGrad)" />
+
+  <!-- Center of the crown -->
+  <ellipse cx="50" cy="29" rx="3" ry="1.5" fill="#070b17" />
+
+  <!-- Soft Upper Gloss Highlight -->
+  <path d="M 22 42 Q 35 28 55 30" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity="0.25" />
+</svg>

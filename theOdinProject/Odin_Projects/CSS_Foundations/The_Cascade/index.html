@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./../nav_cssFoundations.js"></script>
     <link rel="stylesheet" href="./styles.css">
+
     <title>Document</title>
 </head>
 <body>
@@ -28,14 +29,20 @@
         <input type="checkbox" id="check1">
         <label for="check1">Click Me</label>
         
-        <script>
+        <script type="module">
+            import { random, range } from 'https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm';
+
             let btn = document.querySelector("#lesson_overveiw label");
+
             btn.addEventListener("click",()=>{
                btn.classList.toggle("liked");
                
                const isLiked = btn.classList.contains("liked");
                
-               if(!isLiked){return}
+               if(!isLiked){
+                btn.querySelectorAll(".particle").forEach(el => el.remove());
+                return
+            }
                
                range(5).forEach(()=>{
                    const dot = document.createElement("span");
@@ -43,6 +50,8 @@
                    
                    dot.style.top = random(0, 100) + "%";
                    dot.style.left = random(0, 100) + "%";
+
+                   btn.appendChild(dot);
                });
             })
         </script>
@@ -57,6 +66,10 @@
         <p>
             The cascade is what determines which rules actually get applied to our HTML. There are different factors that the cascade uses to determine this. We will examine three of these factors, which will hopefully help you avoid those frustrating “I hate CSS” moments.
         </p>
+
+
+        <label for="cascade_CSS_btn"></label>
+        <input type="checkbox" id="cascade_CSS_btn">
     </section>
     
     <section id="">

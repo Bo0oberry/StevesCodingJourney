@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="100%" height="100%">
+  <defs>
+    <!-- Smooth 3D gradient for the main yellow banana body -->
+    <linearGradient id="bananaBody" x1="0%" y1="90%" x2="70%" y2="10%">
+      <stop offset="0%" stop-color="#e2bc08" />   <!-- Shaded underbelly -->
+      <stop offset="35%" stop-color="#fff200" />  <!-- Vibrant main yellow -->
+      <stop offset="85%" stop-color="#ece81a" />  <!-- Transition to stem -->
+      <stop offset="100%" stop-color="#b0d235" /> <!-- Soft green neck -->
+    </linearGradient>
+
+    <!-- Gradient specifically for the smooth green stem transition -->
+    <linearGradient id="stemGreen" x1="0%" y1="100%" x2="30%" y2="0%">
+      <stop offset="0%" stop-color="#b0d235" />
+      <stop offset="70%" stop-color="#6bb82d" />
+      <stop offset="100%" stop-color="#469325" />
+    </linearGradient>
+
+    <!-- Dark brown tone for the cut ends -->
+    <linearGradient id="capBrown" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7a4a15" />
+      <stop offset="100%" stop-color="#402305" />
+    </linearGradient>
+  </defs>
+
+  <!-- Isolated Banana Asset Group -->
+  <g id="realistc-banana">
+    <!-- Main Banana Body -->
+    <path d="M 32 428 
+             C 45 448, 120 480, 215 440
+             C 310 400, 370 280, 360 150
+             C 355 100, 322 75, 322 25
+             C 315 25, 310 50, 305 85
+             C 290 180, 220 310, 140 375
+             C 80 422, 45 425, 32 428 Z" 
+          fill="url(#bananaBody)" />
+
+    <!-- Upper Neck & Stem Extension Layer -->
+    <path d="M 322 25
+             C 322 55, 325 80, 318 110
+             C 310 145, 298 180, 285 210
+             C 295 175, 308 140, 312 100
+             C 318 65, 324 45, 325 25 Z" 
+          fill="url(#stemGreen)" opacity="0.9" />
+
+    <!-- Top Stem Flat Cut Cap -->
+    <path d="M 322 25 C 322 20, 345 25, 348 28 C 342 32, 325 30, 322 25 Z" fill="url(#capBrown)" />
+    
+    <!-- Bottom Tip Flat Cut Cap -->
+    <path d="M 32 428 C 22 432, 20 448, 26 454 C 34 450, 36 438, 32 428 Z" fill="url(#capBrown)" />
+
+    <!-- Soft 3D Volumetric Longitudinal Crest Highlight -->
+    <path d="M 50 435 Q 150 425, 255 330 Q 325 240, 338 140" 
+          fill="none" 
+          stroke="#ffffff" 
+          stroke-width="5" 
+          stroke-linecap="round" 
+          opacity="0.35" 
+          filter="blur(2px)" />
+
+    <!-- Subtle Side Panel Reflection Shadow -->
+    <path d="M 120 458 C 210 445, 290 380, 332 290 C 270 370, 190 415, 120 458 Z" 
+          fill="#cca700" 
+          opacity="0.4" />
+  </g>
+</svg>

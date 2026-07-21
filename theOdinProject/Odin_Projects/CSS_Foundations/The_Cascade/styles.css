@@ -37,22 +37,98 @@
 }
 
 #lesson_overveiw {
-  
+
+  --color-bg: #f4f7fb;
+  --color-text-main: #142142;
+  --color-accent-blue: #3b5e9a;
+  --color-border: #8da2c4;
+  --color-pop: #6b8e23;
+
+  border:  1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  background-image: url(/Assests/SVG_Icons/fruit_blueberry.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: contain;
+
   input , label {
     position: relative;
     left: 50%;
   }
   input { display: none;}
    &:has(input:checked) label{
-    background-color: red;
+    background-color: var(--color-accent-blue);
   }
   
   .particle {
-    display: absolute;
+    position: absolute;
     height: 12px;
     width: 12px;
     border-radius: 50%;
-    background-color: limegreen;
-    animation: fadeOut 100ms forward;
+    background-color: var(--color-pop);
+    animation: fadeOut  1s forwards;
   }
+}
+
+
+#cascade_CSS {
+  --color-bg: #faf8ee;
+  --color-text-main: #402305;
+  --color-text-muted: #cca700;
+  --color-banana-yellow: #fff200;
+  --color-stem-green: #6bb82d;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  font-family: 'Courier New', Courier, monospace;
+  
+  h2 {
+    color: rgb(96, 110, 97);
+
+    &::before, &::after {
+      content: url(/Assests/SVG_Icons/fruit_banana.svg);
+      position: absolute;
+      overflow: hidden;
+      height: 100%;
+      width: 30px;
+      aspect-ratio: 1 1;
+    }
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+    }
+  }
+  
+  p {
+    color: darkslategray;
+    font-size: 1.2rem;
+    text-align: center;
+    max-width: 600px;
+  }
+
+  label {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+
+    background: url(/Assests/SVG_Icons/fruit_banana.svg);
+    background-color: var(--color-stem-green);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  } 
+
+  &:has(input:checked) label {
+    background-color: var(--color-banana-yellow);
+  } 
 }
