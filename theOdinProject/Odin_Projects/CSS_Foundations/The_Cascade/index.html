@@ -70,6 +70,45 @@
 
         <label for="cascade_CSS_btn"></label>
         <input type="checkbox" id="cascade_CSS_btn">
+        
+        <h4>Specificity</h4>
+        
+        <p>
+            A CSS declaration that is more specific will take 
+            over less specific ones. Inline styles, which we went over
+            in the previous lesson, have the highest specificity
+            compared to selectors, while each type of selector has its
+            own specificity level that contributes to how specific a
+            declaration is. Other selectors contribute to specificity,
+            but we’re focusing only on the ones we’ve gone over so far:
+        </p>
+        
+        <ul>
+            <li>Id selectors (most specific)</li>
+            <li>Class selectors</li>
+            <li>Type selectors</li>
+        </ul>
+        
+        <p>
+            Specificity will only be taken into account when an element
+            has multiple, conflicting declarations targeting it,
+            sort of like a tie-breaker. An ID selector will always beat
+            any number of class selectors, a class selector will always
+            beat any number of type selectors, and a type selector will
+            always beat any number of less specific selectors. When
+            there is no declaration with a selector of higher
+            specificity, a rule with a greater number of selectors of
+            the same type will take precedence over another rule with
+            fewer selectors of the same type.
+        </p>
+        
+        <p>
+            Let’s take a look at a few quick examples to visualize how
+            specificity works. Consider the following HTML and CSS code:
+        </p>
+        
+        <label for="cascade_CSS_btn2">Oh Banana</label>
+        <input type="checkbox" id="cascade_CSS_btn2">
     </section>
     
     <section id="">

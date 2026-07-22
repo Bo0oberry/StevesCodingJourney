@@ -7,6 +7,21 @@
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% { 
+    transform: rotateZ(740deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+.chkBox {
+  display: none;
+}
+#42445A
 #intro {
   text-align: center;
   background-color: palevioletred;
@@ -117,6 +132,9 @@
   }
 
   label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -130,5 +148,8 @@
 
   &:has(input:checked) label {
     background-color: var(--color-banana-yellow);
+     animation: spin 3s infinite ease-out;
   } 
+  
+  
 }
