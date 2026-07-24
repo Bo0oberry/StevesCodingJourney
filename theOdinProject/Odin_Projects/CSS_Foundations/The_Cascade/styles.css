@@ -18,6 +18,56 @@
     transform: rotateZ(0deg);
   }
 }
+
+@keyframes colorChange {
+  from {
+    background-color: rgba(99, 64, 147, 1);
+  }
+  to {
+    background-color: rgba(56, 183, 175, 1);
+  }
+}
+
+@keyframes moveSquare {
+  0% {
+    transform: translate(0%, -100%);
+  }
+  12% {
+    transform: translate(100%, -100%);
+  }
+  24% {
+    transform: translate(100%, 0%);
+  }
+  36% {
+    transform: translate(100%, 100%);
+  }
+  48% {
+    transform: translate(0%, 100%);
+  }
+  61% {
+    transform: translate(-100%, 100%);
+  }
+  73% {
+    transform: translate(-100%, 0%);
+  }
+  87% {
+    transform: translate(-100%, -100%);
+  }
+  100% { 
+    transform: translate(0%, -100%);
+  }
+}
+
+@keyframes moveToPosition {
+  from { 
+    transform: translate(0%, 0%);
+  }
+  to { 
+    transform: translate(0%, -100%);
+  }
+}
+
+/*    --------------------   *//*    --------------------   */
 .chkBox {
   display: none;
 }
@@ -135,6 +185,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 80px;
     width: 80px;
     border-radius: 50%;
@@ -148,7 +199,11 @@
 
   &:has(input:checked) label {
     background-color: var(--color-banana-yellow);
-     animation: spin 3s infinite ease-out;
+     animation: 
+      /*spin 1s infinite,*/
+      colorChange 2s infinite,
+      moveToPosition 2s forwards,
+      moveSquare 16s 3s infinite forwards;
   } 
   
   
