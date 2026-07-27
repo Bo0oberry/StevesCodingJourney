@@ -1,0 +1,22 @@
+pre.codePen {
+    background-color: aquamarine;
+}
+.code-content {
+    background-color: rgb(23, 152, 195);
+}
+
+.code-IndexNum { 
+    background-color: rgb(23, 152, 195);
+}
+
+.code-line {
+    background-color: saddlebrown;
+}
+
+.attr-keyword {
+    color: greenyellow;
+}
+
+.tag-keyword {
+    color: red;
+}
