@@ -130,6 +130,56 @@
             </code>
         </pre>
         
+        <pre>
+            <code>
+                /* rule 1 */
+                .subsection {
+                    color: blue;
+                }
+
+                /* rule 2 */
+                .main .list {
+                    color: red;
+                }
+            </code>
+        </pre>
+        
+        <p>
+            In the example above, both rules are using only class
+            selectors, but rule 2 is more specific because it is using
+            more class selectors, so the color: red declaration would
+            take precedence.
+        </p>
+        
+        <p>
+            Now, let’s change things a little bit:
+        </p>
+        
+        <pre>
+            <code>
+                <!-- index.html -->
+
+                &lt;div class="main"&gt;
+                    &lt;div class="list" id="subsection"&gt;
+                    Blue text&lt;/div&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+        
+        <pre>
+            <code>
+                /* rule 1 */
+              
+                #subsection {
+                    color: blue;
+                }
+
+                /* rule 2 */
+                .main .list {
+                    color: red;
+                }
+            </code>
+        </pre>
         
     </section>
     
