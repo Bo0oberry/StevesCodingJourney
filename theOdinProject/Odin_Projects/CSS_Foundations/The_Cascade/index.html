@@ -184,31 +184,227 @@
                 }
             </code>
         </pre>
+
+        <p>
+            In this final example, the first rule uses an ID selector, 
+            while the second rule combines an ID selector with a class 
+            selector. Therefore, neither rule is using a more specific 
+            selector than the other. The cascade then checks the number 
+            of each selector type. Both rules have only one ID selector, 
+            but rule 2 has a class selector in addition to the ID 
+            selector, so rule 2 has a higher specificity!
+        </p>
         
+        <p>
+            While the <kbd>color: red</kbd> declaration would take 
+            precedence, the <kbd>background-color: yellow</kbd> 
+            declaration would still be applied since there’s no 
+            conflicting declaration for it.
+        </p>
+
+        <h3>Not everything adds to specificity</h3>
+
+        <p>
+            When comparing selectors, you may come across special symbols 
+            for the universal selector (<kbd>*</kbd>) as well as 
+            combinators (<kbd>+</kbd>, <kbd>~</kbd>, <kbd>></kbd>, 
+            and an empty space). The ones you have not yet seen, we will 
+            cover these later in the curriculum, so there is no need to dive 
+            into them yet. The core concept is that these symbols do not 
+            inherently convey any additional specificity.
+        </p>
+
+        <pre>
+            <code>
+                /* rule 1 */
+                .class.second-class {
+                    font-size: 12px;
+                }
+
+                /* rule 2 */
+                .class .second-class {
+                    font-size: 24px;
+                } 
+            </code>
+        </pre>
+
+        <p>
+            Here both rule 1 and rule 2 have the same specificity. Rule 1 
+            uses a chaining selector (no space) and rule 2 uses a descendant 
+            combinator (the empty space). But both rules have two classes 
+            and the combinator symbol itself does not add to the specificity.
+        </p>
+        
+        <pre>
+            <code>
+                /* rule 1 */
+                .class.second-class {
+                    font-size: 12px;
+                }
+
+                /* rule 2 */
+                .class > .second-class {
+                    font-size: 24px;
+                }
+            </code>
+        </pre>
+
+        <p>
+            This example shows the same thing. Even though rule 2 is using a child 
+            combinator (<kbd>></kbd>), this does not change the specificity value. 
+            Both rules still have two classes so they have the same specificity values.
+        </p>
+        
+        <pre>
+            <code>
+                /* rule 1 */
+                * {
+                    color: black;
+                }
+
+                /* rule 2 */
+                h1 {
+                    color: orange;
+                }
+            </code>
+        </pre>
+
+        <p>
+            In this example, rule 2 would have higher specificity and the 
+            <kbd>color: orange</kbd> value would take precedence for this 
+            element. Rule 2 uses a type selector, which has the lowest 
+            specificity value. But rule 1 uses the universal selector 
+            (<kbd>*</kbd>) which has no specificity value.
+        </p>
+
+        <h3>Inheritance</h3>
+
+        <p>
+          Inheritance refers to certain CSS properties that, when applied to an 
+          element, are inherited by that element’s descendants, even if we don’t 
+          explicitly write a rule for those descendants. Typography-based properties 
+          (<kbd>color</kbd>, <kbd>font-size</kbd>, <kbd>font-family</kbd>, etc.) 
+          are usually inherited, while most other properties aren’t. You can find out 
+          if a property is inherited or not by going to its docs on MDN and heading to 
+          the <strong>Formal Definition</strong> section. For example, the 
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition">
+            CSS color property formal definition
+          </a> 
+          indicates that <kbd>color</kbd> is an inherited property, while the 
+         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#formal_definition">
+            CSS display property formal definition
+          </a> 
+          indicates that display is not.  
+        </p>
+
+        <p>
+            The exception to this is when directly targeting an element, as 
+            this always beats inheritance:
+        </p>
+
+        <pre>
+            <code>
+                &lt;!-- index.html --&gt;
+
+                &lt;div id="parent"&gt;
+                &lt;div class="child"&gt;&lt;/div&gt;
+                &lt;/div&gt;
+            </code>
+        </pre>
+
+        <pre>
+            <code>
+                /* styles.css */
+
+                #parent {
+                    color: red;
+                }
+
+                .child {
+                    color: blue;
+                }
+            </code>
+        </pre>
+
+        <p>
+            Despite the <kbd>parent</kbd> element having a higher specificity 
+            with an ID, the <kbd>child</kbd> element would have the 
+            <kbd>color: blue</kbd> style applied since that declaration directly 
+            targets it, while <kbd>color: red</kbd> from the parent is only inherited.
+        </p>
+
+        <h3>Rule order</h3>
+
+        <p>
+            The final factor, the end of the line, the tie-breaker of the 
+            tie-breakers. Let’s say that after every other factor has been 
+            taken into account, there are still multiple conflicting rules 
+            targeting an element. How does the cascade determine which rule 
+            to apply?
+        </p>
+
+        <p>
+            Whichever rule was the last defined is the winner.
+        </p>
+
+        <pre>
+            <code>
+                /* styles.css */
+
+                .alert {
+                color: red;
+                }
+
+                .warning {
+                color: yellow;
+                }
+            </code>
+        </pre>
+
+        <p>
+            For an element that has both the <kbd>.alert</kbd> and 
+            <kbd>.warning</kbd> classes, the cascade would run through 
+            every other factor, including inheritance (none here) and 
+            specificity (neither rule is more specific than the other). 
+            Since the <kbd>.warning</kbd> rule was the last one defined, 
+            and no other factor was able to determine which rule to apply, 
+            it’s the one that gets applied to the element.
+        </p>
+    </section>
+    
+    <!--    0000000000000000000000000000000 -->
+
+    <section id="assignment">
+        <h2>Assignment</h2>
+        <div class="assignmentDiv">
+            <ol>
+                <li>
+                    <a href="https://2019.wattenberger.com/blog/css-cascade" target="_blank">the CSS Cascade</a> 
+                    is a great, interactive read that goes a little more in detail about other 
+                    factors that affect what CSS rules actually end up being applied.
+                </li>
+                <li>
+                    Complete the exercise in our 
+                    <a href="https://github.com/TheOdinProject/css-exercises/tree/main/foundations/cascade" target="_blank">
+                        CSS exercises repository’s foundations/cascade directory
+                    </a> 
+                    (remember that the instructions are in the README): 
+
+                    <ul>
+                        <li>
+                            <kbd>01-cascade-fix</kbd>
+                        </li>
+                    </ul>
+
+                    Note: Solutions for these exercises can be found in the 
+                    <kbd>solution</kbd> folder of each exercise.
+                </li>
+            </ol>
+        </div>
     </section>
     
     <section id="">
-        <h2></h2>
-        <p></p>
-    </section>
-    
-    <section id="">
-        <h2></h2>
-        <p></p>
-    </section>
-    
-    <section id="">
-        <h2></h2>
-        <p></p>
-    </section>
-    
-    <section id="">
-        <h2></h2>
-        <p></p>
-    </section>
-    
-    <section id="">
-        <h2>Knowlegde Check</h2>
+        <h2>Knowledge Check</h2>
         
         <details>
             <summary>Between a rule that uses one class selector and a rule that

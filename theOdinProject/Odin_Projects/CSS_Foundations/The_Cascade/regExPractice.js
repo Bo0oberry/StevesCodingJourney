@@ -5,6 +5,7 @@ const highlightedWords = [
 
 function textManipulation(highlightedWords){ 
   const pattern = `\\b(${highlightedWords.join('|')})\\b`;
+  const highlightRegEx = new RegExp(pattern, 'gi')
   listOfParagraphElememts.forEach((pEle)=>{
     
   });
