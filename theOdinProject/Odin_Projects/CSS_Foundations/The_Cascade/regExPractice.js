@@ -4,8 +4,8 @@ const highlightedWords = [
 ]
 
 function textManipulation(highlightedWords){ 
-  const highlightRegEx = new RegExp()
-  listOfParagraphElememts.forEach(()=>{
+  const pattern = `\\b(${highlightedWords.join('|')})\\b`;
+  listOfParagraphElememts.forEach((pEle)=>{
     
   });
 }
