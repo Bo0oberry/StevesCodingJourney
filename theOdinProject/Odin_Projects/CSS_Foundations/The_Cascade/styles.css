@@ -208,3 +208,160 @@
   
   
 }
+
+#assignment {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  align-items: center;
+
+  a {
+    border-bottom: 10px;
+
+    kbd {
+      background-color: transparent;
+      border-radius:  0;
+    }
+  }
+
+  h2 { 
+    display: inline-block;
+    padding: 5px;
+  }
+
+  .assignmentH2 {
+    color:#bbed25;
+  }
+  .assignmentDiv {
+    border-radius: 10px;
+    background-color: #f3f4f6;
+
+    ol > * {
+      margin-top: 20px;
+    }
+  }
+}
+
+kbd {
+  border-radius: 5px;
+  padding: 0 2px;
+  background-color: rgb(209, 172, 172);
+}
+
+#knowledgeCheck {
+  display: grid;
+  margin-bottom: 50px;
+
+  details {
+    summary {
+      position: relative;
+      padding-left: 24px;
+      list-style-type: none;
+
+       &::before { 
+        content: "";
+        position: absolute;
+        left: 0; top:50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-image: url(/Assests/SVG_Icons/fruit_orange.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-color: #3b5e9a;
+        border-radius:  5px;
+       }
+    }
+
+    button {
+      position: relative;
+      border: none;
+      padding: 0;
+      background-color: transparent;
+
+      /*svg*/ 
+      #chainsword-assembly,
+      #teeth-path,
+      #motor-block,
+      .exhaust-flame {
+        animation-play-state: paused !important;
+      }
+
+      /* Resume animations when hovering over the SVG or button */
+      svg:hover #chainsword-assembly,
+      svg:hover #teeth-path,
+      svg:hover #motor-block,
+      svg:hover .exhaust-flame {
+        animation-play-state: running !important;
+      }
+    }
+  }
+
+  
+}
+
+#footer {
+  --animation-time: 0.3s;
+
+  display: flex;
+  gap: 20px;
+  
+  #footer_ChkBtn1 {
+    display: none;
+  }
+  #footer_LblBtn1 {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    background-color: #6b8e23;
+  }
+
+  .footer_particle_lasbolt {
+    position: absolute;
+    right: calc(0px - 35px);
+    top: 35%;
+    background-color: #f3f4f6;
+    height: 10px;
+    width: 40px;
+    border-radius: 5px;
+
+    animation: pewpew var(--animation-time) forwards;
+  }
+
+  #footer_LblBtn2 {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 200px;
+    background-color: #000000;
+  }
+  &:has(#footer_ChkBtn2:checked) #footer_LblBtn2 {
+    background-color: #f9f9f8;
+  }
+  #footer_ChkBtn2 {
+    display: none;
+  }
+  
+  #footer_Btn1 {
+    align-self: center;
+
+  }
+
+  .footer_particle_star {
+    position: absolute;
+    font-size: 10px;
+    pointer-events: none;
+    animation: fadeOut 2s reverse forwards;
+  }
+
+}
+
+@keyframes pewpew {
+  from {
+    transform: translateX(0) skew(0deg);
+  }
+  to {
+    transform: translateX(200px) skew(80deg);
+  }
+}

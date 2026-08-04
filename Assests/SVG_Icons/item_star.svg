@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Embedded CSS for Hover Animation -->
+    <style>
+      .gold-star {
+        cursor: pointer;
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+        transform-origin: 100px 100px;
+      }
+
+      .gold-star:hover {
+        transform: scale(1.15) rotate(5deg);
+        filter: drop-shadow(0 0 12px rgba(255, 179, 0, 0.8));
+      }
+    </style>
+
+    <!-- Metallic Gold Gradient -->
+    <linearGradient id="starGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+
+    <!-- Inner Highlight Gradient -->
+    <linearGradient id="highlightGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FFB300" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Soft Drop Shadow Filter -->
+    <filter id="starShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- STAR GROUP -->
+  <g class="gold-star" filter="url(#starShadow)">
+    <!-- Base 5-Pointed Star Polygon -->
+    <polygon 
+      points="100,10 126,68 189,74 141,116 155,178 100,146 45,178 59,116 11,74 74,68" 
+      fill="url(#starGoldGrad)" 
+      stroke="#FF6F00" 
+      stroke-width="2" 
+      stroke-linejoin="round"
+    />
+
+    <!-- Beveled Facet Lines for 3D Depth -->
+    <g stroke="#E65100" stroke-width="1" opacity="0.4">
+      <line x1="100" y1="10" x2="100" y2="146"/>
+      <line x1="189" y1="74" x2="100" y2="146"/>
+      <line x1="155" y1="178" x2="100" y2="146"/>
+      <line x1="45" y1="178" x2="100" y2="146"/>
+      <line x1="11" y1="74" x2="100" y2="146"/>
+    </g>
+
+    <!-- Top Highlight Poly for Gloss Finish -->
+    <polygon 
+      points="100,10 126,68 100,146 74,68" 
+      fill="url(#highlightGrad)"
+    />
+  </g>
+</svg>

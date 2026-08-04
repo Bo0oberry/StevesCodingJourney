@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+  <defs>
+    <!-- CSS Animations Embedded directly in SVG -->
+    <style>
+      /* 1. Whole Sword Engine Vibration */
+      @keyframes revVibration {
+        0% { transform: translate(0, 0); }
+        20% { transform: translate(-1px, 1px); }
+        40% { transform: translate(1px, -1px); }
+        60% { transform: translate(-1px, -1px); }
+        80% { transform: translate(1px, 1px); }
+        100% { transform: translate(0, 0); }
+      }
+
+      /* 2. Chain Teeth Whirring Motion */
+      @keyframes teethWhir {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-30px); }
+      }
+
+      /* 3. Engine Revving Glow */
+      @keyframes engineGlow {
+        0% { fill: #212121; }
+        30% { fill: #ff3d00; filter: drop-shadow(0 0 8px #ff3d00); }
+        70% { fill: #ff9100; filter: drop-shadow(0 0 15px #ff9100); }
+        100% { fill: #37474F; filter: drop-shadow(0 0 4px #ff3d00); }
+      }
+
+      /* 4. Exhaust Sparks / Backfire */
+      @keyframes exhaustBurst {
+        0%, 100% { opacity: 0; transform: scaleX(0.2); }
+        20% { opacity: 1; transform: scaleX(1.2); }
+        40% { opacity: 0.3; transform: scaleX(0.5); }
+        60% { opacity: 0.9; transform: scaleX(1); }
+      }
+
+      /* Apply animations to groups */
+      #chainsword-assembly {
+        animation: revVibration 0.08s infinite linear;
+        transform-origin: center;
+      }
+
+      #teeth-path {
+        animation: teethWhir 0.12s infinite linear;
+      }
+
+      #motor-block {
+        animation: engineGlow 1.5s ease-out forwards;
+      }
+
+      .exhaust-flame {
+        animation: exhaustBurst 0.15s infinite alternate;
+        transform-origin: left center;
+      }
+    </style>
+
+    <!-- Metallic Blade Guard Gradient -->
+    <linearGradient id="casingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C62828"/>
+      <stop offset="50%" stop-color="#B71C1C"/>
+      <stop offset="100%" stop-color="#8E0000"/>
+    </linearGradient>
+
+    <!-- Metal Steel Gradient -->
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CFD8DC"/>
+      <stop offset="50%" stop-color="#90A4AE"/>
+      <stop offset="100%" stop-color="#455A64"/>
+    </linearGradient>
+
+    <!-- Dark Metal Engine Gradient -->
+    <linearGradient id="engineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#37474F"/>
+      <stop offset="100%" stop-color="#212121"/>
+    </linearGradient>
+
+    <!-- Gold Aquila/Trim Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+
+    <!-- Exhaust Fire Gradient -->
+    <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFD54F"/>
+      <stop offset="50%" stop-color="#FF6D00"/>
+      <stop offset="100%" stop-color="#DD2C00" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Clip Path so teeth stay inside the cutting track -->
+    <clipPath id="teethTrackClip">
+      <rect x="270" y="180" width="450" height="30"/>
+    </clipPath>
+  </defs>
+
+  <!-- Ground Drop Shadow -->
+  <ellipse cx="400" cy="260" rx="360" ry="12" fill="#000000" opacity="0.2"/>
+
+  <!-- MAIN ANIMATED ASSEMBLY GROUP -->
+  <g id="chainsword-assembly">
+
+    <!-- ================= CHAIN TEETH (CLIPPED & ANIMATED) ================= -->
+    <g clip-path="url(#teethTrackClip)">
+      <g id="teeth-path">
+        <!-- Extended tooth path so seamless loop works -->
+        <path d="
+          M 250 185 L 265 200 L 255 200 Z  M 280 185 L 295 200 L 285 200 Z
+          M 310 185 L 325 200 L 315 200 Z  M 340 185 L 355 200 L 345 200 Z
+          M 370 185 L 385 200 L 375 200 Z  M 400 185 L 415 200 L 405 200 Z
+          M 430 185 L 445 200 L 435 200 Z  M 460 185 L 475 200 L 465 200 Z
+          M 490 185 L 505 200 L 495 200 Z  M 520 185 L 535 200 L 525 200 Z
+          M 550 185 L 565 200 L 555 200 Z  M 580 185 L 595 200 L 585 200 Z
+          M 610 185 L 625 200 L 615 200 Z  M 640 185 L 655 200 L 645 200 Z
+          M 670 185 L 685 200 L 675 200 Z  M 700 185 L 715 195 L 705 195 Z
+          M 730 185 L 745 195 L 735 195 Z  M 760 185 L 775 195 L 765 195 Z
+        " fill="#ECEFF1" stroke="#37474F" stroke-width="1.5"/>
+      </g>
+    </g>
+
+    <!-- Internal Chain Track Bar -->
+    <rect x="260" y="110" rx="5" ry="5" width="460" height="75" fill="#1C313A" stroke="#000000" stroke-width="2"/>
+
+    <!-- ================= MAIN CASING (RED BODY) ================= -->
+    <path d="M 240 95 L 690 95 L 740 135 L 730 185 L 240 185 Z" fill="url(#casingGrad)" stroke="#1B0000" stroke-width="3"/>
+    <path d="M 240 95 L 690 95 L 680 105 L 240 105 Z" fill="#E53935"/>
+    <path d="M 240 185 L 730 185 L 715 175 L 240 175 Z" fill="#5C0000"/>
+
+    <!-- Casing Screws / Rivets -->
+    <g fill="#37474F" stroke="#102027" stroke-width="1">
+      <circle cx="270" cy="115" r="3"/><circle cx="350" cy="115" r="3"/><circle cx="430" cy="115" r="3"/>
+      <circle cx="510" cy="115" r="3"/><circle cx="590" cy="115" r="3"/><circle cx="670" cy="115" r="3"/>
+      <circle cx="270" cy="165" r="3"/><circle cx="350" cy="165" r="3"/><circle cx="430" cy="165" r="3"/>
+      <circle cx="510" cy="165" r="3"/><circle cx="590" cy="165" r="3"/><circle cx="670" cy="165" r="3"/>
+    </g>
+
+    <!-- ================= ENGINE HOUSING & EXHAUST ================= -->
+    <!-- Dynamic Motor Block Glow -->
+    <rect id="motor-block" x="170" y="80" width="90" height="120" rx="8" fill="url(#engineGrad)" stroke="#102027" stroke-width="3"/>
+
+    <!-- Exhaust Backfire Flames -->
+    <g class="exhaust-flame">
+      <polygon points="170,98 140,94 170,101" fill="url(#fireGrad)"/>
+      <polygon points="170,111 135,108 170,114" fill="url(#fireGrad)"/>
+      <polygon points="170,124 140,121 170,127" fill="url(#fireGrad)"/>
+      <polygon points="170,137 135,134 170,140" fill="url(#fireGrad)"/>
+    </g>
+
+    <!-- Exhaust Vents -->
+    <g fill="#102027">
+      <rect x="185" y="95" width="25" height="6" rx="2"/><rect x="185" y="108" width="25" height="6" rx="2"/>
+      <rect x="185" y="121" width="25" height="6" rx="2"/><rect x="185" y="134" width="25" height="6" rx="2"/>
+      <rect x="220" y="95" width="25" height="6" rx="2"/><rect x="220" y="108" width="25" height="6" rx="2"/>
+      <rect x="220" y="121" width="25" height="6" rx="2"/><rect x="220" y="134" width="25" height="6" rx="2"/>
+    </g>
+
+    <!-- Imperial Skull Icon on Engine -->
+    <g id="skull-icon" transform="translate(202, 155)">
+      <path d="M 0 0 C -12 -18, 12 -18, 24 0 C 26 10, 20 18, 18 20 L 6 20 C 4 18, -2 10, 0 0 Z" fill="url(#goldGrad)" stroke="#5D4037" stroke-width="1.5"/>
+      <circle cx="6" cy="2" r="3" fill="#1B0000"/><circle cx="18" cy="2" r="3" fill="#1B0000"/>
+      <path d="M 8 15 L 8 20 M 12 15 L 12 20 M 16 15 L 16 20" stroke="#1B0000" stroke-width="1.5"/>
+    </g>
+
+    <!-- ================= HAND GUARD & AQUILA WINGS ================= -->
+    <path d="M 160 65 L 180 65 L 175 215 L 155 215 Z" fill="url(#goldGrad)" stroke="#5D4037" stroke-width="2"/>
+    <path d="M 170 70 Q 120 75 100 120 Q 130 135 170 140 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="2"/>
+    <path d="M 155 82 Q 125 90 112 115 M 160 98 Q 135 105 125 125" fill="none" stroke="#5D4037" stroke-width="2"/>
+
+    <!-- ================= HANDLE & POMMEL ================= -->
+    <rect x="70" y="128" width="90" height="24" rx="4" fill="#212121" stroke="#000000" stroke-width="2"/>
+    <g stroke="#8D6E63" stroke-width="3">
+      <line x1="85" y1="128" x2="78" y2="152"/><line x1="105" y1="128" x2="98" y2="152"/>
+      <line x1="125" y1="128" x2="118" y2="152"/><line x1="145" y1="128" x2="138" y2="152"/>
+    </g>
+    <path d="M 70 120 L 50 125 L 50 155 L 70 160 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="2"/>
+    <circle cx="50" cy="140" r="7" fill="url(#metalGrad)" stroke="#263238" stroke-width="1.5"/>
+
+  </g>
+</svg>

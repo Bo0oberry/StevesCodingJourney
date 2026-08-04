@@ -14,6 +14,7 @@ body {
 main {
  grid-area: main;
  width: 100%;
+ background-color: cadetblue;
 }
 
 header {
@@ -22,11 +23,14 @@ header {
 }
 
 nav {
+  position: sticky;
+  top: 0;
   grid-area: nav;
   align-self: bottom;
   height: min(100vh);
   width: auto;
   background-color: lightcoral;
+  overflow-y: scroll;
 }
 
 footer {
@@ -34,6 +38,3 @@ footer {
   background-color: teal;
 }
 
-@media (max-width: 800px;) {
-  
-}

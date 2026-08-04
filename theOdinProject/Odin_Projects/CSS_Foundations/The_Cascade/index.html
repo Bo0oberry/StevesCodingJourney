@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../mainSetup.css">
     <script src="./../nav_cssFoundations.js"></script>
     <link rel="stylesheet" href="./styles.css">
 
@@ -16,404 +17,881 @@
     <title>The Cascade</title>
 </head>
 <body>
-  <nav id="nav"></nav>
-    <h1>The Cascade</h1>
+    <nav id="nav"></nav>
 
-    <!--    0000000000000000000000000000000 -->
-    
-    <section id="intro">
+    <header id="home">
+        <h1>The Cascade</h1>
+    </header>
 
-        <h2>Introduction</h2>
-        <p>In the previous lesson, we covered basic CSS syntax and selectors. Now, it’s time to combine our knowledge of selectors with the C of CSS – the cascade.</p>
-    </section>
-    
-    <!--    0000000000000000000000000000000 -->
+    <main>
 
-    <section id="lesson_overveiw">
-        <h2>Lesson Overveiw</h2>
-        <p>This section contains a general overview of topics that you will learn in this lesson.</p>
-        <ul>
-            <li>What the cascade does.</li>
-            <li>Specificity and combining CSS selectors.</li>
-            <li>How inheritance affects certain properties.</li>
-        </ul>
-        <input type="checkbox" id="check1">
-        <label for="check1">Click Me</label>
+        <!--    0000000000000000000000000000000 -->
         
-        <script type="module">
-            import { random, range } from 'https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm';
+        <section id="intro">
 
-            let btn = document.querySelector("#lesson_overveiw label");
+            <h2>Introduction</h2>
+            <p>In the previous lesson, we covered basic CSS syntax and selectors. Now, it’s time to combine our knowledge of selectors with the C of CSS – the cascade.</p>
+        </section>
+        
+        <!--    0000000000000000000000000000000 -->
 
-            btn.addEventListener("click",()=>{
-               btn.classList.toggle("liked");
-               
-               const isLiked = btn.classList.contains("liked");
-               
-               if(!isLiked){
-                btn.querySelectorAll(".particle").forEach(el => el.remove());
-                return
-            }
-               
-               range(5).forEach(()=>{
-                   const dot = document.createElement("span");
-                   dot.classList.add("particle");
-                   
-                   dot.style.top = random(0, 100) + "%";
-                   dot.style.left = random(0, 100) + "%";
+        <section id="lesson_overveiw">
+            <h2>Lesson Overveiw</h2>
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+            <ul>
+                <li>What the cascade does.</li>
+                <li>Specificity and combining CSS selectors.</li>
+                <li>How inheritance affects certain properties.</li>
+            </ul>
+            <input type="checkbox" id="check1">
+            <label for="check1">Click Me</label>
+            
+            <script type="module">
+                import { random, range } from 'https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm';
 
-                   btn.appendChild(dot);
-               });
-            })
-        </script>
-    </section>
+                let btn = document.querySelector("#lesson_overveiw label");
 
-    <!--    0000000000000000000000000000000 -->
-    
-    <section id="cascade_CSS">
-        <h2>The cascade of CSS</h2>
-        <p>Sometimes we may have rules that conflict with one another, and we end up with some unexpected results. “But I wanted these paragraphs to be blue, why are they red like these other paragraphs?!” As frustrating as this can be, it’s important to understand that CSS doesn’t just do things against our wishes. CSS only does what we tell it to do. One exception to this is the default styles that are provided by a browser. These default styles vary from browser to browser, and they are why some elements create a large “gap” between themselves and other elements, or why buttons look the way they do, despite us not writing any CSS rules to style them that way.</p>
-        <p>
-            So if you end up with some unexpected behavior like this it’s either because of these default styles, not understanding how a property works, or not understanding this little thing called the cascade.
-        </p>
-        <p>
-            The cascade is what determines which rules actually get applied to our HTML. There are different factors that the cascade uses to determine this. We will examine three of these factors, which will hopefully help you avoid those frustrating “I hate CSS” moments.
-        </p>
-
-
-        <label for="cascade_CSS_btn"></label>
-        <input type="checkbox" id="cascade_CSS_btn">
-        
-        <h4>Specificity</h4>
-        
-        <p>
-            A CSS declaration that is more specific will take 
-            over less specific ones. Inline styles, which we went over
-            in the previous lesson, have the highest specificity
-            compared to selectors, while each type of selector has its
-            own specificity level that contributes to how specific a
-            declaration is. Other selectors contribute to specificity,
-            but we’re focusing only on the ones we’ve gone over so far:
-        </p>
-        
-        <ul>
-            <li>Id selectors (most specific)</li>
-            <li>Class selectors</li>
-            <li>Type selectors</li>
-        </ul>
-        
-        <p>
-            Specificity will only be taken into account when an element
-            has multiple, conflicting declarations targeting it,
-            sort of like a tie-breaker. An ID selector will always beat
-            any number of class selectors, a class selector will always
-            beat any number of type selectors, and a type selector will
-            always beat any number of less specific selectors. When
-            there is no declaration with a selector of higher
-            specificity, a rule with a greater number of selectors of
-            the same type will take precedence over another rule with
-            fewer selectors of the same type.
-        </p>
-        
-        <p>
-            Let’s take a look at a few quick examples to visualize how
-            specificity works. Consider the following HTML and CSS code:
-        </p>
-        
-        <label for="cascade_CSS_btn2">Oh Banana</label>
-        <input type="checkbox" id="cascade_CSS_btn2">
-        
-        <pre class="codePen">
-            <code>
-                &lt!-- index.html &gt;
-
-
-                &lt;div class="main"&gt;
-                    &lt;div class="list subsection"&gt;Red Text&lt;/div&gt;
-                &lt;/div&gt;
-            </code>
-        </pre>
-        
-        <pre>
-            <code>
-                /* rule 1 */
-                .subsection {
-                    color: blue;
+                btn.addEventListener("click",()=>{
+                btn.classList.toggle("liked");
+                
+                const isLiked = btn.classList.contains("liked");
+                
+                if(!isLiked){
+                    btn.querySelectorAll(".particle").forEach(el => el.remove());
+                    return
                 }
+                
+                range(5).forEach(()=>{
+                    const dot = document.createElement("span");
+                    dot.classList.add("particle");
+                    
+                    dot.style.top = random(0, 100) + "%";
+                    dot.style.left = random(0, 100) + "%";
 
-                /* rule 2 */
-                .main .list {
+                    btn.appendChild(dot);
+                });
+                })
+            </script>
+        </section>
+
+        <!--    0000000000000000000000000000000 -->
+        
+        <section id="cascade_CSS">
+            <h2>The cascade of CSS</h2>
+            <p>Sometimes we may have rules that conflict with one another, and we end up with some unexpected results. “But I wanted these paragraphs to be blue, why are they red like these other paragraphs?!” As frustrating as this can be, it’s important to understand that CSS doesn’t just do things against our wishes. CSS only does what we tell it to do. One exception to this is the default styles that are provided by a browser. These default styles vary from browser to browser, and they are why some elements create a large “gap” between themselves and other elements, or why buttons look the way they do, despite us not writing any CSS rules to style them that way.</p>
+            <p>
+                So if you end up with some unexpected behavior like this it’s either because of these default styles, not understanding how a property works, or not understanding this little thing called the cascade.
+            </p>
+            <p>
+                The cascade is what determines which rules actually get applied to our HTML. There are different factors that the cascade uses to determine this. We will examine three of these factors, which will hopefully help you avoid those frustrating “I hate CSS” moments.
+            </p>
+
+
+            <label for="cascade_CSS_btn"></label>
+            <input type="checkbox" id="cascade_CSS_btn">
+            
+            <h4>Specificity</h4>
+            
+            <p>
+                A CSS declaration that is more specific will take 
+                over less specific ones. Inline styles, which we went over
+                in the previous lesson, have the highest specificity
+                compared to selectors, while each type of selector has its
+                own specificity level that contributes to how specific a
+                declaration is. Other selectors contribute to specificity,
+                but we’re focusing only on the ones we’ve gone over so far:
+            </p>
+            
+            <ul>
+                <li>Id selectors (most specific)</li>
+                <li>Class selectors</li>
+                <li>Type selectors</li>
+            </ul>
+            
+            <p>
+                Specificity will only be taken into account when an element
+                has multiple, conflicting declarations targeting it,
+                sort of like a tie-breaker. An ID selector will always beat
+                any number of class selectors, a class selector will always
+                beat any number of type selectors, and a type selector will
+                always beat any number of less specific selectors. When
+                there is no declaration with a selector of higher
+                specificity, a rule with a greater number of selectors of
+                the same type will take precedence over another rule with
+                fewer selectors of the same type.
+            </p>
+            
+            <p>
+                Let’s take a look at a few quick examples to visualize how
+                specificity works. Consider the following HTML and CSS code:
+            </p>
+            
+            <label for="cascade_CSS_btn2">Oh Banana</label>
+            <input type="checkbox" id="cascade_CSS_btn2">
+            
+            <pre class="codePen">
+                <code>
+                    &lt!-- index.html &gt;
+
+
+                    &lt;div class="main"&gt;
+                        &lt;div class="list subsection"&gt;Red Text&lt;/div&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            
+            <pre>
+                <code>
+                    /* rule 1 */
+                    .subsection {
+                        color: blue;
+                    }
+
+                    /* rule 2 */
+                    .main .list {
+                        color: red;
+                    }
+                </code>
+            </pre>
+            
+            <p>
+                In the example above, both rules are using only class
+                selectors, but rule 2 is more specific because it is using
+                more class selectors, so the color: red declaration would
+                take precedence.
+            </p>
+            
+            <p>
+                Now, let’s change things a little bit:
+            </p>
+            
+            <pre>
+                <code>
+                    <!-- index.html -->
+
+                    &lt;div class="main"&gt;
+                        &lt;div class="list" id="subsection"&gt;
+                        Blue text&lt;/div&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+            
+            <pre>
+                <code>
+                    /* rule 1 */
+                
+                    #subsection {
+                        color: blue;
+                    }
+
+                    /* rule 2 */
+                    .main .list {
+                        color: red;
+                    }
+                </code>
+            </pre>
+
+            <p>
+                In this final example, the first rule uses an ID selector, 
+                while the second rule combines an ID selector with a class 
+                selector. Therefore, neither rule is using a more specific 
+                selector than the other. The cascade then checks the number 
+                of each selector type. Both rules have only one ID selector, 
+                but rule 2 has a class selector in addition to the ID 
+                selector, so rule 2 has a higher specificity!
+            </p>
+            
+            <p>
+                While the <kbd>color: red</kbd> declaration would take 
+                precedence, the <kbd>background-color: yellow</kbd> 
+                declaration would still be applied since there’s no 
+                conflicting declaration for it.
+            </p>
+
+            <h3>Not everything adds to specificity</h3>
+
+            <p>
+                When comparing selectors, you may come across special symbols 
+                for the universal selector (<kbd>*</kbd>) as well as 
+                combinators (<kbd>+</kbd>, <kbd>~</kbd>, <kbd>></kbd>, 
+                and an empty space). The ones you have not yet seen, we will 
+                cover these later in the curriculum, so there is no need to dive 
+                into them yet. The core concept is that these symbols do not 
+                inherently convey any additional specificity.
+            </p>
+
+            <pre>
+                <code>
+                    /* rule 1 */
+                    .class.second-class {
+                        font-size: 12px;
+                    }
+
+                    /* rule 2 */
+                    .class .second-class {
+                        font-size: 24px;
+                    } 
+                </code>
+            </pre>
+
+            <p>
+                Here both rule 1 and rule 2 have the same specificity. Rule 1 
+                uses a chaining selector (no space) and rule 2 uses a descendant 
+                combinator (the empty space). But both rules have two classes 
+                and the combinator symbol itself does not add to the specificity.
+            </p>
+            
+            <pre>
+                <code>
+                    /* rule 1 */
+                    .class.second-class {
+                        font-size: 12px;
+                    }
+
+                    /* rule 2 */
+                    .class > .second-class {
+                        font-size: 24px;
+                    }
+                </code>
+            </pre>
+
+            <p>
+                This example shows the same thing. Even though rule 2 is using a child 
+                combinator (<kbd>></kbd>), this does not change the specificity value. 
+                Both rules still have two classes so they have the same specificity values.
+            </p>
+            
+            <pre>
+                <code>
+                    /* rule 1 */
+                    * {
+                        color: black;
+                    }
+
+                    /* rule 2 */
+                    h1 {
+                        color: orange;
+                    }
+                </code>
+            </pre>
+
+            <p>
+                In this example, rule 2 would have higher specificity and the 
+                <kbd>color: orange</kbd> value would take precedence for this 
+                element. Rule 2 uses a type selector, which has the lowest 
+                specificity value. But rule 1 uses the universal selector 
+                (<kbd>*</kbd>) which has no specificity value.
+            </p>
+
+            <h3>Inheritance</h3>
+
+            <p>
+            Inheritance refers to certain CSS properties that, when applied to an 
+            element, are inherited by that element’s descendants, even if we don’t 
+            explicitly write a rule for those descendants. Typography-based properties 
+            (<kbd>color</kbd>, <kbd>font-size</kbd>, <kbd>font-family</kbd>, etc.) 
+            are usually inherited, while most other properties aren’t. You can find out 
+            if a property is inherited or not by going to its docs on MDN and heading to 
+            the <strong>Formal Definition</strong> section. For example, the 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition">
+                CSS color property formal definition
+            </a> 
+            indicates that <kbd>color</kbd> is an inherited property, while the 
+            <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#formal_definition">
+                CSS display property formal definition
+            </a> 
+            indicates that display is not.  
+            </p>
+
+            <p>
+                The exception to this is when directly targeting an element, as 
+                this always beats inheritance:
+            </p>
+
+            <pre>
+                <code>
+                    &lt;!-- index.html --&gt;
+
+                    &lt;div id="parent"&gt;
+                    &lt;div class="child"&gt;&lt;/div&gt;
+                    &lt;/div&gt;
+                </code>
+            </pre>
+
+            <pre>
+                <code>
+                    /* styles.css */
+
+                    #parent {
+                        color: red;
+                    }
+
+                    .child {
+                        color: blue;
+                    }
+                </code>
+            </pre>
+
+            <p>
+                Despite the <kbd>parent</kbd> element having a higher specificity 
+                with an ID, the <kbd>child</kbd> element would have the 
+                <kbd>color: blue</kbd> style applied since that declaration directly 
+                targets it, while <kbd>color: red</kbd> from the parent is only inherited.
+            </p>
+
+            <h3>Rule order</h3>
+
+            <p>
+                The final factor, the end of the line, the tie-breaker of the 
+                tie-breakers. Let’s say that after every other factor has been 
+                taken into account, there are still multiple conflicting rules 
+                targeting an element. How does the cascade determine which rule 
+                to apply?
+            </p>
+
+            <p>
+                Whichever rule was the last defined is the winner.
+            </p>
+
+            <pre>
+                <code>
+                    /* styles.css */
+
+                    .alert {
                     color: red;
-                }
-            </code>
-        </pre>
+                    }
+
+                    .warning {
+                    color: yellow;
+                    }
+                </code>
+            </pre>
+
+            <p>
+                For an element that has both the <kbd>.alert</kbd> and 
+                <kbd>.warning</kbd> classes, the cascade would run through 
+                every other factor, including inheritance (none here) and 
+                specificity (neither rule is more specific than the other). 
+                Since the <kbd>.warning</kbd> rule was the last one defined, 
+                and no other factor was able to determine which rule to apply, 
+                it’s the one that gets applied to the element.
+            </p>
+        </section>
         
-        <p>
-            In the example above, both rules are using only class
-            selectors, but rule 2 is more specific because it is using
-            more class selectors, so the color: red declaration would
-            take precedence.
-        </p>
+        <!--    0000000000000000000000000000000 -->
+
+        <section id="assignment">
+            <h2>Assignment</h2>
+            <div class="assignmentDiv">
+                <ol>
+                    <li>
+                        <a href="https://2019.wattenberger.com/blog/css-cascade" target="_blank">the CSS Cascade</a> 
+                        is a great, interactive read that goes a little more in detail about other 
+                        factors that affect what CSS rules actually end up being applied.
+                    </li>
+                    <li>
+                        Complete the exercise in our 
+                        <a href="https://github.com/TheOdinProject/css-exercises/tree/main/foundations/cascade" target="_blank">
+                            CSS exercises repository’s foundations/cascade directory
+                        </a> 
+                        (remember that the instructions are in the README): 
+
+                        <ul>
+                            <li>
+                                <a href="/theOdinProject/css-exercises/foundations/06-cascade-fix/index.html"><kbd>01-cascade-fix</kbd></a>
+                            </li>
+                        </ul>
+
+                        Note: Solutions for these exercises can be found in the 
+                        <kbd>solution</kbd> folder of each exercise.
+                    </li>
+                </ol>
+            </div>
+            <script>
+                const h2 = document.querySelector('#assignment h2');
+                h2.style.backgroundColor = "red";
+                h2.style.borderRadius = "6px";
+
+                const pattern = /ss|n/gi;
+                h2.innerHTML = h2.innerHTML.replace(pattern, `<span class="assignmentH2">$&</span>`)
+            </script>
+        </section>
         
-        <p>
-            Now, let’s change things a little bit:
-        </p>
-        
-        <pre>
-            <code>
-                <!-- index.html -->
+        <section id="knowledgeCheck">
+            <h2>Knowledge Check</h2>
+            
+            <details>
+                <summary>Between a rule that uses one class selector and a rule that
+                    uses three type selectors, which rule has the higher specificity?</summary>
+                <p>the class selector</p>
+                <button>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+                    <defs>
+                        <!-- CSS Animations Embedded directly in SVG -->
+                        <style>
+                        /* 1. Whole Sword Engine Vibration */
+                        @keyframes revVibration {
+                            0% { transform: translate(0, 0); }
+                            20% { transform: translate(-1px, 1px); }
+                            40% { transform: translate(1px, -1px); }
+                            60% { transform: translate(-1px, -1px); }
+                            80% { transform: translate(1px, 1px); }
+                            100% { transform: translate(0, 0); }
+                        }
 
-                &lt;div class="main"&gt;
-                    &lt;div class="list" id="subsection"&gt;
-                    Blue text&lt;/div&gt;
-                &lt;/div&gt;
-            </code>
-        </pre>
-        
-        <pre>
-            <code>
-                /* rule 1 */
-              
-                #subsection {
-                    color: blue;
-                }
+                        /* 2. Chain Teeth Whirring Motion */
+                        @keyframes teethWhir {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-30px); }
+                        }
 
-                /* rule 2 */
-                .main .list {
-                    color: red;
-                }
-            </code>
-        </pre>
+                        /* 3. Engine Revving Glow */
+                        @keyframes engineGlow {
+                            0% { fill: #212121; }
+                            30% { fill: #ff3d00; filter: drop-shadow(0 0 8px #ff3d00); }
+                            70% { fill: #ff9100; filter: drop-shadow(0 0 15px #ff9100); }
+                            100% { fill: #37474F; filter: drop-shadow(0 0 4px #ff3d00); }
+                        }
 
-        <p>
-            In this final example, the first rule uses an ID selector, 
-            while the second rule combines an ID selector with a class 
-            selector. Therefore, neither rule is using a more specific 
-            selector than the other. The cascade then checks the number 
-            of each selector type. Both rules have only one ID selector, 
-            but rule 2 has a class selector in addition to the ID 
-            selector, so rule 2 has a higher specificity!
-        </p>
-        
-        <p>
-            While the <kbd>color: red</kbd> declaration would take 
-            precedence, the <kbd>background-color: yellow</kbd> 
-            declaration would still be applied since there’s no 
-            conflicting declaration for it.
-        </p>
+                        /* 4. Exhaust Sparks / Backfire */
+                        @keyframes exhaustBurst {
+                            0%, 100% { opacity: 0; transform: scaleX(0.2); }
+                            20% { opacity: 1; transform: scaleX(1.2); }
+                            40% { opacity: 0.3; transform: scaleX(0.5); }
+                            60% { opacity: 0.9; transform: scaleX(1); }
+                        }
 
-        <h3>Not everything adds to specificity</h3>
+                        /* Apply animations to groups */
+                        #chainsword-assembly {
+                            animation: revVibration 0.08s infinite linear;
+                            transform-origin: center;
+                        }
 
-        <p>
-            When comparing selectors, you may come across special symbols 
-            for the universal selector (<kbd>*</kbd>) as well as 
-            combinators (<kbd>+</kbd>, <kbd>~</kbd>, <kbd>></kbd>, 
-            and an empty space). The ones you have not yet seen, we will 
-            cover these later in the curriculum, so there is no need to dive 
-            into them yet. The core concept is that these symbols do not 
-            inherently convey any additional specificity.
-        </p>
+                        #teeth-path {
+                            animation: teethWhir 0.12s infinite linear;
+                        }
 
-        <pre>
-            <code>
-                /* rule 1 */
-                .class.second-class {
-                    font-size: 12px;
-                }
+                        #motor-block {
+                            animation: engineGlow 1.5s ease-out forwards;
+                        }
 
-                /* rule 2 */
-                .class .second-class {
-                    font-size: 24px;
-                } 
-            </code>
-        </pre>
+                        .exhaust-flame {
+                            animation: exhaustBurst 0.15s infinite alternate;
+                            transform-origin: left center;
+                        }
+                        </style>
 
-        <p>
-            Here both rule 1 and rule 2 have the same specificity. Rule 1 
-            uses a chaining selector (no space) and rule 2 uses a descendant 
-            combinator (the empty space). But both rules have two classes 
-            and the combinator symbol itself does not add to the specificity.
-        </p>
-        
-        <pre>
-            <code>
-                /* rule 1 */
-                .class.second-class {
-                    font-size: 12px;
-                }
+                        <!-- Metallic Blade Guard Gradient -->
+                        <linearGradient id="casingGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#C62828"/>
+                        <stop offset="50%" stop-color="#B71C1C"/>
+                        <stop offset="100%" stop-color="#8E0000"/>
+                        </linearGradient>
 
-                /* rule 2 */
-                .class > .second-class {
-                    font-size: 24px;
-                }
-            </code>
-        </pre>
+                        <!-- Metal Steel Gradient -->
+                        <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#CFD8DC"/>
+                        <stop offset="50%" stop-color="#90A4AE"/>
+                        <stop offset="100%" stop-color="#455A64"/>
+                        </linearGradient>
 
-        <p>
-            This example shows the same thing. Even though rule 2 is using a child 
-            combinator (<kbd>></kbd>), this does not change the specificity value. 
-            Both rules still have two classes so they have the same specificity values.
-        </p>
-        
-        <pre>
-            <code>
-                /* rule 1 */
-                * {
-                    color: black;
-                }
+                        <!-- Dark Metal Engine Gradient -->
+                        <linearGradient id="engineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#37474F"/>
+                        <stop offset="100%" stop-color="#212121"/>
+                        </linearGradient>
 
-                /* rule 2 */
-                h1 {
-                    color: orange;
-                }
-            </code>
-        </pre>
+                        <!-- Gold Aquila/Trim Gradient -->
+                        <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#FFE082"/>
+                        <stop offset="50%" stop-color="#FFB300"/>
+                        <stop offset="100%" stop-color="#FF8F00"/>
+                        </linearGradient>
 
-        <p>
-            In this example, rule 2 would have higher specificity and the 
-            <kbd>color: orange</kbd> value would take precedence for this 
-            element. Rule 2 uses a type selector, which has the lowest 
-            specificity value. But rule 1 uses the universal selector 
-            (<kbd>*</kbd>) which has no specificity value.
-        </p>
+                        <!-- Exhaust Fire Gradient -->
+                        <linearGradient id="fireGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#FFD54F"/>
+                        <stop offset="50%" stop-color="#FF6D00"/>
+                        <stop offset="100%" stop-color="#DD2C00" stop-opacity="0"/>
+                        </linearGradient>
 
-        <h3>Inheritance</h3>
+                        <!-- Clip Path so teeth stay inside the cutting track -->
+                        <clipPath id="teethTrackClip">
+                        <rect x="270" y="180" width="450" height="30"/>
+                        </clipPath>
+                    </defs>
 
-        <p>
-          Inheritance refers to certain CSS properties that, when applied to an 
-          element, are inherited by that element’s descendants, even if we don’t 
-          explicitly write a rule for those descendants. Typography-based properties 
-          (<kbd>color</kbd>, <kbd>font-size</kbd>, <kbd>font-family</kbd>, etc.) 
-          are usually inherited, while most other properties aren’t. You can find out 
-          if a property is inherited or not by going to its docs on MDN and heading to 
-          the <strong>Formal Definition</strong> section. For example, the 
-          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/color#formal_definition">
-            CSS color property formal definition
-          </a> 
-          indicates that <kbd>color</kbd> is an inherited property, while the 
-         <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/display#formal_definition">
-            CSS display property formal definition
-          </a> 
-          indicates that display is not.  
-        </p>
+                    <!-- Ground Drop Shadow -->
+                    <ellipse cx="400" cy="260" rx="360" ry="12" fill="#000000" opacity="0.2"/>
 
-        <p>
-            The exception to this is when directly targeting an element, as 
-            this always beats inheritance:
-        </p>
+                    <!-- MAIN ANIMATED ASSEMBLY GROUP -->
+                    <g id="chainsword-assembly">
 
-        <pre>
-            <code>
-                &lt;!-- index.html --&gt;
+                        <!-- ================= CHAIN TEETH (CLIPPED & ANIMATED) ================= -->
+                        <g clip-path="url(#teethTrackClip)">
+                        <g id="teeth-path">
+                            <!-- Extended tooth path so seamless loop works -->
+                            <path d="
+                            M 250 185 L 265 200 L 255 200 Z  M 280 185 L 295 200 L 285 200 Z
+                            M 310 185 L 325 200 L 315 200 Z  M 340 185 L 355 200 L 345 200 Z
+                            M 370 185 L 385 200 L 375 200 Z  M 400 185 L 415 200 L 405 200 Z
+                            M 430 185 L 445 200 L 435 200 Z  M 460 185 L 475 200 L 465 200 Z
+                            M 490 185 L 505 200 L 495 200 Z  M 520 185 L 535 200 L 525 200 Z
+                            M 550 185 L 565 200 L 555 200 Z  M 580 185 L 595 200 L 585 200 Z
+                            M 610 185 L 625 200 L 615 200 Z  M 640 185 L 655 200 L 645 200 Z
+                            M 670 185 L 685 200 L 675 200 Z  M 700 185 L 715 195 L 705 195 Z
+                            M 730 185 L 745 195 L 735 195 Z  M 760 185 L 775 195 L 765 195 Z
+                            " fill="#ECEFF1" stroke="#37474F" stroke-width="1.5"/>
+                        </g>
+                        </g>
 
-                &lt;div id="parent"&gt;
-                &lt;div class="child"&gt;&lt;/div&gt;
-                &lt;/div&gt;
-            </code>
-        </pre>
+                        <!-- Internal Chain Track Bar -->
+                        <rect x="260" y="110" rx="5" ry="5" width="460" height="75" fill="#1C313A" stroke="#000000" stroke-width="2"/>
 
-        <pre>
-            <code>
-                /* styles.css */
+                        <!-- ================= MAIN CASING (RED BODY) ================= -->
+                        <path d="M 240 95 L 690 95 L 740 135 L 730 185 L 240 185 Z" fill="url(#casingGrad)" stroke="#1B0000" stroke-width="3"/>
+                        <path d="M 240 95 L 690 95 L 680 105 L 240 105 Z" fill="#E53935"/>
+                        <path d="M 240 185 L 730 185 L 715 175 L 240 175 Z" fill="#5C0000"/>
 
-                #parent {
-                    color: red;
-                }
+                        <!-- Casing Screws / Rivets -->
+                        <g fill="#37474F" stroke="#102027" stroke-width="1">
+                        <circle cx="270" cy="115" r="3"/><circle cx="350" cy="115" r="3"/><circle cx="430" cy="115" r="3"/>
+                        <circle cx="510" cy="115" r="3"/><circle cx="590" cy="115" r="3"/><circle cx="670" cy="115" r="3"/>
+                        <circle cx="270" cy="165" r="3"/><circle cx="350" cy="165" r="3"/><circle cx="430" cy="165" r="3"/>
+                        <circle cx="510" cy="165" r="3"/><circle cx="590" cy="165" r="3"/><circle cx="670" cy="165" r="3"/>
+                        </g>
 
-                .child {
-                    color: blue;
-                }
-            </code>
-        </pre>
+                        <!-- ================= ENGINE HOUSING & EXHAUST ================= -->
+                        <!-- Dynamic Motor Block Glow -->
+                        <rect id="motor-block" x="170" y="80" width="90" height="120" rx="8" fill="url(#engineGrad)" stroke="#102027" stroke-width="3"/>
 
-        <p>
-            Despite the <kbd>parent</kbd> element having a higher specificity 
-            with an ID, the <kbd>child</kbd> element would have the 
-            <kbd>color: blue</kbd> style applied since that declaration directly 
-            targets it, while <kbd>color: red</kbd> from the parent is only inherited.
-        </p>
+                        <!-- Exhaust Backfire Flames -->
+                        <g class="exhaust-flame">
+                        <polygon points="170,98 140,94 170,101" fill="url(#fireGrad)"/>
+                        <polygon points="170,111 135,108 170,114" fill="url(#fireGrad)"/>
+                        <polygon points="170,124 140,121 170,127" fill="url(#fireGrad)"/>
+                        <polygon points="170,137 135,134 170,140" fill="url(#fireGrad)"/>
+                        </g>
 
-        <h3>Rule order</h3>
+                        <!-- Exhaust Vents -->
+                        <g fill="#102027">
+                        <rect x="185" y="95" width="25" height="6" rx="2"/><rect x="185" y="108" width="25" height="6" rx="2"/>
+                        <rect x="185" y="121" width="25" height="6" rx="2"/><rect x="185" y="134" width="25" height="6" rx="2"/>
+                        <rect x="220" y="95" width="25" height="6" rx="2"/><rect x="220" y="108" width="25" height="6" rx="2"/>
+                        <rect x="220" y="121" width="25" height="6" rx="2"/><rect x="220" y="134" width="25" height="6" rx="2"/>
+                        </g>
 
-        <p>
-            The final factor, the end of the line, the tie-breaker of the 
-            tie-breakers. Let’s say that after every other factor has been 
-            taken into account, there are still multiple conflicting rules 
-            targeting an element. How does the cascade determine which rule 
-            to apply?
-        </p>
+                        <!-- Imperial Skull Icon on Engine -->
+                        <g id="skull-icon" transform="translate(202, 155)">
+                        <path d="M 0 0 C -12 -18, 12 -18, 24 0 C 26 10, 20 18, 18 20 L 6 20 C 4 18, -2 10, 0 0 Z" fill="url(#goldGrad)" stroke="#5D4037" stroke-width="1.5"/>
+                        <circle cx="6" cy="2" r="3" fill="#1B0000"/><circle cx="18" cy="2" r="3" fill="#1B0000"/>
+                        <path d="M 8 15 L 8 20 M 12 15 L 12 20 M 16 15 L 16 20" stroke="#1B0000" stroke-width="1.5"/>
+                        </g>
 
-        <p>
-            Whichever rule was the last defined is the winner.
-        </p>
+                        <!-- ================= HAND GUARD & AQUILA WINGS ================= -->
+                        <path d="M 160 65 L 180 65 L 175 215 L 155 215 Z" fill="url(#goldGrad)" stroke="#5D4037" stroke-width="2"/>
+                        <path d="M 170 70 Q 120 75 100 120 Q 130 135 170 140 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="2"/>
+                        <path d="M 155 82 Q 125 90 112 115 M 160 98 Q 135 105 125 125" fill="none" stroke="#5D4037" stroke-width="2"/>
 
-        <pre>
-            <code>
-                /* styles.css */
+                        <!-- ================= HANDLE & POMMEL ================= -->
+                        <rect x="70" y="128" width="90" height="24" rx="4" fill="#212121" stroke="#000000" stroke-width="2"/>
+                        <g stroke="#8D6E63" stroke-width="3">
+                        <line x1="85" y1="128" x2="78" y2="152"/><line x1="105" y1="128" x2="98" y2="152"/>
+                        <line x1="125" y1="128" x2="118" y2="152"/><line x1="145" y1="128" x2="138" y2="152"/>
+                        </g>
+                        <path d="M 70 120 L 50 125 L 50 155 L 70 160 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="2"/>
+                        <circle cx="50" cy="140" r="7" fill="url(#metalGrad)" stroke="#263238" stroke-width="1.5"/>
 
-                .alert {
-                color: red;
-                }
+                    </g>
+                    </svg>
+                </button>
+                <script type="module">
+                    import {random, range} from 'https://cdn.jsdelivr.net/npm/lodash-es@4.17.21/+esm';
+                    const kc_particle = document.createElement('style');
+                    kc_particle.textContent = `
+                        @keyframes fade2 {
+                            from {
+                                opacity: 1;
+                            }
+                            to {
+                                opacity: 0.1;
+                            }
+                        }
 
-                .warning {
-                color: yellow;
-                }
-            </code>
-        </pre>
+                        .kc_particle {
+                            position: absolute;
+                            width: 14px;
+                            height: 14px;
+                            border-radius: 50%;
+                            background-Color: red;
+                            animation: fade2 1.5s forwards;
+                        }
 
-        <p>
-            For an element that has both the <kbd>.alert</kbd> and 
-            <kbd>.warning</kbd> classes, the cascade would run through 
-            every other factor, including inheritance (none here) and 
-            specificity (neither rule is more specific than the other). 
-            Since the <kbd>.warning</kbd> rule was the last one defined, 
-            and no other factor was able to determine which rule to apply, 
-            it’s the one that gets applied to the element.
-        </p>
-    </section>
-    
-    <!--    0000000000000000000000000000000 -->
+                        .chainsword-casing {
+                            transition: fill 0.3s ease;
+                        }
+                        
+                        svg:hover .chainsword-casing {
+                            fill: #ff1744; /* Bright red glow on hover */
+                        }
 
-    <section id="assignment">
-        <h2>Assignment</h2>
-        <div class="assignmentDiv">
-            <ol>
-                <li>
-                    <a href="https://2019.wattenberger.com/blog/css-cascade" target="_blank">the CSS Cascade</a> 
-                    is a great, interactive read that goes a little more in detail about other 
-                    factors that affect what CSS rules actually end up being applied.
-                </li>
-                <li>
-                    Complete the exercise in our 
-                    <a href="https://github.com/TheOdinProject/css-exercises/tree/main/foundations/cascade" target="_blank">
-                        CSS exercises repository’s foundations/cascade directory
-                    </a> 
-                    (remember that the instructions are in the README): 
+                        /* Animate SVG teeth moving continuously */
+                        @keyframes sawMotion {
+                            0% { transform: translateX(0); }
+                            100% { transform: translateX(-15px); }
+                        }
 
-                    <ul>
-                        <li>
-                            <kbd>01-cascade-fix</kbd>
-                        </li>
-                    </ul>
+                        #bottom-teeth path {
+                            animation: sawMotion 0.1s linear infinite;
+    }
+                    `;
+                    document.head.appendChild(kc_particle);
 
-                    Note: Solutions for these exercises can be found in the 
-                    <kbd>solution</kbd> folder of each exercise.
-                </li>
-            </ol>
+                    const kc_button = document.querySelector("#knowledgeCheck button");
+                    kc_button.addEventListener("click", ()=> {
+                        kc_button.classList.toggle("clickedOn");
+                        
+                        if(kc_button.classList.contains("clickedOn")){
+                            document.querySelectorAll(".kc_particle").forEach((ele)=>{ele.remove()});
+                            return;
+                        }
+                        
+                        
+                        const count = random(5, 10);
+
+                        range(count).forEach(()=>{
+                            const particle = document.createElement('span');
+                            particle.classList.add('kc_particle');
+
+                            particle.style.top = random(0 ,100) + "%";
+                            particle.style.left = random(0 ,100) + "%";
+
+                            kc_button.appendChild(particle);
+                        });
+
+                    });
+
+                
+                </script>
+            </details>
+        </section>
+    </main>
+    <footer id="footer">
+        <label for="footer_ChkBtn1" id="footer_LblBtn1" >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="10s0%" height="100%">
+                <defs>
+                    <!-- Dark Gunmetal Metallic Gradient -->
+                    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#37474F"/>
+                    <stop offset="40%" stop-color="#263238"/>
+                    <stop offset="100%" stop-color="#102027"/>
+                    </linearGradient>
+
+                    <!-- Olive Drab Guard Casing Gradient -->
+                    <linearGradient id="oliveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#558B2F"/>
+                    <stop offset="50%" stop-color="#33691E"/>
+                    <stop offset="100%" stop-color="#1B5E20"/>
+                    </linearGradient>
+
+                    <!-- Power Cell / Red Accents Gradient -->
+                    <linearGradient id="powerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#E53935"/>
+                    <stop offset="50%" stop-color="#C62828"/>
+                    <stop offset="100%" stop-color="#8E0000"/>
+                    </linearGradient>
+
+                    <!-- Gold Aquila / Trim Gradient -->
+                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FFE082"/>
+                    <stop offset="50%" stop-color="#FFB300"/>
+                    <stop offset="100%" stop-color="#FF8F00"/>
+                    </linearGradient>
+
+                    <!-- Steel Barrel Gradient -->
+                    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#CFD8DC"/>
+                    <stop offset="50%" stop-color="#78909C"/>
+                    <stop offset="100%" stop-color="#37474F"/>
+                    </linearGradient>
+
+                    <!-- Leather Sling Gradient -->
+                    <linearGradient id="leatherGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#6D4C41"/>
+                    <stop offset="50%" stop-color="#4E342E"/>
+                    <stop offset="100%" stop-color="#3E2723"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- Ground Drop Shadow -->
+                <ellipse cx="400" cy="255" rx="360" ry="10" fill="#000000" opacity="0.2"/>
+
+                <!-- ================= LEATHER SLING ================= -->
+                <path d="M 120 180 C 180 270, 520 270, 580 170 C 520 250, 180 250, 120 180 Z" fill="url(#leatherGrad)" stroke="#271510" stroke-width="1.5"/>
+                <circle cx="120" cy="180" r="4" fill="url(#goldGrad)"/>
+                <circle cx="580" cy="170" r="4" fill="url(#goldGrad)"/>
+
+                <!-- ================= BARREL & MUZZLE ================= -->
+                <!-- Main Laser Barrel Tube -->
+                <rect x="520" y="112" width="220" height="16" rx="2" fill="url(#steelGrad)" stroke="#102027" stroke-width="2"/>
+                
+                <!-- Muzzle Flash Hider Suppressor -->
+                <path d="M 720 108 L 745 108 L 750 112 L 750 128 L 745 132 L 720 132 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+                <rect x="725" y="110" width="4" height="20" fill="#102027"/>
+                <rect x="733" y="110" width="4" height="20" fill="#102027"/>
+
+                <!-- Barrel Shroud Heat Vents -->
+                <rect x="540" y="108" width="130" height="24" rx="3" fill="url(#oliveGrad)" stroke="#102027" stroke-width="2"/>
+                <g fill="#102027">
+                    <rect x="550" y="113" width="12" height="14" rx="2"/>
+                    <rect x="570" y="113" width="12" height="14" rx="2"/>
+                    <rect x="590" y="113" width="12" height="14" rx="2"/>
+                    <rect x="610" y="113" width="12" height="14" rx="2"/>
+                    <rect x="630" y="113" width="12" height="14" rx="2"/>
+                    <rect x="650" y="113" width="12" height="14" rx="2"/>
+                </g>
+
+                <!-- Front Iron Sight -->
+                <path d="M 700 112 L 705 95 L 715 95 L 720 112 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+                <circle cx="710" cy="102" r="2" fill="#FFD54F"/>
+
+                <!-- ================= MAIN RECEIVER / HOUSING ================= -->
+                <!-- Upper Receiver Block -->
+                <path d="M 220 90 L 540 90 L 540 150 L 220 150 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="3"/>
+                
+                <!-- Olive Drab Armor Casing Plates -->
+                <path d="M 230 95 L 530 95 L 520 140 L 240 140 Z" fill="url(#oliveGrad)" stroke="#102027" stroke-width="2"/>
+                <path d="M 230 95 L 530 95 L 525 105 L 230 105 Z" fill="#7CB342" opacity="0.5"/>
+
+                <!-- Rear Iron Sight Block -->
+                <rect x="250" y="78" width="30" height="12" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+                <rect x="262" y="72" width="6" height="8" fill="url(#steelGrad)"/>
+
+                <!-- Carrying Handle / Top Rail -->
+                <path d="M 310 90 L 320 75 L 450 75 L 460 90 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+                <rect x="340" y="80" width="90" height="5" fill="#102027"/>
+
+                <!-- Structural Rivets on Casing -->
+                <g fill="#78909C" stroke="#102027" stroke-width="1">
+                    <circle cx="250" cy="110" r="2.5"/>
+                    <circle cx="250" cy="128" r="2.5"/>
+                    <circle cx="500" cy="110" r="2.5"/>
+                    <circle cx="500" cy="128" r="2.5"/>
+                    <circle cx="375" cy="103" r="2.5"/>
+                </g>
+
+                <!-- Imperial Aquila Skull Insignia -->
+                <g id="aquila-wings" transform="translate(350, 108)">
+                    <!-- Wings -->
+                    <path d="M 0 10 L 25 -5 L 20 15 L 45 0 L 35 20 L 50 10 L 35 25 L 0 20 L -35 25 L -50 10 L -35 20 L -45 0 L -20 15 L -25 -5 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="1"/>
+                    <!-- Center Skull -->
+                    <circle cx="0" cy="10" r="6" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="1"/>
+                    <circle cx="-2" cy="9" r="1.5" fill="#102027"/>
+                    <circle cx="2" cy="9" r="1.5" fill="#102027"/>
+                </g>
+
+                <!-- ================= POWER CELL (MAGAZINE) ================= -->
+                <!-- Power Pack Bay Socket -->
+                <path d="M 390 150 L 470 150 L 460 170 L 380 170 Z" fill="#102027"/>
+                
+                <!-- Red Lasgun Power Pack -->
+                <path d="M 395 155 L 465 155 L 450 220 L 390 220 Z" fill="url(#powerGrad)" stroke="#000000" stroke-width="2"/>
+                <!-- Power Cell Ridge Lines -->
+                <line x1="400" y1="170" x2="457" y2="170" stroke="#FF8A80" stroke-width="2"/>
+                <line x1="397" y1="185" x2="452" y2="185" stroke="#420000" stroke-width="2"/>
+                <line x1="394" y1="200" x2="447" y2="200" stroke="#420000" stroke-width="2"/>
+                <!-- Power Charge Indicator Light -->
+                <circle cx="405" cy="170" r="3" fill="#00E676" stroke="#1B5E20" stroke-width="1"/>
+
+                <!-- ================= STOCK & GRIP ================= -->
+                <!-- Pistol Grip -->
+                <path d="M 250 150 L 290 150 L 260 230 L 220 225 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+                <!-- Grip Texturing Lines -->
+                <g stroke="#102027" stroke-width="2">
+                    <line x1="250" y1="170" x2="278" y2="170"/>
+                    <line x1="245" y1="185" x2="273" y2="185"/>
+                    <line x1="240" y1="200" x2="268" y2="200"/>
+                    <line x1="235" y1="215" x2="263" y2="215"/>
+                </g>
+
+                <!-- Trigger Guard & Trigger -->
+                <path d="M 290 150 C 290 185, 340 185, 340 150" fill="none" stroke="url(#bodyGrad)" stroke-width="5"/>
+                <path d="M 310 150 Q 305 165 318 165" fill="none" stroke="url(#steelGrad)" stroke-width="3"/>
+
+                <!-- Solid Rear Buttstock -->
+                <path d="M 220 90 L 100 100 C 70 105, 50 120, 50 150 C 50 180, 70 190, 100 190 L 220 150 Z" fill="url(#oliveGrad)" stroke="#000000" stroke-width="2.5"/>
+                <!-- Stock Shoulder Pad Rim -->
+                <path d="M 70 103 C 50 120, 50 170, 70 187 L 55 185 C 40 165, 40 125, 55 105 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+                <!-- Stock Reinforcement Plate -->
+                <path d="M 120 108 L 200 102 L 200 142 L 120 142 Z" fill="url(#bodyGrad)" opacity="0.4"/>
+            </svg>
+        </label>
+        <input type="checkbox" id="footer_ChkBtn1">
+
+        <label for="footer_ChkBtn2" id="footer_LblBtn2"></label>
+        <input type="checkbox" id="footer_ChkBtn2">
+
+        <button id="footer_Btn1">Add Stars</button>
+
+        <div>
+            <a href="./../Intro_CSS/index.html"  id="footer_a_prev">Prev</a>
+            <a href="#home" id="footer_a_home">Top</a>
+            <a href="./../Inspecting_HTML_CSS/index.html" id="footer_a_next">Next</a>
         </div>
-    </section>
-    
-    <section id="">
-        <h2>Knowledge Check</h2>
-        
-        <details>
-            <summary>Between a rule that uses one class selector and a rule that
-                 uses three type selectors, which rule has the higher specificity?</summary>
-            <p>the class selector</p>
-        </details>
-    </section>
 
-    
-    
+        <script>
+            const btn1 = document.querySelector("#footer_LblBtn1");
+
+            btn1.addEventListener("click", ()=>{
+                const lasbolt = document.createElement("span");
+
+                lasbolt.style.backgroundColor = `hsl(${Math.random() * 60}, 100%, 50%)`;
+                lasbolt.classList.add("footer_particle_lasbolt");
+
+
+                btn1.appendChild(lasbolt);
+
+                const animationTimeRaw = getComputedStyle(btn1).getPropertyValue("--animation-time").trim();
+                
+                let animationTimeInMs = 0;
+                if (animationTimeRaw.endsWith("ms")) {
+                    animationTimeInMs = parseFloat(animationTime);
+                } else if (animationTimeRaw.endsWith("s")) {
+                    animationTimeInMs = parseFloat(animationTimeRaw) * 1000;
+                } else {
+                    animationTimeInMs = parseFloat(animationTimeRaw) || 0;
+                }
+
+
+                window.setTimeout(()=>{
+                    lasbolt.remove();
+                },animationTimeInMs
+                );
+
+            });
+
+            const star_Btn = document.getElementById("footer_Btn1");
+            const star_canvas = document.getElementById("footer_LblBtn2");
+
+            star_Btn.addEventListener("click",()=>{
+                
+                for(let i=0; i<=10; i++){
+                    const newStar = document.createElement("span");
+                    newStar.classList.add("footer_particle_star");
+
+                    const xRange = Math.random() * 100;
+                    const yRange = Math.random() * 100;
+
+                    newStar.style.top = yRange + "%";
+                    newStar.style.left = xRange + "%";
+                    newStar.style.transform = "translate(-50%, -50%)"
+                    newStar.innerHTML = "&#11088;"
+                    
+                    star_canvas.appendChild(newStar);
+
+                };
+            });
+        </script>
+    </footer>
 </body>
 </html>

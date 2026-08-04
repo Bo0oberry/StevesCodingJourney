@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" width="100%" height="100%">
+  <defs>
+    <!-- Dark Gunmetal Metallic Gradient -->
+    <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#37474F"/>
+      <stop offset="40%" stop-color="#263238"/>
+      <stop offset="100%" stop-color="#102027"/>
+    </linearGradient>
+
+    <!-- Olive Drab Guard Casing Gradient -->
+    <linearGradient id="oliveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#558B2F"/>
+      <stop offset="50%" stop-color="#33691E"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+
+    <!-- Power Cell / Red Accents Gradient -->
+    <linearGradient id="powerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E53935"/>
+      <stop offset="50%" stop-color="#C62828"/>
+      <stop offset="100%" stop-color="#8E0000"/>
+    </linearGradient>
+
+    <!-- Gold Aquila / Trim Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#FFB300"/>
+      <stop offset="100%" stop-color="#FF8F00"/>
+    </linearGradient>
+
+    <!-- Steel Barrel Gradient -->
+    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#CFD8DC"/>
+      <stop offset="50%" stop-color="#78909C"/>
+      <stop offset="100%" stop-color="#37474F"/>
+    </linearGradient>
+
+    <!-- Leather Sling Gradient -->
+    <linearGradient id="leatherGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6D4C41"/>
+      <stop offset="50%" stop-color="#4E342E"/>
+      <stop offset="100%" stop-color="#3E2723"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Drop Shadow -->
+  <ellipse cx="400" cy="255" rx="360" ry="10" fill="#000000" opacity="0.2"/>
+
+  <!-- ================= LEATHER SLING ================= -->
+  <path d="M 120 180 C 180 270, 520 270, 580 170 C 520 250, 180 250, 120 180 Z" fill="url(#leatherGrad)" stroke="#271510" stroke-width="1.5"/>
+  <circle cx="120" cy="180" r="4" fill="url(#goldGrad)"/>
+  <circle cx="580" cy="170" r="4" fill="url(#goldGrad)"/>
+
+  <!-- ================= BARREL & MUZZLE ================= -->
+  <!-- Main Laser Barrel Tube -->
+  <rect x="520" y="112" width="220" height="16" rx="2" fill="url(#steelGrad)" stroke="#102027" stroke-width="2"/>
+  
+  <!-- Muzzle Flash Hider Suppressor -->
+  <path d="M 720 108 L 745 108 L 750 112 L 750 128 L 745 132 L 720 132 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+  <rect x="725" y="110" width="4" height="20" fill="#102027"/>
+  <rect x="733" y="110" width="4" height="20" fill="#102027"/>
+
+  <!-- Barrel Shroud Heat Vents -->
+  <rect x="540" y="108" width="130" height="24" rx="3" fill="url(#oliveGrad)" stroke="#102027" stroke-width="2"/>
+  <g fill="#102027">
+    <rect x="550" y="113" width="12" height="14" rx="2"/>
+    <rect x="570" y="113" width="12" height="14" rx="2"/>
+    <rect x="590" y="113" width="12" height="14" rx="2"/>
+    <rect x="610" y="113" width="12" height="14" rx="2"/>
+    <rect x="630" y="113" width="12" height="14" rx="2"/>
+    <rect x="650" y="113" width="12" height="14" rx="2"/>
+  </g>
+
+  <!-- Front Iron Sight -->
+  <path d="M 700 112 L 705 95 L 715 95 L 720 112 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+  <circle cx="710" cy="102" r="2" fill="#FFD54F"/>
+
+  <!-- ================= MAIN RECEIVER / HOUSING ================= -->
+  <!-- Upper Receiver Block -->
+  <path d="M 220 90 L 540 90 L 540 150 L 220 150 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="3"/>
+  
+  <!-- Olive Drab Armor Casing Plates -->
+  <path d="M 230 95 L 530 95 L 520 140 L 240 140 Z" fill="url(#oliveGrad)" stroke="#102027" stroke-width="2"/>
+  <path d="M 230 95 L 530 95 L 525 105 L 230 105 Z" fill="#7CB342" opacity="0.5"/>
+
+  <!-- Rear Iron Sight Block -->
+  <rect x="250" y="78" width="30" height="12" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+  <rect x="262" y="72" width="6" height="8" fill="url(#steelGrad)"/>
+
+  <!-- Carrying Handle / Top Rail -->
+  <path d="M 310 90 L 320 75 L 450 75 L 460 90 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+  <rect x="340" y="80" width="90" height="5" fill="#102027"/>
+
+  <!-- Structural Rivets on Casing -->
+  <g fill="#78909C" stroke="#102027" stroke-width="1">
+    <circle cx="250" cy="110" r="2.5"/>
+    <circle cx="250" cy="128" r="2.5"/>
+    <circle cx="500" cy="110" r="2.5"/>
+    <circle cx="500" cy="128" r="2.5"/>
+    <circle cx="375" cy="103" r="2.5"/>
+  </g>
+
+  <!-- Imperial Aquila Skull Insignia -->
+  <g id="aquila-wings" transform="translate(350, 108)">
+    <!-- Wings -->
+    <path d="M 0 10 L 25 -5 L 20 15 L 45 0 L 35 20 L 50 10 L 35 25 L 0 20 L -35 25 L -50 10 L -35 20 L -45 0 L -20 15 L -25 -5 Z" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="1"/>
+    <!-- Center Skull -->
+    <circle cx="0" cy="10" r="6" fill="url(#goldGrad)" stroke="#4E342E" stroke-width="1"/>
+    <circle cx="-2" cy="9" r="1.5" fill="#102027"/>
+    <circle cx="2" cy="9" r="1.5" fill="#102027"/>
+  </g>
+
+  <!-- ================= POWER CELL (MAGAZINE) ================= -->
+  <!-- Power Pack Bay Socket -->
+  <path d="M 390 150 L 470 150 L 460 170 L 380 170 Z" fill="#102027"/>
+  
+  <!-- Red Lasgun Power Pack -->
+  <path d="M 395 155 L 465 155 L 450 220 L 390 220 Z" fill="url(#powerGrad)" stroke="#000000" stroke-width="2"/>
+  <!-- Power Cell Ridge Lines -->
+  <line x1="400" y1="170" x2="457" y2="170" stroke="#FF8A80" stroke-width="2"/>
+  <line x1="397" y1="185" x2="452" y2="185" stroke="#420000" stroke-width="2"/>
+  <line x1="394" y1="200" x2="447" y2="200" stroke="#420000" stroke-width="2"/>
+  <!-- Power Charge Indicator Light -->
+  <circle cx="405" cy="170" r="3" fill="#00E676" stroke="#1B5E20" stroke-width="1"/>
+
+  <!-- ================= STOCK & GRIP ================= -->
+  <!-- Pistol Grip -->
+  <path d="M 250 150 L 290 150 L 260 230 L 220 225 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="2"/>
+  <!-- Grip Texturing Lines -->
+  <g stroke="#102027" stroke-width="2">
+    <line x1="250" y1="170" x2="278" y2="170"/>
+    <line x1="245" y1="185" x2="273" y2="185"/>
+    <line x1="240" y1="200" x2="268" y2="200"/>
+    <line x1="235" y1="215" x2="263" y2="215"/>
+  </g>
+
+  <!-- Trigger Guard & Trigger -->
+  <path d="M 290 150 C 290 185, 340 185, 340 150" fill="none" stroke="url(#bodyGrad)" stroke-width="5"/>
+  <path d="M 310 150 Q 305 165 318 165" fill="none" stroke="url(#steelGrad)" stroke-width="3"/>
+
+  <!-- Solid Rear Buttstock -->
+  <path d="M 220 90 L 100 100 C 70 105, 50 120, 50 150 C 50 180, 70 190, 100 190 L 220 150 Z" fill="url(#oliveGrad)" stroke="#000000" stroke-width="2.5"/>
+  <!-- Stock Shoulder Pad Rim -->
+  <path d="M 70 103 C 50 120, 50 170, 70 187 L 55 185 C 40 165, 40 125, 55 105 Z" fill="url(#bodyGrad)" stroke="#000000" stroke-width="1.5"/>
+  <!-- Stock Reinforcement Plate -->
+  <path d="M 120 108 L 200 102 L 200 142 L 120 142 Z" fill="url(#bodyGrad)" opacity="0.4"/>
+</svg>
