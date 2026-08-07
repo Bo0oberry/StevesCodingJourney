@@ -72,11 +72,14 @@ header {
 
 
 #lesson_overview {
+    counter-set: counter_d 0;
     li {
         position: relative;
         margin: 0px 0;
         list-style-type: square;
         display: block;
+        min-height: 30px;
+        counter-increment: counter_d;
 
         input[type='checkbox'] {
             position: absolute;
@@ -87,24 +90,25 @@ header {
             border: 1px solid white ;
             
             &::before { 
-               position: absolute;
-               content: "1";
-               background-color: blue;
+                position: absolute;
+                
+                content: counter(counter_d);
+                background-color: rgb(189, 189, 203);
             }
         }
         
         
 
         label {
-            display: none;
-            margin-left: 10px;
+            visibility: hidden;
+            margin-left: 30px;
             border-radius: 10px 10px 0 0;
             padding: 5px;
             background-color: rgb(195, 184, 205);
         }
 
         &:has(input:checked) label {
-            background-color: indianred;
+            visibility: visible;
         }
 
 
