@@ -71,13 +71,58 @@
                         You will know how to test out HTML and CSS in the inspector.</li>
                     </label>
             </ul>
+
+            <script>
+                const loPattern = /(?<=\ba\s+)\w+/gi;
+                const getText = document.querySelectorAll("#lesson_overview *");
+                getText.forEach((element)=>{
+                    element.innerHTML = element.innerHTML.replace(loPattern,`<span class="lo_wrap">$&</span>`,);
+                });
+
+                const h2 = document.querySelector("#lesson_overview h2");
+                const h2_characters = h2.innerText.split("");
+                h2.innerText = "";
+
+                h2_characters.forEach((ele )=>{
+                    const newSpan = document.createElement("span");
+                    const randomHSLnum = Math.floor(Math.random() * 360);
+
+                    newSpan.style.color = `hsl(${randomHSLnum}, 100%, 50%)`;
+                    newSpan.innerText = ele;
+
+                    h2.appendChild(newSpan);
+                });
+            </script>
         </section>
 
-        <section id="">
-            <h2></h2>
+        <section id="inspector">
+            <h2>The Inspector</h2>
             <p>
-                
+                To open up the inspector, you can right-click on any element of a 
+                webpage and click “Inspect” or press F12. Go ahead and do that 
+                right now to see the HTML and CSS used on this page.
             </p>
+
+            <p>
+                Don’t get overwhelmed with all the tools you’re now seeing! For 
+                this lesson, we want to focus on the Elements and Styles panels.
+            </p>
+
+            <img src="./img1.png" alt="some coding stuff" height="200px">
+
+            <p>
+                When an element is selected, the Styles tab will show all the currently 
+                applied styles, as well as any styles that are being overwritten (indicated 
+                by a strikethrough of the text). For example, if you use the inspector to 
+                click on the “Your” in the “Your Career in Web Development Starts Here” 
+                header on the 
+                <a href="https://www.theodinproject.com/home">TOP homepage</a>
+                , on the right-hand side you’ll see all the 
+                styles that are currently affecting the element, as seen below (don’t worry 
+                about the var() syntax as that’s irrelevant to this point):
+            </p>
+
+            <img src="./img2.png" alt="some coding stuff" height="200px">
         </section>
 
         <section id="">

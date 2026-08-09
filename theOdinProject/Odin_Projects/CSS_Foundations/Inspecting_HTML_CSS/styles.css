@@ -71,8 +71,39 @@ header {
 }   
 
 
+@keyframes lesson_overview_fadeIn {
+    from {
+        opacity: 0;
+        left: -50px;
+    }
+}
+
+@keyframes lesson_overview_fadeOut {
+    to {
+        left: -100px;
+        transform: scale(0.5);
+    }
+}
+
+@property --x-pos {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 5%;
+}
+
 #lesson_overview {
     counter-set: counter_d 0;
+
+    background-color: rgb(100, 69, 103);
+    background-image: radial-gradient(circle closest-side at var(--x-pos) 50%, white, rgb(211, 229, 211), rgb(118, 117, 115));
+    transition: --x-pos 2s ease;
+    color: rgb(205, 197, 197);
+
+    &:hover {
+        /* Change the variable value on hover to trigger the smooth transition */
+        --x-pos: 95%;
+    }
+
     li {
         position: relative;
         margin: 0px 0;
@@ -87,30 +118,74 @@ header {
             height: 20px;
             width: 20px;
             appearance: none;
-            border: 1px solid white ;
+            border: 1px solid rgb(183, 64, 64) ;
             
             &::before { 
                 position: absolute;
-                
                 content: counter(counter_d);
-                background-color: rgb(189, 189, 203);
+                background-color: rgb(238, 238, 241);
+                inset: 0;
+                display: grid;
+                place-items: center;
             }
-        }
-        
-        
+
+            &:checked::before {
+                background-color: aqua;
+                content: "X";
+            }
+        }              
 
         label {
+            display: inline-block;
+            position: relative;
+            left: 10px;
             visibility: hidden;
             margin-left: 30px;
             border-radius: 10px 10px 0 0;
             padding: 5px;
-            background-color: rgb(195, 184, 205);
+            transition: left 1s, visibility 0.8s;    
+            background-color: chartreuse;     
         }
 
         &:has(input:checked) label {
             visibility: visible;
+            animation: lesson_overview_fadeIn 0.5s forwards;
+        }
+
+        &:has(input[type="checkbox"]:not(:checked)) label{
+            background-color: aqua;
+            animation: lesson_overview_fadeOut 1s;
         }
 
 
+    }
+
+    .lo_wrap {
+        background-image: linear-gradient(to right, rgb(240, 135, 224), limegreen);
+        background-clip: text;
+        color: transparent;
+    }
+}
+
+#inspector {
+    display: flex;
+    flex-direction: column;
+
+    padding: 30px 10%;
+
+    h2 {
+        clip-path: shape(
+            from 0 0,
+            vline to 30%,
+            hline to 100%,
+            vline to 0,
+            hline to 0
+        );
+        background-color: yellow;
+    }
+    
+    img {
+        width: 60%;
+        height: auto;
     }
 }
