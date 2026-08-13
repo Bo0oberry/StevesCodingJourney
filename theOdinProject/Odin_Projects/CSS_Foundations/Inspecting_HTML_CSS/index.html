@@ -107,7 +107,7 @@
                 Don’t get overwhelmed with all the tools you’re now seeing! For 
                 this lesson, we want to focus on the Elements and Styles panels.
             </p>
-
+            
             <img src="./img1.png" alt="some coding stuff" height="200px">
 
             <p>
@@ -123,19 +123,67 @@
             </p>
 
             <img src="./img2.png" alt="some coding stuff" height="200px">
+            <div class="inspector_sideA">
+                <button id="sun_btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 924" width="100%" height="100%">
+                        <defs>
+                            <style>
+                            .sun-color {
+                                fill: #FFB800;
+                            }
+                            </style>
+                        </defs>
+
+                        <!-- Central Sun Circle -->
+                        <circle class="sun-color" cx="500" cy="462" r="303" />
+
+                        <!-- 8 Triangular Sun Rays -->
+                        <!-- Top Ray (0°) -->
+                        <polygon class="sun-color" points="500,0 401,158 599,158" />
+
+                        <!-- Top-Right Ray (45°) -->
+                        <polygon class="sun-color" points="855,135 664,186 804,326" />
+
+                        <!-- Right Ray (90°) -->
+                        <polygon class="sun-color" points="1000,462 842,363 842,561" />
+
+                        <!-- Bottom-Right Ray (135°) -->
+                        <polygon class="sun-color" points="855,789 804,598 664,738" />
+
+                        <!-- Bottom Ray (180°) -->
+                        <polygon class="sun-color" points="500,924 599,766 401,766" />
+
+                        <!-- Bottom-Left Ray (225°) -->
+                        <polygon class="sun-color" points="145,789 336,738 196,598" />
+
+                        <!-- Left Ray (270°) -->
+                        <polygon class="sun-color" points="0,462 158,561 158,363" />
+
+                        <!-- Top-Left Ray (315°) -->
+                        <polygon class="sun-color" points="145,135 196,326 336,186" />
+                    </svg>
+                </button>
+            </div>
+            <div class="inspector_sideB">
+            </div>
+            <script>
+                const divA = document.querySelector(".inspector_sideA");
+                const divB = document.querySelector(".inspector_sideB");
+
+                divB.innerHTML = divA.innerHTML;
+
+            </script>
         </section>
 
-        <section id="">
-            <h2></h2>
+        <section id="styles_inspector">
+            <h2>Testing styles in the inspector</h2>
             <p>
-                
-            </p>
-        </section>
-
-        <section id="">
-            <h2></h2>
-            <p>
-                
+                The Styles panel also allows you to edit styles directly in the browser. 
+                You can click inside of any individual selector to add a new rule or click 
+                on an existing attribute or value to alter it. When doing so, the webpage 
+                responds with the changes in real-time. This won’t affect the source code 
+                in your text editor, but it is extremely useful for quickly testing out various 
+                attributes and values without needing to reload the page over and over again.
             </p>
         </section>
 

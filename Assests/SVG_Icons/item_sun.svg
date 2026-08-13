@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 924" width="100%" height="100%">
+  <defs>
+    <style>
+      .sun-color {
+        fill: #FFB800;
+      }
+    </style>
+  </defs>
+
+  <!-- Central Sun Circle -->
+  <circle class="sun-color" cx="500" cy="462" r="303" />
+
+  <!-- 8 Triangular Sun Rays -->
+  <!-- Top Ray (0°) -->
+  <polygon class="sun-color" points="500,0 401,158 599,158" />
+
+  <!-- Top-Right Ray (45°) -->
+  <polygon class="sun-color" points="855,135 664,186 804,326" />
+
+  <!-- Right Ray (90°) -->
+  <polygon class="sun-color" points="1000,462 842,363 842,561" />
+
+  <!-- Bottom-Right Ray (135°) -->
+  <polygon class="sun-color" points="855,789 804,598 664,738" />
+
+  <!-- Bottom Ray (180°) -->
+  <polygon class="sun-color" points="500,924 599,766 401,766" />
+
+  <!-- Bottom-Left Ray (225°) -->
+  <polygon class="sun-color" points="145,789 336,738 196,598" />
+
+  <!-- Left Ray (270°) -->
+  <polygon class="sun-color" points="0,462 158,561 158,363" />
+
+  <!-- Top-Left Ray (315°) -->
+  <polygon class="sun-color" points="145,135 196,326 336,186" />
+</svg>
+

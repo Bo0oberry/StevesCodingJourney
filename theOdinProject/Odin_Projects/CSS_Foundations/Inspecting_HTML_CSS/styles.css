@@ -143,7 +143,8 @@ header {
             margin-left: 30px;
             border-radius: 10px 10px 0 0;
             padding: 5px;
-            transition: left 1s, visibility 0.8s;    
+            transition: left 1s, visibility 0.8s; 
+            color: black;   
             background-color: chartreuse;     
         }
 
@@ -168,24 +169,54 @@ header {
 }
 
 #inspector {
-    display: flex;
-    flex-direction: column;
-
-    padding: 30px 10%;
+    --main-color: rgb(80, 174, 205);
+    display: grid;
+    row-gap: 30px;
+    grid-template-columns: 1fr 2fr 3fr 1fr;
+    grid-template-rows: 100px;
+    grid-auto-rows: min-content;
+    background-color:  var(--main-color);
+    align-content: start;
 
     h2 {
+        display: flex;
+        grid-column: 1 / 5;
         clip-path: shape(
             from 0 0,
-            vline to 30%,
+            hline to 80%,
+            vline to 50%,
             hline to 100%,
-            vline to 0,
+            vline to 100%,
             hline to 0
         );
-        background-color: yellow;
+        background-color: rgb(168, 202, 173);
     }
     
     img {
-        width: 60%;
+        grid-column: 3;
+        width: 100%;
         height: auto;
+        margin: auto;
+    }
+    
+    > p {
+        grid-column: 2;
+        background-color: antiquewhite;
+        text-align: center;
+        background-image: linear-gradient(to bottom, var(--main-color), white, white , var(--main-color));
+    }
+    
+    div.inspector_sideA { grid-column: 1 ;}
+    div.inspector_sideB { grid-column: 4;}
+
+    div.inspector_sideA,
+    div.inspector_sideB {
+        grid-row: 2 / 5;
+        background-color: rgb(232, 232, 195);
+    }
+
+    button {
+        svg {
+        }
     }
 }
