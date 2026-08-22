@@ -220,3 +220,31 @@ header {
         }
     }
 }
+
+
+#assignment {
+    background-image: linear-gradient(to right, lime, blue, pink);
+    
+    ol {
+        padding: 20px;
+        background-color: dimgrey;
+        
+        ul {
+            margin-left: 15px;
+        }
+    }
+}
+
+
+#knowledge_check {
+    padding: 10px;
+    background-color: lightgrey;
+    
+    details {
+       summary {
+           &::before { 
+               content: "g";
+           }
+       } 
+    }
+}
