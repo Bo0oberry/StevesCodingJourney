@@ -243,8 +243,13 @@ header {
     details {
        summary {
            &::before { 
-               content: "g";
+               content: "[]";
            }
        } 
+    }
+    
+    button {
+        height: 40px;
+        width: 40px;
     }
 }
