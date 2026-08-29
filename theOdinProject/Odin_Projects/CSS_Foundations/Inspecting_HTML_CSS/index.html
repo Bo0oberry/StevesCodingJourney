@@ -321,9 +321,17 @@
                 </summary>
                 <p>anwser3</p>
             </details>
-            
-            <input type="range" max="100" min="1" id="range"> 
-            <label for="range"></label>
+
+            <div class="range-container">
+                <span class="min-label"></span>
+                
+                <div class="slider-wrapper">
+                    <input type="range" id="myRange" min="0" max="100" value="10" list="tickmarks">
+                    <output for="myRange" id="rangeValue"></output>
+                </div>
+                
+                <span class="max-label"></span>
+            </div>
             
             <button id="kc_button">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
@@ -389,14 +397,47 @@
               </g>
             </svg>
             </button>
-            
+
+
           <script>
-            const kc_btn  = document.getElementById("kc_button");
-            const kc_range = document.getElementById("range");
-            
-            function getRangeValue() {
-              const value = kc_range.attribute.Range;
-              
+            const slider = document.getElementById('myRange');
+            const output = document.getElementById('rangeValue');
+            document.querySelector(".min-label").textContent = slider.min;
+            document.querySelector(".max-label").textContent = slider.max;
+            output.textContent = slider.value;
+
+            slider.addEventListener('input', (e) => {
+                output.textContent = e.target.value;
+            });
+          </script>
+
+          <script>
+            const btn = document.getElementById("kc_button");
+            btn.addEventListener('click', btnEvent);
+
+            function btnEvent(){
+                const particleAmount = document.getElementById("myRange").value;
+                
+                document.querySelectorAll(".kc_particle").forEach(element => {element.remove()});
+                
+                for(let i=0; i<=particleAmount; i++) {
+                    const newParticle = document.createElement("span");
+                    newParticle.classList.add("kc_particle");
+                    const randomNum1 = Math.floor(Math.random() * 100) + 1; 
+                    const randomNum2 = Math.floor(Math.random() * 100) + 1; 
+
+                    newParticle.style.top = randomNum1 + "%";
+                    newParticle.style.left = randomNum2 + "%";
+
+                    btn.appendChild(newParticle);
+
+                    
+                }
+
+            }
+
+            function fadeOut(){
+
             }
           </script>
         </section>

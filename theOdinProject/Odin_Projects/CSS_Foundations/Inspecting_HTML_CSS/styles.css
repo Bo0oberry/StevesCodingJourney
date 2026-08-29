@@ -249,21 +249,46 @@ header {
     }
     
     button {
-        height: 40px;
-        width: 40px;
+        height: 70px;
+        width: 70px;
+    }
+
+    #particleRangeSlider {
+        margin: 0;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px;
+        background-image: linear-gradient(white,white,grey,grey,black);
     }
 
     input[type="range"] {
-        margin-right: 40px;
-        background-color: blueviolet;
-        
-        &::before {
-            content: "0";
-        }
+        position: relative;
+        color: rgb(196, 157, 51);
+        background-color: rgb(144, 99, 186);
+        border-radius: 5px;
+        appearance: none;
+        -webkit-appearance: none;
+    }
 
-        &::after {
-            content: "100"
-        }
+    #kc_button {
+        position: relative;
+        padding: 10px;
 
     }
+
+    .kc_particle {
+        position: absolute;
+        height: 5px;
+        width:5px;
+        border-radius: 50%;
+        background-image: radial-gradient(yellow,orange,red);
+        background-color: aqua;
+        animation: kc_particle 1.5s forwards;
+
+    }
+}
+
+@keyframes kc_particle {
+    to { opacity: 0;}
 }
