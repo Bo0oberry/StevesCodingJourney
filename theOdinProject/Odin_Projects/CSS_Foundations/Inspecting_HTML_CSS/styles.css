@@ -252,4 +252,18 @@ header {
         height: 40px;
         width: 40px;
     }
+
+    input[type="range"] {
+        margin-right: 40px;
+        background-color: blueviolet;
+        
+        &::before {
+            content: "0";
+        }
+
+        &::after {
+            content: "100"
+        }
+
+    }
 }
