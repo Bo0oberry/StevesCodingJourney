@@ -11,7 +11,11 @@
     overflow: hidden ;
     
     li  { 
-        background-color: rgb(120, 120, 166)
+        background-color: rgb(120, 120, 166);
+
+        a.active {
+            color: red;
+        }
     }
     
     span {white-space: nowrap ;}

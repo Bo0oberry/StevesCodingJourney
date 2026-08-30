@@ -8,6 +8,14 @@
 
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="/Assests/Fonts/fonts.css">
+    <style>
+        #nav_cssFoundations a.active {
+            color: blue;
+        }
+    </style>
+    <script defer>
+
+    </script>
 
     <title>Document</title>
 </head>
@@ -413,31 +421,46 @@
 
           <script>
             const btn = document.getElementById("kc_button");
+            const fadeOutTime = 1500;
+            let particleTimeout = null;
+            
+            document.getElementById("knowledge_check").style.setProperty("--fadeTime", `${fadeOutTime}ms`)
+            
             btn.addEventListener('click', btnEvent);
 
             function btnEvent(){
+                //1. Get range value to determine particle amount
                 const particleAmount = document.getElementById("myRange").value;
                 
+                //2. Cancel previous pending timeout
+                if (particleTimeout !== null) {
+                    clearTimeout(particleTimeout);
+                    particleTimeout = null;
+                }
+
+                //3. Remove existing particles
                 document.querySelectorAll(".kc_particle").forEach(element => {element.remove()});
                 
-                for(let i=0; i<=particleAmount; i++) {
+                //4. Generate new particles
+                for(let i=0; i<particleAmount; i++) {
                     const newParticle = document.createElement("span");
                     newParticle.classList.add("kc_particle");
                     const randomNum1 = Math.floor(Math.random() * 100) + 1; 
-                    const randomNum2 = Math.floor(Math.random() * 100) + 1; 
+                    const randomNum2 = Math.floor(Math.random() * 100) + 1;
 
                     newParticle.style.top = randomNum1 + "%";
                     newParticle.style.left = randomNum2 + "%";
 
                     btn.appendChild(newParticle);
-
-                    
                 }
-
+                
+                //5. Set new timeout and store it's value
+                particleTimeout = window.setTimeout(fadeOut,fadeOutTime + 200);
             }
 
             function fadeOut(){
-
+                document.querySelectorAll(".kc_particle").forEach(element => {element.remove()});
+                particleTimeout = null;
             }
           </script>
         </section>

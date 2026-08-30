@@ -8,6 +8,9 @@ fetch('/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.html')
         
         //add css file
         loadCssFile();
+
+        //findActiveLink
+        findActiveLink();
         
         // Add click event to dropdown button 
         // this adds the closed class
@@ -38,4 +41,21 @@ function loadCssFile(){
     link.type = "text/css";
     link.href = '/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.css';
     document.querySelector('head').appendChild(link);
+}
+
+function findActiveLink(){
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll("#nav_cssFoundations a");
+
+    navLinks.forEach(link => {
+        // Parse the link's absolute URL to safely compare pathnames
+        const linkPath = new URL(link.href, window.location.origin).pathname;
+
+        if (linkPath === currentPath) {
+            link.classList.add('active');
+            
+            // Optional: If you style the parent <li> instead of the <a> tag directly:
+            // link.closest('li')?.classList.add('active');
+        }
+    });
 }

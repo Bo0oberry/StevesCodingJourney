@@ -237,14 +237,29 @@ header {
 
 
 #knowledge_check {
+     --fadeTime: 0;
+
+
     padding: 10px;
     background-color: lightgrey;
     
     details {
        summary {
-           &::before { 
-               content: "[]";
-           }
+           --size: 20px;
+            list-style-type: none;
+            position: relative;
+            padding-left: calc(var(--size) + 10px);
+            &::before { 
+                position: absolute;
+                left: 0;
+                top: calc(50% - (var(--size) /2));
+                height: var(--size);
+                width:  var(--size);
+                content: "";
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url("/Assests/SVG_Icons/fruit_blueberry.svg");
+            }
        } 
     }
     
@@ -284,7 +299,7 @@ header {
         border-radius: 50%;
         background-image: radial-gradient(yellow,orange,red);
         background-color: aqua;
-        animation: kc_particle 1.5s forwards;
+        animation: kc_particle var(--fadeTime) forwards;
 
     }
 }
