@@ -1,0 +1,52 @@
+@keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      } to {
+        transform: rotateY(360deg);
+      }
+}
+
+section#project_1 {
+    /* 3D Context Setup */
+  perspective: 3000px;
+
+  
+  /* Flex/Grid centering ensures the initial origin is dead center */
+  display: flex;
+  justify-content: center ;
+}      
+    
+    div.boxPrime {
+      height: 100%;
+      width: 1px;  
+      position:relative ;
+      background-color: hsla(82, 49%, 53%, 1);
+       /*  Animate box */
+      animation: rotate 10s linear infinite;
+      transform-style: preserve-3d;
+      
+    }
+    
+    span svg { 
+      position: absolute;
+      top: 50%;
+      border: 1px solid white
+    }
+    span.previous svg {
+      left: 0;
+      transform: rotateZ(270deg);
+    }
+    span.next svg {
+      right: 0;
+      transform: rotateZ(90deg)
+    }
+    .box {
+      position: absolute;
+      top: 0;
+      left: -200px;
+      height: 350px;
+      width: 200px;
+      background-color: grey;
+      /* Removed the hardcoded transform from CSS so JS can handle it dynamically */
+      transition: transform 10s ease; 
+    }

@@ -1,0 +1,27 @@
+#project_2 {
+  perspective: 1000px;
+  display: grid;
+  place-items: center;
+  
+  
+  #project_2_boxMain {
+    position: relative;
+    height: 300px;
+    width: 200px;
+    background-color: hsla(44, 79%, 51%, 1);
+    transform-style: preserve-3d;
+    transform: rotateX(-20deg) rotateY(30deg); /* Angles the cube so 3D depth is visible */
+    touch-action: none ;
+    
+  }
+  
+  .project_2_boxSide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: hsla(69, 100%, 50%, 1) ;
+    width: 100px;
+    height: 100px;
+    
+  }
+}
