@@ -214,11 +214,6 @@ header {
         grid-row: 2 / 5;
         background-color: rgb(232, 232, 195);
     }
-
-    button {
-        svg {
-        }
-    }
 }
 
 

@@ -41,6 +41,12 @@ function loadCssFile(){
     link.type = "text/css";
     link.href = '/theOdinProject/Odin_Projects/CSS_Foundations/nav_cssFoundations.css';
     document.querySelector('head').appendChild(link);
+
+    const link2 = document.createElement('link');
+    link2.rel = "stylesheet";
+    link2.type = "text/css";
+    link2.href = '/theOdinProject/Odin_Projects/CSS_Foundations/mainSetup.css';
+    document.querySelector('head').appendChild(link2);
 }
 
 function findActiveLink(){

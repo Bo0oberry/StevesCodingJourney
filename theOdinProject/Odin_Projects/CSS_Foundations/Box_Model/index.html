@@ -1,57 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="./../nav_cssFoundations.js"></script>
+    <script src="./../nav_cssFoundations.js" defer></script>
+    <script></script>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./scripts.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
+    <header>
+        <div class="header_boxMain">
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+        </div>
+
+        <h1>The Box Model</h1>
+
+        <div class="header_boxMain">
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+            <div class="header_boxSide"></div>
+        </div>
+    </header>
+
     <nav id="nav"></nav>
-    <h1>The Box Model</h1>
-    <h2>Knowledge Check</h2>
-    <details>
-        <summary>From inside to outside, what is the order of box-model properties?</summary>
-        <p>Margin -> Border -> Padding -> Content</p>
-    </details>
-    <details>
-        <summary>What does the box-sizing CSS property do?</summary>
-        <p>It allows for two options</p>
-        <ul>
-            <li>Border-Box: the border does not affect total box size, and will instead push content</li>
-            <li>Content-Box: the border does affect total box size</li>
-        </ul>
-    </details>
-    <details>
-        <summary>What is the difference between the standard and alternative box model?</summary>
-        <ul>
-            <li>standard: uses content-box as the box sizing model</li>
-            <li>alternative: uses border-box as the  box sizing model</li>
-        </ul>
-    </details>
-    <details>
-        <summary>Would you use margin or padding to create more space between 2 elements?</summary>
-        <p>Marging</p>
-    </details>
-    <details>
-        <summary>Would you use margin or padding to create more space between the contents of an element and its border?</summary>
-        <p>Padding</p>
-    </details>
-    <details>
-        <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
-        <p>margin</p>
-    </details>
-    <details>
-        <summary>How do you set the alternative box model for all of your elements?</summary>
-        <p>box-sizing: border-box</p>
-    </details>
-    <details>
-        <summary>How do you center an element horizontally?</summary>
-        <p>The element needs two properties</p>
-        <ul>
-            <li>A defined width</li>
-            <li>margin left and right set to auto</li>
-        </ul>
-    </details>
+
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+
+            <p>
+                Now that you understand the basic syntax of HTML and CSS, we’re going to get serious.
+                The most important skills you need to master with CSS are positioning and layout.
+                Changing fonts and colors is a crucial skill, but being able to put things exactly
+                where you want them on a webpage is even more crucial. After all, how many webpages
+                can you find where absolutely every element is just stacked one on top of another?
+            </p>
+
+            <p>
+                Learning to position elements on a webpage is not that difficult once you understand
+                just a few key concepts. Unfortunately, many learners race through learning HTML and
+                CSS to get to JavaScript and end up missing these fundamental concepts. This leads to
+                frustration and pain (and funny gifs) because all the JavaScript skills in the world
+                are meaningless if you can’t stick your elements on the page where you need them to be.
+                So with that in mind, let’s get started.
+            </p>
+        </section>
+
+
+        <section id="lesson_overveiw">
+            <h2>Lesson overview</h2>
+
+            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+
+            <ul>
+                <li>You’ll learn all about the box model.</li>
+
+                <li>You’ll learn how to make sure elements are just the right size with margin, padding, and borders.
+                </li>
+            </ul>
+
+        </section>
+
+        <section id="the_box_model">
+            <h2>The box model</h2>
+
+            <p>
+                The first important concept that you need to understand to be successful in CSS is the
+                box model. It isn’t complicated, but skipping over it now would cause you much frustration
+                down the line.
+            </p>
+
+            <p>
+                Every single thing on a webpage is a rectangular box. These boxes can have other boxes in
+                them and can sit alongside one another. You can get a rough idea of how this works by
+                applying an outline to every element on the page like this:
+            </p>
+
+            <pre>
+                <code>
+                    * {
+                        outline: 2px solid red;
+                    }
+                </code>
+            </pre>
+
+            <img src="./assests/boxes.png" alt="">
+
+            <p>
+                You can use the browser’s inspector to add the CSS above to this web page if you want, by clicking
+                the + button in the top right of the “Styles” panel within the “Elements” tab. Boxes in boxes!
+            </p>
+
+            <img src="./assests/odin-lined.png" alt="alternative">
+
+            <p>
+                OK, so there might be some circles in the above image… but when it comes to layout, they fit
+                together like rectangular boxes and not circles. In the end, laying out a webpage and positioning
+                all its elements is deciding how you are going to nest and stack these boxes.
+            </p>
+
+            <p>
+                The only real complication here is that there are many ways to manipulate the size of these boxes,
+                and the space between them, using padding, border, and margin. The assigned articles go into more
+                depth on this concept, but to sum it up briefly:
+            </p>
+
+            <ul>
+                <li>padding increases the space between the border of a box and the content of the box.</li>
+
+                <li>border adds space (even if it’s only a pixel or two) between the margin and the padding.</li>
+
+                <li>border adds space (even if it’s only a pixel or two) between the margin and the padding.</li>
+            </ul>
+
+            <p>Be sure to study the diagrams carefully.</p>
+
+            <img src="./assests/box-model.png" alt="the box model">
+        </section>
+
+        <section id="assignment">
+            <h2>Assignment</h2>
+
+            <ol>
+                <li>
+                    Learn CSS Box Model In 8 Minutes is a straightforward overview of the box model,
+                    padding and margin. Go ahead and watch this now; it informs everything else.
+                </li>
+
+                <li>
+                    box-sizing: border-box (EASY!) is an add-on to the above resource with a better explanation
+                    of ‘box-sizing’.
+                </li>
+
+                <li>
+                    Because the box model concept is so incredibly fundamental, let’s dig a bit deeper with MDN’s
+                    lesson on the box model. It covers the same material as the video(s) above and will introduce
+                    you to inline boxes that we will explore in the next lesson. The article also mentions inner
+                    and outer display types when explaining how elements are rendered.
+                    <br><br>
+                    You don’t need to fully understand or memorize those details yet. Pay close attention to the
+                    examples
+                    and take the time to experiment with their in-browser editor!
+                </li>
+
+                <li>
+                    The CSS Tricks page on margins has some further information about the margin property that you’ll
+                    find useful. Specifically, the sections about auto and margin collapsing contain things you’ll
+                    want to know.
+                </li>
+            </ol>
+        </section>
+
+
+        <section id="knowledge_check">
+            <h2>Knowledge Check</h2>
+
+            <p>
+                The following questions are an opportunity to reflect on key topics in this lesson.
+                If you can’t answer a question, click on it to review the material, but keep in mind
+                you are not expected to memorize or master this knowledge.
+            </p>
+
+            <details>
+                <summary>From inside to outside, what is the order of box-model properties?</summary>
+                <p>Margin -> Border -> Padding -> Content</p>
+            </details>
+
+            <details>
+                <summary>What does the box-sizing CSS property do?</summary>
+                <p>It allows for two options</p>
+                <ul>
+                    <li>Border-Box: the border does not affect total box size, and will instead push content</li>
+                    <li>Content-Box: the border does affect total box size</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>What is the difference between the standard and alternative box model?</summary>
+                <ul>
+                    <li>standard: uses content-box as the box sizing model</li>
+                    <li>alternative: uses border-box as the box sizing model</li>
+                </ul>
+            </details>
+
+            <details>
+                <summary>Would you use margin or padding to create more space between 2 elements?</summary>
+                <p>Marging</p>
+            </details>
+
+            <details>
+                <summary>Would you use margin or padding to create more space between the contents of an element and its
+                    border?
+                </summary>
+                <p>Padding</p>
+            </details>
+
+            <details>
+                <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
+                <p>margin</p>
+            </details>
+
+            <details>
+                <summary>How do you set the alternative box model for all of your elements?</summary>
+                <p>box-sizing: border-box</p>
+            </details>
+
+            <details>
+                <summary>How do you center an element horizontally?</summary>
+                <p>The element needs two properties</p>
+                <ul>
+                    <li>A defined width</li>
+                    <li>margin left and right set to auto</li>
+                </ul>
+            </details>
+        </section>
+
+    </main>
+
+
+
+    <footer>
+
+    </footer>
+
 </body>
+
 </html>
