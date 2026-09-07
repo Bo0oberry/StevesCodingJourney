@@ -8,6 +8,17 @@
     <script></script>
     <link rel="stylesheet" href="./styles.css">
     <script src="./scripts.js" defer></script>
+    <script>
+        function generateRandomStyles(text){
+            text.style.color = generateRandomColor();
+            text.style.borderBottom = `1px solid ${generateRandomColor()}`;
+        }
+
+        function generateRandomColor(){
+            return `hsl(${Math.floor(Math.random() * 360)}, 90%, 50%)`;
+        }
+
+    </script>
     <title>Document</title>
 </head>
 
@@ -32,6 +43,13 @@
             <div class="header_boxSide"></div>
             <div class="header_boxSide"></div>
         </div>
+        <script>  
+            const pattern = /Box/;
+            const h1 = document.querySelector("header h1");
+            h1.innerHTML = h1.textContent.replace(pattern, `<span id='header_h1Span'>${pattern.source}</span>`);
+            const textToModify = document.getElementById("header_h1Span");
+            generateRandomStyles(textToModify);
+        </script>
     </header>
 
     <nav id="nav"></nav>
@@ -46,16 +64,84 @@
                 Changing fonts and colors is a crucial skill, but being able to put things exactly
                 where you want them on a webpage is even more crucial. After all, how many webpages
                 can you find where absolutely every element is just stacked one on top of another?
+
             </p>
+
+            <button id="intro_btn1">
+                <span>🙈</span>
+                <span class="hidden">🙉</span>
+            </button>
+            
 
             <p>
                 Learning to position elements on a webpage is not that difficult once you understand
                 just a few key concepts. Unfortunately, many learners race through learning HTML and
                 CSS to get to JavaScript and end up missing these fundamental concepts. This leads to
-                frustration and pain (and funny gifs) because all the JavaScript skills in the world
+                frustration and pain (
+                    <a href="https://giphy.com/gifs/css-13FrpeVH09Zrb2">
+                        and funny gifs
+                    </a>
+                ) because all the JavaScript skills in the world
                 are meaningless if you can’t stick your elements on the page where you need them to be.
                 So with that in mind, let’s get started.
             </p>
+    
+            <script>
+                const intro_pattern = /\b(?=\w*a)(?=\w*e)\w+\b/gi;
+                const intro_wordList = document.querySelectorAll("#introduction > p");
+                
+                intro_wordList.forEach(ele => {
+                    ele.innerHTML = ele.textContent.replace(intro_pattern, `<span class='intro_replacedText'>$&</span>`);
+                });
+                const intro_spanList = document.querySelectorAll("#introduction span.intro_replacedText");
+                intro_spanList.forEach(ele=>generateRandomStyles(ele));
+
+                //-----------------------------------------
+
+                const intro_btn1 = document.getElementById("intro_btn1");
+                const intro_btn1_SpanList = intro_btn1.querySelectorAll("span");
+
+                intro_btn1.addEventListener("click", () => {
+                    intro_btn1_SpanList[0].classList.toggle("hidden");
+                    intro_btn1_SpanList[1].classList.toggle("hidden")
+
+                    const randomNum = Math.floor(Math.random() * 15);
+
+                    if(intro_btn1_SpanList[1].classList.contains("hidden")) {
+                        
+                        window.setTimeout(() => {
+                            intro_btn1.querySelectorAll(".particle").forEach((p) => {
+                                p.remove();
+                            });
+                        }, 1100);
+                            
+                        intro_btn1.querySelectorAll(".particle").forEach((p) => {
+                            p.style.transitionDuration = "1s";
+
+                            const sizeVal = parseFloat(window.getComputedStyle(intro_btn1).getPropertyValue("--size")) || 0;
+                            const targetOffset = (sizeVal + 10) / 2;
+                            
+                            p.style.top = targetOffset-2.5 + "px";
+                            p.style.left = targetOffset-2.5 + "px";
+
+                        });
+                    } else {
+                        for(let i=0 ; i<randomNum ; i++) {
+                            const newParticle = document.createElement("span");
+                            newParticle.classList.add("particle");
+    
+                            newParticle.style.top =  Math.floor(Math.random() * 100) + "%";
+                            newParticle.style.left =  Math.floor(Math.random() * 100) + "%";
+    
+                            intro_btn1.appendChild(newParticle);
+                        }
+                    }
+
+                });
+
+            </script>
+
+
         </section>
 
 

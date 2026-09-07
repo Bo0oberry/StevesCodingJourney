@@ -1,5 +1,18 @@
 :root {
-  --header-size: auto;
+  /* --header-height: auto;
+  --box-size: calc(var(--header-height) * 0.8) ; */
+}
+
+/* HEADER */
+
+
+@keyframes header_cubeRotate {
+  from {
+    transform: rotateX(0deg) rotateY(0deg);
+  } 
+  to {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
 }
 
 header {
@@ -7,9 +20,10 @@ header {
   justify-content: space-around;
   align-items: center;
   perspective: 1000px;
+  background-color: rgb(60, 84, 105);
 
   h1{
-    background-color: aquamarine;
+    color: azure;
   }
 
   .header_boxMain {
@@ -18,17 +32,106 @@ header {
     background-color: red;
     height: 5px;
     aspect-ratio: 1 /1 ;
-    /* transform: rotate3d(0, 3, 6, 25deg); */
+    animation: header_cubeRotate 6s linear infinite;
   }
 
   .header_boxSide {
     box-sizing: border-box;
     position: absolute;
-    top: 50px;
     aspect-ratio: 1 / 1;
-    background-image: radial-gradient(red, yellow, lime);
+    /* background-image: radial-gradient(red, yellow, lime); */
     border: 1px solid black;
 
+  }
+
+}
+
+
+
+/* INTRODUCTION */
+
+@keyframes intro_beat {
+  from {
+    font-size: 5px;
+  }
+  to {
+    font-size: 20px;
+  }
+}
+
+
+#introduction {
+  --intro_h2BeforeSize: 60px;
+
+  background-image: linear-gradient(to right, hotpink, red, orange, gold);
+  background-clip: text;
+  color: transparent;
+  padding: 20px 0;
+
+  h2 {
+    position: relative;
+    padding-left: calc(var(--intro_h2BeforeSize) + 15px);
+    background-image: linear-gradient(to right, hotpink, red, orange, gold);
+    background-clip: text;
+    
+    &::before {
+      content: "❤️";
+      display: grid;
+      place-items: center;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: var(--intro_h2BeforeSize);
+      height: var(--intro_h2BeforeSize);
+      transform: translateY(calc(var(--intro_h2BeforeSize)/2 * -1));
+      color: aqua;
+    }
+
+    &:hover::before{
+      animation: intro_beat 1s infinite;
+
+    }
+  }
+
+  &:has(h2:hover) {
+    
+  }
+
+  p { 
+    padding: 20px calc(var(--intro_h2BeforeSize) + 30px);
+
+
+  }
+
+  button {
+    --size: 25px;
+
+    position: relative;
+    color: black;
+    background-color: transparent;
+    border: none;
+    font-size: var(--size);
+    height: calc(var(--size) + 10px);
+    width: calc(var(--size) + 10px);
+    margin: 0 calc(50% - ((var(--size) + 10px) / 2) );
+
+    span {
+      color: lime;
+
+      &.hidden {
+        display: none;
+        background-color: aqua;
+      }
+    }
+
+    span.particle {
+      position: absolute;
+      background-image: radial-gradient(orange, yellow, yellow, white);
+      border-radius: 50%;
+      aspect-ratio: 1/1;
+      height: 5px;
+      transition: top, left;
+    }
   }
 
 }
