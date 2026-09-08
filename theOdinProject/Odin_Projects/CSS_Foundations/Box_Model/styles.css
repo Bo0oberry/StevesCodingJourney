@@ -134,4 +134,59 @@ header {
     }
   }
 
+
+}
+
+
+
+/* Lesson Overveiw */
+
+#lesson_overveiw {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(232, 236, 233);
+  /* margin: 5px; */
+  padding: 15px;
+  border-radius: 8px;
+  position: relative;
+  /* z-index: 10; */
+  
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -10px; /* Expands the gradient slightly outside the parent bounds to act as a border */
+    background-image: conic-gradient(red, blue, lime, purple, red);
+    z-index: -1;
+    border-radius: 10px; /* Matches parent radius + offset */
+  }
+
+  h2 {
+    anchor-name: --lo_h2;
+    display: inline-block;
+    background-image: url(/Assests/Images/Odin_Images/bubblegum.jpeg);
+    background-clip: text;
+    color: transparent;
+    align-self: center;
+    
+    &::before {
+      transition: transform 0.6s;
+      transform: scale(0) rotate(180deg);
+      content: "hello";
+      background-image: url(/Assests/Images/Odin_Images/bubblegum.jpeg);
+      background-clip: text;
+      position: absolute;
+      position-anchor: --lo_h2;
+      position-area: left top;
+    }
+
+    &:hover::before {
+      transform: scale(1) rotate(0deg);
+    }
+  
+  }
+
+  ul , ol {
+    list-style-position: inside;
+    list-style-type: square;
+  }
 }
