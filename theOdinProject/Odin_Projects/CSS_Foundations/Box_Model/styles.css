@@ -3,6 +3,9 @@
   --box-size: calc(var(--header-height) * 0.8) ; */
 }
 
+main {
+   z-index: -2;
+}
 /* HEADER */
 
 
@@ -151,13 +154,17 @@ header {
   position: relative;
   /* z-index: 10; */
   
-  &::after {
+  &::after , &::before {
     content: "";
     position: absolute;
     inset: -10px; /* Expands the gradient slightly outside the parent bounds to act as a border */
     background-image: conic-gradient(red, blue, lime, purple, red);
     z-index: -1;
     border-radius: 10px; /* Matches parent radius + offset */
+  }
+  
+  &::before {
+    blur: 5px;
   }
 
   h2 {
