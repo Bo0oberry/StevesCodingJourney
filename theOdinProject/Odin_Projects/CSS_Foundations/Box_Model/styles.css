@@ -143,12 +143,25 @@ header {
 
 
 /* Lesson Overveiw */
+@property --lo_conicAngle { 
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes lo_rotateBorder {
+  to {
+    --lo_conicAngle: 360deg;
+  }
+}
+
 
 #lesson_overveiw {
+  --border-thickness: 10px;
   display: flex;
   flex-direction: column;
   background-color: rgb(232, 236, 233);
-  /* margin: 5px; */
+  margin: var(--border-thickness);
   padding: 15px;
   border-radius: 8px;
   position: relative;
@@ -157,14 +170,15 @@ header {
   &::after , &::before {
     content: "";
     position: absolute;
-    inset: -10px; /* Expands the gradient slightly outside the parent bounds to act as a border */
-    background-image: conic-gradient(red, blue, lime, purple, red);
+    inset: calc(var(--border-thickness) * -1); /* Expands the gradient slightly outside the parent bounds to act as a border */
+    background-image: conic-gradient(from var(--lo_conicAngle), red, blue, lime, purple, red);
+    animation: lo_rotateBorder 1.5s infinite linear;
     z-index: -1;
     border-radius: 10px; /* Matches parent radius + offset */
   }
   
   &::before {
-    blur: 5px;
+    filter: blur(15px);
   }
 
   h2 {
