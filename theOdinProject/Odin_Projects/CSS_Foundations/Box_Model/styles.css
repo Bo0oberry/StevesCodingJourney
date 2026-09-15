@@ -4,9 +4,25 @@
 }
 
 main {
-   z-index: -2;
+   /* z-index: -2; */
+   & > section {
+    margin: 30px 0;
+   }
+
+   background-color: black;
 }
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 /* HEADER */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 
 
 @keyframes header_cubeRotate {
@@ -50,8 +66,17 @@ header {
 }
 
 
-
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 /* INTRODUCTION */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 
 @keyframes intro_beat {
   from {
@@ -96,10 +121,6 @@ header {
     }
   }
 
-  &:has(h2:hover) {
-    
-  }
-
   p { 
     padding: 20px calc(var(--intro_h2BeforeSize) + 30px);
 
@@ -140,74 +161,208 @@ header {
 
 }
 
-
-
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 /* Lesson Overveiw */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
 @property --lo_conicAngle { 
   syntax: "<angle>";
   inherits: false;
-  initial-value: 0deg;
+  initial-value: 0turn;
 }
 
 @keyframes lo_rotateBorder {
   to {
-    --lo_conicAngle: 360deg;
+    --lo_conicAngle: 5turn;
   }
 }
 
 
 #lesson_overveiw {
-  --border-thickness: 10px;
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(232, 236, 233);
-  margin: var(--border-thickness);
-  padding: 15px;
-  border-radius: 8px;
   position: relative;
-  /* z-index: 10; */
+  --border-thickness: 5px;
+  /* background-color: aqua; */
+  padding: var(--border-thickness);
   
   &::after , &::before {
     content: "";
     position: absolute;
-    inset: calc(var(--border-thickness) * -1); /* Expands the gradient slightly outside the parent bounds to act as a border */
-    background-image: conic-gradient(from var(--lo_conicAngle), red, blue, lime, purple, red);
-    animation: lo_rotateBorder 1.5s infinite linear;
-    z-index: -1;
+    inset: 0;
+    background-image: conic-gradient(from var(--lo_conicAngle), rgb(231, 207, 71), rgb(210, 125, 223), rgb(208, 222, 208), rgb(232, 106, 232), rgb(211, 211, 96));
+    animation: lo_rotateBorder 15s infinite linear;
+    z-index: 1;
     border-radius: 10px; /* Matches parent radius + offset */
   }
-  
+
   &::before {
-    filter: blur(15px);
+    filter: blur(10px);
   }
 
-  h2 {
-    anchor-name: --lo_h2;
-    display: inline-block;
-    background-image: url(/Assests/Images/Odin_Images/bubblegum.jpeg);
-    background-clip: text;
-    color: transparent;
-    align-self: center;
-    
-    &::before {
-      transition: transform 0.6s;
-      transform: scale(0) rotate(180deg);
-      content: "hello";
+  .lo_wrapper {
+    --dot-text-size: 1.2rem;
+
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(232, 236, 233);
+    padding: 15px;
+    border-radius: 8px;
+    z-index: 10;
+    font-size: var(--dot-text-size);
+
+    & > * {
+      margin-top: 15px;
+    }
+
+    h2 {
+      anchor-name: --lo_h2;
+      display: inline-block;
       background-image: url(/Assests/Images/Odin_Images/bubblegum.jpeg);
       background-clip: text;
-      position: absolute;
-      position-anchor: --lo_h2;
-      position-area: left top;
+      color: transparent;
+      align-self: center;
+      
+      &::before {
+        transition: transform 0.6s;
+        transform: scale(0) rotate(180deg);
+        content: "hello";
+        background-image: url(/Assests/Images/Odin_Images/bubblegum.jpeg);
+        background-clip: text;
+        position: absolute;
+        position-anchor: --lo_h2;
+        position-area: left top;
+      }
+
+      &:hover::before {
+        transform: scale(1) rotate(0deg);
+      }
+    
     }
 
-    &:hover::before {
-      transform: scale(1) rotate(0deg);
+    ul , ol {
+      list-style-position: inside;
+      list-style-type: none;
+      
+      li {
+        anchor-name: --list-anchor;
+        anchor-scope: --list-anchor;
+        font-size: var(--dot-text-size);
+        padding-left: 10px;
+        margin-left: var(--dot-text-size);
+        position: relative;
+    
+        &::before {
+          position: fixed;
+          position-anchor: --list-anchor;
+          position-area: center left;
+          content: "";
+          height: var(--dot-text-size);
+          aspect-ratio: 1 /1 ;
+
+          background-image: url("/Assests/SVG_Icons/item_star.svg");
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+        
+      }
+      
     }
-  
   }
 
-  ul , ol {
-    list-style-position: inside;
-    list-style-type: square;
+  .lo_span {
+    font-family: Arial, Helvetica, sans-serif;
   }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* The Box Model */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+
+#the_box_model {
+  display: flex;
+  flex-direction: column;
+
+  padding: 10px 20px;
+  background-color: antiquewhite;
+  list-style-position: inside;
+
+  > *:not(h2) {
+    margin-top: 15px;
+  }
+
+  img {
+    align-self: center;
+  }
+
+  pre {
+    background-color: rgba(0, 11, 135, 0.62);
+    width: 80%;
+    align-self: center;
+
+    code{
+      background-color: azure;
+      /* white-space: ; */
+      counter-set: line-Counter;
+
+      .codeBlock_line {
+        counter-increment: line-counter;
+        position: relative;
+        padding-left:  calc(2.5ch + 10px);
+        background-color: hsla(31, 31%, 83%, 0.904);
+
+        &::before {
+          content: counter(line-counter);
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 2.5ch;
+          display: flex;
+          justify-content: flex-start;
+          border-right: 1px solid rgb(40, 37, 37);
+          background-color: bisque;
+        }
+      }
+
+      .cssSelector {
+        color: red;
+      }
+
+      .cssProperty {
+        color: rgb(255, 145, 2);
+      }
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* Assignment */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+
+
+#assignment {
+  background-color: brown;
 }

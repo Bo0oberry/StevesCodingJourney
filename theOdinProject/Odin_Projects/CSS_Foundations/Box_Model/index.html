@@ -12,6 +12,15 @@
         function generateRandomStyles(text){
             text.style.color = generateRandomColor();
             text.style.borderBottom = `1px solid ${generateRandomColor()}`;
+            const randomDegrees = Math.floor(Math.random() * 20) - 10; // Range: -10 to 10
+            text.style.transform = `skew(${randomDegrees}deg)`;
+            text.style.backgroundColor = `hsla(0, 0%, 50%, 0.5)`;
+            text.style.padding = `0 ${randomNum(3,12)}px`;
+
+
+        }
+        function randomNum(baseNum = 0,rangeNum = 1){
+            return Math.floor(Math.random() * rangeNum) + baseNum; 
         }
 
         function generateRandomColor(){
@@ -146,17 +155,29 @@
 
 
         <section id="lesson_overveiw">
-            <h2>Lesson overview</h2>
+            
+            <div class="lo_wrapper">
 
-            <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+                <h2>Lesson overview</h2>
+                
+                <p>This section contains a general overview of topics that you will learn in this lesson.</p>
+                
+                <ul>
+                    <li>You’ll learn all about the box model.</li>
+                    
+                    <li>You’ll learn how to make sure elements are just the right size with margin, padding, and borders.</li>
+                </ul>     
+            </div>
 
-            <ul>
-                <li>You’ll learn all about the box model.</li>
+            <script>
+                const lo = document.getElementById("lesson_overveiw");
 
-                <li>You’ll learn how to make sure elements are just the right size with margin, padding, and borders.
-                </li>
-            </ul>
-
+                const lo_patern = /\b\w*you\w*\b/gi;
+                lo.innerHTML = lo.innerHTML.replace(lo_patern, `<span class="lo_span">$&</span>`);
+                lo.querySelectorAll(".lo_span").forEach((spanEle) => {
+                    generateRandomStyles(spanEle);
+                });
+            </script>
         </section>
 
         <section id="the_box_model">
@@ -176,20 +197,25 @@
 
             <pre>
                 <code>
+
+                    
                     * {
                         outline: 2px solid red;
                     }
+
+
+
                 </code>
             </pre>
 
-            <img src="./assests/boxes.png" alt="">
+            <img src="./assests/boxes.png"  width="40%" alt="">
 
             <p>
                 You can use the browser’s inspector to add the CSS above to this web page if you want, by clicking
                 the + button in the top right of the “Styles” panel within the “Elements” tab. Boxes in boxes!
             </p>
 
-            <img src="./assests/odin-lined.png" alt="alternative">
+            <img src="./assests/odin-lined.png" width="40%" alt="alternative">
 
             <p>
                 OK, so there might be some circles in the above image… but when it comes to layout, they fit
@@ -213,9 +239,114 @@
 
             <p>Be sure to study the diagrams carefully.</p>
 
-            <img src="./assests/box-model.png" alt="the box model">
-        </section>
+            <img src="./assests/box-model.png" width="40%" alt="the box model">
 
+             <script> 
+                const tbm_codeHightlight_css_selectors = ["*", "p", "div"];
+                const tbm_codeHightlight_css_properties = ["outline", "font-size", "background-color"];
+                const tbm_codeHightlight_css_values = [""];
+
+                function tbm_reformatCodeBlock() {
+
+                    // 1. Break up code into lines 
+                        //remove starting and  trailing blank lines
+                    const tbm_preNode  = document.querySelectorAll("#the_box_model pre");
+                    const tbm_codeNode = document.querySelectorAll('#the_box_model pre code');
+
+                    tbm_codeNode.forEach(codeBlock => {
+                        
+                        const codeLinesArray = codeBlock.textContent.split(/\r?\n/);
+
+                        while (codeLinesArray.length > 0 && codeLinesArray[0].trim() === "") {
+                            codeLinesArray.shift();
+                        }
+                        
+                        while (codeLinesArray.length > 0 && codeLinesArray[codeLinesArray.length -1].trim() === "") {
+                            codeLinesArray.pop();
+                        }
+
+                        console.log(codeLinesArray);
+
+
+                        // 2. Remove extra indentation caused by pre element
+
+                        // 2.1 find base indent length
+                        let baseIndentation = Infinity;
+                        
+                        codeLinesArray.forEach(singleCodeLine => {
+                            if (singleCodeLine.trim().length > 0){
+                                let indentLength = singleCodeLine.match(/^\s*/)[0].length;
+                                baseIndentation = (baseIndentation > indentLength) ? indentLength : baseIndentation;
+                            }
+                        });
+
+                        console.log(baseIndentation)
+
+                        // 2.2 trim extra length
+                        const codeLinesArray_cleaned = codeLinesArray.map(line => line.slice(baseIndentation));
+                        console.log(codeLinesArray_cleaned);
+
+                        // 3. Highlight key phrases 
+                        const codeLinesArray_hightlighted =  hightLightCode(codeLinesArray_cleaned);
+                        console.log("codeLinesArray_hightlighted: ")
+                        console.log(codeLinesArray_hightlighted);
+
+                        // 4. Encasulate all lines in a span 
+                        codeBlock.innerHTML = "";
+
+                        codeLinesArray_hightlighted.forEach(codeLine => {
+                            const newLine = document.createElement("div");
+                            newLine.classList.add("codeBlock_line");
+                            newLine.innerHTML = codeLine;
+
+                            codeBlock.appendChild(newLine);
+                        });
+
+                        
+                    });
+
+                }
+
+                function hightLightCode(array) {
+                    const spanSelector = "<span class='cssSelector'>";
+                    const spanProperty = "<span class='cssProperty'>"
+                    const spanEnd = "</span>"
+                    
+                    // 1. Safe-escape regex control characters (*, ., #, etc.) in your selector array
+                    const escapedSelectors = tbm_codeHightlight_css_selectors.map(selector =>
+                      selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+                    );
+                    const escapedProperties = tbm_codeHightlight_css_properties.map(prop =>
+                        prop.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+                    );
+                    
+                    // 2. Build pattern: (sel1|sel2|sel3) followed by optional whitespace and '{'
+                    const selectorPattern = `(${escapedSelectors.join('|')})(?=\\s*\\{)`;   
+                    const propertyPattern = `(${escapedProperties.join('|')})(?=\\s*\\:)`;   
+                    
+                    
+                    const regEx_cssSelector = new RegExp(selectorPattern, "gi");
+                    const regEx_cssProperty = new RegExp(propertyPattern, "gi");
+                        
+                    const newArray = array.map(line => {
+                        let safeLine = line
+                            .replace(/&/g, "&amp;")
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;");
+
+                            return safeLine 
+                                .replace(regEx_cssSelector, `${spanSelector}$&${spanEnd}`)
+                                .replace(regEx_cssProperty, `${spanProperty}$&${spanEnd}`);
+                    });
+
+                    return newArray;
+                }
+
+                tbm_reformatCodeBlock();
+
+            </script>
+        </section>
+        
         <section id="assignment">
             <h2>Assignment</h2>
 
