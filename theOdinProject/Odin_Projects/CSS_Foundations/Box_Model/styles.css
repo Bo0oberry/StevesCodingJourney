@@ -365,4 +365,80 @@ header {
 
 #assignment {
   background-color: brown;
+  
+  > ol {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto ;
+    gap: 10px;
+    
+    counter-set: ass-count;
+    
+    
+    li {
+      counter-increment: ass-count;
+      position: relative ;
+      overflow: hidden;
+      width: 100%;
+      aspect-ratio: 1/1;
+      background-color: yellowgreen;
+      
+      &::before {
+        content: counter(ass-count);
+        position: absolute ;
+        top: 0;
+        left: 0;
+        background-color: red;
+        aspect-ratio: 1/1;
+      }
+    }
+    
+    li.ass_liSelected { 
+      grid-row: 1;
+      grid-column: 1 / -1;
+      background-color: cyan;
+      aspect-ratio: auto;
+      transition: background-color 1s ease;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* Knowledge Check */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------------------------------ */
+@keyframes kc_animation {
+  
+}
+
+
+#knowledge_check {
+  
+  background-color: hsla(92, 2%, 32%, 1);
+  perspective: 1000px;
+  
+  #kc_detailsWrapper {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(30deg) ;
+    background-color: hsla(92, 49%, 48%, 0.59);
+    height: 500px;
+    width: 100%;
+    
+    
+    > details {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      background-color: teal;
+      border: 1px solid hsla(306, 54%, 47%, 1);
+    }
+  }
 }

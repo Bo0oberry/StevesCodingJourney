@@ -378,6 +378,27 @@
                     want to know.
                 </li>
             </ol>
+            
+            <script>
+                const ass_list = document.querySelector("#assignment ol");
+                const ass_listItems = ass_list.querySelectorAll(":scope > li");
+                
+                ass_listItems.forEach(liEle => {
+                    
+                    liEle.addEventListener("click", () => {
+                        const currentSelected = document.querySelector(".ass_liSelected");
+                        
+                        if (currentSelected) {
+                            currentSelected.classList.remove("ass_liSelected");
+                        }
+                        if (currentSelected !== liEle) {
+                                liEle.classList.add("ass_liSelected");
+                        }
+                      
+                    });  
+                    
+                });
+            </script>
         </section>
 
 
@@ -389,63 +410,98 @@
                 If you can’t answer a question, click on it to review the material, but keep in mind
                 you are not expected to memorize or master this knowledge.
             </p>
+            
+            <div id="kc_detailsWrapper">
+                <details>
+                    <summary>From inside to outside, what is the order of box-model properties?</summary>
+                    <p>Margin -> Border -> Padding -> Content</p>
+                </details>
+    
+                <details>
+                    <summary>What does the box-sizing CSS property do?</summary>
+                    <p>It allows for two options</p>
+                    <ul>
+                        <li>Border-Box: the border does not affect total box size, and will instead push content</li>
+                        <li>Content-Box: the border does affect total box size</li>
+                    </ul>
+                </details>
+    
+                <details>
+                    <summary>What is the difference between the standard and alternative box model?</summary>
+                    <ul>
+                        <li>standard: uses content-box as the box sizing model</li>
+                        <li>alternative: uses border-box as the box sizing model</li>
+                    </ul>
+                </details>
+    
+                <details>
+                    <summary>Would you use margin or padding to create more space between 2 elements?</summary>
+                    <p>Marging</p>
+                </details>
+    
+                <details>
+                    <summary>Would you use margin or padding to create more space between the contents of an element and its
+                        border?
+                    </summary>
+                    <p>Padding</p>
+                </details>
+    
+                <details>
+                    <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
+                    <p>margin</p>
+                </details>
+    
+                <details>
+                    <summary>How do you set the alternative box model for all of your elements?</summary>
+                    <p>box-sizing: border-box</p>
+                </details>
+    
+                <details>
+                    <summary>How do you center an element horizontally?</summary>
+                    <p>The element needs two properties</p>
+                    <ul>
+                        <li>A defined width</li>
+                        <li>margin left and right set to auto</li>
+                    </ul>
+                </details>
+            </div>
+            
+            <script>
+                function createRadialDetailsMenu() {
+                    // 1. Get Distance (r) ofeach item from center
+                    
+                    // 1.0 Define gap and array
+                    const kc_detailsGap = 10;
+                    const kc_detailsArray = document.querySelectorAll("#kc_detailsWrapper details");
+                    
+                    // 1.1 get width of details element
+                    const kc_detailsWidth = parseFloat(kc_detailsArray[0].offfsetWidth);
+                    
+                    // 1.2 get number of detail elements
+                    const kc_detailsCount = kc_detailsArray.length;
+                    
+                    // 1.3 calc r = width / 2 tan(180 / n)
+                    const kc_detailsRadius = (kc_detailsWidth + kc_detailsGap) / (2 * Math.tan(Math.PI / kc_detailsCount));
+                    
+                    // 2. Position details element around ring
+                    kc_detailsArray.forEach((detailEle, index) => {
+                       detailEle.style.backgroundColor = "blue";
+                       const angle =  index * (360 / kc_detailsCount);
+                       detailEle.innerHTML = kc_detailsWidth;
+                       //detailEle.style.transform = `rotateY(${angle}deg)`;
+                    });
+                    
+                    
+                   //
+                }
+                
+                createRadialDetailsMenu();
+                
+            </script>
 
-            <details>
-                <summary>From inside to outside, what is the order of box-model properties?</summary>
-                <p>Margin -> Border -> Padding -> Content</p>
-            </details>
-
-            <details>
-                <summary>What does the box-sizing CSS property do?</summary>
-                <p>It allows for two options</p>
-                <ul>
-                    <li>Border-Box: the border does not affect total box size, and will instead push content</li>
-                    <li>Content-Box: the border does affect total box size</li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>What is the difference between the standard and alternative box model?</summary>
-                <ul>
-                    <li>standard: uses content-box as the box sizing model</li>
-                    <li>alternative: uses border-box as the box sizing model</li>
-                </ul>
-            </details>
-
-            <details>
-                <summary>Would you use margin or padding to create more space between 2 elements?</summary>
-                <p>Marging</p>
-            </details>
-
-            <details>
-                <summary>Would you use margin or padding to create more space between the contents of an element and its
-                    border?
-                </summary>
-                <p>Padding</p>
-            </details>
-
-            <details>
-                <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
-                <p>margin</p>
-            </details>
-
-            <details>
-                <summary>How do you set the alternative box model for all of your elements?</summary>
-                <p>box-sizing: border-box</p>
-            </details>
-
-            <details>
-                <summary>How do you center an element horizontally?</summary>
-                <p>The element needs two properties</p>
-                <ul>
-                    <li>A defined width</li>
-                    <li>margin left and right set to auto</li>
-                </ul>
-            </details>
         </section>
 
     </main>
-
 
 
     <footer>
