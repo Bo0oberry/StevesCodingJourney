@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style>
+    button {
+      position: relative;
+    }
+    
+    .particle { 
+      position: absolute;
+      border-radius: 50%;
+      height: 8px;
+      width: 8px;
+    }
+    
+    #btn1 {
+      width: 100px;
+      height: 100px;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <button id="btn1">
+    <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
+      <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      <style>
+        .heart-icon {
+          fill: none;
+          stroke: currentColor;
+          stroke-width: 2;
+          color: #e74c3c;
+          cursor: pointer;
+          transition: transform 0.2s ease, fill 0.2s ease;
+        }
+        
+        .heart-icon:hover {
+          transform: scale(1.15);
+        }
+        
+        /* The state class triggered on click */
+        .heart-icon.is-filled {
+          fill: currentColor;
+        }
+      </style>
+      
+      <script>
+        const heart = document.querySelector('.heart-icon');
+        
+        heart.addEventListener('click', () => {
+          heart.classList.toggle('is-filled');
+        });
+      </script>
+    </svg>
+  </button>
+  
+  
+  <script>
+    const btn1 = document.getElementById("btn1");
+    
+    btn1.addEventListener("click", () => {
+      btn1.classList.toggle("selected");
+      
+      if (!btn1.classList.contains("selected")) { return }
+      
+      const randomNum = Math.floor(Math.random() * 8 + 5);
+      for (let i = 0; i < randomNum; i++) {
+        
+        const particle = document.createElement("span");
+        particle.classList.add("particle");
+        particle.style.top = randomPosition();
+        particle.style.left = randomPosition();
+        particle.style.backgroundColor = randomColor();
+        
+        btn1.appendChild(particle);
+      }
+      
+      btn1_timeOut = 
+    });
+    
+    function randomColor() {
+      return `hsl(${Math.floor(Math.random() * 360)}, 80%, 80%)`;
+    }
+    
+    function randomPosition() {
+      return `${Math.floor(Math.random() * 100) }%`;
+    }
+  </script>
+</body>
+
+</html>
