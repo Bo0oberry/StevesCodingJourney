@@ -1,0 +1,20 @@
+<svg class="svg_circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <script>
+    if (!svg_circle) {
+      const svg_circle = document.querySelectorAll(".svg_circle");
+      
+      svg_circle.forEach( svg => {
+          svg.addEventListener("click", (event) => {
+            const svg_circleColor = event.target.getAttribute("stroke");
+
+            if ( event.target.getAttribute("fill") === "transparent") {
+                event.target.setAttribute("fill", svg_circleColor);
+            } else {
+                event.target.setAttribute("fill", "transparent");
+            }
+        });
+      });
+    }
+  </script>
+  <circle cx="50" cy="50" r="45" fill="transparent" stroke="black" stroke-width="10" />
+</svg>

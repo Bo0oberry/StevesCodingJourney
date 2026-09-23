@@ -36,5 +36,6 @@ nav {
 footer {
   grid-area: footer;
   background-color: teal;
+  height: 100%;
 }
 

@@ -346,7 +346,7 @@
 
             </script>
         </section>
-        
+
         <section id="assignment">
             <h2>Assignment</h2>
 
@@ -410,72 +410,81 @@
                 If you can’t answer a question, click on it to review the material, but keep in mind
                 you are not expected to memorize or master this knowledge.
             </p>
-            
-            <div id="kc_detailsWrapper">
-                <details>
-                    <summary>From inside to outside, what is the order of box-model properties?</summary>
-                    <p>Margin -> Border -> Padding -> Content</p>
-                </details>
-    
-                <details>
-                    <summary>What does the box-sizing CSS property do?</summary>
-                    <p>It allows for two options</p>
-                    <ul>
-                        <li>Border-Box: the border does not affect total box size, and will instead push content</li>
-                        <li>Content-Box: the border does affect total box size</li>
-                    </ul>
-                </details>
-    
-                <details>
-                    <summary>What is the difference between the standard and alternative box model?</summary>
-                    <ul>
-                        <li>standard: uses content-box as the box sizing model</li>
-                        <li>alternative: uses border-box as the box sizing model</li>
-                    </ul>
-                </details>
-    
-                <details>
-                    <summary>Would you use margin or padding to create more space between 2 elements?</summary>
-                    <p>Marging</p>
-                </details>
-    
-                <details>
-                    <summary>Would you use margin or padding to create more space between the contents of an element and its
-                        border?
-                    </summary>
-                    <p>Padding</p>
-                </details>
-    
-                <details>
-                    <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
-                    <p>margin</p>
-                </details>
-    
-                <details>
-                    <summary>How do you set the alternative box model for all of your elements?</summary>
-                    <p>box-sizing: border-box</p>
-                </details>
-    
-                <details>
-                    <summary>How do you center an element horizontally?</summary>
-                    <p>The element needs two properties</p>
-                    <ul>
-                        <li>A defined width</li>
-                        <li>margin left and right set to auto</li>
-                    </ul>
-                </details>
+            <div id="kc_detailsCarousel">
+                <span class="prev">👈</span>
+                <div id="kc_detailsWrapper">
+                    <details>
+                        <summary>From inside to outside, what is the order of box-model properties?</summary>
+                        <div>
+
+                            <p>Margin -> Border -> Padding -> Content</p>
+                        </div>
+                    </details>
+        
+                    <details>
+                        <summary>What does the box-sizing CSS property do?</summary>
+                        <p>It allows for two options</p>
+                        <ul>
+                            <li>Border-Box: the border does not affect total box size, and will instead push content</li>
+                            <li>Content-Box: the border does affect total box size</li>
+                        </ul>
+                    </details>
+        
+                    <details>
+                        <summary>What is the difference between the standard and alternative box model?</summary>
+                        <ul>
+                            <li>standard: uses content-box as the box sizing model</li>
+                            <li>alternative: uses border-box as the box sizing model</li>
+                        </ul>
+                    </details>
+        
+                    <details>
+                        <summary>Would you use margin or padding to create more space between 2 elements?</summary>
+                        <p>Marging</p>
+                    </details>
+        
+                    <details>
+                        <summary>Would you use margin or padding to create more space between the contents of an element and its
+                            border?
+                        </summary>
+                        <p>Padding</p>
+                    </details>
+        
+                    <details>
+                        <summary>Would you use margin or padding if you wanted two elements to overlap each other?</summary>
+                        <p>margin</p>
+                    </details>
+        
+                    <details>
+                        <summary>How do you set the alternative box model for all of your elements?</summary>
+                        <p>box-sizing: border-box</p>
+                    </details>
+        
+                    <details>
+                        <summary>How do you center an element horizontally?</summary>
+                        <p>The element needs two properties</p>
+                        <ul>
+                            <li>A defined width</li>
+                            <li>margin left and right set to auto</li>
+                        </ul>
+                    </details>
+                </div>
+                <span class="next">👉</span>
             </div>
             
             <script>
+                const kc_detailsArray = document.querySelectorAll("#kc_detailsWrapper details");
+                kc_detailsArray[0].classList.add("selected");
+
+
                 function createRadialDetailsMenu() {
                     // 1. Get Distance (r) ofeach item from center
                     
                     // 1.0 Define gap and array
                     const kc_detailsGap = 10;
-                    const kc_detailsArray = document.querySelectorAll("#kc_detailsWrapper details");
                     
                     // 1.1 get width of details element
-                    const kc_detailsWidth = parseFloat(kc_detailsArray[0].offfsetWidth);
+                    const kc_detailsWidth = parseFloat(kc_detailsArray[0].offsetWidth);
                     
                     // 1.2 get number of detail elements
                     const kc_detailsCount = kc_detailsArray.length;
@@ -485,17 +494,48 @@
                     
                     // 2. Position details element around ring
                     kc_detailsArray.forEach((detailEle, index) => {
-                       detailEle.style.backgroundColor = "blue";
+                       detailEle.style.left = `calc(50% - ${kc_detailsWidth / 2}px)`;
                        const angle =  index * (360 / kc_detailsCount);
-                       detailEle.innerHTML = kc_detailsWidth;
-                       //detailEle.style.transform = `rotateY(${angle}deg)`;
+                       detailEle.style.transform = `rotateY(${angle}deg) translateZ(${kc_detailsRadius}px)`;
                     });
-                    
-                    
+                   
                    //
                 }
                 
                 createRadialDetailsMenu();
+
+                let totalSteps = 0;
+
+                document.querySelectorAll("#knowledge_check #kc_detailsCarousel span").forEach((span) => {
+                    const detailsWrapperRotate = 360 / kc_detailsArray.length;
+                    const detailsWrapper = document.getElementById("kc_detailsWrapper");
+                    
+                    span.addEventListener("click", (event) => {
+                        let currentSelectedIndex = [...kc_detailsArray].findIndex(ele => ele.classList.contains("selected") );
+
+                        document.querySelector("#kc_detailsWrapper details.selected").classList.remove("selected");
+
+                        if (event.currentTarget.classList.contains("prev")) {
+                            currentSelectedIndex -= 1;
+                            if(currentSelectedIndex <= 0) {
+                                currentSelectedIndex = kc_detailsArray.length -1;
+                            }
+                            totalSteps -= 1;
+
+                        }else{
+                            currentSelectedIndex += 1;
+                            if(currentSelectedIndex >= kc_detailsArray.length) {
+                                currentSelectedIndex = 0;
+                            }
+                            totalSteps += 1;
+                        }
+
+                        kc_detailsArray[currentSelectedIndex].classList.add("selected");
+
+                        const totalRotation = currentSelectedIndex * detailsWrapperRotate;
+                        detailsWrapper.style.transform = `rotateX(10deg) rotateY(-${totalRotation}deg)`;
+                    });
+                })
                 
             </script>
 
@@ -504,7 +544,93 @@
     </main>
 
 
-    <footer>
+    <footer id="footer">
+        <div id="foot_name">
+            <h3>Steven Aubrey</h3>
+            <h4>Ork Player</h4>
+            <p>Particle Cleanup</p>
+        </div>
+
+        <div id="foot_btn1" class="foot_btn">
+            <h3>Particle Cleanup </h3>
+            <button>
+                <svg class="svg_circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="transparent" stroke="black" stroke-width="10" pointer-events="all" />
+                    
+                    <script>
+                        (function() {
+                        // 1. Target ONLY this specific SVG instance
+                        const svg = document.currentScript.closest("svg");
+                        const circle = svg.querySelector("circle");
+
+                        // 2. Attach a click listener exclusively to this SVG
+                        svg.addEventListener("click", () => {
+                            const strokeColor = window.getComputedStyle(circle).stroke;
+                            const currentFill = circle.getAttribute("fill");
+
+                            if (currentFill === "transparent" || currentFill === "none") {
+                            circle.setAttribute("fill", strokeColor);
+                            } else {
+                            circle.setAttribute("fill", "transparent");
+                            }
+                        });
+                        })();
+                    </script>
+                </svg>
+            </button>
+            <script>
+                const foot_btn1 = document.getElementById("foot_btn1");
+
+                const FADE_DURATION = 1000 /*ms*/;
+
+                foot_btn1.addEventListener("click", (event) => {
+                    foot_btn1.classList.toggle("isLiked");
+                    
+                    if (!foot_btn1.classList.contains("isSelected")) { return; }
+
+                    const particles = [];
+
+                    const randomRange = Math.floor(Math.random() * 5) + 10;
+                    for (let index = 0; index < randomRange; index++) {
+                        const newParticle = document.createElement('span');
+
+                        newParticle.classList.add('particle');
+                        
+                        newParticle.style.top = Math.floor(Math.random() * 100) + "%";
+                        newParticle.style.left = Math.floor(Math.random() * 100) + "%";
+                        
+                        newParticle.style.animationDuration = FADE_DURATION + "ms";
+
+                        foot_btn1.appendChild(newParticle);
+
+                        particles.push(newParticle);
+                    };
+
+                    window.setTimeout(() => {
+                        particles.forEach( (particle) => {
+                            particle.remove();
+                        });
+                    }, FADE_DURATION + 200);
+
+                });
+            </script>
+        </div>
+
+        <div id="foot_btn2" class="foot_btn">
+            
+        </div>
+
+        <div id="foot_btn3" class="foot_btn">
+            <button></button>
+        </div>
+
+        <div id="foot_btn4" class="foot_btn">
+            <button></button>
+        </div>
+
+        <div id="foot_btn5" class="foot_btn">
+            <button></button>
+        </div>
 
     </footer>
 
