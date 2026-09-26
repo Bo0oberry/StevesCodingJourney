@@ -1,13 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Heart Particle Button</title>
   <style>
+    @keyframes fadeOut {
+      from {
+        opacity: 1;
+        transform: scale(1);
+      }
+      to {
+        opacity: 0;
+        transform: scale(0.3);
+      }
+    }
+  
     button {
       position: relative;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      outline: none;
     }
     
     .particle { 
@@ -15,13 +31,34 @@
       border-radius: 50%;
       height: 8px;
       width: 8px;
+      animation: fadeOut forwards;
+      pointer-events: none;
     }
     
     #btn1 {
       width: 100px;
       height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .heart-icon {
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      color: #e74c3c;
+      transition: transform 0.2s ease, fill 0.2s ease;
     }
     
+    .heart-icon:hover {
+      transform: scale(1.15);
+    }
+    
+    /* State triggered when heart is filled */
+    .heart-icon.is-filled {
+      fill: currentColor;
+    }
   </style>
 </head>
 
@@ -29,66 +66,62 @@
   <button id="btn1">
     <svg class="heart-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48">
       <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-      <style>
-        .heart-icon {
-          fill: none;
-          stroke: currentColor;
-          stroke-width: 2;
-          color: #e74c3c;
-          cursor: pointer;
-          transition: transform 0.2s ease, fill 0.2s ease;
-        }
-        
-        .heart-icon:hover {
-          transform: scale(1.15);
-        }
-        
-        /* The state class triggered on click */
-        .heart-icon.is-filled {
-          fill: currentColor;
-        }
-      </style>
-      
-      <script>
-        const heart = document.querySelector('.heart-icon');
-        
-        heart.addEventListener('click', () => {
-          heart.classList.toggle('is-filled');
-        });
-      </script>
     </svg>
   </button>
   
-  
   <script>
-    const btn1 = document.getElementById("btn1");
+    const btn1 = {
+      element: document.getElementById("btn1"),
+      heart: document.querySelector(".heart-icon"),
+      timeOut: null,
+      FADE_DURATION: 1000
+    };
     
-    btn1.addEventListener("click", () => {
-      btn1.classList.toggle("selected");
+    btn1.element.addEventListener("click", () => {
+      // Toggle button selection state and heart fill
+      btn1.element.classList.toggle("selected");
+      btn1.heart.classList.toggle("is-filled");
       
-      if (!btn1.classList.contains("selected")) { return }
+      // Clean existing particles if any
+      cleanParticles(btn1.element, btn1.timeOut);
+
+      if (!btn1.element.classList.contains("selected")) { 
+        return;
+      }
       
       const randomNum = Math.floor(Math.random() * 8 + 5);
       for (let i = 0; i < randomNum; i++) {
-        
         const particle = document.createElement("span");
         particle.classList.add("particle");
         particle.style.top = randomPosition();
         particle.style.left = randomPosition();
         particle.style.backgroundColor = randomColor();
+        particle.style.animationDuration = `${btn1.FADE_DURATION}ms`;
         
-        btn1.appendChild(particle);
+        btn1.element.appendChild(particle);
       }
       
-      btn1_timeOut = 
+      btn1.timeOut = window.setTimeout(() => {
+        cleanParticles(btn1.element);
+      }, btn1.FADE_DURATION + 100);
     });
     
     function randomColor() {
-      return `hsl(${Math.floor(Math.random() * 360)}, 80%, 80%)`;
+      return `hsl(${Math.floor(Math.random() * 360)}, 80%, 60%)`;
+    }
+    
+    function cleanParticles(parentElement, parentTimeOutFunc) {
+      const currentArray = parentElement.querySelectorAll(".particle");
+      if (currentArray.length > 0) {
+        currentArray.forEach(ele => ele.remove());
+      }
+      if (parentTimeOutFunc) { 
+        clearTimeout(parentTimeOutFunc); 
+      }
     }
     
     function randomPosition() {
-      return `${Math.floor(Math.random() * 100) }%`;
+      return `${Math.floor(Math.random() * 80 + 10)}%`;
     }
   </script>
 </body>
