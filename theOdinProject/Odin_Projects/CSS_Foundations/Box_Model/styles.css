@@ -1,18 +1,20 @@
 :root {
   /* --header-height: auto;
   --box-size: calc(var(--header-height) * 0.8) ; */
+  --animation-time: 0.6s
 }
 
 main {
-   /* z-index: -2; */
-   & > section {
-    margin: 30px 0;
-   }
 
-   background-color: black;
+  /* z-index: -2; */
+  &>section {
+    margin: 30px 0;
+  }
+
+  background-color: black;
 }
 
-body { 
+body {
   padding-bottom: 2px;
 }
 
@@ -32,7 +34,8 @@ body {
 @keyframes header_cubeRotate {
   from {
     transform: rotateX(0deg) rotateY(0deg);
-  } 
+  }
+
   to {
     transform: rotateX(360deg) rotateY(360deg);
   }
@@ -45,7 +48,7 @@ header {
   perspective: 1000px;
   background-color: rgb(60, 84, 105);
 
-  h1{
+  h1 {
     color: azure;
   }
 
@@ -54,7 +57,7 @@ header {
     transform-style: preserve-3d;
     background-color: red;
     height: 5px;
-    aspect-ratio: 1 /1 ;
+    aspect-ratio: 1 /1;
     animation: header_cubeRotate 6s linear infinite;
   }
 
@@ -86,6 +89,7 @@ header {
   from {
     font-size: 5px;
   }
+
   to {
     font-size: 20px;
   }
@@ -105,7 +109,7 @@ header {
     padding-left: calc(var(--intro_h2BeforeSize) + 15px);
     background-image: linear-gradient(to right, hotpink, red, orange, gold);
     background-clip: text;
-    
+
     &::before {
       content: "❤️";
       display: grid;
@@ -119,13 +123,13 @@ header {
       color: aqua;
     }
 
-    &:hover::before{
+    &:hover::before {
       animation: intro_beat 1s infinite;
 
     }
   }
 
-  p { 
+  p {
     padding: 20px calc(var(--intro_h2BeforeSize) + 30px);
 
 
@@ -141,7 +145,7 @@ header {
     font-size: var(--size);
     height: calc(var(--size) + 10px);
     width: calc(var(--size) + 10px);
-    margin: 0 calc(50% - ((var(--size) + 10px) / 2) );
+    margin: 0 calc(50% - ((var(--size) + 10px) / 2));
 
     span {
       color: lime;
@@ -176,7 +180,7 @@ header {
 /* ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------ */
-@property --lo_conicAngle { 
+@property --lo_conicAngle {
   syntax: "<angle>";
   inherits: false;
   initial-value: 0turn;
@@ -194,15 +198,17 @@ header {
   --border-thickness: 5px;
   /* background-color: aqua; */
   padding: var(--border-thickness);
-  
-  &::after , &::before {
+
+  &::after,
+  &::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image: conic-gradient(from var(--lo_conicAngle), rgb(231, 207, 71), rgb(210, 125, 223), rgb(208, 222, 208), rgb(232, 106, 232), rgb(211, 211, 96));
     animation: lo_rotateBorder 15s infinite linear;
     z-index: 1;
-    border-radius: 10px; /* Matches parent radius + offset */
+    border-radius: 10px;
+    /* Matches parent radius + offset */
   }
 
   &::before {
@@ -222,7 +228,7 @@ header {
     z-index: 10;
     font-size: var(--dot-text-size);
 
-    & > * {
+    &>* {
       margin-top: 15px;
     }
 
@@ -233,7 +239,7 @@ header {
       background-clip: text;
       color: transparent;
       align-self: center;
-      
+
       &::before {
         transition: transform 0.6s;
         transform: scale(0) rotate(180deg);
@@ -248,13 +254,14 @@ header {
       &:hover::before {
         transform: scale(1) rotate(0deg);
       }
-    
+
     }
 
-    ul , ol {
+    ul,
+    ol {
       list-style-position: inside;
       list-style-type: none;
-      
+
       li {
         anchor-name: --list-anchor;
         anchor-scope: --list-anchor;
@@ -262,22 +269,22 @@ header {
         padding-left: 10px;
         margin-left: var(--dot-text-size);
         position: relative;
-    
+
         &::before {
           position: fixed;
           position-anchor: --list-anchor;
           position-area: center left;
           content: "";
           height: var(--dot-text-size);
-          aspect-ratio: 1 /1 ;
+          aspect-ratio: 1 /1;
 
           background-image: url("/Assests/SVG_Icons/item_star.svg");
           background-size: contain;
           background-repeat: no-repeat;
         }
-        
+
       }
-      
+
     }
   }
 
@@ -306,7 +313,7 @@ header {
   background-color: antiquewhite;
   list-style-position: inside;
 
-  > *:not(h2) {
+  >*:not(h2) {
     margin-top: 15px;
   }
 
@@ -319,7 +326,7 @@ header {
     width: 80%;
     align-self: center;
 
-    code{
+    code {
       background-color: azure;
       /* white-space: ; */
       counter-set: line-Counter;
@@ -327,7 +334,7 @@ header {
       .codeBlock_line {
         counter-increment: line-counter;
         position: relative;
-        padding-left:  calc(2.5ch + 10px);
+        padding-left: calc(2.5ch + 10px);
         background-color: hsla(31, 31%, 83%, 0.904);
 
         &::before {
@@ -369,35 +376,35 @@ header {
 
 #assignment {
   background-color: brown;
-  
-  > ol {
+
+  >ol {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto ;
+    grid-template-rows: auto;
     gap: 10px;
-    
+
     counter-set: ass-count;
-    
-    
+
+
     li {
       counter-increment: ass-count;
-      position: relative ;
+      position: relative;
       overflow: hidden;
       width: 100%;
       aspect-ratio: 1/1;
       background-color: yellowgreen;
-      
+
       &::before {
         content: counter(ass-count);
-        position: absolute ;
+        position: absolute;
         top: 0;
         left: 0;
         background-color: red;
         aspect-ratio: 1/1;
       }
     }
-    
-    li.ass_liSelected { 
+
+    li.ass_liSelected {
       grid-row: 1;
       grid-column: 1 / -1;
       background-color: cyan;
@@ -420,10 +427,10 @@ header {
 /* ------------------------------------------------------------------------------------------------ */
 
 #knowledge_check {
-  
+
   background-color: hsla(92, 2%, 32%, 1);
   perspective: 1000px;
-  
+
   #kc_detailsCarousel {
     display: flex;
     justify-content: space-between;
@@ -433,7 +440,7 @@ header {
       font-size: 30px;
     }
   }
-  
+
 
   #kc_detailsWrapper {
     position: relative;
@@ -443,7 +450,7 @@ header {
     height: 500px;
     transition: transform 1.5s;
     pointer-events: none;
-    
+
     details {
       position: absolute;
       top: calc(50% - (200px / 2));
@@ -462,7 +469,7 @@ header {
         overflow-y: auto;
       }
 
-      * { 
+      * {
         margin: 0;
       }
 
@@ -477,9 +484,11 @@ header {
         opacity: 1;
         color: white;
 
-        &:hover { background-color: black;}
+        &:hover {
+          background-color: black;
+        }
       }
-    } 
+    }
   }
 
 
@@ -497,6 +506,21 @@ header {
 /* ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------ */
 /* ------------------------------------------------------------------------------------------------ */
+@keyframes slide {
+  from {
+    transfomr: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes foot_fadeout {
+  to {
+    opacity: 0;
+  }
+}
 
 
 #footer {
@@ -504,7 +528,7 @@ header {
   align-items: stretch;
   gap: 15px;
 
-  > div {
+  >div {
     height: 100%;
     flex-grow: 1;
     background-color: aqua;
@@ -512,14 +536,18 @@ header {
   }
 
   #foot_name {
-    display:grid;
-    grid-template-areas: 'h3 h3 tag' 'h4 h4 tag' ;
+    display: grid;
+    grid-template-areas: 'h3 h3 tag' 'h4 h4 tag';
 
-    h3 { grid-area: h3;}
+    h3 {
+      grid-area: h3;
+    }
 
-    h4 { grid-area: h4;}
+    h4 {
+      grid-area: h4;
+    }
 
-    p { 
+    p {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -528,11 +556,11 @@ header {
       background-color: black;
       text-orientation: upright;
       writing-mode: vertical-lr;
-      
-      min-height: 0; 
+
+      min-height: 0;
       overflow: hidden;
 
-      font-size: clamp(5px, 1.5vh, 24px );
+      font-size: clamp(5px, 1.5vh, 24px);
     }
 
   }
@@ -542,13 +570,13 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-  
-    h3 { 
-      margin: 0 0 5px 0; 
+
+    h3 {
+      margin: 0 0 5px 0;
       font-size: 1rem;
       text-align: center;
     }
-  
+
     button {
       position: relative;
       flex: 1;
@@ -563,44 +591,175 @@ header {
       width: 100%;
       cursor: pointer;
 
+      &.selected svg {}
+
       svg {
         max-height: 100%;
         max-width: 100%;
-        
-      }
-    }
-    
-  }
-  
-  #foot_btn1 button {
-    border-radius: 50%;
-    width:  auto;
-    aspect-ratio: 1 /1;
 
-    padding: 10px;
-    overflow: hidden;
-    background-color: transparent;
-    
-    &:hover {
-      background-color: lightblue;
-      svg circle { 
-        stroke: rgb(164, 81, 191);
       }
     }
 
-    svg circle{
-      stroke: rgb(219, 159, 242);
+  }
+
+  #foot_btn1 {
+    background-color: rgb(22, 104, 149);
+    color: white;
+
+    button {
+      border-radius: 50%;
+      width: auto;
+      aspect-ratio: 1 /1;
+
+      padding: 10px;
+      /* overflow: hidden; */
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba(173, 216, 230, 0.592);
+
+        svg circle {
+          stroke: rgb(164, 81, 191);
+        }
+      }
+
+      svg circle {
+        stroke: rgb(219, 159, 242);
+      }
+    }
+
+    .particle {
+      position: absolute;
+      aspect-ratio: 1 /1;
+      border-radius: 50%;
+      animation-name: foot_fadeout;
+      animation-fill-mode: forwards;
+
+      pointer-events: none;
+
     }
   }
 
-  .particle {
-    position: absolute;
-    background-color: aquamarine;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
+  #foot_btn2 {
+    position: relative;
+    background-color: black;
 
-    pointer-events: none;
+    h3 {
+      color: wheat;
+    }
 
+    button {
+      position: absolute;
+      bottom: 10%;
+      background-color: #1545c8;
+      color: aliceblue;
+      width: 100px;
+      height: 20px;
+      font-size: 15px;
+    }
+
+    .particle {
+      position: absolute;
+      pointer-events: none;
+      font-size: clamp(4px, 1vh, 24px);
+    }
+
+  }
+
+  #foot_btn3 {
+    background-color: black;
+
+    h3 {
+      color: rgb(222, 209, 146);
+    }
+
+    button {
+      overflow: hidden;
+      position: relative;
+      width: 80%;
+
+      padding: 1rem 3rem;
+      border-radius: 1000px;
+      background:
+        radial-gradient(circle at 50% 0%,
+          oklch(0.5 0.15 165 / 0) 0% 60%,
+          oklch(0.5 0.15 165 / 0.125) 70%,
+          oklch(0.5 0.15 165 / 0.325) 80%,
+          oklch(0.5 0.15 165 / 0) 100%),
+        linear-gradient(to top,
+          oklch(0.6 0.19 164 / 1),
+          oklch(0.9 0.2 182 / 1));
+      box-shadow:
+        inset 0px -1px 2px hsl(175deg 100% 20% / 0.5),
+        inset 0px -3px 6px hsl(175deg 100% 20% / 0.4),
+        inset 0px 5px 5px hsl(175deg 100% 90% / 0.75);
+      font-weight: 500;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 4px;
+        left: 16px;
+        right: 16px;
+        height: 10px;
+        border-radius: 100px 100px 0 0;
+        border-top: 4px solid white;
+        filter: blur(4px);
+        opacity: 0.625;
+      }
+    }
+
+    .particle {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      background: linear-gradient(to right,
+          transparent,
+          hsl(180deg 100% 90%),
+          transparent);
+      animation: slide var(--animation-time) forwards;
+
+    }
+  }
+
+  #foot_btn4 {
+    position: relative;
+    background-color: black;
+
+    h3 {
+      color: aliceblue;
+    }
+
+    button {
+      position: absolute;
+      bottom: 8%;
+      width: auto;
+      color: white;
+      padding: 3px;
+    }
+
+    .particle {
+      --top: 50%;
+      --left: 50%;
+      position: absolute;
+      top: var(--top);
+      left: var(--left);
+      transform: translate(
+        calc(var(--left) * -1),
+        calc(var(--top) * -1)
+      );
+      height: 10px;
+      width: 10px;
+
+      background-color: gold;
+      transition-property: top, left;
+      transition-duration: 0.6s;
+    }
+  }
+
+  #foot_btn5 {
+    
   }
 }
