@@ -1,0 +1,14 @@
+#knowledge_check {
+  background-color: red;
+  
+  details {
+    
+    summary {
+      
+      &::marker {
+        display: none;
+      }
+    }
+  }
+    
+}
