@@ -12,7 +12,8 @@ knowledgeCheck_detailElements.forEach((ele,index) => {
   
   kc_placeTextInP(kc_details[`detail${index}`].summary);
   kc_makeButton(kc_details[`detail${index}`].summary);
-  // ele.style.backgroundColor = "green";
+  
+  
 });
 
 function kc_makeButton(targetEle) {
@@ -27,3 +28,4 @@ function kc_placeTextInP(targetEle) {
   targetEle.textContent = "";
   targetEle.appendChild(newP);
 }
+
