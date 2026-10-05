@@ -1,0 +1,58 @@
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 45deg;
+}
+
+@keyframes spinAngle {
+  to {
+    --angle: 405deg;
+  }
+}
+
+#lesson_overveiw {
+
+  &>* {
+    margin-top: 20px;
+
+    &>* {
+      margin-top: 10px;
+    }
+  }
+
+  mark {
+    z-index: 10;
+    transform-style: preserve-3d;
+    position: relative;
+    display: inline-block;
+    background-color: aquamarine;
+    color: transparent;
+    background-image: linear-gradient(var(--angle), rgb(76, 122, 201), cyan, lightblue);
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    &::before {
+      position: absolute;
+      content: "";
+      transform: translateZ(-1px);
+      background-image: linear-gradient(var(--angle), rgba(210, 200, 200, 0.5), rgba(0, 0, 0, 0.5));
+      inset: -1px;
+      border-radius: 5px;
+    }
+
+    &:hover,
+    &:hover::before {
+      animation: spinAngle 3s linear infinite forwards;
+    }
+
+  }
+
+  ul {
+    list-style-position: inside;
+    list-style-image: url("/Assests/SVG_Icons/item_sun.svg");
+  }
+
+  li {
+    margin-left: 20px;
+  }
+}

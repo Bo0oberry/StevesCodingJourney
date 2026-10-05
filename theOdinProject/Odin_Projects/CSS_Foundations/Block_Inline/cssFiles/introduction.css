@@ -1,0 +1,42 @@
+#introduction {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+
+  padding: 0 10%;
+
+  p {
+
+    line-height: 1.5;
+  }
+
+  #intro_btn {
+    min-height: 30px;
+    min-width: 30px;
+    padding: 5px;
+    background-color: rgb(2, 0, 0);
+    color: white;
+
+    &.selected {
+      animation: intro_colorChange 0.5s both;
+    }
+  }
+
+
+  mark {
+    border-radius: 5px;
+    color: #ef5d5d;
+    background-color: rgba(95, 158, 160, 0.421);
+  }
+
+  .particle {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    border-radius: 50%;
+    pointer-events: none;
+    animation-name: fadeToTransparent, fromCenter;
+    animation-fill-mode: forwards;
+  }
+}

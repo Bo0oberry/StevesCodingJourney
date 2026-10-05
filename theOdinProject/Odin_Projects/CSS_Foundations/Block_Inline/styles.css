@@ -1,0 +1,32 @@
+body#blockAndInline {
+  background-color: beige;
+
+  main {
+    background-color: beige;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+  }
+}
+
+@keyframes fadeToTransparent {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fromCenter {
+  from {
+    transform: translate(0px, 0px) ;
+    
+  } 
+}
+
+@keyframes intro_colorChange {
+  to {
+    scale: 1.1;
+    /* background-color: rgba(223, 9, 49, 0.987); */
+  }
+}
