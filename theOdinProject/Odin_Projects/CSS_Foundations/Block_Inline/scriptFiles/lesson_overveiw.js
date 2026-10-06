@@ -53,8 +53,8 @@ function lo_createPracticeHTML() {
     div.style.padding = "0 30px"
 
     button.setAttribute("aria-expanded", String(isSelected));
-
-    const buttonWidth
+  
+    lo_buttonCreateParticle(button);
   });
 
 
@@ -99,11 +99,16 @@ function lo_practiceRegExp(target) {
   target.innerHTML = target.innerHTML.replace(regExPattern5, `<span style="background-color:gold">$&</span>`);
 }
 
-function lo_buttonCreateParticle() {
+function lo_buttonCreateParticle(particleParent) {
+  const parentRect = particleParent.getBoundingClientRect;
+    const particleParentWidth = parentRect.width;
+    const particleParentHeight= parentRect.height; 
+    
   const particle = document.createElement("span");
   particle.classList.add("particle");
+  
+  
 
-  const particleParentRect = 
 }
 // Execute function
 const lessonOverview = document.getElementById("lesson_overveiw");
