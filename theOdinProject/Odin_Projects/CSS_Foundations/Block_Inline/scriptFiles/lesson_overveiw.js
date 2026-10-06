@@ -1,4 +1,7 @@
 const lo_keywords = ["block", "inline"];
+const lo_button = {
+
+};
 
 function lo_EKW(container) {
   if (!container) return;
@@ -51,6 +54,7 @@ function lo_createPracticeHTML() {
 
     button.setAttribute("aria-expanded", String(isSelected));
 
+    const buttonWidth
   });
 
 
@@ -83,18 +87,23 @@ function lo_practiceRegExp(target) {
   target.innerHTML = target.innerHTML.replace(regExPattern1, `<mark>$&</mark>`);
   
   const regExPattern2 = /\b(candy|plum)\b/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern2, `thicc thighed & $& femboys`);
+  target.innerHTML = target.innerHTML.replace(regExPattern2, `<span style="background-color:white">thicc thighed & $& femboys</span>`);
   
   const regExPattern3 = /\bCake/gim;
   target.innerHTML = target.innerHTML.replace(regExPattern3, `<span style="background-color:pink">phat dumpy</span>`);
   
-  const regExPattern4 = /\w*(?=\w*bar\w*)/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern4, `<span style="background-color:teal">Positive Look Ahead</span>`);
+  const regExPattern4 = /\w+(?=\s\w*bar\w*)/gi;
+  target.innerHTML = target.innerHTML.replace(regExPattern4, `<span style="background-color:teal">$&</span>`);
   
-  const regExPattern5 = /\bc\b/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern5, `a`);
+  const regExPattern5 = /\bca(n|r)\w*/gi;
+  target.innerHTML = target.innerHTML.replace(regExPattern5, `<span style="background-color:gold">$&</span>`);
+}
 
-  
+function lo_buttonCreateParticle() {
+  const particle = document.createElement("span");
+  particle.classList.add("particle");
+
+  const particleParentRect = 
 }
 // Execute function
 const lessonOverview = document.getElementById("lesson_overveiw");
