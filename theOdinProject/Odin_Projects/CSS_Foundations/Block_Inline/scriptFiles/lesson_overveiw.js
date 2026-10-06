@@ -68,7 +68,7 @@ function lo_createPracticeHTML() {
 
   div.style.display = "none";
   div.style.flexDirection = "column";
-
+  
     
 
   lessonOverview.appendChild(button);
@@ -89,7 +89,7 @@ function lo_practiceRegExp(target) {
   target.innerHTML = target.innerHTML.replace(regExPattern3, `<span style="background-color:pink">phat dumpy</span>`);
   
   const regExPattern4 = /\w*(?=\w*bar\w*)/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern4, `TEST`);
+  target.innerHTML = target.innerHTML.replace(regExPattern4, `<span style="background-color:teal">Positive Look Ahead</span>`);
   
   const regExPattern5 = /\bc\b/gi;
   target.innerHTML = target.innerHTML.replace(regExPattern5, `a`);
