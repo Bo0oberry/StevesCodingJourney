@@ -1,6 +1,42 @@
 const lo_keywords = ["block", "inline"];
-const lo_button = {
 
+const lo_buttonFunctions = {
+  getRandomInt(a, b) {
+    const min = Math.min(a, b);
+    const max = Math.max(a, b);
+    // Math.random() gives 0 to <1
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+
+  createParticle(particleParent) {
+    const parentRect = particleParent.getBoundingClientRect();
+    const particleParentWidth = parentRect.width;
+    const particleParentHeight = parentRect.height;
+
+    const randomNum = Math.floor(Math.random() * 5) + 10;
+    for (let i = 0; i <= randomNum; i++) {
+      const particle = document.createElement("span");
+      particle.classList.add("particle");
+
+      particle.style.transform = `traslate(${Math.floor(Math.random() * (particleParentWidth / 2))},);`
+      particleParent.appendChild(particle);
+    }
+  },
+
+  destroyParticle(particleParent) {
+    if(lo_buttonFunctions.timeOutFunc === null) {
+      
+    }
+  },
+
+  applyStyles(button) {
+    button.textContent = "Practice";
+    button.style.width = "100px";
+    button.style.marginLeft = "60px";
+    button.style.position = "relative";
+  },
+
+  timeOutFunc: null,
 };
 
 function lo_EKW(container) {
@@ -42,9 +78,7 @@ function lo_createPracticeHTML() {
   const button = document.createElement("button");
   const div = document.createElement("div");
 
-  button.textContent =  "Practice";
-  button.style.width =  "100px";
-  button.style.marginLeft = "60px";
+  lo_buttonFunctions.applyStyles(button);
 
   button.addEventListener("click", () => {
     const isSelected = button.classList.toggle("selected");
@@ -53,12 +87,13 @@ function lo_createPracticeHTML() {
     div.style.padding = "0 30px"
 
     button.setAttribute("aria-expanded", String(isSelected));
-  
-    lo_buttonCreateParticle(button);
+
+    lo_buttonFunctions.createParticle(button);
+    lo_buttonFunctions.destroyParticle(button);
   });
 
 
-  div.innerHTML =  `
+  div.innerHTML = `
   <p>
     Shortbread jelly-o sugar plum sweet I love cookie cotton candy shortbread liquorice. Macaroon sesame snaps candy ice cream carrot cake. Marzipan jelly beans apple pie bear claw carrot cake jelly I love. Dragée liquorice carrot cake chocolate jelly-o halvah. Pastry marzipan jelly beans bonbon jelly beans sweet roll. Chocolate ice cream wafer sweet chocolate. Dragée dessert toffee pudding I love lollipop macaroon cupcake.
   </p>
@@ -72,8 +107,8 @@ function lo_createPracticeHTML() {
 
   div.style.display = "none";
   div.style.flexDirection = "column";
-  
-    
+
+
 
   lessonOverview.appendChild(button);
   lessonOverview.appendChild(div);
@@ -85,31 +120,20 @@ function lo_createPracticeHTML() {
 function lo_practiceRegExp(target) {
   const regExPattern1 = /\bsugar\b/gi;
   target.innerHTML = target.innerHTML.replace(regExPattern1, `<mark>$&</mark>`);
-  
+
   const regExPattern2 = /\b(candy|plum)\b/gi;
   target.innerHTML = target.innerHTML.replace(regExPattern2, `<span style="background-color:white">thicc thighed & $& femboys</span>`);
-  
+
   const regExPattern3 = /\bCake/gim;
   target.innerHTML = target.innerHTML.replace(regExPattern3, `<span style="background-color:pink">phat dumpy</span>`);
-  
+
   const regExPattern4 = /\w+(?=\s\w*bar\w*)/gi;
   target.innerHTML = target.innerHTML.replace(regExPattern4, `<span style="background-color:teal">$&</span>`);
-  
+
   const regExPattern5 = /\bca(n|r)\w*/gi;
   target.innerHTML = target.innerHTML.replace(regExPattern5, `<span style="background-color:gold">$&</span>`);
 }
 
-function lo_buttonCreateParticle(particleParent) {
-  const parentRect = particleParent.getBoundingClientRect;
-    const particleParentWidth = parentRect.width;
-    const particleParentHeight= parentRect.height; 
-    
-  const particle = document.createElement("span");
-  particle.classList.add("particle");
-  
-  
-
-}
 // Execute function
 const lessonOverview = document.getElementById("lesson_overveiw");
 lo_EKW(lessonOverview);

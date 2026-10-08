@@ -46,7 +46,7 @@
     }
 
   }
-  
+
 
   ul {
     list-style-position: inside;
@@ -56,14 +56,17 @@
   li {
     margin-left: 20px;
   }
-  
- .particle { 
-   inset: 0;
-   margin: auto;
-   
-   background-color: teal;
-   height: 7px;
-   width: 7px;
-   border-radius: 50%;
- }
+
+  .particle {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+
+    background-color: teal;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+
+    pointer-events: none;
+  }
 }
