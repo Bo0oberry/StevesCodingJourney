@@ -1,5 +1,6 @@
 const lo_keywords = ["block", "inline"];
 
+
 const lo_buttonFunctions = {
   getRandomInt(a, b) {
     const min = Math.min(a, b);
@@ -18,15 +19,28 @@ const lo_buttonFunctions = {
       const particle = document.createElement("span");
       particle.classList.add("particle");
 
-      particle.style.transform = `traslate(${Math.floor(Math.random() * (particleParentWidth / 2))},);`
+      particle.style.transform = `translate(
+        ${this.getRandomInt(particleParentWidth/2, particleParentWidth/-2)}px,
+        ${this.getRandomInt(particleParentHeight/2, particleParentHeight/-2)}px)`;
+
       particleParent.appendChild(particle);
     }
   },
 
   destroyParticle(particleParent) {
-    if(lo_buttonFunctions.timeOutFunc === null) {
-      
+    if(this.timeOutFunc !== null) {
+      clearTimeout(this.timeOutFunc);
+      this.timeOutFunc = null;
     }
+
+    const particles = particleParent.querySelectorAll(".particle");
+
+    if(!this.isSelected) {particles.forEach(particleElement => { particleElement.remove()})};
+
+    this.timeOutFunc = setTimeout(() => {
+      particles.forEach(particleElement => { particleElement.remove()})
+    }, this.animationDuration + 100);
+
   },
 
   applyStyles(button) {
@@ -36,8 +50,11 @@ const lo_buttonFunctions = {
     button.style.position = "relative";
   },
 
+  animationDuration: 1500,
   timeOutFunc: null,
+  isSelected: false,
 };
+
 
 function lo_EKW(container) {
   if (!container) return;
@@ -81,12 +98,13 @@ function lo_createPracticeHTML() {
   lo_buttonFunctions.applyStyles(button);
 
   button.addEventListener("click", () => {
-    const isSelected = button.classList.toggle("selected");
+    lo_buttonFunctions.isSelected  = button.classList.toggle("selected");
 
-    div.style.display = isSelected ? "flex" : "none";
+
+    div.style.display = lo_buttonFunctions.isSelected ? "flex" : "none";
     div.style.padding = "0 30px"
 
-    button.setAttribute("aria-expanded", String(isSelected));
+    button.setAttribute("aria-expanded", String(lo_buttonFunctions.isSelected));
 
     lo_buttonFunctions.createParticle(button);
     lo_buttonFunctions.destroyParticle(button);
@@ -118,20 +136,24 @@ function lo_createPracticeHTML() {
 
 
 function lo_practiceRegExp(target) {
+  let html = target.innerHTML; 
+
   const regExPattern1 = /\bsugar\b/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern1, `<mark>$&</mark>`);
+  html = html.replace(regExPattern1, `<mark>$&</mark>`);
 
   const regExPattern2 = /\b(candy|plum)\b/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern2, `<span style="background-color:white">thicc thighed & $& femboys</span>`);
+  html = html.replace(regExPattern2, `<span style="background-color:white">thicc thighed & $& femboys</span>`);
 
   const regExPattern3 = /\bCake/gim;
-  target.innerHTML = target.innerHTML.replace(regExPattern3, `<span style="background-color:pink">phat dumpy</span>`);
+  html = html.replace(regExPattern3, `<span style="background-color:pink">phat dumpy</span>`);
 
   const regExPattern4 = /\w+(?=\s\w*bar\w*)/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern4, `<span style="background-color:teal">$&</span>`);
+  html = html.replace(regExPattern4, `<span style="background-color:teal">$&</span>`);
 
   const regExPattern5 = /\bca(n|r)\w*/gi;
-  target.innerHTML = target.innerHTML.replace(regExPattern5, `<span style="background-color:gold">$&</span>`);
+  html = html.replace(regExPattern5, `<span style="background-color:gold">$&</span>`);
+
+  target.innerHTML = html;
 }
 
 // Execute function
