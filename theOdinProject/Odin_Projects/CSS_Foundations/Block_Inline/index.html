@@ -11,33 +11,33 @@
 </head>
 
 <body id="blockAndInline">
-    
+
     <nav id="nav"></nav>
-    
+
     <header>
         <h1>Block and Inline</h1>
     </header>
-    
-    
-    
+
+
+
     <main>
-        
+
         <section id="introduction">
             <h2>Introduction</h2>
-            
+
             <p>
                 In the previous lesson, we discovered that different display
-                 types have unique box models, and we can modify the box calculation 
-                 by changing the box-sizing property. CSS has two box types: block 
-                 and inline boxes, which determine element behavior and interaction. 
-                 The display property controls how HTML elements appear on the webpage. 
-                 We will explore its various options further in this lesson.
+                types have unique box models, and we can modify the box calculation
+                by changing the box-sizing property. CSS has two box types: block
+                and inline boxes, which determine element behavior and interaction.
+                The display property controls how HTML elements appear on the webpage.
+                We will explore its various options further in this lesson.
             </p>
         </section>
-        
+
         <section id="lesson_overveiw">
             <h2>Lesson Overveiw</h2>
-            
+
             <p>
                 This section contains a general overview of topics that you will learn in this lesson.
             </p>
@@ -49,34 +49,114 @@
                 <li>You'll learn what divs and spans are.</li>
             </ul>
         </section>
-        
+
         <section id="blockVsInline">
             <h2>Block Vs Inline</h2>
-            
-            <p></p>
+
+            <p>
+                Most of the elements that you have learned about so far are block elements. In other words, their
+                default
+                style is display: block. By default, block elements will appear on the page stacked atop each other,
+                each
+                new element starting on a new line.
+            </p>
+
+            <p>
+                Inline elements, however, do not start on a new line. They appear in line with whatever elements they
+                are placed
+                beside. A clear example of an inline element is a link, or &lt;a&gt; tag. If you stick one of these in
+                the middle
+                of a paragraph of text,
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                    the link will behave like a part of the paragraph.
+                </a>
+                Additionally, padding and margin behave differently on inline elements. In general, you do not want to
+                try to put
+                extra padding or margin on inline elements.
+            </p>
+
+            <h3>The middle ground inline-block</h3>
+
+            <p>
+                Inline-block elements behave like inline elements, but with block-style padding and margin. display:
+                inline-block
+                is a useful tool to know about, but in practice, you’ll probably end up reaching for flexbox more often
+                if you’re
+                trying to line up a bunch of boxes. Flexbox will be covered in-depth in the next lesson.
+            </p>
+
         </section>
-        
-        <section id="">
-            <h2></h2>
-            
-            <p></p>
+
+        <section id="divsAndSpans">
+            <h2>Divs And Spans</h2>
+
+            <p>
+                When building a web page, not every piece of content has a specific semantic tag. Sometimes, you just
+                need a container
+                you can style or position! That’s where div and span come in.
+            </p>
+
+            <p>
+                A div is a generic block-level container. It behaves like a rectangular section that, by default,
+                stretches across
+                the full width of its parent and starts on a new line. Typically, you would use a div to group related
+                elements
+                inside page components, such as grouping cards, sections, sidebars, or navigation bars.
+            </p>
+
+            <p>
+                In this case, when you wrap content in a div and give it a class or id, you create a convenient hook for
+                CSS layout
+                and styling!
+            </p>
+
+            <p class="codepen" data-height="300" data-pen-title="block-inline-lesson-div-example"
+                data-default-tab="html,result" data-slug-hash="KKXXbwR" data-user="TheOdinProjectExamples"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/KKXXbwR">
+                        block-inline-lesson-div-example</a> by TheOdinProject (<a
+                        href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+
+            <p>
+                A span is a generic inline container. It sits inside a line of text and only takes up as much space as
+                its content. Unlike div, it does not start on a new line. You use span when you want to style or target
+                just part of a sentence. For example, when you want to highlight a single word or attach a tooltip to a
+                phrase, you can wrap it in a span then add a class or id so CSS can find and manipulate it.
+            </p>
+
+            <p class="codepen" data-height="300" data-pen-title="block-inline-lesson-span-example"
+                data-default-tab="html,result" data-slug-hash="abLLPor" data-user="TheOdinProjectExamples"
+                style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/TheOdinProjectExamples/pen/abLLPor">
+                        block-inline-lesson-span-example</a> by TheOdinProject (<a
+                        href="https://codepen.io/TheOdinProjectExamples">@TheOdinProjectExamples</a>)
+                    on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://public.codepenassets.com/embed/index.js"></script>
+
+            <p>
+                Neither div nor span adds meaning to the content the way semantic tags do, as they exist to give you flexible 
+                “building blocks”. The key difference is how they behave in the layout: div participates in the flow as a 
+                block-level element, while span behaves as an inline element. Once you understand that, choosing between 
+                them becomes simple! You can use div when you’re grouping and positioning bigger blocks of content, and 
+                span when you’re styling or scripting small pieces inside a line.
+            </p>
         </section>
-        
-        <section id="">
-            <h2></h2>
-            
-            <p></p>
-        </section>
-        
-        
+
+
         <section id="assignment">
             <h2>Assignment</h2>
             <a href="./margin-and-padding/01-margin-and-padding-1/index.html">margin-and-padding-1</a>
             <a href="./margin-and-padding/02-margin-and-padding-2/">margin-and-padding-2</a>
             <a href="./project-recipe-02/index.html">Project Recipe</a>
         </section>
-        
-        
+
+
+
         <section id="knowledge_check">
             <h2>Knowledge Check</h2>
             <details>
@@ -126,16 +206,16 @@
             </details>
         </section>
     </main>
-    
-    
-    
+
+
+
     <footer id="footer">
         <label for="foot_textFeild">Find Word</label>
         <input type="text" id="foot_textFeild">
     </footer>
-    
-    
-    
+
+
+
 </body>
 
 </html>

@@ -8,10 +8,13 @@ const blockAndInline = {
   ],
 
   highlight() {
-    const joinedHighlightedWords = this.highlightedWords.join("|");
-    const regExpPattern = new RegExp(`\\b${joinedHighlightedWords}\                             \b` ,"gi");
+    //convert special characters
+    const escapedWords = this.highlightedWords.map(word => {
+      return words.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    });
 
-
+    const joinedHighlightedWords = escapedWords.join("|");
+    const regExpPattern = new RegExp(`\\b${joinedHighlightedWords}\\b` ,"gi");
 
     const walker = document.createTreeWalker(
       //Root Node
@@ -29,11 +32,26 @@ const blockAndInline = {
             return NodeFilter.FILTER_REJECT;
           }
 
-          return node.textContent.includes(regExpPattern)
-            ? NodeFilter.FILTER_ACCEPT
-            : NodeFilter.FILTER_REJECT;
+          return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
         }
       }
     );
+
+    const textNodes = [];
+    
+    while(walker.nextNode()) {
+      textNodes.push(walker.currentNode);
+    }
+
+    textNodes.forEach(node => {
+      if(regExpPattern.test(node.textContent)) {
+        const span = document.createElement("span");
+        span.innerHTML = node.textContent.replace(regExpPattern, `<mark>$&</mark>`);
+        node.replaceWith(...span.childNodes);
+      }
+    });
+
   },
+
+
 };
