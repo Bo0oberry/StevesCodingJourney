@@ -47,6 +47,7 @@
 
   }
 
+
   ul {
     list-style-position: inside;
     list-style-image: url("/Assests/SVG_Icons/item_sun.svg");
@@ -54,5 +55,18 @@
 
   li {
     margin-left: 20px;
+  }
+
+  .particle {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+
+    background-color: teal;
+    height: 7px;
+    width: 7px;
+    border-radius: 50%;
+
+    pointer-events: none;
   }
 }
