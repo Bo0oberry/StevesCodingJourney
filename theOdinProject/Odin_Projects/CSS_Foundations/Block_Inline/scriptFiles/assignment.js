@@ -41,7 +41,7 @@ const assignment = {
     
     randomPosition() {
       const buttonDimentions = this.button.getDimensions();
-      const randomYdistance = Math.
+      // const randomYdistance = Math.
     },
     
   },
