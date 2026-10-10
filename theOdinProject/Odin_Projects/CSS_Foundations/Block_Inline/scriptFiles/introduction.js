@@ -90,14 +90,14 @@ const intro_btn = {
     for (let i = 0; i < randomParticleAmount; i++) {
       const particle = document.createElement("span");
       particle.classList.add("particle");
-      const size = Math.floor(Math.random() * 5) + 5 + "px";
-      particle.style.height = size;
-      particle.style.width = size;
+      const size = Math.floor(Math.random() * 5) + 5;
+      particle.style.height = size + "px";
+      particle.style.width = size + "px";
       particle.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 80%)`;
       particle.style.animationDuration = `${this.particle.FADE_DURATION}ms, ${this.particle.FROM_CENTER_DURATION}ms`;
 
-      const x = this.getRandomInt(buttonWidth / 2, buttonWidth / -2) * this.particle.dispersionMagnitude;
-      const y = this.getRandomInt(buttonHeight / 2, buttonHeight / -2) * this.particle.dispersionMagnitude;
+      const x = this.getRandomInt((buttonWidth -  size) / 2, (buttonWidth  - size) / -2) * this.particle.dispersionMagnitude;
+      const y = this.getRandomInt((buttonHeight - size) / 2, (buttonHeight - size) / -2) * this.particle.dispersionMagnitude;
       particle.style.transform = `translate(${x}px, ${y}px)`;
 
       this.targetSelf().appendChild(particle);

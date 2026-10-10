@@ -15,11 +15,14 @@
     min-height: 30px;
     min-width: 30px;
     padding: 5px;
-    background-color: rgb(2, 0, 0);
-    color: white;
+    background-color: rgb(227, 217, 217);
+    color: rgb(64, 60, 60);
+    transition: color 1s, background-color 1.5s;
 
     &.selected {
       animation: intro_colorChange 0.5s both;
+      background-color: black;
+      color: white;
     }
   }
 

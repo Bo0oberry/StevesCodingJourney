@@ -10,8 +10,8 @@ knowledgeCheck_detailElements.forEach((ele,index) => {
   
   kc_details[`detail${index}`].summary = ele.querySelector("summary");
   
-  kc_placeTextInP(kc_details[`detail${index}`].summary);
-  kc_makeButton(kc_details[`detail${index}`].summary);
+  // kc_placeTextInP(kc_details[`detail${index}`].summary);
+  // kc_makeButton(kc_details[`detail${index}`].summary);
   
   
 });
