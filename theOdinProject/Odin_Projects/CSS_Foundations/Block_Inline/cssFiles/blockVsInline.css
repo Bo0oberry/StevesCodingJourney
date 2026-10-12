@@ -1,3 +1,56 @@
-#blockAndInline {
-  
+#blockVsInline {
+  display: grid;
+  row-gap: 0px;
+  animation: minusGap 0.7s forwards;
+  font-family: pixelify-sans;
+
+  background-image: linear-gradient(30deg, rgb(223, 127, 196), red, rgb(255, 221, 0), rgb(18, 227, 227));
+  background-clip: text;
+  color: transparent;
+
+  /* The container that handles the collapse/expand animation */
+  .collapse-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.7s ease-out, row-gap 0.7s;
+    overflow: hidden;
+  }
+
+  /* Crucial: prevents text inside grid items from blocking the collapse */
+  .collapse-wrapper > * {
+    min-height: 0;
+  }
+
+  /* Trigger the expansion when hovering over the section */
+  &:hover {
+    animation: pluseGap 0.7s forwards;
+    .collapse-wrapper {
+      grid-template-rows: 1fr;
+    }
+  }
+
+  h2, h3 {
+    color: rgb(195, 21, 195);
+    letter-spacing: 2px;
+
+    display: inline-block;
+  }
+
+  a {
+    color: rgb(31, 222, 222);
+  }
+
+  mark {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .particle {
+    position: absolute;
+    animation-name: fadeToTransparent;
+    animation-fill-mode: forwards;
+  }
+
 }

@@ -137,10 +137,10 @@ const lessonOverview = {
   },
 
   particle: {
-    animationDuration: 2000 /* MS */,
-    animationDuration2: 1100 /* MS */,
-    animationDelay2: 1800,
-    dispertionMagnitude: 0.8,
+    animationDuration: 600 /* MS */,
+    animationDuration2: 1500 /* MS */,
+    animationDelay2: 700,
+    dispertionMagnitude: 1,
     timeOutFunc: null,
 
     createParticle(particleParent) {
@@ -153,14 +153,14 @@ const lessonOverview = {
         const particle = document.createElement("span");
         particle.classList.add("particle");
 
-        const size = lessonOverview.getRandomInt(3, 8) + "px";
-        particle.style.height = size;
-        particle.style.width  = size;
+        const size = lessonOverview.getRandomInt(3, 8);
+        particle.style.height = size + "px";
+        particle.style.width  = size + "px";
 
         particle.style.backgroundColor = `hsl(${lessonOverview.getRandomInt(0,360)}, 80%, 50%)`;
 
-        const displaceY = lessonOverview.getRandomInt(particleParentWidth / 2, particleParentWidth / -2) * this.dispertionMagnitude; 
-        const displaceX = lessonOverview.getRandomInt(particleParentHeight / 2, particleParentHeight / -2) * this.dispertionMagnitude; 
+        const displaceY = lessonOverview.getRandomInt((particleParentWidth  - size) / 2, (particleParentWidth  - size) / -2) * this.dispertionMagnitude; 
+        const displaceX = lessonOverview.getRandomInt((particleParentHeight - size) / 2, (particleParentHeight - size) / -2) * this.dispertionMagnitude; 
         particle.style.transform = `translate(
           ${displaceY}px,
           ${displaceX}px)`;

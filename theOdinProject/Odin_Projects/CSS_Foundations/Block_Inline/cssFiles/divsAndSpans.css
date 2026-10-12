@@ -1,3 +1,35 @@
 #divsAndSpans {
-  
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 0 12%;
+
+  h2 {
+    --percentage: calc(100% - var(--divsAndSpansValue));
+    background-image: linear-gradient( to right, var(--divsAndSpansColor) var(--percentage),  teal var(--divsAndSpansValue));
+    color: teal;
+    transition: 
+      --divsAndSpansValue 1s,
+      --divsAndSpansColor 0.5s 0.5s,
+      color 0.5s 0.5s;
+
+    &:hover {
+      --divsAndSpansValue: 100%;
+      --divsAndSpansColor: teal;
+      color: White;
+    }
+  }
+}
+
+@property --divsAndSpansValue {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 5%;
+}
+
+@property --divsAndSpansColor {
+  syntax: "<color>";
+  inherits:false;
+  initial-value: white;
 }

@@ -30,3 +30,23 @@ body#blockAndInline {
     /* background-color: rgba(223, 9, 49, 0.987); */
   }
 }
+
+@keyframes pluseGap {
+  to {
+    row-gap: 20px;
+  }
+}
+
+
+@keyframes minusGap {
+  to {
+    row-gap: 0px;
+  }
+}
+
+
+@font-face {
+  font-family: "pixelify-sans";
+  src: url("/Assests/Fonts/Pixelify_Sans/PixelifySans-VariableFont_wght.ttf") format("truetype");
+}
+

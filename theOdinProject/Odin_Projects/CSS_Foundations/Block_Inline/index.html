@@ -53,38 +53,42 @@
         <section id="blockVsInline">
             <h2>Block Vs Inline</h2>
 
-            <p>
-                Most of the elements that you have learned about so far are block elements. In other words, their
-                default
-                style is display: block. By default, block elements will appear on the page stacked atop each other,
-                each
-                new element starting on a new line.
-            </p>
+            <!-- Wrap everything you want to collapse inside this div -->
+            <div class="collapse-wrapper">
+                <p>
+                    Most of the elements that you have learned about so far are block elements. In other words, their
+                    default style is display: block. By default, block elements will appear on the page stacked atop
+                    each other,
+                    each new element starting on a new line.
+                </p>
+            </div>
 
-            <p>
-                Inline elements, however, do not start on a new line. They appear in line with whatever elements they
-                are placed
-                beside. A clear example of an inline element is a link, or &lt;a&gt; tag. If you stick one of these in
-                the middle
-                of a paragraph of text,
-                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
-                    the link will behave like a part of the paragraph.
-                </a>
-                Additionally, padding and margin behave differently on inline elements. In general, you do not want to
-                try to put
-                extra padding or margin on inline elements.
-            </p>
+            <div class="collapse-wrapper">
+                <p>
+                    Inline elements, however, do not start on a new line. They appear in line with whatever elements
+                    they
+                    are placed beside. A clear example of an inline element is a link, or &lt;a&gt; tag. If you stick
+                    one of these in
+                    the middle of a paragraph of text,
+                    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                        the link will behave like a part of the paragraph.
+                    </a>
+                    Additionally, padding and margin behave differently on inline elements. In general, you do not want
+                    to
+                    try to put extra padding or margin on inline elements.
+                </p>
+            </div>
 
             <h3>The middle ground inline-block</h3>
 
-            <p>
-                Inline-block elements behave like inline elements, but with block-style padding and margin. display:
-                inline-block
-                is a useful tool to know about, but in practice, you’ll probably end up reaching for flexbox more often
-                if you’re
-                trying to line up a bunch of boxes. Flexbox will be covered in-depth in the next lesson.
-            </p>
-
+            <div class="collapse-wrapper">
+                <p>
+                    Inline-block elements behave like inline elements, but with block-style padding and margin. display: 
+                    inline-block is a useful tool to know about, but in practice, you’ll probably end up reaching for
+                    flexbox more often
+                    if you’re trying to line up a bunch of boxes. Flexbox will be covered in-depth in the next lesson.
+                </p>
+            </div>
         </section>
 
         <section id="divsAndSpans">
@@ -165,27 +169,27 @@
                 </li>
 
                 <li>
-                    W3 schools’ 
+                    W3 schools’
                     <a href="https://www.w3schools.com/html/html_blocks.asp">
-                        “HTML Block and Inline Elements” 
+                        “HTML Block and Inline Elements”
                     </a>
                     has a description and a list of all the default block and inline elements.
                 </li>
 
                 <li>
-                    The Digital Ocean tutorial 
+                    The Digital Ocean tutorial
                     <a href="https://www.digitalocean.com/community/tutorials/css-display-inline-vs-inline-block">
-                        “Inline vs Inline-block Display in CSS” 
+                        “Inline vs Inline-block Display in CSS”
                     </a>
                     has a couple of great examples that clarify the difference between inline and inline-block.
                 </li>
 
                 <li>
-                    Do the exercises in our 
+                    Do the exercises in our
                     <a href="https://github.com/TheOdinProject/css-exercises/tree/main/foundations/block-and-inline">
-                        CSS exercises repository’s foundations/block-and-inline directory 
+                        CSS exercises repository’s foundations/block-and-inline directory
                     </a>
-                    (remember that the instructions are in the README) in the order: 
+                    (remember that the instructions are in the README) in the order:
 
                     <ul>
                         <li>01-margin-and-padding-1</li>
@@ -196,31 +200,36 @@
                 </li>
 
                 <li>
-                    Remember the Recipe page you created as practice from the HTML Foundations section? Well, 
-                    it’s rather plain looking, isn’t it? Let’s fix that by adding some CSS to it! 
+                    Remember the Recipe page you created as practice from the HTML Foundations section? Well,
+                    it’s rather plain looking, isn’t it? Let’s fix that by adding some CSS to it!
 
                     <ul>
                         <li>
-                            How you actually style it is completely open, but you should use the external CSS method 
-                            (for this practice and moving forward). You should also try to use several of the properties 
-                            mentioned in the previous lesson (color, background color, typography properties, etc). Take 
-                            some time to play around with the various properties to get a feel for what they do. For now, 
-                            don’t worry at all about making it look good. This is just to practice and get used to writing 
+                            How you actually style it is completely open, but you should use the external CSS method
+                            (for this practice and moving forward). You should also try to use several of the properties
+                            mentioned in the previous lesson (color, background color, typography properties, etc). Take
+                            some time to play around with the various properties to get a feel for what they do. For
+                            now,
+                            don’t worry at all about making it look good. This is just to practice and get used to
+                            writing
                             CSS, not to make something to show off on your resume.
                         </li>
 
                         <li>
-                            We haven’t covered how to use a custom font for the font-family property yet, so for now take a 
-                            look at 
+                            We haven’t covered how to use a custom font for the font-family property yet, so for now
+                            take a
+                            look at
                             <a href="https://www.w3schools.com/Css/css_font.asp" target="_blank">
-                                CSS Fonts 
+                                CSS Fonts
                             </a>
-                            for a list of generic font families to use, and 
+                            for a list of generic font families to use, and
                             <a href="https://www.w3schools.com/cssref/css_websafe_fonts.asp" target="_blank">
-                                CSS Web Safe Fonts 
+                                CSS Web Safe Fonts
                             </a>
-                            for a list of fonts that are web safe. Web safe means that these are fonts that are installed on 
-                            basically every computer or device (but be sure to still include a generic font family as a fallback).
+                            for a list of fonts that are web safe. Web safe means that these are fonts that are
+                            installed on
+                            basically every computer or device (but be sure to still include a generic font family as a
+                            fallback).
                         </li>
                     </ul>
                 </li>
