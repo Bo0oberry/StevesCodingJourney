@@ -8,28 +8,32 @@ emojiWaterfall = {
   emoji: {
     confetti: {
       content: "🎉",
-      speed:{} ,
+      speed: 0.2 ,
     },
     
     thumbsUp: {
       content: "👍",
-      speed: ,
+      speed: 0.25,
     },
     
     coffeeCup: {
       content: "☕",
-      speed: ,
+      speed: 0.30,
     },
     
     partyBall: {
       content: "🎊" ,
-      speed: ,
+      speed: 0.27,
     },
     
     cash: {
       content: "💸",
-      speed: ,
+      speed: 0.23,
     }
+  }
+
+  travelToEnd() {
+    
   }
   
 }
