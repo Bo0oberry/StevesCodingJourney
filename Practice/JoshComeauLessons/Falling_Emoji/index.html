@@ -5,51 +5,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Falling Emoji </title>
+  <link rel="stylesheet" type="text/css" href="./styles.css">
+  <script src="./scripts.js" defer></script>
 </head>
 
 <body>
   <style>
-  .emojiWrapper {
-    display: flex;
-    justify-content: space-evenly;
-    height: 120px;
-    font-size: 2rem;
-  }
-  .emoji {
-    /* TODO */
-  }
-</style>
-<main>
-  <div class="emojiWrapper">
-    <div class="emoji" aria-hidden="true">
-      🎉
+    :root {
+      --emojiWrapper-height: 120px;
+      --transform-offset: 50px;
+    }
+
+    .emojiWrapper {
+      display: flex;
+      justify-content: space-evenly;
+      height: 120px;
+      font-size: 2rem;
+      overflow: hidden;
+    }
+
+    .emoji {
+     transform-origin: bottom center;
+    }
+
+
+    @keyframes fallToBottom {
+      0% {
+        translate: 0 calc(--var(--transform-offset) * -1);
+      }
+
+      100% {
+        translate: 0 var(--emojiWrapper-height);
+      }
+    }
+
+    @keyframes fadeToTransparent {
+      to {
+        opacity: 0;
+      }
+    }
+  </style>
+  <main>
+    <div class="emojiWrapper">
+      <div class="emoji" aria-hidden="true">
+        🎉
+      </div>
+      <div class="emoji" aria-hidden="true">
+        👍
+      </div>
+      <div class="emoji" aria-hidden="true">
+        ☕
+      </div>
+      <div class="emoji" aria-hidden="true">
+        🎊
+      </div>
+      <div class="emoji" aria-hidden="true">
+        🎉
+      </div>
+      <div class="emoji" aria-hidden="true">
+        💸
+      </div>
+      <div class="emoji" aria-hidden="true">
+        ☕
+      </div>
     </div>
-    <div class="emoji" aria-hidden="true">
-      👍
-    </div>
-    <div class="emoji" aria-hidden="true">
-      ☕
-    </div>
-    <div class="emoji" aria-hidden="true">
-      🎊
-    </div>
-    <div class="emoji" aria-hidden="true">
-      🎉
-    </div>
-    <div class="emoji" aria-hidden="true">
-      💸
-    </div>
-    <div class="emoji" aria-hidden="true">
-      ☕
-    </div>
-  </div>
-  <img
-    class="avatar"
-    src="/img/avatars/002.png"
-    alt="user avatar"
-  />
-  <h1>Someone Bought You A Coffee!</h1>
-</main>
+    <img class="avatar" src="/img/avatars/002.png" alt="user avatar" />
+    <h1>Someone Bought You A Coffee!</h1>
+    <h2 id="test">test</h2>
+  </main>
 </body>
 
 </html>

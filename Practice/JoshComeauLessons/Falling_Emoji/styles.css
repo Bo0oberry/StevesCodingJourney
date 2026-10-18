@@ -2,6 +2,7 @@ body {
   background: hsl(210deg 30% 90%);
   padding: 16px;
 }
+
 main {
   background: white;
   box-shadow:
@@ -12,10 +13,12 @@ main {
   overflow: clip;
   padding-bottom: 32px;
 }
+
 .emojiWrapper {
   position: relative;
   background: hsl(350deg 50% 92%);
 }
+
 .avatar {
   position: relative;
   width: 128px;
@@ -26,6 +29,7 @@ main {
   background: hsl(50deg 80% 85%);
   border: 8px solid white;
 }
+
 main h1 {
   font-size: 1.25rem;
   text-align: center;
