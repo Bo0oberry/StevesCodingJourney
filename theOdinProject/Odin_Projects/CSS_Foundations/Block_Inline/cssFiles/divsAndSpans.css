@@ -5,11 +5,18 @@
 
   padding: 0 12%;
 
+  .p1 {
+    color: hsl(32, 66%, 56%);
+    display: "flex";
+    align-items: center;
+    gap: "10px";
+  }
+
   h2 {
     --percentage: calc(100% - var(--divsAndSpansValue));
-    background-image: linear-gradient( to right, var(--divsAndSpansColor) var(--percentage),  teal var(--divsAndSpansValue));
+    background-image: linear-gradient(to right, var(--divsAndSpansColor) var(--percentage), teal var(--divsAndSpansValue));
     color: teal;
-    transition: 
+    transition:
       --divsAndSpansValue 1s,
       --divsAndSpansColor 0.5s 0.5s,
       color 0.5s 0.5s;
@@ -30,6 +37,6 @@
 
 @property --divsAndSpansColor {
   syntax: "<color>";
-  inherits:false;
+  inherits: false;
   initial-value: white;
 }
