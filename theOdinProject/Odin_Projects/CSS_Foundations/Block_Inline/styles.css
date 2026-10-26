@@ -44,6 +44,12 @@ body#blockAndInline {
   }
 }
 
+@keyframes disperse {
+  to {
+    translate: var(--x) var(--y);
+  }
+}
+
 
 @font-face {
   font-family: "pixelify-sans";

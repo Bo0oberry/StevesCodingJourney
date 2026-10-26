@@ -5,43 +5,112 @@
 
   padding: 0 12%;
 
-  .p1 {
-    color: hsl(32, 66%, 56%);
-    display: flex;
-    align-items: center;
-    gap: "30px";
-    
-    .div {
-      background-color: teal;
+  p {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 20px;
+
+    button {
+      height: 30px;
+      width: 30px;
+      background-size: cover;
+      transition: rotate 0.3s, translate 0.2s;
+
+      &:hover {
+        background-color: rgb(50, 51, 48);
+      }
+
+      &:active {
+        background-color: rgb(128, 128, 127);
+        rotate: 15deg;
+        translate: 0px 3px;
+      }
+
+    }
+
+    &.p1 {
+
+      color: hsl(32, 83%, 58%);
+
+      mark {
+        color: inherit;
+        background-color: transparent;
+      }
+      &:has(button.selected) mark{
+        color: hsl(32, 83%, 45%)
+      }
+
+      .div {
+        background-color: rgb(28, 124, 29);
+      }
+
+      button {
+        background-image: url("/Assests/Images/Pokemon/001_Bulbasaur.png");
+        border-color: transparent;
+        background-color: transparent;
+
+        &.selected {
+          border-color: rgb(61, 220, 21);
+        }
+
+        &:hover {
+          background-color: rgb(50, 51, 48);
+        }
+      }
+    }
+
+      &.p2 {
+        button {
+          background-image: url("/Assests/Images/Pokemon/004_Charmander.png");
+        }
+
+        .div {
+          color: rgb(19, 186, 186);
+          background-color: rgb(164, 77, 15);
+        }
+      }
+
+      &.p3 {
+        button {
+          margin: 0;
+          background-image: url("/Assests/Images/Pokemon/007_Squirtle.png");
+        }
+
+        .div {
+          margin: 0;
+          color: rgb(102, 243, 41);
+          background-color: rgb(19, 59, 123);
+        }
+      }
+
+
+    }
+
+    h2 {
+      --percentage: calc(100% - var(--divsAndSpansValue));
+      background-image: linear-gradient(to right, var(--divsAndSpansColor) var(--percentage), teal var(--divsAndSpansValue));
+      color: teal;
+      transition:
+        --divsAndSpansValue 1s,
+        --divsAndSpansColor 0.5s 0.5s,
+        color 0.5s 0.5s;
+
+      &:hover {
+        --divsAndSpansValue: 100%;
+        --divsAndSpansColor: teal;
+        color: White;
+      }
     }
   }
 
-  h2 {
-    --percentage: calc(100% - var(--divsAndSpansValue));
-    background-image: linear-gradient(to right, var(--divsAndSpansColor) var(--percentage), teal var(--divsAndSpansValue));
-    color: teal;
-    transition:
-      --divsAndSpansValue 1s,
-      --divsAndSpansColor 0.5s 0.5s,
-      color 0.5s 0.5s;
-
-    &:hover {
-      --divsAndSpansValue: 100%;
-      --divsAndSpansColor: teal;
-      color: White;
-    }
+  @property --divsAndSpansValue {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 5%;
   }
-}
 
-@property --divsAndSpansValue {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 5%;
-}
-
-@property --divsAndSpansColor {
-  syntax: "<color>";
-  inherits: false;
-  initial-value: white;
-}
-
+  @property --divsAndSpansColor {
+    syntax: "<color>";
+    inherits: false;
+    initial-value: white;
+  }
