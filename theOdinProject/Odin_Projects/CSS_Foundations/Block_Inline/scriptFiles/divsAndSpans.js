@@ -15,18 +15,25 @@ const divsAndSpans = {
       particleStyle: {
         size: 8,
         amount: 12,
-        color: 
-      }
+        color: "red",
+      },
       
-      buttonEvent(state,pEle,button) {
-        switch (state) {
-          case true: // is selected
-            divsAndSpans.particle.create(target,random,6,`hsl(0,100%,100%)`)
-            break;
-          case false: // not selected
-            break;
+      button: {
+        event(state, pEle, button) {
+          switch (state) {
+            case true: // is selected
+              divsAndSpans.particle.create(target, random, 6, `hsl(0,100%,100%)`)
+              break;
+            case false: // not selected
+              break;
+          }
+        },
+        
+        particleStyle: {
+          size
         }
-      }
+      },
+      
     },
     
     p2: {},
@@ -88,12 +95,6 @@ const divsAndSpans = {
   
   
   particle: {
-    generateParticleStyle(particle) {
-      particle.style.height = this.getRandomNumFromRange(5, 8);
-      particle.style.width = this.getRandomNumFromRange(5, 8);
-      
-      particle.style.backgroundColor = `hsl(${this.getRandomNumFromRange(0, 160)}, 80%, 80%)`;
-    },
     
     getRandomNumFromRange(a, b) {
       const max = Math.max(a, b);
@@ -103,17 +104,28 @@ const divsAndSpans = {
     },
     
     
-    create(target, amount = "random", size = "random", color = "random") {
+    create(target, style) {
+      let { size = 'random', amount = 'random', color = 'random' }
       
-      const count = (Number.isFinite(amount) && amount >= 0) ?
+      
+      amount = (Number.isFinite(amount) && amount >= 0) ?
         amount :
         this.getRandomNumFromRange(5, 13);
       
-      
-      
-      for (let i = 0; i <= count; i++) {
+      for (let i = 0; i <= amount; i++) {
+        size = (Number.isFinite(size) && size >= 0) ?
+          size :
+          this.getRandomNumFromRange(4, 8);
+        
+        color = (CSS.supports('color', color)) ?
+          color :
+          `hsl(${this.getRandomNumFromRange(0,360)}, 80%, 80%)`;
+        
         const particle = document.createElement("span");
         particle.classList.add("particle");
+        particle.style.height = size + 'px';
+        particle.style.width = size + 'px';
+        particle.style.color = color;
       }
     }
     
@@ -126,7 +138,7 @@ const divsAndSpans = {
       button.addEventListener("click", (event) => {
         const selected = button.classList.toggle("selected");
         
-        divsAndSpans.paragraphs[targetName].buttonEvent(selected,pElement,button);
+        divsAndSpans.paragraphs[targetName].buttonEvent(selected, pElement, button);
       });
       
       pElement.insertAdjacentElement("afterbegin", button);
