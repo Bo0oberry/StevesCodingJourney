@@ -6,11 +6,16 @@
   padding: 0 12%;
 
   p {
+    position: relative;
     display: grid;
     grid-template-columns: auto 1fr;
     column-gap: 20px;
 
     button {
+      display: grid;
+      place-items: center;
+
+      position: relative;
       height: 30px;
       width: 30px;
       background-size: cover;
@@ -28,89 +33,170 @@
 
     }
 
+    div {
+      color: var(--txtColor);
+      background-color: var(--bgColor);
+    }
+
+    mark {
+      display: inline-flex;
+      place-items: center;
+
+      position: relative;
+      color: inherit;
+      background-color: transparent;
+    }
+
+    &:has(button.selected) mark {
+      color: var(--markColor);
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
     &.p1 {
-
-      color: hsl(32, 83%, 58%);
-
-      mark {
-        color: inherit;
-        background-color: transparent;
-      }
-      &:has(button.selected) mark{
-        color: hsl(32, 83%, 45%)
-      }
-
-      .div {
-        background-color: rgb(28, 124, 29);
-      }
+      --txtColor: rgb(77, 233, 26);
+      --markColor: hsl(32, 83%, 45%);
+      --bgColor: rgb(28, 124, 29);
 
       button {
+        --amount: 0deg;
+
         background-image: url("/Assests/Images/Pokemon/001_Bulbasaur.png");
         border-color: transparent;
         background-color: transparent;
+        border-style: solid;
+        transition: border-radius 0.4s;
+
+        animation: twist 1s ease-in-out alternate infinite;
 
         &.selected {
+          border-color: rgb(53, 155, 27);
+          border-radius: 40%;
+        }
+
+        &:hover:not(.selected) {
           border-color: rgb(61, 220, 21);
         }
 
+        input {
+          position: absolute;
+          left: -20px;
+        }
+      }
+
+    }
+
+    &.p2 {
+      --txtColor: rgb(230, 230, 60);
+      --markColor: rgb(51, 123, 195);
+      --bgColor: rgb(164, 77, 15);
+
+      button {
+        --amount: 10px;
+
+        background-image: url("/Assests/Images/Pokemon/004_Charmander.png");
+        border: none;
+        transition: rotate 0.4s,
+          background-image 0.7s;
+
+        &.selected {
+          background-image: url("/Assests/Images/Pokemon/005_Charmeleon.png");
+          rotate: y 180deg;
+
+          &:hover {
+            background-color: rgba(238, 173, 108, 0.794);
+          }
+        }
+        
         &:hover {
-          background-color: rgb(50, 51, 48);
+          scale: 1.1;
+          background-color: rgba(238, 121, 108, 0.747);
+          animation: oscillate 1s ease-in-out alternate infinite;
+        }
+      }
+
+    }
+
+    &.p3 {
+      --txtColor: rgb(60, 207, 230);
+      --markColor: rgb(114, 235, 69);
+      --bgColor: rgb(19, 59, 123);
+      
+      --amount: 8px;
+
+      button {
+        background-image: url("/Assests/Images/Pokemon/007_Squirtle.png");
+        
+        &.selected {
+          background-image: url("/Assests/Images/Pokemon/008_Wartortle.png");
+        }
+
+        &:hover {
+          /* animation: oscillate 0.5s ease-in-out alternate infinite; */
         }
       }
     }
 
-      &.p2 {
-        button {
-          background-image: url("/Assests/Images/Pokemon/004_Charmander.png");
-        }
 
-        .div {
-          color: rgb(19, 186, 186);
-          background-color: rgb(164, 77, 15);
-        }
-      }
+  }
 
-      &.p3 {
-        button {
-          margin: 0;
-          background-image: url("/Assests/Images/Pokemon/007_Squirtle.png");
-        }
+  h2 {
+    --percentage: calc(100% - var(--divsAndSpansValue));
+    background-image: linear-gradient(to right, var(--divsAndSpansColor) var(--percentage), teal var(--divsAndSpansValue));
+    color: teal;
+    transition:
+      --divsAndSpansValue 1s,
+      --divsAndSpansColor 0.5s 0.5s,
+      color 0.5s 0.5s;
 
-        .div {
-          margin: 0;
-          color: rgb(102, 243, 41);
-          background-color: rgb(19, 59, 123);
-        }
-      }
-
-
-    }
-
-    h2 {
-      --percentage: calc(100% - var(--divsAndSpansValue));
-      background-image: linear-gradient(to right, var(--divsAndSpansColor) var(--percentage), teal var(--divsAndSpansValue));
-      color: teal;
-      transition:
-        --divsAndSpansValue 1s,
-        --divsAndSpansColor 0.5s 0.5s,
-        color 0.5s 0.5s;
-
-      &:hover {
-        --divsAndSpansValue: 100%;
-        --divsAndSpansColor: teal;
-        color: White;
-      }
+    &:hover {
+      --divsAndSpansValue: 100%;
+      --divsAndSpansColor: teal;
+      color: White;
     }
   }
+}
 
-  @property --divsAndSpansValue {
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: 5%;
+@keyframes oscillate {
+  from {
+    translate: calc(var(--amount) * -1) 0;
   }
+  to {
+    translate: var(--amount) 0;
+  }
+}
 
-  @property --divsAndSpansColor {
-    syntax: "<color>";
-    inherits: false;
-    initial-value: white;
+@keyframes disperse {
+  to {
+    translate: var(--x) var(--y);
   }
+}
+
+@keyframes twist {
+  from {
+    rotate: var(--amount);
+  }
+  to {
+    rotate: calc(var(--amount) * -1);
+  }
+}
+
+
+
+
+
+@property --divsAndSpansValue {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 5%;
+}
+
+@property --divsAndSpansColor {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: white;
+}

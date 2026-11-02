@@ -6,7 +6,7 @@ body#blockAndInline {
 
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
 
   }
 }
@@ -43,13 +43,6 @@ body#blockAndInline {
     row-gap: 0px;
   }
 }
-
-@keyframes disperse {
-  to {
-    translate: var(--x) var(--y);
-  }
-}
-
 
 @font-face {
   font-family: "pixelify-sans";
