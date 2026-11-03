@@ -1,245 +1,245 @@
 const divsAndSpans = {
-    root: document.getElementById('divsAndSpans'),
+  root: document.getElementById('divsAndSpans'),
+  
+  paragraphs: {
+    p1: {
+      text: {
+        
+        highlightedWords: ["div", "span"],
+        
+        createRegExPattern() {
+          const words = this.highlightedWords.join("|");
+          const pattern = `web|${words}`;
+          const regExp = new RegExp(pattern, "gi");
+          return regExp
+        },
+        
+        particleStyle: {
+          size: 8,
+          amount: 12,
+          color: "red",
+          animation: {
+            style: "disperse",
+            time: 1000
+          },
+          timeOut: null
+        }
+        
+      },
+      
+      button: {
+        
+        particleStyle: {
+          size: "random",
+          amount: 13,
+          color: "random",
+          animation: {
+            style: "disperse",
+            time: 700
+          },
+          timeOut: null
+        },
+        
+        event(pEle, button) {
+          const slider = document.createElement("input");
+          slider.setAttribute("type", "range");
+          slider.setAttribute("min", "0");
+          slider.setAttribute("max", "130");
+          slider.setAttribute("value", "10");
+          slider.setAttribute("step", "1");
+          
+          slider.addEventListener("input", (e) => {
+            const currentValue = e.target.value;
+            button.style.setProperty("--amount", currentValue + "deg");
+          });
+          
+          button.parentElement.appendChild(slider);
+        },
+        
+        eventDeselected(pEle, button) {
+          const slider = button.parentElement.querySelector("input");
+          slider.remove();
+        },
+      },
+    },
     
-    paragraphs: {
-      p1: {
-        text: {
-          
-          highlightedWords: ["div", "span"],
-          
-          createRegExPattern() {
-            const words = this.highlightedWords.join("|");
-            const pattern = `web|${words}`;
-            const regExp = new RegExp(pattern, "gi");
-            return regExp
-          },
-          
-          particleStyle: {
-            size: 8,
-            amount: 12,
-            color: "red",
-            animation: {
-              style: "disperse",
-              time: 1000
-            },
-            timeOut: null
+    p2: {
+      text: {
+        
+        highlightedWords: ["div", "block"],
+        
+        createRegExPattern() {
+          const words = this.highlightedWords.join("|");
+          const pattern = `web|${words}`;
+          const regExp = new RegExp(pattern, "gi");
+          return regExp
+        },
+        
+        particleStyle: {
+          size: 8,
+          amount: 12,
+          color: "red",
+          animation: {
+            style: "disperse",
+            time: 500
           }
+        }
+      },
+      
+      button: {
+        
+        event(pEle, button) {
           
         },
         
-        button: {
+        eventDeselected(pEle, button) {
           
-          particleStyle: {
-            size: "random",
-            amount: 13,
-            color: "random",
-            animation: {
-              style: "disperse",
-              time: 700
-            },
-            timeOut: null
-          },
-          
-          event(pEle, button) {
-            const slider = document.createElement("input");
-            slider.setAttribute("type", "range");
-            slider.setAttribute("min", "0");
-            slider.setAttribute("max", "130");
-            slider.setAttribute("value", "10");
-            slider.setAttribute("step", "1");
-            
-            slider.addEventListener("input", (e) => {
-              const currentValue = e.target.value;
-              button.style.setProperty("--amount", currentValue + "deg");
-            });
-            
-            button.parentElement.appendChild(slider);
-          },
-          
-          eventDeselected(pEle, button) {
-            const slider = button.parentElement.querySelector("input");
-            slider.remove();
-          },
         },
+        
+        particleStyle: {
+          size: 4,
+          amount: 25,
+          color: "red",
+          animation: {
+            style: "dispersePolar",
+            time: 1000
+          }
+        }
+      },
+    },
+    
+    p3: {
+      text: {
+        
+        highlightedWords: ["div", "span"],
+        
+        createRegExPattern() {
+          const words = this.highlightedWords.join("|");
+          const pattern = `web|${words}`;
+          const regExp = new RegExp(pattern, "gi");
+          return regExp
+        },
+        
+        particleStyle: {
+          size: 8,
+          amount: 12,
+          color: "red",
+          animation: {
+            style: "disperse",
+            time: 1000
+          }
+        }
+        
       },
       
-      p2: {
-        text: {
-          
-          highlightedWords: ["div", "block"],
-          
-          createRegExPattern() {
-            const words = this.highlightedWords.join("|");
-            const pattern = `web|${words}`;
-            const regExp = new RegExp(pattern, "gi");
-            return regExp
-          },
-          
-          particleStyle: {
-            size: 8,
-            amount: 12,
-            color: "red",
-            animation: {
-              style: "disperse",
-              time: 500
-            }
+      button: {
+        particleStyle: {
+          size: 15,
+          amount: 3,
+          color: "cyan",
+          animation: {
+            style: "disperse",
+            time: 600
           }
         },
         
-        button: {
-          
-          event(pEle, button) {
+        event(pEle, button) {
+          if (!this.eventTriggered) {
+            this.eventTriggered = true;
             
-          },
-          
-          eventDeselected(pEle, button) {
+            // Bind persistent references so we can cleanly remove them later
+            this._boundKeyDown = (e) => this.keyboardKeyPress(e, button);
+            this._boundKeyUp = (e) => this.keyboardKeyUp(e, button);
             
-          },
-          
-          particleStyle: {
-            size: 10,
-            amount: 5,
-            color: "red",
-            animation: {
-              style: "disperse",
-              time: 1000
-            }
+            window.addEventListener("keydown", this._boundKeyDown);
+            window.addEventListener("keyup", this._boundKeyUp);
           }
         },
-      },
-      
-      p3: {
-        text: {
+        
+        eventDeselected(pEle, button) {
+          this.player.x = 0;
+          this.player.y = 0;
+          button.style.translate = `${this.player.x}px ${this.player.y}px`;
           
-          highlightedWords: ["div", "span"],
-          
-          createRegExPattern() {
-            const words = this.highlightedWords.join("|");
-            const pattern = `web|${words}`;
-            const regExp = new RegExp(pattern, "gi");
-            return regExp
-          },
-          
-          particleStyle: {
-            size: 8,
-            amount: 12,
-            color: "red",
-            animation: {
-              style: "disperse",
-              time: 1000
-            }
+          if (this._boundKeyDown) {
+            window.removeEventListener("keydown", this._boundKeyDown);
+            window.removeEventListener("keyup", this._boundKeyUp);
+            this.eventTriggered = false;
           }
-          
         },
         
-        button: {
-          particleStyle: {
-            size: 15,
-            amount: 3,
-            color: "cyan",
-            animation: {
-              style: "disperse",
-              time: 600
-            }
-          },
-          
-          event(pEle, button) {
-            if (!this.eventTriggered) {
-              this.eventTriggered = true;
-              
-              // Bind persistent references so we can cleanly remove them later
-              this._boundKeyDown = (e) => this.keyboardKeyPress(e, button);
-              this._boundKeyUp = (e) => this.keyboardKeyUp(e, button);
-              
-              window.addEventListener("keydown", this._boundKeyDown);
-              window.addEventListener("keyup", this._boundKeyUp);
-            }
-          },
-          
-          eventDeselected(pEle, button) {
-            this.player.x = 0;
-            this.player.y = 0;
-            button.style.translate = `${this.player.x}px ${this.player.y}px`;
-            
-            if (this._boundKeyDown) {
-              window.removeEventListener("keydown", this._boundKeyDown);
-              window.removeEventListener("keyup", this._boundKeyUp);
-              this.eventTriggered = false;
-            }
-          },
-          
-          keys: {
-            ArrowUp: false,
-            ArrowDown: false,
-            ArrowLeft: false,
-            ArrowRight: false,
-            w: false,
-            s: false,
-            a: false,
-            d: false
-          },
-          
-          player: {
-            x: 0,
-            y: 0,
-            speed: 5
-          },
-          
-          eventTriggered: false,
-          
-          keyboardKeyPress(event, button) {
-            if (event.key in this.keys) {
-              this.keys[event.key] = true;
-              event.preventDefault()
-              this.updatePosition(button);
-            }
-          },
-          
-          keyboardKeyUp(event, button) {
-            if (event.key in this.keys) {
-              this.keys[event.key] = false;
-            }
-          },
-          
-          updatePosition(button) {
-            if (this.keys.ArrowUp || this.keys.w) this.player.y -= this.player.speed;
-            if (this.keys.ArrowDown || this.keys.s) this.player.y += this.player.speed;
-            if (this.keys.ArrowLeft || this.keys.a) this.player.x -= this.player.speed;
-            if (this.keys.ArrowRight || this.keys.d) this.player.x += this.player.speed;
-            
-            button.style.translate = `${this.player.x}px ${this.player.y}px`;
-          },
-          
+        keys: {
+          ArrowUp: false,
+          ArrowDown: false,
+          ArrowLeft: false,
+          ArrowRight: false,
+          w: false,
+          s: false,
+          a: false,
+          d: false
         },
+        
+        player: {
+          x: 0,
+          y: 0,
+          speed: 5
+        },
+        
+        eventTriggered: false,
+        
+        keyboardKeyPress(event, button) {
+          if (event.key in this.keys) {
+            this.keys[event.key] = true;
+            event.preventDefault()
+            this.updatePosition(button);
+          }
+        },
+        
+        keyboardKeyUp(event, button) {
+          if (event.key in this.keys) {
+            this.keys[event.key] = false;
+          }
+        },
+        
+        updatePosition(button) {
+          if (this.keys.ArrowUp || this.keys.w) this.player.y -= this.player.speed;
+          if (this.keys.ArrowDown || this.keys.s) this.player.y += this.player.speed;
+          if (this.keys.ArrowLeft || this.keys.a) this.player.x -= this.player.speed;
+          if (this.keys.ArrowRight || this.keys.d) this.player.x += this.player.speed;
+          
+          button.style.translate = `${this.player.x}px ${this.player.y}px`;
+        },
+        
       },
+    },
+    
+    p4: {
       
-      p4: {
-        
-      },
+    },
+    
+    p5: {
       
-      p5: {
-        
-      },
+    },
+    
+    setup(paragraphElement, index) {
+      const pObjectKey = `p${index}`;
+      this.genericSetup(pObjectKey);
       
-      setup(paragraphElement, index) {
-        const pObjectKey = `p${index}`;
-        this.genericSetup(pObjectKey);
-        
-        //Create button
-        divsAndSpans.button.create(paragraphElement, pObjectKey);
-        
-        //Style paragragh Element
-        paragraphElement.classList.add(pObjectKey);
-        
-        //Highlight Text
-        divsAndSpans.highlight.extractTextNodeToDiv(paragraphElement);
-        divsAndSpans.highlight.highlight(paragraphElement, pObjectKey);
-        
-      },
+      //Create button
+      divsAndSpans.button.create(paragraphElement, pObjectKey);
       
-      genericSetup(pObjectKey) {
-        this[pObjectKey] = { ...this.test, ...this[pObjectKey] }
-      },
+      //Style paragragh Element
+      paragraphElement.classList.add(pObjectKey);
+      
+      //Highlight Text
+      divsAndSpans.highlight.extractTextNodeToDiv(paragraphElement);
+      divsAndSpans.highlight.highlight(paragraphElement, pObjectKey);
+      
+    },
+    
+    genericSetup(pObjectKey) {
+      this[pObjectKey] = { ...this.test, ...this[pObjectKey] }
+    },
     
     test: {
       text: {
@@ -466,7 +466,28 @@ const divsAndSpans = {
       particle.style.animationFillMode = "forwards";
     },
     
-    animations: ["disperse"]
+    
+    dispersePolar(targetStats, particle, animationTime) {
+      const particleRangeAsPercentOfParentSize = [0.8, 1.2];
+      const { target, tHeight, tWidth } = targetStats;
+      
+      const distance = this.getRandomNumFromRange(
+        tHeight * particleRangeAsPercentOfParentSize[0],
+        tHeight * particleRangeAsPercentOfParentSize[1]);
+      
+      const angle = this.getRandomNumFromRange(0, 360);
+      
+      const x = Math.cos(angle) * distance;
+      const y = Math.sin(angle) * distance;
+      
+      particle.style.setProperty("--x", x + "px");
+      particle.style.setProperty("--y", y + "px");
+      particle.style.animationName = "disperse";
+      particle.style.animationDuration = animationTime + "ms";
+      particle.style.animationFillMode = "forwards";
+    },
+    
+    animations: ["disperse", "dispersePolar"]
     
   }, //End of Particle
   
@@ -478,7 +499,7 @@ const divsAndSpans = {
     });
     
   }
-
+  
 };
 
 
