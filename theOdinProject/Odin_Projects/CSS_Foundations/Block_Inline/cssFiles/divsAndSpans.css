@@ -21,6 +21,8 @@
       background-size: cover;
       transition: rotate 0.3s, translate 0.2s;
 
+      background-image: url("/Assests/Images/Pokemon/010_Caterpie.png");
+
       &:hover {
         background-color: rgb(50, 51, 48);
       }
@@ -137,6 +139,23 @@
 
         &:hover {
           /* animation: oscillate 0.5s ease-in-out alternate infinite; */
+        }
+      }
+    }
+
+    &.p4 {
+      --txtColor: rgb(213, 14, 14);
+      --markColor: rgb(234, 216, 25);
+      --bgColor: rgb(45, 177, 45);
+
+      button {
+        background-image: url("/Assests/Images/Pokemon/011_Metapod.png");
+        border-radius: 50%;
+
+        border-color: rgba(0, 0, 0, 0.367);
+
+        &:hover {
+          background-color: rgb(247, 190, 57);
         }
       }
     }
