@@ -77,7 +77,7 @@ const divsAndSpans = {
         
         particleStyle: {
           size: 8,
-          amount: 12,
+          amount: 22,
           color: "red",
           animation: {
             style: "disperse",
@@ -431,13 +431,9 @@ const divsAndSpans = {
         animStyle = this.animations[randomAnimation];
       }
       
-      switch (animStyle) {
-        case "disperse":
-          target.querySelectorAll(".particle").forEach((ele) => {
-            this.disperse(targetStats, ele, animTime);
-          });
-          break;
-      }
+      particlesArray.forEach( (ele) => {
+        this[animStyle]?.(targetStats, ele, animTime)
+      });
       
       //Set timeOut
       window.setTimeout(() => {
@@ -471,14 +467,17 @@ const divsAndSpans = {
       const particleRangeAsPercentOfParentSize = [0.8, 1.2];
       const { target, tHeight, tWidth } = targetStats;
       
+      const baseRadius = (tHeight + tWidth) / 2
+      
       const distance = this.getRandomNumFromRange(
-        tHeight * particleRangeAsPercentOfParentSize[0],
-        tHeight * particleRangeAsPercentOfParentSize[1]);
+        baseRadius * particleRangeAsPercentOfParentSize[0],
+        baseRadius * particleRangeAsPercentOfParentSize[1]);
       
-      const angle = this.getRandomNumFromRange(0, 360);
+      const angleDeg = this.getRandomNumFromRange(0, 360);
+      const angleRad = angleDeg * (Math.PI / 180);
       
-      const x = Math.cos(angle) * distance;
-      const y = Math.sin(angle) * distance;
+      const x = Math.cos(angleRad) * distance;
+      const y = Math.sin(angleRad) * distance;
       
       particle.style.setProperty("--x", x + "px");
       particle.style.setProperty("--y", y + "px");
