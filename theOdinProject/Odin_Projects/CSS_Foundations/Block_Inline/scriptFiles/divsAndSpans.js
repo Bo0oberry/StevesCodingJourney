@@ -134,8 +134,8 @@ const divsAndSpans = {
       
       button: {
         particleStyle: {
-          size: 15,
-          amount: 3,
+          size: 3,
+          amount: 30,
           color: "cyan",
           animation: {
             style: "disperse",
@@ -464,7 +464,7 @@ const divsAndSpans = {
     
     
     dispersePolar(targetStats, particle, animationTime) {
-      const particleRangeAsPercentOfParentSize = [0.8, 1.2];
+      const particleRangeAsPercentOfParentSize = [0.5, 1];
       const { target, tHeight, tWidth } = targetStats;
       
       const baseRadius = (tHeight + tWidth) / 2
