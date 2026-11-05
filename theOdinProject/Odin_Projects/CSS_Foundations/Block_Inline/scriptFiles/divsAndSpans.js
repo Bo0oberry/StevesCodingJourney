@@ -98,7 +98,7 @@ const divsAndSpans = {
         
         particleStyle: {
           size: 4,
-          amount: 25,
+          amount: 55,
           color: "red",
           animation: {
             style: "dispersePolar",
@@ -109,8 +109,9 @@ const divsAndSpans = {
     },
     
     p3: {
+      
       text: {
-        
+
         highlightedWords: ["div", "span"],
         
         createRegExPattern() {
@@ -284,7 +285,6 @@ const divsAndSpans = {
         eventDeselected(pEle, button) {},
       },
     },
-    
     
   }, //End of Paragraphs
   
@@ -464,10 +464,10 @@ const divsAndSpans = {
     
     
     dispersePolar(targetStats, particle, animationTime) {
-      const particleRangeAsPercentOfParentSize = [0.5, 1];
+      const particleRangeAsPercentOfParentSize = [0.8, 1.2];
       const { target, tHeight, tWidth } = targetStats;
       
-      const baseRadius = (tHeight + tWidth) / 2
+      const baseRadius = Math.min(tHeight,tWidth) / 2
       
       const distance = this.getRandomNumFromRange(
         baseRadius * particleRangeAsPercentOfParentSize[0],
