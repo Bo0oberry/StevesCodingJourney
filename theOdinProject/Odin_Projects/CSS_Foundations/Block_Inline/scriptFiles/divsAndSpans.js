@@ -216,6 +216,23 @@ const divsAndSpans = {
     
     p4: {
       
+      button: {
+        event() {
+          if(!elementHasBeenCreated) {
+            createWand()
+          }
+          
+          
+        },
+        
+        eventDeselected() {
+          
+        },
+        
+        createWand() {},
+        
+        elementHasBeenCreated: false
+      }
     },
     
     p5: {

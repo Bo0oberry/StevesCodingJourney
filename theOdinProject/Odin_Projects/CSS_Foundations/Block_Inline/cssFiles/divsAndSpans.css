@@ -157,6 +157,10 @@
         &:hover {
           background-color: rgb(247, 190, 57);
         }
+        
+        &.selected {
+          background-image: url("/Assests/Images/Pokemon/012_Butterfree.png");
+        }
       }
     }
 
