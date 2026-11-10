@@ -1,3 +1,13 @@
+html {
+  &.p4_selected * {
+    cursor: url('/Assests/SVG_Icons/StarWand/item_starWand_225deg.svg') 0 0, auto;
+
+    &:active  * {
+      cursor: url('/Assests/SVG_Icons/StarWand/item_starWand_240deg.svg') 0 0, auto;
+    }
+  }
+}
+
 #divsAndSpans {
   display: flex;
   flex-direction: column;
@@ -150,7 +160,7 @@
 
       button {
         background-image: url("/Assests/Images/Pokemon/011_Metapod.png");
-        border-radius: 50%;
+        border-radius: 10%;
 
         border-color: rgba(0, 0, 0, 0.367);
 
@@ -160,7 +170,7 @@
         
         &.selected {
           background-image: url("/Assests/Images/Pokemon/012_Butterfree.png");
-        }
+        } 
       }
     }
 
