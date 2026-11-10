@@ -7,8 +7,18 @@
   }
 
   ol {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+    list-style-type: circled-alpha;
+    list-style-position: inside;
+    background-color: rgb(243, 244, 243);
+
     > * {
       margin-top: 15px;
+      &::marker {
+        color: rgb(250, 25, 194);
+      }
     }
 
 
@@ -26,4 +36,10 @@
   75%  { color: hsl(270, 100%, 50%); }
   87.5%  { color: hsl(315, 100%, 50%); }
   100% { color: hsl(360, 100%, 50%); }
+}
+
+@counter-style circled-alpha {
+  system: fixed;
+  symbols: Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ;
+  suffix: " ";
 }
