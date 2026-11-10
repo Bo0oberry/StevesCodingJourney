@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="100%" height="100%" style="rotate: -45deg">
+  <defs>
+    <!-- Stick Gradient -->
+    <linearGradient id="stickGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4a2511" />
+      <stop offset="40%" stop-color="#7c401e" />
+      <stop offset="70%" stop-color="#9e5429" />
+      <stop offset="100%" stop-color="#5c3016" />
+    </linearGradient>
+
+    <!-- Star Fill Gradient -->
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fff475" />
+      <stop offset="60%" stop-color="#ffcc00" />
+      <stop offset="100%" stop-color="#ffa600" />
+    </linearGradient>
+
+    <!-- Glow Filter -->
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow Behind Star -->
+  <circle cx="100" cy="70" r="45" fill="#ffe066" opacity="0.35" filter="url(#softGlow)" />
+
+  <!-- Stick / Handle -->
+  <rect x="94" y="95" width="12" height="130" rx="6" fill="url(#stickGrad)" stroke="#30180a" stroke-width="2" />
+
+  <!-- Star Shape -->
+  <!-- Center: (100, 70), Outer Radius: 42, Inner Radius: 19 -->
+  <path d="
+    M 100 28 
+    L 111.17 62.36 
+    L 147.25 62.36 
+    L 118.04 83.59 
+    L 129.21 117.95 
+    L 100 96.71 
+    L 70.79 117.95 
+    L 81.96 83.59 
+    L 52.75 62.36 
+    L 88.83 62.36 
+    Z" 
+    fill="url(#starGrad)" 
+    stroke="#b36b00" 
+    stroke-width="3.5" 
+    stroke-linejoin="round" 
+  />
+
+  <!-- Star Inner Highlight -->
+  <path d="
+    M 100 36 
+    L 108.5 61 
+    L 135 61 
+    L 113.5 76.5 
+    L 121.5 101.5 
+    L 100 86" 
+    fill="none" 
+    stroke="#ffffff" 
+    stroke-width="2.5" 
+    stroke-linecap="round" 
+    stroke-linejoin="round" 
+    opacity="0.6" 
+  />
+
+  <!-- Little Magic Sparkles -->
+  <path d="M 45 45 Q 45 52 38 52 Q 45 52 45 59 Q 45 52 52 52 Q 45 52 45 45 Z" fill="#ffe066" opacity="0.9" />
+  <path d="M 155 40 Q 155 46 149 46 Q 155 46 155 52 Q 155 46 161 46 Q 155 46 155 40 Z" fill="#ffe066" opacity="0.9" />
+  <path d="M 148 100 Q 148 104 144 104 Q 148 104 148 108 Q 148 104 152 104 Q 148 104 148 100 Z" fill="#ffe066" opacity="0.8" />
+
+  <circle cx="58" cy="85" r="2" fill="#ffe066" opacity="0.8" />
+  <circle cx="138" cy="30" r="1.5" fill="#ffffff" opacity="0.9" />
+  <circle cx="48" cy="35" r="1.5" fill="#ffffff" opacity="0.7" />
+</svg>
