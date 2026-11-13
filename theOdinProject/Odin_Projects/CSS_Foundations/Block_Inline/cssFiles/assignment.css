@@ -16,7 +16,11 @@
 
     > * {
       margin-top: 15px;
+      
+      font-size: 5px;
+
       &::marker {
+        font-size: 25px;
         color: rgb(250, 25, 194);
       }
     }
