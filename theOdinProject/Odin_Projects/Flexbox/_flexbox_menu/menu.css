@@ -1,3 +1,7 @@
 #FLEXBOX_MENU {
-  
+  a.active {
+    color: black;
+    text-decoration: none;
+    pointer-events: none;
+  }
 }
