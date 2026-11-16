@@ -1,22 +1,38 @@
 #knowledge_check {
   background-color: red;
+  padding: 0 10px;
+  list-style-position: inside;
   
   details {
-    /* background-color: aqua; */
+    display: grid;
+    /* Closed state: Single column (vertical stack) */
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    overflow: hidden;
+    position: relative;
+    margin-top: 15px;
+    background-color: aqua;
+    /* Smoothly transition the grid layout structure */
+    transition: grid-template-columns 0.6s ease-in-out, gap 0.6s ease-in-out;
+    gap: 0px;
 
     summary {
-      display: flex;
-      
-      button {
-        min-width: 20px;
-        min-height: 20px;
-        background-color: hsla(235, 40%, 59%, 1);
-      }
+      background-color: blanchedalmond;
+      cursor: pointer;
+      transition: flex-basis 0.6s ease;
+    }
 
-      &::marker {
-        content: "";
-      }
+    /* The content wrapper inside details */
+    .content, div {
+      transition: opacity 0.4s ease;
+    }
+
+    /* Open state: Switches to a side-by-side row layout */
+    &[open] {
+      /* Left column for summary (e.g., fixed or min width), right column for content */
+      grid-template-columns: 200px 1fr;
+      grid-template-rows: auto;
+      gap: 20px;
     }
   }
-    
 }
