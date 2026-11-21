@@ -6,8 +6,8 @@ const header = {
 const headerCanvas = {
     canvas: null,
     context: null,
-    gameWidth: 1280,
-    gameHeight: 720,
+    gameWidth: 480,
+    gameHeight: 220,
     
     draw() {
         const randomNum = Math.floor(Math.random() * 360);
