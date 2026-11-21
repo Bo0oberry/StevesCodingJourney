@@ -32,12 +32,17 @@ const headerCanvas = {
     },
     
     load() {
+        
         window.addEventListener("load", () => {
             this.canvas = document.getElementById("header-canvas");
             this.context = this.canvas.getContext("2d");
             
+            this.reSizeCanvas();
+            
             if (this.context) this.draw();
         });
+        
+        window.addEventListener("resize", this.reSizeCanvas);
     }
 };
 
