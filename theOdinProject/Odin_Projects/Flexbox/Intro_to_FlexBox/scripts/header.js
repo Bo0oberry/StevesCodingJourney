@@ -42,8 +42,6 @@ const headerCanvas = {
             if (this.context) this.draw();
         });
         
-        window.addEventListener("resize", this.reSizeCanvas);
+        window.addEventListener("resize", () => {this.reSizeCanvas()});
     }
 };
-
-headerCanvas.load()

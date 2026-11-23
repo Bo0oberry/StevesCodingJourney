@@ -11,7 +11,8 @@ function loadAssets() {
    "lesson_overview",
    "before_we_get_started",
    "lets_flex",
-   'knowledge_check'
+   'knowledge_check',
+   'assignment'
  ];
  
  pathNames.forEach((file) => {
