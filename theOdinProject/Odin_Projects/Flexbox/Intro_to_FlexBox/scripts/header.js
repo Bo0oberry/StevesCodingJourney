@@ -1,6 +1,16 @@
 const header = {
+    addBtnEvent() {
+       const buttons = document.querySelectorAll('#header-button-wrapper div button');
+       buttons.forEach(btn => {
+           btn.addEventListener("click", () => {
+              const selected = btn.classList.toggle("selected"); 
+           });
+       });
+    },
     
-    
+    load() {
+        this.addBtnEvent();
+    }
 }
 
 const headerCanvas = {
@@ -45,3 +55,5 @@ const headerCanvas = {
         window.addEventListener("resize", () => {this.reSizeCanvas()});
     }
 };
+
+header.load();

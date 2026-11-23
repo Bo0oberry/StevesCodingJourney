@@ -9,12 +9,25 @@ const introduction = {
           if (parentTag === "P" || parentTag === "DIV") {
             return NodeFilter.FILTER_ACCEPT
           }
+          return NodeFilter.FILTER_REJECT;
         }
       }
     );
 
     const textNodes = [];
     let currentNode;
-    while ()
+    while (currentNode = walker.nextNode()) {
+      textNodes.push(currentNode);
+    }
+    
+    const regExpPattern = /revolutionary/gi;
+  },
+  
+  initialize(){
+    if(!document.querySelector("#introduction")) return;
+    
+    this.wrapWords();
   }
 }
+
+introduction.initialize();
