@@ -21,6 +21,10 @@ const introduction = {
     }
     
     const regExpPattern = /revolutionary/gi;
+    
+    textNodes.forEach(text => {
+      text.replace(regExpPattern, `<em>$&</em>`);
+    });
   },
   
   initialize(){
